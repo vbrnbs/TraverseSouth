@@ -58,3 +58,43 @@ To maintain the ultra-premium feel and system integrity, the following rules app
 2. **Public Output:** Never post, publish, or push live website updates to the public production server without owner approval.
 3. **VIP Outreach:** Drafts for high-net-worth client emails or supplier negotiations must always be presented to the user for a final sign-off before being sent.
 4. **Contextual Emphasis (Mandatory):** Before creating any frontend copy or UI, agents must ask themselves: *"Is this clear, structured, and fast?"* The focus is on supreme capability and logic, not overly "stuffy" traditional luxury.
+
+---
+
+## 🛠️ Version Control & Vercel Deployment Manual
+
+To maintain zero-friction deployment and keep the Traverse South portal robust, all agents and developers must follow this unified lifecycle.
+
+### 1. Git Initialization & Author Identity
+The project uses GitHub at [github.com/vbrnbs/TraverseSouth](https://github.com/vbrnbs/TraverseSouth) for continuous integration.
+* **Author Identity**: Local commits are signed under your profile:
+  * **Name**: `vbrnbs`
+  * **Email**: `varszegibarnabas@gmail.com`
+* **Ignored Profiles**: System configuration directories (`.gemini/`, `.next/`, `node_modules/`) and local secrets (`.env.local`) are strictly ignored via `.gitignore`. Never force add them.
+
+### 2. Vercel Continuous Deployment (CD)
+Vercel is linked directly to the `main` branch. Any commit pushed to `main` will instantly trigger a live build:
+* **Production URL**: Linked automatically to your custom Vercel domain.
+* **Environment Variables**: Vercel contains these three project variables securely in its dashboard:
+  * `NEXT_PUBLIC_SANITY_PROJECT_ID`
+  * `NEXT_PUBLIC_SANITY_DATASET`
+  * `NEXT_PUBLIC_SANITY_API_VERSION`
+
+### 3. Unified Embedded Sanity Studio
+* **Access Path**: Live Studio is accessible directly under `/studio` on your live domain (e.g., `https://your-domain.vercel.app/studio`).
+* **CORS Access**: Any new Vercel domain must be explicitly added to `sanity.io/manage` under **API > CORS Origins** with **"Allow credentials"** enabled.
+
+### 4. Step-by-Step Deployment Routine for Agents
+When an agent or developer implements updates:
+1. **Verify Compilation locally**: Always run `npm run build` locally before pushing to ensure zero compiler warnings or TypeScript type mismatches.
+2. **Commit changes**:
+   ```bash
+   git add .
+   git commit -m "feat/fix: descriptive log of updates"
+   ```
+3. **Push to Live**:
+   ```bash
+   git push origin main
+   ```
+   *Vercel will build and deploy the changes to the live site and live embedded Studio instantly!*
+
