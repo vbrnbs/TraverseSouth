@@ -68,6 +68,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
   const displaySuppliers = category?.suppliers || detail.suppliers;
   const displayMinGroup = category?.pricing?.minimumGroup || detail.pricing.minimumGroup;
   const displayInclusions = category?.pricing?.inclusions || detail.pricing.inclusions;
+  const displayCtaText = category?.ctaText || detail.ctaText || 'Book Private Expedition';
 
 
   // 3. Fetch live details from Shopify with silent credentials/offline fallbacks
@@ -363,6 +364,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
               inclusions={displayInclusions}
               variantId={variantId}
               availableForSale={availableForSale}
+              buttonText={displayCtaText}
             />
           </div>
 

@@ -23,31 +23,33 @@ export interface PackageDetail {
     minimumGroup: string;
     inclusions: string[];
   };
+  ctaText?: string;
 }
 
 export const packagesData: Record<string, PackageDetail> = {
   fiordland: {
     slug: 'fiordland',
-    title: 'Fiordland Sanctuary',
-    subtitle: 'High-Altitude Air Insertion & Deep Fjord Catamaran Charter',
-    overview: 'A seven-day alpine and maritime expedition engineered for high-performing individuals seeking a rare wilderness sanctuary. Bypass the highway coaches and crowded trailheads. Utilizing dedicated private turbine helicopters, gain exclusive entry to high-altitude glacial plateaus in the Darran Mountains, navigate the absolute silence of Milford Sound aboard an exclusive 24-meter catamaran charter, and recover your baseline at a geothermal eco-lodge accessible only by air.',
+    title: 'Fiordland',
+    subtitle: 'Fjord Catamaran Charter',
+    overview: 'A seven-day private alpine and maritime expedition deep into Milford Sound. Gain vertical air access to high-altitude Darran Mountain glaciers via private turbine helicopter, navigate the absolute silence of the fjords aboard a 24-meter catamaran charter, and recover your biological baseline at a secluded, air-accessible geothermal eco-lodge.',
+    ctaText: "I'm interested",
     days: [
       {
         dayNumber: 'Day 1–2',
         title: 'Turbine Heli-Transit & Milford Sound Private Charter',
-        description: 'Bypass the four-hour highway drive and congested tour coaches. Launch directly from Queenstown Airport via private AS350 B3 Squirrel helicopter, tracing the jagged ridges of the Humboldt Range. Land directly on a private helipad aboard a 24-meter luxury catamaran deep within Milford Sound. Spend two days navigating the towering fjord walls, dining on a five-course local wild food tasting menu prepared by an onboard private chef, and falling asleep to the absolute silence of the sound.',
+        description: 'Launch from Queenstown via private AS350 helicopter to land directly aboard an exclusive 24-meter luxury catamaran deep within Milford Sound. Spend two days navigating towering granite fjords, dining on wild-food tasting menus prepared by your private chef, and sleeping in absolute fjord silence.',
         logistics: 'Transit: 42-minute rotor flight. Helicopter: AS350 B3 Squirrel. Marine: Exclusive charter, 24m Catamaran. Guides: Local Skipper & Master Angler.'
       },
       {
         dayNumber: 'Day 3–4',
         title: 'Glacial Heli-Hike & Ridge Traverse',
-        description: 'Fly to a high-altitude alpine plateau on Mount Tutoko or the Darran Mountains. Guided by an elite IFMGA-certified alpine professional, traverse spectacular glacier fields and panoramic rocky ridges overlooking deep glacial valleys. For those seeking active river navigation, the swiftwater Hollyford River packrafting expedition is available as a fully integrated optional swap.',
+        description: 'Heli-drop onto Mount Tutoko’s high plateaus. Under elite IFMGA-certified mountain guides, traverse spectacular glacier fields and blue-ice ridges. For active water navigation, swap this alpine traverse for a guided Hollyford River swiftwater packrafting run.',
         logistics: 'Transit: Private heli-insertion. Terrain: Crevasse walking & alpine ridge traverse. Technical Swap: Optional grade-2 river packrafting. Safety: IFMGA Mountain Guides.'
       },
       {
         dayNumber: 'Day 5–7',
         title: 'Restricted High-Country Off-Road & Geothermal Eco-Lodge',
-        description: 'Secure self-drive access to a heavily modified Land Rover Defender and navigate restricted off-road high-country stations. Ford alpine rivers and ascend steep glacial scree tracks under the direction of an elite precision driving guide. Conclude your journey at an award-winning, off-grid luxury eco-lodge. Soak in geothermal-heated hot tubs overlooking the silent, dark fjord waters, recovering your baseline in complete comfort.',
+        description: 'Self-drive a custom Land Rover Defender 110 through restricted, non-public high-country mountain routes under elite guide instruction. Conclude at an off-grid architectural eco-villa, soaking in geothermal cedar pools overlooking the silent waters of the fjord.',
         logistics: 'Vehicles: Land Rover Defender 110 (custom off-road spec). Accommodation: Private eco-villa (100% solar & geothermal). Inclusions: Geothermal hot springs & private host.'
       }
     ],

@@ -11,6 +11,7 @@ interface BookingPanelProps {
   inclusions: string[];
   variantId: string | null;
   availableForSale: boolean;
+  buttonText?: string;
 }
 
 const REDIRECT_STEPS = [
@@ -27,7 +28,8 @@ export function BookingPanel({
   minimumGroup,
   inclusions,
   variantId,
-  availableForSale = true
+  availableForSale = true,
+  buttonText
 }: BookingPanelProps) {
   const [isRedirecting, setIsRedirecting] = useState(false);
   const [stepIndex, setStepIndex] = useState(0);
@@ -120,7 +122,7 @@ export function BookingPanel({
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
-            Book Private Expedition →
+            {buttonText || 'Book Private Expedition'} →
           </button>
         ) : (
           <button

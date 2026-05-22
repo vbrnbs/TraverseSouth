@@ -88,5 +88,14 @@
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
     "sessionToken": "ts-sess-ywysbiuicvo-mpguco39",
     "timestamp": "2026-05-22T11:35:12.036Z"
+  },
+  {
+    "pathname": "/packages/fiordland",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-ywysbiuicvo-mpguco39",
+    "timestamp": "2026-05-22T11:49:52.007Z"
   }
 ]
