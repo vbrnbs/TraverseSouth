@@ -1,0 +1,118 @@
+{
+  "_id": "homepage",
+  "_type": "homepage",
+  "hero": {
+    "eyebrow": "TRAVERSE SOUTH // INTELLIGENT LUXURY",
+    "headline": "We engineer expeditions for the time-poor.",
+    "subtitle": "Select your region. Snap your preferred modules into place. Let our intelligent engine handle the logistics. Total flexibility, white-glove delivery.",
+    "primaryCta": "Discover the Modules →",
+    "secondaryCta": "How It Works"
+  },
+  "mission": {
+    "eyebrow": "// OUR MISSION",
+    "headline": "We believe your time is rare, which is why our mission is to instantly engineer frictionless, life-changing adventures.",
+    "bodyText": "Our team has built a proprietary Experience Architecture engine that cross-validates real-world logistics in milliseconds. We don't just book trips — we calculate transit windows, secure exclusive supplier access, and guarantee your safety in the deep wilderness."
+  },
+  "categories": [
+    {
+      "_key": "f1a1",
+      "_type": "category",
+      "eyebrow": "01 // DEEP WILDERNESS",
+      "title": "Fiordland",
+      "description": "Destinations where you'd hardly go alone. Fully organized luxury off-road tours, private heli-transits, and guided packrafting through raw, untouched wilderness.",
+      "ctaText": "Explore Fiordland",
+      "imageCaption": "Milford Sound // Private Charter",
+      "modules": [
+        { "_key": "f1m1", "_type": "moduleItem", "number": "01", "label": "Private Heli-Transit & Sound Charter" },
+        { "_key": "f1m2", "_type": "moduleItem", "number": "02", "label": "Guided Packrafting" },
+        { "_key": "f1m3", "_type": "moduleItem", "number": "03", "label": "Luxury Off-Road & Lodge Stay" }
+      ]
+    },
+    {
+      "_key": "f2a2",
+      "_type": "category",
+      "eyebrow": "02 // HIGH-ALTITUDE ADRENALINE",
+      "title": "QT & Mt. Cook",
+      "description": "Trips for freeride enthusiasts with a taste for the exclusive. Unrestricted heli-skiing and private glacier mountaineering with IFMGA-certified guides.",
+      "ctaText": "Explore Alpine Expeditions",
+      "imageCaption": "Tasman Glacier // 800,000 Acres",
+      "modules": [
+        { "_key": "f2m1", "_type": "moduleItem", "number": "01", "label": "Private Glacier Mountaineering" },
+        { "_key": "f2m2", "_type": "moduleItem", "number": "02", "label": "Unrestricted Heli-Skiing" },
+        { "_key": "f2m3", "_type": "moduleItem", "number": "03", "label": "The Routeburn Heli-Hike" }
+      ]
+    },
+    {
+      "_key": "f3a3",
+      "_type": "category",
+      "eyebrow": "03 // TOTAL RESTORATION",
+      "title": "Relax & Recover",
+      "description": "Because high-octane adventure requires world-class recovery. Private vineyard tours, backcountry fly fishing, and exclusive spa access.",
+      "ctaText": "Explore Recovery",
+      "imageCaption": "Gibbston Valley // Private Cellar",
+      "modules": [
+        { "_key": "f3m1", "_type": "moduleItem", "number": "01", "label": "Backcountry Fly Fishing" },
+        { "_key": "f3m2", "_type": "moduleItem", "number": "02", "label": "Private Vineyard E-Bike Tour" },
+        { "_key": "f3m3", "_type": "moduleItem", "number": "03", "label": "Wellness & Spa Retreat" }
+      ]
+    }
+  ],
+  "engine": {
+    "eyebrow": "// THE EXPERIENCE ENGINE",
+    "headline": "Tailor-Made, Instantly.",
+    "description": "Everyone has a bucket list, but only a few have the time to plan it. Swap a spa day for an off-road rally. Trade fly fishing for glacier climbing. Our engine validates your selections in real-time.",
+    "ctaText": "Launch the Engine →",
+    "swaps": [
+      { "_key": "e1s1", "_type": "swap", "from": "Wellness & Spa Day", "to": "Luxury Off-Road Rally" },
+      { "_key": "e1s2", "_type": "swap", "from": "Backcountry Fly Fishing", "to": "Private Glacier Climb" },
+      { "_key": "e1s3", "_type": "swap", "from": "Vineyard E-Bike Tour", "to": "Routeburn Heli-Hike" }
+    ],
+    "validationMessage": "✓ All swaps validated. Transit windows clear.",
+    "pricingNote": "Updated pricing: $15,500 → $16,200"
+  },
+  "footer": {
+    "copyright": "© 2026 Traverse South. All rights reserved.",
+    "columns": [
+      {
+        "_key": "c1",
+        "_type": "footerColumn",
+        "heading": "MODULES",
+        "links": [
+          { "_key": "c1l1", "_type": "footerLink", "label": "Fiordland", "href": "#" },
+          { "_key": "c1l2", "_type": "footerLink", "label": "QT & Mt. Cook", "href": "#" },
+          { "_key": "c1l3", "_type": "footerLink", "label": "Relax & Recover", "href": "#" },
+          { "_key": "c1l4", "_type": "footerLink", "label": "Build Your Own", "href": "#" }
+        ]
+      },
+      {
+        "_key": "c2",
+        "_type": "footerColumn",
+        "heading": "COMPANY",
+        "links": [
+          { "_key": "c2l1", "_type": "footerLink", "label": "About Us", "href": "#" },
+          { "_key": "c2l2", "_type": "footerLink", "label": "Our Philosophy", "href": "#" },
+          { "_key": "c2l3", "_type": "footerLink", "label": "Stories", "href": "#" }
+        ]
+      },
+      {
+        "_key": "c3",
+        "_type": "footerColumn",
+        "heading": "SUPPORT",
+        "links": [
+          { "_key": "c3l1", "_type": "footerLink", "label": "Contact", "href": "#" },
+          { "_key": "c3l2", "_type": "footerLink", "label": "Client Login", "href": "#" },
+          { "_key": "c3l3", "_type": "footerLink", "label": "FAQ", "href": "#" }
+        ]
+      },
+      {
+        "_key": "c4",
+        "_type": "footerColumn",
+        "heading": "LEGAL",
+        "links": [
+          { "_key": "c4l1", "_type": "footerLink", "label": "Privacy Policy", "href": "#" },
+          { "_key": "c4l2", "_type": "footerLink", "label": "Terms of Service", "href": "#" }
+        ]
+      }
+    ]
+  }
+}
