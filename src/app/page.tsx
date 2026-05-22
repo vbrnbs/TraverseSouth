@@ -16,7 +16,7 @@ export default async function Home() {
   const client = isDraft ? previewClient : sanityClient;
 
   try {
-    data = await client.fetch(homepageQuery);
+    data = await client.fetch(homepageQuery, {}, { cache: isDraft ? 'no-store' : 'force-cache' });
   } catch (error) {
     console.error('Error fetching homepage data from Sanity:', error);
   }

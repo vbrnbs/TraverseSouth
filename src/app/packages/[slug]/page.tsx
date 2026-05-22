@@ -55,7 +55,8 @@ export default async function PackageDetailPage({ params }: PageProps) {
           inclusions
         }
       }`,
-      { slug }
+      { slug },
+      { cache: isDraft ? 'no-store' : 'force-cache' }
     );
   } catch (error) {
     console.error('Error fetching package category from Sanity:', error);
