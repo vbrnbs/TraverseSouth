@@ -3,6 +3,7 @@ import { Inter, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 import AnalyticsTracker from '@/components/AnalyticsTracker';
 import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -51,10 +52,12 @@ export default function RootLayout({
           </>
         )}
         <AnalyticsTracker />
+        <Analytics />
         {children}
       </body>
     </html>
   );
 }
+
 
 
