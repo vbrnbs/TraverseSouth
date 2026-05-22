@@ -58,6 +58,8 @@ To maintain the ultra-premium feel and system integrity, the following rules app
 2. **Public Output:** Never post, publish, or push live website updates to the public production server without owner approval.
 3. **VIP Outreach:** Drafts for high-net-worth client emails or supplier negotiations must always be presented to the user for a final sign-off before being sent.
 4. **Contextual Emphasis (Mandatory):** Before creating any frontend copy or UI, agents must ask themselves: *"Is this clear, structured, and fast?"* The focus is on supreme capability and logic, not overly "stuffy" traditional luxury.
+5. **Git Push Consent (Mandatory):** Always ask the user for explicit permission before executing a `git push` command. Remote pushes must be restricted to the end of a work block.
+
 
 ---
 

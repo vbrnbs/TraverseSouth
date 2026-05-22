@@ -66,11 +66,13 @@ When pushing updates to the main production pipeline:
    git commit -m "feat/fix: descriptive log of updates"
    ```
 
-3. **Deploy to Production**:
+3. **Deploy to Production (Requires Consent)**:
+   *Always request the user's explicit permission before running the push command.*
    ```bash
    git push origin main
    ```
    *Pushes directly to Vercel and builds production targets instantly!*
+
 
 ---
 
