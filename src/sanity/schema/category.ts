@@ -61,5 +61,62 @@ export const category = defineType({
         },
       ],
     }),
+    defineField({
+      name: 'subtitle',
+      title: 'Package Subtitle',
+      type: 'string',
+      description: 'e.g., "High-Altitude Air Insertion & Deep Fjord Catamaran Charter"',
+    }),
+    defineField({
+      name: 'days',
+      title: 'Itinerary Days',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          name: 'itineraryDay',
+          title: 'Itinerary Day',
+          fields: [
+            defineField({ name: 'dayNumber', title: 'Day Number / Range', type: 'string', description: 'e.g., "Day 1-2"' }),
+            defineField({ name: 'title', title: 'Day Title', type: 'string' }),
+            defineField({ name: 'description', title: 'Day Description', type: 'text', rows: 4 }),
+            defineField({ name: 'logistics', title: 'Logistical Envelope', type: 'string', description: 'e.g., "Transit parameters, guides, safety etc."' }),
+          ],
+        },
+      ],
+    }),
+    defineField({
+      name: 'suppliers',
+      title: 'Exclusive Supplier Access Network',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          name: 'supplierNetwork',
+          title: 'Supplier Partner',
+          fields: [
+            defineField({ name: 'label', title: 'Label / Role', type: 'string', description: 'e.g., "Aviation Operator"' }),
+            defineField({ name: 'name', title: 'Partner Name', type: 'string' }),
+            defineField({ name: 'credential', title: 'Partner Credential', type: 'string', description: 'e.g., "CAA Part 135 Certified"' }),
+          ],
+        },
+      ],
+    }),
+    defineField({
+      name: 'pricing',
+      title: 'Pricing & Inclusions Structure',
+      type: 'object',
+      fields: [
+        defineField({ name: 'priceString', title: 'Fallback Price String', type: 'string', description: 'e.g., "$18,500 NZD / person"' }),
+        defineField({ name: 'minimumGroup', title: 'Minimum Group Size', type: 'string', description: 'e.g., "Tailored for private groups of 2 to 6 guests"' }),
+        defineField({
+          name: 'inclusions',
+          title: 'Package Inclusions List',
+          type: 'array',
+          of: [{ type: 'string' }],
+        }),
+      ],
+    }),
   ],
 });
+

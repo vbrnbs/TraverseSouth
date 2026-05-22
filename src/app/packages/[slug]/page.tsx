@@ -33,7 +33,24 @@ export default async function PackageDetailPage({ params }: PageProps) {
         ctaText,
         imageCaption,
         image,
-        modules
+        modules,
+        subtitle,
+        days[] {
+          dayNumber,
+          title,
+          description,
+          logistics
+        },
+        suppliers[] {
+          label,
+          name,
+          credential
+        },
+        pricing {
+          priceString,
+          minimumGroup,
+          inclusions
+        }
       }`,
       { slug }
     );
@@ -46,7 +63,12 @@ export default async function PackageDetailPage({ params }: PageProps) {
   const displayEyebrow = category?.eyebrow || `0${slug === 'fiordland' ? '1' : slug === 'qt-mtcook' ? '2' : '3'} // DEEP EXPEDITIONS`;
   const displayOverview = category?.description || detail.overview;
   const displayBgImage = category?.image ? urlFor(category.image).url() : '';
-  const displayCaption = category?.imageCaption || detail.subtitle;
+  const displayCaption = category?.subtitle || category?.imageCaption || detail.subtitle;
+  const displayDays = category?.days || detail.days;
+  const displaySuppliers = category?.suppliers || detail.suppliers;
+  const displayMinGroup = category?.pricing?.minimumGroup || detail.pricing.minimumGroup;
+  const displayInclusions = category?.pricing?.inclusions || detail.pricing.inclusions;
+
 
   // 3. Fetch live details from Shopify with silent credentials/offline fallbacks
   let shopifyProduct = null;
@@ -300,7 +322,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
               // DAY-BY-DAY VISUAL TIMELINE
             </p>
             <div>
-              {detail.days.map((day) => (
+              {displayDays.map((day: any) => (
                 <div className="timeline-day" key={day.dayNumber}>
                   <div className="day-badge">{day.dayNumber}</div>
                   <h3 className="day-title">{day.title}</h3>
@@ -322,7 +344,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
                   Our Exclusive Operator Access network
                 </h4>
               </div>
-              {detail.suppliers.map((sup) => (
+              {displaySuppliers.map((sup: any) => (
                 <div className="supplier-card" key={sup.name}>
                   <div className="supplier-label">{sup.label}</div>
                   <div className="supplier-name">{sup.name}</div>
@@ -337,12 +359,13 @@ export default async function PackageDetailPage({ params }: PageProps) {
             <BookingPanel
               slug={slug}
               priceString={livePriceString}
-              minimumGroup={detail.pricing.minimumGroup}
-              inclusions={detail.pricing.inclusions}
+              minimumGroup={displayMinGroup}
+              inclusions={displayInclusions}
               variantId={variantId}
               availableForSale={availableForSale}
             />
           </div>
+
 
 
         </div>
