@@ -57,7 +57,15 @@ export default async function RootLayout({
         <AnalyticsTracker />
         <Analytics />
         {children}
-        {isDraft && <VisualEditing />}
+        {isDraft && (
+          <VisualEditing
+            refresh={async () => {
+              'use server';
+              const { revalidatePath } = await import('next/cache');
+              revalidatePath('/', 'layout');
+            }}
+          />
+        )}
       </body>
     </html>
   );
