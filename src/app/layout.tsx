@@ -4,6 +4,8 @@ import './globals.css';
 import AnalyticsTracker from '@/components/AnalyticsTracker';
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/react';
+import { draftMode } from 'next/headers';
+import { VisualEditing } from 'next-sanity/visual-editing';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -23,12 +25,13 @@ export const metadata: Metadata = {
   description: 'Travel tailored to the South Island. A zero-friction, modular luxury portal.',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const isDraft = (await draftMode()).isEnabled;
 
   return (
     <html lang="en" className={`${inter.variable} ${ibmPlexMono.variable}`}>
@@ -54,6 +57,7 @@ export default function RootLayout({
         <AnalyticsTracker />
         <Analytics />
         {children}
+        {isDraft && <VisualEditing />}
       </body>
     </html>
   );

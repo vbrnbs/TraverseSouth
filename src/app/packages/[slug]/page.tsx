@@ -1,10 +1,11 @@
 import React from 'react';
-import { sanityClient, urlFor } from '@/sanity/client';
+import { sanityClient, previewClient, urlFor } from '@/sanity/client';
 import { notFound } from 'next/navigation';
 import { packagesData } from '@/data/packagesData';
 import { Button } from '@/components/Button';
 import { BookingPanel } from '@/components/BookingPanel';
 import { getShopifyProductByHandle } from '@/shopify/client';
+import { draftMode } from 'next/headers';
 
 // Configure dynamic pages to prerender at build time, but allow dynamic cache revalidation
 export const revalidate = 60;
@@ -15,6 +16,8 @@ interface PageProps {
 
 export default async function PackageDetailPage({ params }: PageProps) {
   const { slug } = await params;
+  const isDraft = (await draftMode()).isEnabled;
+  const client = isDraft ? previewClient : sanityClient;
   
   // 1. Check if slug exists in our detailed copy dataset
   const detail = packagesData[slug];
@@ -25,7 +28,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
   // 2. Fetch category document dynamically from Sanity
   let category: any = null;
   try {
-    category = await sanityClient.fetch(
+    category = await client.fetch(
       `*[_type == "category" && (_id == $slug || _id == "category-" + $slug)][0] {
         eyebrow,
         title,

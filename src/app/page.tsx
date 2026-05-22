@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button } from '@/components/Button';
-import { sanityClient, urlFor } from '@/sanity/client';
+import { sanityClient, previewClient, urlFor } from '@/sanity/client';
 import { homepageQuery } from '@/sanity/queries';
 import { ScrollObserver } from '@/components/ScrollObserver';
+import { draftMode } from 'next/headers';
 
 /* ═══════════════════════════════════════════════
    Server Component — fetches 100% dynamically from
@@ -11,9 +12,11 @@ import { ScrollObserver } from '@/components/ScrollObserver';
 
 export default async function Home() {
   let data: any = null;
+  const isDraft = (await draftMode()).isEnabled;
+  const client = isDraft ? previewClient : sanityClient;
 
   try {
-    data = await sanityClient.fetch(homepageQuery);
+    data = await client.fetch(homepageQuery);
   } catch (error) {
     console.error('Error fetching homepage data from Sanity:', error);
   }
