@@ -30,7 +30,7 @@ export const packagesData: Record<string, PackageDetail> = {
     slug: 'fiordland',
     title: 'Fiordland Sanctuary',
     subtitle: 'High-Altitude Air Insertion & Deep Fjord Catamaran Charter',
-    overview: 'A seven-day expedition designed for high-performing individuals seeking an ultra-premium wilderness sanctuary. Experience a perfect balance of high-altitude alpine hiking, deep-water private yacht charters, and restricted off-road estate driving, with the flexibility to swap technical packrafting activities.',
+    overview: 'A seven-day alpine and maritime expedition engineered for high-performing individuals seeking a rare wilderness sanctuary. Bypass the highway coaches and crowded trailheads. Utilizing dedicated private turbine helicopters, gain exclusive entry to high-altitude glacial plateaus in the Darran Mountains, navigate the absolute silence of Milford Sound aboard an exclusive 24-meter catamaran charter, and recover your baseline at a geothermal eco-lodge accessible only by air.',
     days: [
       {
         dayNumber: 'Day 1–2',

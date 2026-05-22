@@ -7,5 +7,86 @@
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
     "sessionToken": "ts-sess-ydir8mq974-mpgowi9y",
     "timestamp": "2026-05-22T09:00:55.298Z"
+  },
+  {
+    "pathname": "/studio/traffic-monitor",
+    "referrer": "http://localhost:3000/studio/traffic-monitor",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-lr09uj07vz-mpgpj3f9",
+    "timestamp": "2026-05-22T10:08:02.106Z"
+  },
+  {
+    "pathname": "/studio/traffic-analytics",
+    "referrer": "http://localhost:3000/studio/traffic-monitor",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-lr09uj07vz-mpgpj3f9",
+    "timestamp": "2026-05-22T10:08:10.920Z"
+  },
+  {
+    "pathname": "/studio/traffic-monitor",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-ydir8mq974-mpgowi9y",
+    "timestamp": "2026-05-22T10:25:42.305Z"
+  },
+  {
+    "pathname": "/studio/traffic-analytics",
+    "referrer": "http://localhost:3000/studio/traffic-monitor",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-lr09uj07vz-mpgpj3f9",
+    "timestamp": "2026-05-22T10:41:30.833Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-ywysbiuicvo-mpguco39",
+    "timestamp": "2026-05-22T11:33:26.951Z"
+  },
+  {
+    "pathname": "/packages/fiordland",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-ywysbiuicvo-mpguco39",
+    "timestamp": "2026-05-22T11:33:31.923Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/packages/fiordland",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-ywysbiuicvo-mpguco39",
+    "timestamp": "2026-05-22T11:35:02.982Z"
+  },
+  {
+    "pathname": "/packages/qt-mtcook",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-ywysbiuicvo-mpguco39",
+    "timestamp": "2026-05-22T11:35:07.423Z"
+  },
+  {
+    "pathname": "/packages/fiordland",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-ywysbiuicvo-mpguco39",
+    "timestamp": "2026-05-22T11:35:12.036Z"
   }
 ]
