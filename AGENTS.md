@@ -74,15 +74,19 @@ The project uses GitHub at [github.com/vbrnbs/TraverseSouth](https://github.com/
 
 ### 2. Vercel Continuous Deployment (CD)
 Vercel is linked directly to the `main` branch. Any commit pushed to `main` will instantly trigger a live build:
-* **Production URL**: Linked automatically to your custom Vercel domain.
+* **Live Main URL**: [traverse-south.vercel.app](https://traverse-south.vercel.app/)
+* **Live Preview/Secondary URL**: [traverse-south-git-main-vbrnbs-projects.vercel.app](https://traverse-south-git-main-vbrnbs-projects.vercel.app/)
 * **Environment Variables**: Vercel contains these three project variables securely in its dashboard:
   * `NEXT_PUBLIC_SANITY_PROJECT_ID`
   * `NEXT_PUBLIC_SANITY_DATASET`
   * `NEXT_PUBLIC_SANITY_API_VERSION`
 
 ### 3. Unified Embedded Sanity Studio
-* **Access Path**: Live Studio is accessible directly under `/studio` on your live domain (e.g., `https://your-domain.vercel.app/studio`).
+* **Access Path**: Live Studio is accessible directly under `/studio` on your live domain:
+  * **Main Studio**: [traverse-south.vercel.app/studio](https://traverse-south.vercel.app/studio)
+  * **Secondary Studio**: [traverse-south-git-main-vbrnbs-projects.vercel.app/studio](https://traverse-south-git-main-vbrnbs-projects.vercel.app/studio)
 * **CORS Access**: Any new Vercel domain must be explicitly added to `sanity.io/manage` under **API > CORS Origins** with **"Allow credentials"** enabled.
+
 
 ### 4. Step-by-Step Deployment Routine for Agents
 When an agent or developer implements updates:
