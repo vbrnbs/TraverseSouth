@@ -3,6 +3,8 @@ import { sanityClient, urlFor } from '@/sanity/client';
 import { notFound } from 'next/navigation';
 import { packagesData } from '@/data/packagesData';
 import { Button } from '@/components/Button';
+import { BookingPanel } from '@/components/BookingPanel';
+import { getShopifyProductByHandle } from '@/shopify/client';
 
 // Configure dynamic pages to prerender at build time, but allow dynamic cache revalidation
 export const revalidate = 60;
@@ -46,7 +48,33 @@ export default async function PackageDetailPage({ params }: PageProps) {
   const displayBgImage = category?.image ? urlFor(category.image).url() : '';
   const displayCaption = category?.imageCaption || detail.subtitle;
 
+  // 3. Fetch live details from Shopify with silent credentials/offline fallbacks
+  let shopifyProduct = null;
+  try {
+    shopifyProduct = await getShopifyProductByHandle(slug);
+  } catch (error) {
+    console.error('Error fetching package from Shopify:', error);
+  }
+
+  let variantId: string | null = null;
+  let livePriceString = detail.pricing.priceString;
+  let availableForSale = true;
+
+  if (shopifyProduct) {
+    const variantNode = shopifyProduct.variants.edges[0]?.node;
+    if (variantNode) {
+      variantId = variantNode.id;
+      availableForSale = variantNode.availableForSale;
+      if (variantNode.price?.amount) {
+        const amt = parseFloat(variantNode.price.amount);
+        const currency = variantNode.price.currencyCode || 'NZD';
+        livePriceString = `$${amt.toLocaleString()} ${currency} / person`;
+      }
+    }
+  }
+
   return (
+
     <main style={{ backgroundColor: '#0b0b0b', color: '#fff', minHeight: '100vh' }}>
       
       {/* ═══════════════════════════════════════
@@ -306,34 +334,16 @@ export default async function PackageDetailPage({ params }: PageProps) {
 
           {/* Column B: Pricing & Inclusions Panel */}
           <div>
-            <div className="pricing-panel">
-              <span className="typography-mono-eyebrow" style={{ color: 'var(--colors-mute)' }}>
-                // TRANSPARENT COSTING
-              </span>
-              <h2 className="pricing-value">{detail.pricing.priceString}</h2>
-              <p style={{ fontSize: '13px', color: '#666', marginBottom: 'var(--spacing-lg)' }}>
-                {detail.pricing.minimumGroup}
-              </p>
-
-              <div style={{ borderTop: '1px solid #e5e5e7', paddingTop: 'var(--spacing-lg)', marginBottom: 'var(--spacing-xl)' }}>
-                <span className="typography-mono-eyebrow" style={{ color: 'var(--colors-mute)', marginBottom: 'var(--spacing-md)', display: 'block' }}>
-                  // TOTAL INCLUSIONS
-                </span>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                  {detail.pricing.inclusions.map((inc, i) => (
-                    <li style={{ fontSize: '14px', lineHeight: 1.4, color: '#333', display: 'flex', alignItems: 'flex-start', gap: '8px' }} key={i}>
-                      <span style={{ color: 'var(--colors-brand)', fontWeight: 'bold' }}>✓</span>
-                      <span>{inc}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <Button variant="primary-on-light" style={{ width: '100%', height: '48px' }} href="/#engine">
-                Initialize Route in Engine →
-              </Button>
-            </div>
+            <BookingPanel
+              slug={slug}
+              priceString={livePriceString}
+              minimumGroup={detail.pricing.minimumGroup}
+              inclusions={detail.pricing.inclusions}
+              variantId={variantId}
+              availableForSale={availableForSale}
+            />
           </div>
+
 
         </div>
       </section>

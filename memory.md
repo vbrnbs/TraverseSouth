@@ -43,6 +43,12 @@
 * **First-Class References**: Regional categories (`fiordland`, `qt-mtcook`, `relax`) are decoupled into independent `category` documents. Mapped on the homepage via reference arrays (`categories[]->`).
 * **Dynamic Routes**: Package detail pages load on demand under the dynamic segment `/packages/[slug]` (resolved flawlessly using dynamic GROQ OR queries).
 
+### 4. Headless Shopify Storefront Integration
+* **Lightweight client**: [`client.ts`](file:///d:/GIT/TraverseSouth/src/shopify/client.ts) handles dependency-free GraphQL queries over native POST fetch requests. Cached for 60 seconds.
+* **Private Actions**: [`actions.ts`](file:///d:/GIT/TraverseSouth/src/shopify/actions.ts) exposes Server Actions to trigger checkout URL creations without leaking private access tokens to browser bundles.
+* **Interactive Panel**: [`BookingPanel.tsx`](file:///d:/GIT/TraverseSouth/src/components/BookingPanel.tsx) fetches live Shopify variant prices, manages sold-out states, and renders luxury glassmorphic redirect overlays.
+* **Checkout Simulation**: [`simulation/page.tsx`](file:///d:/GIT/TraverseSouth/src/app/packages/[slug]/simulation/page.tsx) renders guest billing inputs, triggers secure handshakes, and issues an immersive, print-ready **Expedition Charter Boarding Pass** as a premium fallback when credentials are unconfigured or empty.
+
 ---
 
 ## 📦 Database Seeding & Media Pipelines
@@ -84,3 +90,5 @@ When pushing updates to the main production pipeline:
 * **Milestone 5**: Built dynamic package detail pages (`/packages/[slug]`) mapping copywriting itinerary decks.
 * **Milestone 6**: Linked entire homepage package cards to detail pages and resolved all TypeScript compiler link constraints.
 * **Milestone 7**: Successfully deployed live builds to Vercel main and secondary URLs with active whitelisted CORS origins.
+* **Milestone 8**: Integrated headless Shopify Storefront API e-commerce engine, securing checkout redirects, dynamic booking panels, and an immersive fallback checkout simulation system generating custom Expedition passes.
+
