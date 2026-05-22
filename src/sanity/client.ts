@@ -14,6 +14,7 @@ export const previewClient = createClient({
   apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2026-05-21',
   useCdn: false,
   token: process.env.SANITY_API_READ_TOKEN,
+  perspective: 'drafts',
   stega: {
     enabled: true,
     studioUrl: '/studio',
