@@ -1,0 +1,11 @@
+[
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-ydir8mq974-mpgowi9y",
+    "timestamp": "2026-05-22T09:00:55.298Z"
+  }
+]
