@@ -28,9 +28,9 @@ export interface PackageDetail {
 export const packagesData: Record<string, PackageDetail> = {
   fiordland: {
     slug: 'fiordland',
-    title: 'Fiordland Isolation',
+    title: 'Fiordland Sanctuary',
     subtitle: 'High-Altitude Air Insertion & Deep Fjord Catamaran Charter',
-    overview: 'A seven-day expedition designed for high-performing individuals seeking absolute isolation. Disconnect from global communication loops and immerse yourself in glacial valleys, untouched black-beech forests, and restricted high-country estates accessible only by private turbine helicopter.',
+    overview: 'A seven-day expedition designed for high-performing individuals seeking an ultra-premium wilderness sanctuary. Experience a perfect balance of high-altitude alpine hiking, deep-water private yacht charters, and restricted off-road estate driving, with the flexibility to swap technical packrafting activities.',
     days: [
       {
         dayNumber: 'Day 1–2',
@@ -40,9 +40,9 @@ export const packagesData: Record<string, PackageDetail> = {
       },
       {
         dayNumber: 'Day 3–4',
-        title: 'Hollyford River Guided Packrafting',
-        description: 'Take a morning flight up the Hollyford Valley, landing on a remote gravel bar. Inflate your single-person, professional-grade packraft and navigate the crystal-clear, grade-2 rapids of the Hollyford River. Accompanied by elite backcountry swiftwater guides, float past giant ancient ferns and towering waterfalls. There are no roads, no crowds, and no cell service—just raw river navigation and the physical challenge of the New Zealand deep wilderness.',
-        logistics: 'Transit: Heli-insertion flight. Technical: Grade-2 swiftwater packrafts. Safety: IFMGA Wilderness First-Response certified guides. Duration: 6 hours daily river nav.'
+        title: 'Glacial Heli-Hike & Ridge Traverse',
+        description: 'Fly to a high-altitude alpine plateau on Mount Tutoko or the Darran Mountains. Guided by an elite IFMGA-certified alpine professional, traverse spectacular glacier fields and panoramic rocky ridges overlooking deep glacial valleys. For those seeking active river navigation, the swiftwater Hollyford River packrafting expedition is available as a fully integrated optional swap.',
+        logistics: 'Transit: Private heli-insertion. Terrain: Crevasse walking & alpine ridge traverse. Technical Swap: Optional grade-2 river packrafting. Safety: IFMGA Mountain Guides.'
       },
       {
         dayNumber: 'Day 5–7',
@@ -54,7 +54,7 @@ export const packagesData: Record<string, PackageDetail> = {
     suppliers: [
       { label: 'Aviation Operator', name: 'Southern Alps Heli-Charters', credential: 'CAA Part 135 Certified // Class A Alpine Pilots' },
       { label: 'Marine Charter', name: 'Fiordland Sovereign Yachting', credential: 'Private Luxury Surveyed Vessel // 5-Star Onboard Chef' },
-      { label: 'Backcountry Guides', name: 'Swiftwater Elite NZ', credential: 'IFMGA Mountain & Swiftwater Rescue Certified' }
+      { label: 'Backcountry Guides', name: 'Southern Alps Alpine & River Guides', credential: 'IFMGA Mountain & Certified Swiftwater Rescue Guides' }
     ],
     pricing: {
       priceString: '$18,500 NZD / person',
@@ -62,7 +62,7 @@ export const packagesData: Record<string, PackageDetail> = {
       inclusions: [
         'All private helicopter flight hours and pilot standby fees',
         'Private Milford Sound yacht charter and private onboard chef',
-        'Top-tier packrafting equipment, drysuits, and guide ratios (1:2)',
+        'Top-tier alpine mountaineering and ridge-walking gear (or premium packrafting/drysuits for the swap)',
         'Custom Land Rover Defender self-drive vehicle hire and private driving guides',
         'Three nights of exclusive-use luxury eco-lodge accommodation',
         'All premium local wines, wild-caught seafood, and organic dining inclusions'

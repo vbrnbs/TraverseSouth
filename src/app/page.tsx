@@ -131,7 +131,7 @@ export default async function Home() {
           {(categories || []).map((cat: any, i: number) => {
             const slugMap: Record<string, string> = {
               'Fiordland': 'fiordland',
-              'Fiordland Isolation': 'fiordland',
+              'Fiordland Sanctuary': 'fiordland',
               'QT & Mt. Cook': 'qt-mtcook',
               'Alpine Adrenaline': 'qt-mtcook',
               'Relax & Recover': 'relax',
