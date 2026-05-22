@@ -10,10 +10,10 @@ interface SectorMetric {
 }
 
 interface ActivityItem {
-  flightCode: string;
+  visitorId: string;
   pathname: string;
-  coordinates: string;
-  altitude: string;
+  region: string;
+  activityAction: string;
   timestamp: string;
   sessionToken: string;
   screenSize: string;
@@ -23,6 +23,8 @@ interface ActivityItem {
 interface AnalyticsReport {
   totalViews: number;
   uniqueSessions: number;
+  activeVisitors: number;
+  viewsTimeSeries: { label: string; value: number }[];
   sectors: {
     fiordland: SectorMetric;
     qtMtCook: SectorMetric;
@@ -63,7 +65,7 @@ export default function TrafficMonitorDashboard() {
     }
   }, []);
 
-  // Poll for real-time analytics updates
+  // Poll for real-time analytics updates every 6 seconds
   useEffect(() => {
     fetchTrafficData();
 
@@ -86,9 +88,11 @@ export default function TrafficMonitorDashboard() {
     return `${Math.min(100, Math.max(0, Math.round(pct)))}%`;
   };
 
-  // Safe split helper for device metrics
   const totalViews = report?.totalViews || 0;
   const uniqueSessions = report?.uniqueSessions || 0;
+  const activeVisitors = report?.activeVisitors || 0;
+  const viewsTimeSeries = report?.viewsTimeSeries || [];
+
   const sectors = report?.sectors || {
     fiordland: { name: 'Fiordland Wilderness', count: 0 },
     qtMtCook: { name: 'QT-Mt. Cook Glacial', count: 0 },
@@ -99,299 +103,292 @@ export default function TrafficMonitorDashboard() {
   const activity = report?.recentActivity || [];
   const devices = report?.devices || { mobile: 0, tablet: 0, desktop: 0 };
   const popularPages = report?.pagePopularity || [];
+  
+  // Calculate average page views per session
+  const avgViewsPerSession = uniqueSessions > 0 ? (totalViews / uniqueSessions).toFixed(1) : '0.0';
+
+  // Group devices for custom layout
+  const totalDeviceCount = devices.mobile + devices.tablet + devices.desktop;
+
+  // Generate SVG coordinates for professional trend line chart
+  const chartHeight = 140;
+  const chartWidth = 600;
+  const paddingLeft = 40;
+  const paddingRight = 20;
+  const paddingTop = 20;
+  const paddingBottom = 30;
+
+  const getChartData = () => {
+    if (viewsTimeSeries.length === 0) return { linePath: '', areaPath: '', points: [] };
+
+    const maxVal = Math.max(...viewsTimeSeries.map(d => d.value), 20);
+    const minVal = 0;
+    const valueRange = maxVal - minVal;
+    
+    const usableWidth = chartWidth - paddingLeft - paddingRight;
+    const usableHeight = chartHeight - paddingTop - paddingBottom;
+
+    const points = viewsTimeSeries.map((d, index) => {
+      const x = paddingLeft + (index / (viewsTimeSeries.length - 1)) * usableWidth;
+      const y = chartHeight - paddingBottom - ((d.value - minVal) / valueRange) * usableHeight;
+      return { x, y, label: d.label, value: d.value };
+    });
+
+    const linePath = points.reduce((path, p, i) => {
+      return i === 0 ? `M ${p.x} ${p.y}` : `${path} L ${p.x} ${p.y}`;
+    }, '');
+
+    const areaPath = points.length > 0
+      ? `${linePath} L ${points[points.length - 1].x} ${chartHeight - paddingBottom} L ${points[0].x} ${chartHeight - paddingBottom} Z`
+      : '';
+
+    return { linePath, areaPath, points };
+  };
+
+  const { linePath, areaPath, points } = getChartData();
 
   return (
     <div className="traffic-monitor-container">
       {/* Title/Header Area */}
       <header className="monitor-header">
         <div className="monitor-title-area">
-          <span className="monitor-eyebrow">// TRAVERSE SOUTH FLIGHT CENTER</span>
-          <h1 className="monitor-title">Telemetry & Radar Dashboard</h1>
+          <span className="monitor-eyebrow">// AUDIENCE REPORT</span>
+          <h1 className="monitor-title">Web Traffic & Engagement</h1>
         </div>
         <div className="monitor-controls">
           <div className="radar-status">
             <span className="radar-pulse-dot" />
-            <span>Active Sector Radar Status: Nominal</span>
+            <span>Live Stream Active</span>
           </div>
           <button
             onClick={handleRefreshClick}
             disabled={isRefreshing || isLoading}
             className="refresh-button"
           >
-            {isRefreshing ? 'Re-aligning Sweep...' : 'Refresh Radar'}
+            {isRefreshing ? 'Syncing...' : 'Sync Live'}
           </button>
         </div>
       </header>
 
       {error && (
-        <div
-          style={{
-            border: '1px solid #dd0000',
-            backgroundColor: 'rgba(221,0,0,0.05)',
-            padding: '16px',
-            borderRadius: '4px',
-            color: '#ffffff',
-            fontSize: '13px',
-            fontFamily: 'var(--font-ibm-plex-mono), monospace',
-            marginBottom: '32px',
-          }}
-        >
-          // ERROR DEPLOYED: {error} (Check Next.js logs or environment link)
+        <div className="telemetry-error-alert">
+          // DISCONNECTION DETECTED: {error} (Verify network links or environment setup)
         </div>
       )}
 
-      {/* Loading overlay for major refreshing states */}
       {isLoading && !report ? (
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            minHeight: '300px',
-            gap: '16px',
-          }}
-        >
-          <div
-            style={{
-              width: '32px',
-              height: '32px',
-              border: '2px solid rgba(243,100,88,0.1)',
-              borderTop: '2px solid #f36458',
-              borderRadius: '50%',
-              animation: 'studio-spin 1s linear infinite',
-            }}
-          />
-          <span style={{ fontFamily: 'var(--font-ibm-plex-mono), monospace', fontSize: '11px', color: '#797979' }}>
-            // RESOLVING ENCRYPTED SATELLITE COMMS
+        <div className="telemetry-loading-state">
+          <div className="telemetry-spinner" />
+          <span className="telemetry-loading-text">
+            // COMPILING AUDIENCE INSIGHTS
           </span>
-          <style dangerouslySetInnerHTML={{ __html: `
-            @keyframes studio-spin {
-              0% { transform: rotate(0deg); }
-              100% { transform: rotate(360deg); }
-            }
-          `}} />
         </div>
       ) : (
         <>
           {/* Telemetry Stat Cards */}
           <section className="telemetry-grid">
             <div className="telemetry-card">
-              <span className="telemetry-label">// TOTAL SECTOR HITS</span>
+              <span className="telemetry-label">// ACTIVE VISITORS</span>
+              <div className="telemetry-value-row">
+                <span className="active-pulse-indicator" />
+                <h3 className="telemetry-value" style={{ color: '#37cd84' }}>{activeVisitors}</h3>
+              </div>
+              <span className="telemetry-sub">Live sessions online now</span>
+            </div>
+            <div className="telemetry-card">
+              <span className="telemetry-label">// TOTAL PAGE VIEWS</span>
               <h3 className="telemetry-value">{totalViews}</h3>
-              <span className="telemetry-sub">Raw request footprints</span>
+              <span className="telemetry-sub">Overall visitor actions</span>
             </div>
             <div className="telemetry-card">
-              <span className="telemetry-label">// DISPATCHED CHARTERS</span>
+              <span className="telemetry-label">// UNIQUE SESSIONS</span>
               <h3 className="telemetry-value">{uniqueSessions}</h3>
-              <span className="telemetry-sub">Unique visitor sessions tracked</span>
+              <span className="telemetry-sub">Unique audience footprint</span>
             </div>
             <div className="telemetry-card">
-              <span className="telemetry-label">// FLIGHT ENVELOPES</span>
-              <h3 className="telemetry-value">
-                {sectors.fiordland.count + sectors.qtMtCook.count + sectors.relax.count}
-              </h3>
-              <span className="telemetry-sub">Bespoke regional interactions</span>
-            </div>
-            <div className="telemetry-card">
-              <span className="telemetry-label">// PLATFORM COVENANT</span>
-              <h3 className="telemetry-value">
-                {totalViews > 0
-                  ? Math.round(
-                      ((sectors.fiordland.count + sectors.qtMtCook.count + sectors.relax.count) / totalViews) *
-                        100
-                    )
-                  : 0}
-                %
-              </h3>
-              <span className="telemetry-sub">Engagement Conversion Ratio</span>
+              <span className="telemetry-label">// ENGAGEMENT RATIO</span>
+              <h3 className="telemetry-value">{avgViewsPerSession}</h3>
+              <span className="telemetry-sub">Avg views per visitor session</span>
             </div>
           </section>
 
-          {/* Two-Column Main Content Panel */}
+          {/* Time Series Analytics Chart Card */}
+          <section className="chart-panel-card">
+            <div className="panel-header-simple">
+              <h4 className="panel-title">// Audience Traffic Trend (Last 7 Days)</h4>
+              <span className="chart-legend-label">Daily Views Trend</span>
+            </div>
+            
+            <div className="chart-container-wrapper">
+              <svg viewBox={`0 0 ${chartWidth} ${chartHeight}`} className="svg-analytics-chart">
+                <defs>
+                  <linearGradient id="chartAreaGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#f36458" stopOpacity="0.25" />
+                    <stop offset="100%" stopColor="#f36458" stopOpacity="0.0" />
+                  </linearGradient>
+                </defs>
+                
+                {/* Horizontal Grid lines */}
+                <line x1={paddingLeft} y1={paddingTop} x2={chartWidth - paddingRight} y2={paddingTop} className="chart-grid-line" />
+                <line x1={paddingLeft} y1={(chartHeight - paddingTop - paddingBottom) / 2 + paddingTop} x2={chartWidth - paddingRight} y2={(chartHeight - paddingTop - paddingBottom) / 2 + paddingTop} className="chart-grid-line" strokeDasharray="3,3" />
+                <line x1={paddingLeft} y1={chartHeight - paddingBottom} x2={chartWidth - paddingRight} y2={chartHeight - paddingBottom} className="chart-grid-line" />
+
+                {/* SVG Curves */}
+                {areaPath && (
+                  <path d={areaPath} fill="url(#chartAreaGradient)" />
+                )}
+                {linePath && (
+                  <path d={linePath} fill="none" stroke="#f36458" strokeWidth="2.5" strokeLinecap="round" />
+                )}
+
+                {/* Point markers & hover glow */}
+                {points.map((p, idx) => (
+                  <g key={idx} className="chart-point-group">
+                    <circle cx={p.x} cy={p.y} r="5" fill="#f36458" stroke="#0b0b0b" strokeWidth="1.5" />
+                    <circle cx={p.x} cy={p.y} r="10" fill="transparent" className="hover-trigger-circle" />
+                    {/* Hover text flag */}
+                    <text x={p.x} y={p.y - 12} textAnchor="middle" className="chart-point-tooltip">
+                      {p.value}
+                    </text>
+                  </g>
+                ))}
+
+                {/* Axis Labels */}
+                {points.map((p, idx) => (
+                  <text key={idx} x={p.x} y={chartHeight - 10} textAnchor="middle" className="chart-axis-label">
+                    {p.label}
+                  </text>
+                ))}
+              </svg>
+            </div>
+          </section>
+
+          {/* Two-Column Mid-Tier Information Panel */}
           <div className="dashboard-columns">
-            {/* Column 1: Sector Interest Distribution & Device breakdown */}
+            {/* Column 1: Top Pages Table */}
             <div className="panel-card">
               <div className="panel-title-area">
-                <h4 className="panel-title">// Package Sector Distribution</h4>
+                <h4 className="panel-title">// Top Visited Pages</h4>
+              </div>
+              <div className="popularity-list">
+                {popularPages.slice(0, 5).map((item, idx) => (
+                  <div key={idx} className="popular-page-row">
+                    <div className="page-meta-row">
+                      <span className="page-path">{item.path}</span>
+                      <span className="page-count">{item.count} views</span>
+                    </div>
+                    <div className="page-bar-track">
+                      <div 
+                        className="page-bar-fill" 
+                        style={{ width: getPercentage(item.count, Math.max(...popularPages.map(p => p.count), 1)) }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Column 2: Regional & Device footprint details */}
+            <div className="panel-card">
+              <div className="panel-title-area">
+                <h4 className="panel-title">// Device & Region Footprint</h4>
               </div>
 
-              <div className="sector-list">
-                {/* Fiordland */}
-                <div className="sector-item">
-                  <div className="sector-meta">
-                    <span className="sector-name">{sectors.fiordland.name}</span>
-                    <span className="sector-val-label" style={{ color: '#37cd84' }}>
-                      {sectors.fiordland.count} ({getPercentage(sectors.fiordland.count, totalViews)})
-                    </span>
-                  </div>
-                  <div className="gauge-track">
-                    <div
-                      className="gauge-bar fiordland-gauge"
-                      style={{ width: getPercentage(sectors.fiordland.count, totalViews) }}
-                    />
-                  </div>
+              {/* Devices progress block */}
+              <div className="device-progress-section">
+                <h5 className="sub-section-title">// Access Devices</h5>
+                <div className="device-bar-multi">
+                  <div 
+                    className="device-segment ds-desktop" 
+                    style={{ width: getPercentage(devices.desktop, totalDeviceCount) }} 
+                    title={`Desktop: ${devices.desktop}`} 
+                  />
+                  <div 
+                    className="device-segment ds-tablet" 
+                    style={{ width: getPercentage(devices.tablet, totalDeviceCount) }} 
+                    title={`Tablet: ${devices.tablet}`} 
+                  />
+                  <div 
+                    className="device-segment ds-mobile" 
+                    style={{ width: getPercentage(devices.mobile, totalDeviceCount) }} 
+                    title={`Mobile: ${devices.mobile}`} 
+                  />
                 </div>
-
-                {/* QT Mt Cook */}
-                <div className="sector-item">
-                  <div className="sector-meta">
-                    <span className="sector-name">{sectors.qtMtCook.name}</span>
-                    <span className="sector-val-label" style={{ color: '#f36458' }}>
-                      {sectors.qtMtCook.count} ({getPercentage(sectors.qtMtCook.count, totalViews)})
-                    </span>
-                  </div>
-                  <div className="gauge-track">
-                    <div
-                      className="gauge-bar qt-gauge"
-                      style={{ width: getPercentage(sectors.qtMtCook.count, totalViews) }}
-                    />
-                  </div>
-                </div>
-
-                {/* Relax */}
-                <div className="sector-item">
-                  <div className="sector-meta">
-                    <span className="sector-name">{sectors.relax.name}</span>
-                    <span className="sector-val-label" style={{ color: '#55beff' }}>
-                      {sectors.relax.count} ({getPercentage(sectors.relax.count, totalViews)})
-                    </span>
-                  </div>
-                  <div className="gauge-track">
-                    <div
-                      className="gauge-bar relax-gauge"
-                      style={{ width: getPercentage(sectors.relax.count, totalViews) }}
-                    />
-                  </div>
-                </div>
-
-                {/* Homepage */}
-                <div className="sector-item">
-                  <div className="sector-meta">
-                    <span className="sector-name">{sectors.homepage.name}</span>
-                    <span className="sector-val-label" style={{ color: '#797979' }}>
-                      {sectors.homepage.count} ({getPercentage(sectors.homepage.count, totalViews)})
-                    </span>
-                  </div>
-                  <div className="gauge-track">
-                    <div
-                      className="gauge-bar homepage-gauge"
-                      style={{ width: getPercentage(sectors.homepage.count, totalViews) }}
-                    />
-                  </div>
+                <div className="device-legend-row">
+                  <span className="legend-item"><span className="legend-color-dot ds-desktop-dot" />Desktop: {getPercentage(devices.desktop, totalDeviceCount)}</span>
+                  <span className="legend-item"><span className="legend-color-dot ds-tablet-dot" />Tablet: {getPercentage(devices.tablet, totalDeviceCount)}</span>
+                  <span className="legend-item"><span className="legend-color-dot ds-mobile-dot" />Mobile: {getPercentage(devices.mobile, totalDeviceCount)}</span>
                 </div>
               </div>
 
-              {/* Animated Radar Sweep Decoration */}
-              <div className="radar-sweep-panel">
-                <div className="radar-sweep-circle" />
-                <span className="radar-label">Realtime Sweep Tracking</span>
-              </div>
-
-              {/* Device breakdown */}
-              <div style={{ marginTop: '32px', borderTop: '1px solid #353535', paddingTop: '24px' }}>
-                <h4 className="panel-title" style={{ marginBottom: '16px' }}>// Device Footprint Breakdown</h4>
-                <div className="device-stats">
-                  <div className="device-stat-item">
-                    <span className="device-stat-val">{devices.desktop}</span>
-                    <span className="device-stat-lbl">Desktop</span>
+              {/* Region interests */}
+              <div style={{ marginTop: '28px', borderTop: '1px solid #353535', paddingTop: '20px' }}>
+                <h5 className="sub-section-title">// Regional Sector Distribution</h5>
+                <div className="sector-list-simple">
+                  <div className="sector-inline-item">
+                    <span className="sector-inline-name">{sectors.fiordland.name}</span>
+                    <span className="sector-inline-val" style={{ color: '#37cd84' }}>{sectors.fiordland.count} hits</span>
                   </div>
-                  <div className="device-stat-item" style={{ borderLeft: '1px solid #353535', paddingLeft: '24px' }}>
-                    <span className="device-stat-val">{devices.tablet}</span>
-                    <span className="device-stat-lbl">Tablet</span>
+                  <div className="sector-inline-item">
+                    <span className="sector-inline-name">{sectors.qtMtCook.name}</span>
+                    <span className="sector-inline-val" style={{ color: '#f36458' }}>{sectors.qtMtCook.count} hits</span>
                   </div>
-                  <div className="device-stat-item" style={{ borderLeft: '1px solid #353535', paddingLeft: '24px' }}>
-                    <span className="device-stat-val">{devices.mobile}</span>
-                    <span className="device-stat-lbl">Mobile</span>
+                  <div className="sector-inline-item">
+                    <span className="sector-inline-name">{sectors.relax.name}</span>
+                    <span className="sector-inline-val" style={{ color: '#55beff' }}>{sectors.relax.count} hits</span>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Column 2: Active flight slots manifest */}
-            <div className="panel-card">
-              <div className="panel-title-area">
-                <h4 className="panel-title">// Active Flight Slot Manifest</h4>
-                <span style={{ fontFamily: 'var(--font-ibm-plex-mono), monospace', fontSize: '10px', color: '#f36458' }}>
-                  [ LIVE RADAR FEED ]
-                </span>
-              </div>
-
+          {/* Real-time Web Navigation Stream */}
+          <section className="detail-table-panel">
+            <div className="panel-title-area" style={{ borderBottom: 'none', paddingBottom: '0', marginBottom: '20px' }}>
+              <h4 className="panel-title">// Live Traffic Audit Stream</h4>
+              <span className="stream-badge-pulse">REAL-TIME INFLOW</span>
+            </div>
+            
+            <div className="manifest-scroll-container">
               <div className="manifest-list">
                 {activity.length === 0 ? (
-                  <div
-                    style={{
-                      fontFamily: 'var(--font-ibm-plex-mono), monospace',
-                      fontSize: '11px',
-                      color: '#797979',
-                      textAlign: 'center',
-                      padding: '40px 0',
-                    }}
-                  >
-                    // WAITING FOR VISITOR SECTOR Footprint
+                  <div className="empty-manifest-placeholder">
+                    // WAITING FOR WEBAUDIENCE TRAFFIC ACTIVITY
                   </div>
                 ) : (
                   activity.map((item, idx) => {
-                    let statusClass = 'status-gateway';
-                    if (item.altitude.includes('SECURED')) statusClass = 'status-secured';
-                    else if (item.altitude.includes('CRUISING')) statusClass = 'status-cruising';
-                    else if (item.altitude.includes('APPROACH')) statusClass = 'status-inbound';
+                    let actionColor = '#b9b9b9';
+                    if (item.activityAction.includes('Fiordland')) actionColor = '#37cd84';
+                    else if (item.activityAction.includes('QT')) actionColor = '#f36458';
+                    else if (item.activityAction.includes('Relax')) actionColor = '#55beff';
+                    else if (item.activityAction.includes('CMS')) actionColor = '#a78bfa';
 
                     return (
                       <div key={idx} className="manifest-item">
-                        <span className="manifest-code">{item.flightCode}</span>
-                        <span className="manifest-path" title={item.pathname}>
-                          {item.pathname}
-                        </span>
-                        <span className="manifest-coords">{item.coordinates}</span>
-                        <span className={`manifest-status ${statusClass}`}>
-                          {item.altitude}
-                        </span>
+                        <div className="manifest-time-cell">
+                          {new Date(item.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
+                        </div>
+                        <div className="manifest-visitor-cell">
+                          <span className="visitor-badge">{item.visitorId}</span>
+                        </div>
+                        <div className="manifest-action-cell">
+                          <span style={{ color: actionColor, fontWeight: 500 }}>{item.activityAction}</span>
+                          <span className="manifest-sub-path">{item.pathname}</span>
+                        </div>
+                        <div className="manifest-region-cell">
+                          {item.region}
+                        </div>
+                        <div className="manifest-screen-cell">
+                          {item.screenSize}
+                        </div>
+                        <div className="manifest-referrer-cell" title={item.referrer}>
+                          via {item.referrer.replace('http://localhost:3000/', 'localhost')}
+                        </div>
                       </div>
                     );
                   })
                 )}
               </div>
-            </div>
-          </div>
-
-          {/* Detailed raw logs table at bottom */}
-          <section className="detail-table-panel">
-            <h4 className="panel-title" style={{ marginBottom: '20px' }}>// Comprehensive Navigation Ledger</h4>
-            <div style={{ overflowX: 'auto' }}>
-              <table className="detail-table">
-                <thead>
-                  <tr>
-                    <th>Timestamp</th>
-                    <th>Ident</th>
-                    <th>Aviation Path</th>
-                    <th>Terminal Spec</th>
-                    <th>Aviation Source / Referrer</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {activity.slice(0, 10).map((item, idx) => (
-                    <tr key={idx}>
-                      <td className="detail-time">
-                        {new Date(item.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
-                      </td>
-                      <td style={{ fontFamily: 'var(--font-ibm-plex-mono), monospace', fontSize: '11px' }}>
-                        {item.sessionToken.substring(8, 14).toUpperCase()}
-                      </td>
-                      <td className="detail-path">{item.pathname}</td>
-                      <td>{item.screenSize}</td>
-                      <td>{item.referrer}</td>
-                    </tr>
-                  ))}
-                  {activity.length === 0 && (
-                    <tr>
-                      <td colSpan={5} style={{ textAlign: 'center', padding: '24px 0', color: '#797979', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>
-                        // LEDGER EMPTY. ENGAGE EXPEDITIONS.
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
             </div>
           </section>
         </>
@@ -402,22 +399,23 @@ export default function TrafficMonitorDashboard() {
 
 // Tool Registration structure matching Sanity defineConfig type
 export const TrafficMonitorTool = {
-  name: 'traffic-monitor',
-  title: 'Traffic Radar',
+  name: 'traffic-analytics',
+  title: 'Analytics',
   icon: () => (
     <svg
       width="1em"
       height="1em"
-      viewBox="0 0 25 25"
+      viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.5"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       style={{ fontSize: '1.2em' }}
     >
-      <circle cx="12" cy="12" r="9" />
-      <circle cx="12" cy="12" r="5" strokeDasharray="2,2" />
-      <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-      <line x1="12" y1="12" x2="18" y2="6" strokeWidth="2" />
+      <line x1="18" y1="20" x2="18" y2="10" />
+      <line x1="12" y1="20" x2="12" y2="4" />
+      <line x1="6" y1="20" x2="6" y2="14" />
     </svg>
   ),
   component: TrafficMonitorDashboard,
