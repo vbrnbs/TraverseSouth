@@ -78,10 +78,13 @@ The project uses GitHub at [github.com/vbrnbs/TraverseSouth](https://github.com/
 Vercel is linked directly to the `main` branch. Any commit pushed to `main` will instantly trigger a live build:
 * **Live Main URL**: [traverse-south.vercel.app](https://traverse-south.vercel.app/)
 * **Live Preview/Secondary URL**: [traverse-south-git-main-vbrnbs-projects.vercel.app](https://traverse-south-git-main-vbrnbs-projects.vercel.app/)
-* **Environment Variables**: Vercel contains these three project variables securely in its dashboard:
+* **Environment Variables**: Vercel contains these secure project variables in its dashboard:
   * `NEXT_PUBLIC_SANITY_PROJECT_ID`
   * `NEXT_PUBLIC_SANITY_DATASET`
   * `NEXT_PUBLIC_SANITY_API_VERSION`
+  * `SHOPIFY_STORE_DOMAIN` (Optional: Shopify store domain for live checkouts)
+  * `SHOPIFY_STOREFRONT_ACCESS_TOKEN` (Optional: Storefront API access token for dynamic syncing)
+
 
 ### 3. Unified Embedded Sanity Studio
 * **Access Path**: Live Studio is accessible directly under `/studio` on your live domain:
