@@ -94,3 +94,11 @@ When pushing updates to the main production pipeline:
 * **Milestone 9**: Transitioned package detail pages to be 100% dynamic, fetching detailed day-by-day timelines, supplier networks, and pricing inclusions directly from Sanity CMS with a safe static fallback mechanism.
 
 
+---
+
+## 🔮 Next Session Roadmap
+* **Target Objective**: Integrate a live headless traffic monitor into the platform.
+* **Architecture**: Build a dynamic dashboard widget inside Sanity Studio using the **Sanity App SDK**, providing live traffic reporting, flight search insights, and checkout mapping directly to your administration screen!
+
+
+
