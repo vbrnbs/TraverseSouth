@@ -58,7 +58,7 @@ To maintain the ultra-premium feel and system integrity, the following rules app
 2. **Public Output:** Never post, publish, or push live website updates to the public production server without owner approval.
 3. **VIP Outreach:** Drafts for high-net-worth client emails or supplier negotiations must always be presented to the user for a final sign-off before being sent.
 4. **Contextual Emphasis (Mandatory):** Before creating any frontend copy or UI, agents must ask themselves: *"Is this clear, structured, and fast?"* The focus is on supreme capability and logic, not overly "stuffy" traditional luxury.
-5. **Git Push Consent (Mandatory):** Always ask the user for explicit permission before executing a `git push` command. Remote pushes must be restricted to the end of a work block.
+5. **Strict Git Push Consent (Mandatory):** NEVER execute a `git push` command automatically. You MUST always stop and ask the user for explicit permission before pushing to GitHub. Even if you are working on a small or seemingly unimportant feature, ALWAYS ask first. Remote pushes must be strictly restricted to the end of a work block and only after the user says "push it".
 
 
 ---
@@ -76,8 +76,9 @@ The project uses GitHub at [github.com/vbrnbs/TraverseSouth](https://github.com/
 
 ### 2. Vercel Continuous Deployment (CD)
 Vercel is linked directly to the `main` branch. Any commit pushed to `main` will instantly trigger a live build:
-* **Live Main URL**: [traverse-south.vercel.app](https://traverse-south.vercel.app/)
-* **Live Preview/Secondary URL**: [traverse-south-git-main-vbrnbs-projects.vercel.app](https://traverse-south-git-main-vbrnbs-projects.vercel.app/)
+* **Live Main URL**: [www.traversesouth.co.nz](https://www.traversesouth.co.nz/)
+* **Live Secondary URL**: [traverse-south.vercel.app](https://traverse-south.vercel.app/)
+* **Live Preview URL**: [traverse-south-git-main-vbrnbs-projects.vercel.app](https://traverse-south-git-main-vbrnbs-projects.vercel.app/)
 * **Environment Variables**: Vercel contains these secure project variables in its dashboard:
   * `NEXT_PUBLIC_SANITY_PROJECT_ID`
   * `NEXT_PUBLIC_SANITY_DATASET`
@@ -88,8 +89,9 @@ Vercel is linked directly to the `main` branch. Any commit pushed to `main` will
 
 ### 3. Unified Embedded Sanity Studio
 * **Access Path**: Live Studio is accessible directly under `/studio` on your live domain:
-  * **Main Studio**: [traverse-south.vercel.app/studio](https://traverse-south.vercel.app/studio)
-  * **Secondary Studio**: [traverse-south-git-main-vbrnbs-projects.vercel.app/studio](https://traverse-south-git-main-vbrnbs-projects.vercel.app/studio)
+  * **Main Studio**: [www.traversesouth.co.nz/studio](https://www.traversesouth.co.nz/studio)
+  * **Secondary Studio**: [traverse-south.vercel.app/studio](https://traverse-south.vercel.app/studio)
+  * **Preview Studio**: [traverse-south-git-main-vbrnbs-projects.vercel.app/studio](https://traverse-south-git-main-vbrnbs-projects.vercel.app/studio)
 * **CORS Access**: Any new Vercel domain must be explicitly added to `sanity.io/manage` under **API > CORS Origins** with **"Allow credentials"** enabled.
 
 

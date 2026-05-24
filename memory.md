@@ -15,8 +15,9 @@
 
 | Target | Public URL | Embedded Studio Path |
 | :--- | :--- | :--- |
-| **Main Production** | [traverse-south.vercel.app](https://traverse-south.vercel.app/) | [/studio](https://traverse-south.vercel.app/studio) |
-| **Secondary Preview** | [traverse-south-git-main-vbrnbs-projects.vercel.app](https://traverse-south-git-main-vbrnbs-projects.vercel.app/) | [/studio](https://traverse-south-git-main-vbrnbs-projects.vercel.app/studio) |
+| **Main Production** | [www.traversesouth.co.nz](https://www.traversesouth.co.nz/) | [/studio](https://www.traversesouth.co.nz/studio) |
+| **Secondary Preview** | [traverse-south.vercel.app](https://traverse-south.vercel.app/) | [/studio](https://traverse-south.vercel.app/studio) |
+| **Tertiary Preview** | [traverse-south-git-main-vbrnbs-projects.vercel.app](https://traverse-south-git-main-vbrnbs-projects.vercel.app/) | [/studio](https://traverse-south-git-main-vbrnbs-projects.vercel.app/studio) |
 
 ---
 

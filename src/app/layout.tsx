@@ -21,6 +21,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.traversesouth.co.nz/'),
   title: 'Traverse South | Go Beyond',
   description: 'Travel tailored to the South Island. A zero-friction, modular luxury portal.',
 };
