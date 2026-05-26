@@ -19,17 +19,12 @@ export default async function PackageDetailPage({ params }: PageProps) {
   const isDraft = (await draftMode()).isEnabled;
   const client = isDraft ? previewClient : sanityClient;
   
-  // 1. Check if slug exists in our detailed copy dataset
-  const detail = packagesData[slug];
-  if (!detail) {
-    notFound();
-  }
-
-  // 2. Fetch category document dynamically from Sanity
-  let category: any = null;
+  // 1. Fetch content document dynamically from Sanity (supports both old packages and new products)
+  let contentData: any = null;
   try {
-    category = await client.fetch(
-      `*[_type == "category" && (_id == $slug || _id == "category-" + $slug)][0] {
+    contentData = await client.fetch(
+      `*[_type in ["category", "product"] && (_id == $slug || _id == "category-" + $slug || slug.current == $slug)][0] {
+        _type,
         eyebrow,
         title,
         description,
@@ -59,20 +54,26 @@ export default async function PackageDetailPage({ params }: PageProps) {
       { cache: isDraft ? 'no-store' : 'force-cache' }
     );
   } catch (error) {
-    console.error('Error fetching package category from Sanity:', error);
+    console.error('Error fetching content from Sanity:', error);
+  }
+
+  // 2. Fallback to hardcoded dataset if Sanity fails or doc doesn't exist
+  const detail = packagesData[slug];
+  if (!contentData && !detail) {
+    notFound();
   }
 
   // Resolve fallbacks in case Sanity dataset hasn't updated or is offline
-  const displayTitle = category?.title || detail.title;
-  const displayEyebrow = category?.eyebrow || `0${slug === 'fiordland' ? '1' : slug === 'qt-mtcook' ? '2' : '3'} // DEEP EXPEDITIONS`;
-  const displayOverview = category?.description || detail.overview;
-  const displayBgImage = category?.image ? urlFor(category.image).url() : '';
-  const displayCaption = category?.subtitle || category?.imageCaption || detail.subtitle;
-  const displayDays = category?.days || detail.days;
-  const displaySuppliers = category?.suppliers || detail.suppliers;
-  const displayMinGroup = category?.pricing?.minimumGroup || detail.pricing.minimumGroup;
-  const displayInclusions = category?.pricing?.inclusions || detail.pricing.inclusions;
-  const displayCtaText = category?.ctaText || detail.ctaText || 'Book Private Expedition';
+  const displayTitle = contentData?.title || detail?.title;
+  const displayEyebrow = contentData?.eyebrow || `01 // EXPEDITIONS`;
+  const displayOverview = contentData?.description || detail?.overview;
+  const displayBgImage = contentData?.image ? urlFor(contentData.image).url() : '';
+  const displayCaption = contentData?.subtitle || contentData?.imageCaption || detail?.subtitle;
+  const displayDays = contentData?.days || detail?.days || [];
+  const displaySuppliers = contentData?.suppliers || detail?.suppliers || [];
+  const displayMinGroup = contentData?.pricing?.minimumGroup || detail?.pricing?.minimumGroup;
+  const displayInclusions = contentData?.pricing?.inclusions || detail?.pricing?.inclusions || [];
+  const displayCtaText = contentData?.ctaText || detail?.ctaText || 'Book Now';
 
 
   // 3. Fetch live details from Shopify with silent credentials/offline fallbacks
@@ -84,7 +85,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
   }
 
   let variantId: string | null = null;
-  let livePriceString = detail.pricing.priceString;
+  let livePriceString = contentData?.pricing?.priceString || detail?.pricing?.priceString || '$1,000 NZD / person';
   let availableForSale = true;
 
   if (shopifyProduct) {

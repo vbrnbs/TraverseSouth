@@ -27,7 +27,7 @@ export const homepage = defineType({
       of: [
         {
           type: 'reference',
-          to: [{ type: 'category' }],
+          to: [{ type: 'category' }, { type: 'product' }],
         },
       ],
     }),
