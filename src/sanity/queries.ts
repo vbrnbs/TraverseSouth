@@ -28,6 +28,9 @@ export const homepageQuery = `*[_type == "homepage"][0]{
     }
   },
   engine {
+    builderEyebrow,
+    builderHeadline,
+    builderSubtitle,
     eyebrow,
     headline,
     description,
@@ -48,5 +51,16 @@ export const homepageQuery = `*[_type == "homepage"][0]{
         href
       }
     }
+  },
+  "allProducts": *[_type == "product"] {
+    _id,
+    title,
+    slug,
+    eyebrow,
+    description,
+    adventureScore,
+    durationDays,
+    image,
+    pricing
   }
 }`;

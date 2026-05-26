@@ -59,6 +59,22 @@ export const product = defineType({
       initialValue: 'Book Now',
     }),
     defineField({
+      name: 'adventureScore',
+      title: 'Adventure Score',
+      type: 'number',
+      description: 'Scale of 1-10 (1 = easy, 10 = extreme adrenaline)',
+      validation: (Rule) => Rule.required().min(1).max(10),
+      initialValue: 5,
+    }),
+    defineField({
+      name: 'durationDays',
+      title: 'Duration in Days',
+      type: 'number',
+      description: 'Duration of the module (e.g., 0.5 for half-day, 1 for full day)',
+      validation: (Rule) => Rule.required().min(0.5).max(14),
+      initialValue: 1,
+    }),
+    defineField({
       name: 'pricing',
       title: 'Pricing & Inclusions Structure',
       type: 'object',

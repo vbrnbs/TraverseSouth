@@ -3,6 +3,7 @@ import { Button } from '@/components/Button';
 import { sanityClient, previewClient, urlFor } from '@/sanity/client';
 import { homepageQuery } from '@/sanity/queries';
 import { ScrollObserver } from '@/components/ScrollObserver';
+import { TourBuilder } from '@/components/TourBuilder';
 import { draftMode } from 'next/headers';
 
 /* ═══════════════════════════════════════════════
@@ -32,7 +33,7 @@ export default async function Home() {
     );
   }
 
-  const { hero, mission, categories, engine, footer } = data;
+  const { hero, mission, categories, engine, footer, allProducts } = data;
 
 
   return (
@@ -144,7 +145,7 @@ export default async function Home() {
 
             return (
               <a href={`/packages/${slug}`} className="category-block" key={cat.title}>
-                <p className="typography-mono-eyebrow category-block-eyebrow">{cat.eyebrow}</p>
+                <p className="typography-mono-eyebrow category-block-eyebrow" style={{ color: 'var(--colors-brand)' }}>{cat.eyebrow}</p>
                 <h3 className="typography-display-md category-block-title">{cat.title}</h3>
                 <p className="typography-body category-block-description">{cat.description}</p>
 
@@ -182,41 +183,30 @@ export default async function Home() {
           ═══════════════════════════════════════ */}
       <section id="engine" className="engine-section">
         <div className="container">
-          <div className="engine-grid">
-            <div>
-              <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-mute)' }}>
-                {engine.eyebrow}
-              </p>
-              <h2 className="typography-display-xl" style={{ marginBottom: '24px' }}>
-                {engine.headline}
-              </h2>
-              <p className="typography-subtitle" style={{ color: 'var(--colors-ash)', marginBottom: '40px', maxWidth: '480px' }}>
-                {engine.description}
-              </p>
-              <Button variant="brand">{engine.ctaText}</Button>
-            </div>
+          <div style={{ marginBottom: '64px', width: '100%' }}>
+            <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-mute)' }}>
+              {engine.builderEyebrow || '// THE ITINERARY COMPILER'}
+            </p>
+            <h2 className="typography-display-xl" style={{ marginBottom: '24px' }}>
+              {engine.builderHeadline || 'Compile Your Custom Expedition'}
+            </h2>
+            <p className="typography-subtitle" style={{ color: 'var(--colors-ash)', marginBottom: '40px', maxWidth: '600px' }}>
+              {engine.builderSubtitle || 'Configure your adventure parameters below. Our engine will dynamically sort available modules for you to build the ultimate South Island itinerary.'}
+            </p>
+            <TourBuilder products={allProducts || []} />
+          </div>
 
-            <div className="engine-visual">
-              <div className="studio-window-chrome">
-                <div className="studio-window-dot red"></div>
-                <div className="studio-window-dot yellow"></div>
-                <div className="studio-window-dot green"></div>
-              </div>
-              <p className="typography-mono-caps" style={{ color: 'var(--colors-mute)', marginBottom: '24px' }}>
-                // LIVE SWAP ENGINE
-              </p>
-              {engine.swaps?.map((swap: any) => (
-                <div className="engine-swap-row" key={swap.from}>
-                  <span className="typography-body-sm engine-swap-from">{swap.from}</span>
-                  <span className="engine-swap-arrow">→</span>
-                  <span className="typography-body-sm engine-swap-to">{swap.to}</span>
-                </div>
-              ))}
-              <div style={{ marginTop: '24px' }}>
-                <p className="typography-body-sm" style={{ color: 'var(--colors-success)' }}>{engine.validationMessage}</p>
-                <p className="typography-meta" style={{ color: 'var(--colors-mute)', marginTop: '8px' }}>{engine.pricingNote}</p>
-              </div>
-            </div>
+          <div className="engine-text-section" style={{ maxWidth: '800px', borderTop: '1px solid #222', paddingTop: '64px' }}>
+            <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-mute)' }}>
+              {engine.eyebrow}
+            </p>
+            <h2 className="typography-display-xl" style={{ marginBottom: '24px' }}>
+              {engine.headline}
+            </h2>
+            <p className="typography-subtitle" style={{ color: 'var(--colors-ash)', marginBottom: '40px' }}>
+              {engine.description}
+            </p>
+            <Button variant="brand">{engine.ctaText}</Button>
           </div>
         </div>
       </section>
