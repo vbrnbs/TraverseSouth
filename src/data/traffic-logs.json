@@ -997,5 +997,23 @@
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
     "sessionToken": "ts-sess-453r1yss1sb-mpmg1csz",
     "timestamp": "2026-05-26T09:54:10.602Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-0pns5vu765if-mpmbdexo",
+    "timestamp": "2026-05-26T09:56:00.183Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/studio/presentation/homepage/homepage/mission.photoDeck[_key==%22p1%22].image.hotspot?preview=http%3A//localhost%3A3000/",
+    "language": "en-AU",
+    "screenSize": "1440x845",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-453r1yss1sb-mpmg1csz",
+    "timestamp": "2026-05-26T09:56:33.940Z"
   }
 ]
