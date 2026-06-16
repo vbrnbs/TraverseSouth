@@ -1,10 +1,17 @@
-import { homepage } from './homepage';
-import { category } from './category';
-import { product } from './product';
-import { hero } from './hero';
-import { mission } from './mission';
-import { engine } from './engine';
-import { footer } from './footer';
+import destination from './destination'
+import activity from './activity'
+import operator from './operator'
+import adventure from './adventure'
+import { homepage } from './homepage'
+import { hero } from './hero'
+import { footer } from './footer'
 
-export const schemaTypes = [homepage, category, product, hero, mission, engine, footer];
-
+export const schemaTypes = [
+    destination,
+    activity,
+    operator,
+    adventure,
+    homepage,
+    hero,
+    footer,
+]
