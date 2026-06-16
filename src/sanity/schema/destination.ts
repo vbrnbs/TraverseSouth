@@ -53,6 +53,13 @@ export default defineType({
             description: 'Main header banner image when viewing this destination.',
         }),
         defineField({
+            name: 'gallery',
+            title: 'Image Gallery',
+            type: 'array',
+            of: [{ type: 'image', options: { hotspot: true } }],
+            description: 'Gallery of images showcasing this destination.',
+        }),
+        defineField({
             name: 'body',
             title: 'Body Content',
             type: 'array',

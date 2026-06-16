@@ -47,6 +47,13 @@ export default defineType({
             validation: (Rule) => Rule.email(),
         }),
         defineField({
+            name: 'gallery',
+            title: 'Image Gallery',
+            type: 'array',
+            of: [{ type: 'image', options: { hotspot: true } }],
+            description: 'Gallery of images showcasing this operator.',
+        }),
+        defineField({
             name: 'safetyCertification',
             title: 'Safety Management Plan / Audit (PDF)',
             type: 'file',
