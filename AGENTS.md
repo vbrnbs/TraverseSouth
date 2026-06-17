@@ -68,6 +68,15 @@ To maximize capabilities and maintain high-efficiency standards, all agents must
 - **Copywriting Framework**: Trigger the `copywriting` skill (`.agents/skills/copywriting/SKILL.md`) whenever writing, rewriting, or optimizing headlines, value propositions, and activity descriptions.
 - **Tone Alignment**: Before proposing copy, cross-reference with the Saniti editorial style (Quiet Luxury: clear, structured, and fast; never stuffy or generic B2B).
 
+### 3. Sanity Agent Toolkit (Sanity Agent Skills)
+- **Use Local Sanity Agent Toolkit Skills**: The repository has the official Sanity Agent Toolkit skills installed under `.agents/skills/`. All agents MUST load and consult these guidelines for any Sanity-related development:
+  - **Sanity Best Practices**: Consult [sanity-best-practices/SKILL.md](file:///.agents/skills/sanity-best-practices/SKILL.md) (which references guides for `nextjs`, `groq`, `schema`, `visual-editing`, and `functions`) before designing schemas, defining fields, or writing queries.
+  - **Content Modeling**: Consult [content-modeling-best-practices/SKILL.md](file:///.agents/skills/content-modeling-best-practices/SKILL.md) for clean content structures and avoiding schema pitfalls.
+  - **Portable Text**: Use [portable-text-conversion/SKILL.md](file:///.agents/skills/portable-text-conversion/SKILL.md) and [portable-text-serialization/SKILL.md](file:///.agents/skills/portable-text-serialization/SKILL.md) when handling rich/structured text components.
+  - **Content Migrations**: Use [sanity-migration/SKILL.md](file:///.agents/skills/sanity-migration/SKILL.md) for dataset seedings or structure refactorings.
+  - **SEO & AEO**: Refer to [seo-aeo-best-practices/SKILL.md](file:///.agents/skills/seo-aeo-best-practices/SKILL.md) to ensure optimal SEO metadata, Open Graph structure, and canonical tags.
+
+
 ## 🛑 Safety & "Human-in-the-Loop" Thresholds
 To maintain the ultra-premium feel and system integrity, the following rules apply to ALL agents:
 1. **Design Deviations:** The *Conversion Engineer* must NEVER introduce new colors (e.g., teal, magenta gradients) or new fonts. If a new UI element is needed, it must be constructed strictly using the tokens in `DESIGN.md`.

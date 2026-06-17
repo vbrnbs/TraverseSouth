@@ -1753,5 +1753,14 @@
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
     "sessionToken": "ts-sess-l48musy1rm-mqhwf949",
     "timestamp": "2026-06-17T10:17:50.376Z"
+  },
+  {
+    "pathname": "/studio/structure/destination",
+    "referrer": "http://localhost:3000/studio/structure/destination",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-qouaww0owt-mqhwhqqi",
+    "timestamp": "2026-06-17T10:20:44.201Z"
   }
 ]
