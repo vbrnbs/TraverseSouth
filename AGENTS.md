@@ -52,6 +52,22 @@ Modular, high-end South Island adventure packages (approx. 1 week each), designe
   - When the *Growth Concierge* wants to test a new package bundle, it must hand off the logistical validation to the *Experience Architect*.
   - When the *Experience Architect* updates a price or module, it must hand off to the *Conversion Engineer* to update the frontend UI.
 
+## 🔌 Tool & Skill Utilization Protocol
+
+To maximize capabilities and maintain high-efficiency standards, all agents must leverage system-provided MCP servers and Skills to their fullest capacity:
+
+### 1. Sanity Content & Schema Management (Sanity MCP)
+- **Direct Database Manipulation**: Avoid writing one-off Node scripts for database edits (such as seeding or modifying content). Use Sanity MCP tools directly:
+  - Query content with `query_documents`.
+  - Modify and publish content transactionally using `create_documents`, `patch_document`, `publish_documents`, and `discard_drafts`.
+  - Query schema rules and definitions using `get_schema` and `list_workspace_schemas`.
+- **Schema Deployments**: When modifying local schema files, use the `deploy_schema` tool instead of manual terminal executions.
+- **Media Asset Creation**: Use `generate_image` or `transform_image` to generate high-end, bespoke AI imagery and link them directly to draft documents before publishing.
+
+### 2. Marketing Copy & Brand Voice (Copywriting Skill)
+- **Copywriting Framework**: Trigger the `copywriting` skill (`.agents/skills/copywriting/SKILL.md`) whenever writing, rewriting, or optimizing headlines, value propositions, and activity descriptions.
+- **Tone Alignment**: Before proposing copy, cross-reference with the Saniti editorial style (Quiet Luxury: clear, structured, and fast; never stuffy or generic B2B).
+
 ## 🛑 Safety & "Human-in-the-Loop" Thresholds
 To maintain the ultra-premium feel and system integrity, the following rules apply to ALL agents:
 1. **Design Deviations:** The *Conversion Engineer* must NEVER introduce new colors (e.g., teal, magenta gradients) or new fonts. If a new UI element is needed, it must be constructed strictly using the tokens in `DESIGN.md`.
@@ -59,6 +75,7 @@ To maintain the ultra-premium feel and system integrity, the following rules app
 3. **VIP Outreach:** Drafts for high-net-worth client emails or supplier negotiations must always be presented to the user for a final sign-off before being sent.
 4. **Contextual Emphasis (Mandatory):** Before creating any frontend copy or UI, agents must ask themselves: *"Is this clear, structured, and fast?"* The focus is on supreme capability and logic, not overly "stuffy" traditional luxury.
 5. **Strict Git Push Consent (Mandatory):** NEVER execute a `git push` command automatically. You MUST always stop and ask the user for explicit permission before pushing to GitHub. Even if you are working on a small or seemingly unimportant feature, ALWAYS ask first. Remote pushes must be strictly restricted to the end of a work block and only after the user says "push it".
+
 
 
 ---
