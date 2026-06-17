@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/Button';
-import { sanityClient, previewClient, urlFor } from '@/sanity/client';
+import { sanityClient, previewClient } from '@/sanity/client';
 import { homepageQuery } from '@/sanity/queries';
 import { ScrollObserver } from '@/components/ScrollObserver';
 import { TourBuilder } from '@/components/TourBuilder';
@@ -33,211 +33,86 @@ export default async function Home() {
     );
   }
 
-  const { hero, mission, categories, engine, footer, allProducts } = data;
-
+  const { allProducts } = data;
 
   return (
     <main>
       <ScrollObserver />
-      {/* ═══════════════════════════════════════
-          Navigation
-          ═══════════════════════════════════════ */}
-      <nav className="nav-bar-dark">
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <div className="brand-dot"></div>
-          <span className="typography-heading-md" style={{ fontWeight: 500, letterSpacing: '-0.32px', fontSize: '20px' }}>Traverse South</span>
-        </div>
-        <div className="nav-links" style={{ display: 'flex', alignItems: 'center' }}>
-          <a href="#modules" className="nav-link">Modules</a>
-          <a href="#mission" className="nav-link">Philosophy</a>
-          <a href="#engine" className="nav-link">Build Your Own</a>
-        </div>
-        <div className="nav-actions" style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-          <Button variant="secondary-dark">Client Login</Button>
-          <Button variant="primary">Curate Trip</Button>
-        </div>
-      </nav>
 
       {/* ═══════════════════════════════════════
-          01. Hero
+          01. Hero Section
           ═══════════════════════════════════════ */}
-      <section className="hero-section">
+      <section className="hero-section" id="hero" style={{ minHeight: '92vh' }}>
         <div className="hero-overlay"></div>
-        <div className="hero-content">
-          <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-mute)' }}>
-            {hero.eyebrow}
+        
+        {/* Cinematic Background Video Frame */}
+        <div className="hero-video-bg">
+          <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.18 }}>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-beautiful-aerial-view-of-snowy-mountains-42211-large.mp4" type="video/mp4" />
+          </video>
+        </div>
+
+        <div className="hero-content" style={{ paddingBottom: 'var(--spacing-xxl)' }}>
+          <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-brand)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
+            TRAVERSE SOUTH // UNTRACKED SOUTHERN WILDERNESS FOR ADVENTURE SEEKERS
           </p>
-          <h1 className="typography-display-mega" style={{ maxWidth: '1200px', marginBottom: '32px' }}>
-            {hero.headline}
+          <h1 className="typography-display-mega" style={{ maxWidth: '1200px', marginBottom: '32px', color: 'var(--colors-on-primary)' }}>
+            Traverse South — Elite Southern Blueprints.
           </h1>
-          <p className="typography-subtitle" style={{ maxWidth: '560px', color: 'var(--colors-ash)', marginBottom: '40px' }}>
-            {hero.subtitle}
+          <p className="typography-subtitle" style={{ maxWidth: '650px', color: 'var(--colors-ash)', marginBottom: '40px', lineHeight: '1.6' }}>
+            Frictionless, high-gravity expeditions engineered for those whose rarest asset is time. We compile private rotorcraft, marine charters, and elite mountain guides into uncompromised, surgical wilderness manifests.
           </p>
           <div style={{ display: 'flex', gap: '16px' }}>
-            <Button variant="primary">{hero.primaryCta}</Button>
-            <Button variant="secondary-dark">{hero.secondaryCta}</Button>
+            <Button variant="brand" href="#adventures">Explore Blueprints</Button>
+            <Button variant="secondary-dark" href="#manifesto">Our Manifesto</Button>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════
-          02. Mission
+          02. The Luxury Adventure Manifesto
           ═══════════════════════════════════════ */}
-      <section id="mission" className="marketing-section-dark">
-        <div className="container">
-          <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-mute)', textAlign: 'center' }}>
-            {mission.eyebrow}
+      <section id="manifesto" className="marketing-section-dark" style={{ borderTop: '1px solid var(--colors-hairline-soft)' }}>
+        <div className="container" style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-brand)', textTransform: 'uppercase', letterSpacing: '1.5px', textAlign: 'center' }}>
+            MANIFESTO
           </p>
-          <h2 className="typography-display-sm" style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto 0' }}>
-            {mission.headline}
+          <h2 className="typography-display-sm" style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto var(--spacing-xxl)', color: '#fff', fontSize: '38px' }}>
+            Surgical Wilderness Manifests.
           </h2>
 
-          <div className="photo-deck">
-            {(mission?.photoDeck || []).map((item: any) => (
-              <div className="photo-deck-item" key={item.label}>
-                <div 
-                  className="photo-deck-image"
-                  style={{
-                    backgroundImage: `url(${item.image ? urlFor(item.image).url() : ''})`
-                  }}
-                >
-                  {item.label}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <h3 className="typography-display-sm" style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto' }}>
-            {mission.bodyText}
-          </h3>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════
-          03. Modules
-          ═══════════════════════════════════════ */}
-      <section id="modules" className="marketing-section-light" style={{ padding: 0 }}>
-        <div style={{ padding: 'var(--spacing-section-lg) var(--spacing-lg) var(--spacing-xl)' }}>
-          <div className="container">
-            <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-mute)' }}>
-              // THE MODULES
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', marginTop: 'var(--spacing-xl)' }}>
+            <p className="typography-subtitle" style={{ color: 'var(--colors-on-primary)', lineHeight: '1.7', fontSize: '20px' }}>
+              We do not believe in standard tourism; we believe in the surgical execution of untouched wilderness experiences. For those whose time is their most valuable currency, waiting on a traditional travel agent is a friction point. Traverse South decouples luxury travel from administrative delay, offering pre-qualified, logistically validated day modules that stack into the ultimate South Island itinerary.
             </p>
-            <h2 className="typography-display-xl" style={{ marginBottom: '16px' }}>
-              Stack perfectly into a 3-week expedition.
-            </h2>
-            <p className="typography-subtitle" style={{ maxWidth: '600px' }}>
-              Three distinct regional packages, each approximately one week. Combine all three for the Ultimate New Zealand experience.
+            <p className="typography-body" style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '16px' }}>
+              Every blueprint is built on direct relationships with elite local operators. We coordinate AS350 turbine helicopters, 24-meter deep-fiord catamarans, restricted high-country Land Rover Defender convoys, and IFMGA-certified mountain guides. Each transit window and safety envelope is calculated to the minute, ensuring that your transition from high-alpine powder to ocean-level restoration is absolute.
             </p>
-          </div>
-        </div>
-
-        <div className="category-grid">
-          {(categories || []).map((cat: any, i: number) => {
-            const slugMap: Record<string, string> = {
-              'Fiordland': 'fiordland',
-              'Fiordland Sanctuary': 'fiordland',
-              'QT & Mt. Cook': 'qt-mtcook',
-              'Alpine Adrenaline': 'qt-mtcook',
-              'Relax & Recover': 'relax',
-              'Active Restoration': 'relax'
-            };
-            const slug = slugMap[cat.title] || cat.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-
-            return (
-              <a href={`/packages/${slug}`} className="category-block" key={cat.title}>
-                <p className="typography-mono-eyebrow category-block-eyebrow" style={{ color: 'var(--colors-brand)' }}>{cat.eyebrow}</p>
-                <h3 className="typography-display-md category-block-title">{cat.title}</h3>
-                <p className="typography-body category-block-description">{cat.description}</p>
-
-                <div className="category-modules">
-                  {cat.modules?.map((mod: any) => (
-                    <div className="category-module-item" key={mod.number}>
-                      <span className="typography-mono-micro">{mod.number}</span>
-                      <span className="typography-body-sm">{mod.label}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <span className="category-block-cta">
-                  {cat.ctaText} <span>→</span>
-                </span>
-
-                <div className="category-block-image">
-                  <div 
-                    className="category-image-container"
-                    style={{
-                      backgroundImage: `url(${cat.image ? urlFor(cat.image).url() : ''})`
-                    }}
-                  >
-                    {cat.imageCaption}
-                  </div>
-                </div>
-              </a>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════
-          04. Build Your Own
-          ═══════════════════════════════════════ */}
-      <section id="engine" className="engine-section">
-        <div className="container">
-          <div style={{ marginBottom: '64px', width: '100%' }}>
-            <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-mute)' }}>
-              {engine.builderEyebrow || '// THE ITINERARY COMPILER'}
+            <p className="typography-body" style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '16px' }}>
+              Quiet luxury is defined by capability and speed. By bypassing middle-tier tour brokers, our portal connects your booking manifest directly into supplier operations. No placeholder itineraries. No standard schedules. Just pure, uncompromised gravity and wilderness.
             </p>
-            <h2 className="typography-display-xl" style={{ marginBottom: '24px' }}>
-              {engine.builderHeadline || 'Compile Your Custom Expedition'}
-            </h2>
-            <p className="typography-subtitle" style={{ color: 'var(--colors-ash)', marginBottom: '40px', maxWidth: '600px' }}>
-              {engine.builderSubtitle || 'Configure your adventure parameters below. Our engine will dynamically sort available modules for you to build the ultimate South Island itinerary.'}
-            </p>
-            <TourBuilder products={allProducts || []} />
-          </div>
-
-          <div className="engine-text-section" style={{ maxWidth: '800px', borderTop: '1px solid #222', paddingTop: '64px' }}>
-            <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-mute)' }}>
-              {engine.eyebrow}
-            </p>
-            <h2 className="typography-display-xl" style={{ marginBottom: '24px' }}>
-              {engine.headline}
-            </h2>
-            <p className="typography-subtitle" style={{ color: 'var(--colors-ash)', marginBottom: '40px' }}>
-              {engine.description}
-            </p>
-            <Button variant="brand">{engine.ctaText}</Button>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════
-          Footer
+          03. Combined Premium Adventures Grid
           ═══════════════════════════════════════ */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-grid">
-            {footer.columns?.map((col: any) => (
-              <div key={col.heading}>
-                <p className="typography-mono-caps" style={{ color: 'var(--colors-mute)', marginBottom: '16px' }}>{col.heading}</p>
-                <div className="footer-col-links">
-                  {col.links?.map((link: any) => (
-                    <a href={link.href} className="typography-caption" style={{ color: 'var(--colors-ash)' }} key={link.label}>{link.label}</a>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="footer-bottom">
-            <p className="typography-caption" style={{ color: 'var(--colors-mute)' }}>{footer.copyright}</p>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <div className="brand-dot"></div>
-              <span style={{ fontWeight: 500, letterSpacing: '-0.32px', fontSize: '16px' }}>Traverse South</span>
-            </div>
-          </div>
+      <section id="adventures" className="marketing-section-dark" style={{ borderTop: '1px solid var(--colors-hairline-soft)' }}>
+        <div className="container" id="modules">
+          <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-brand)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
+            // THE MANIFEST
+          </p>
+          <h2 className="typography-display-xl" style={{ marginBottom: '16px', color: '#fff' }}>
+            Premium Adventures Grid
+          </h2>
+          <p className="typography-subtitle" style={{ maxWidth: '600px', color: 'var(--colors-ash)', marginBottom: '32px' }}>
+            Surgical day modules filterable by gravity and wilderness intensity.
+          </p>
+          
+          <TourBuilder products={allProducts || []} />
         </div>
-      </footer>
+      </section>
     </main>
   );
 }

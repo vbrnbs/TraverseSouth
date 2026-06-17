@@ -2,194 +2,233 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/Button';
+import { urlFor } from '@/sanity/client';
+import { BookingModal } from './BookingModal';
 
-export function TourBuilder({ products }: { products: any[] }) {
-  const [adventureLevel, setAdventureLevel] = useState<number>(7);
-  const [daysStay, setDaysStay] = useState<number>(5);
-  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+interface ActivityProps {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  eyebrow?: string;
+  subtitle?: string;
+  description?: string;
+  adventureLevel: number;
+  ctaText?: string;
+  image?: any;
+  pricing?: {
+    priceString?: string;
+    minimumGroup?: string;
+    inclusions?: string[];
+  };
+}
 
-  const safeProducts = products || [];
+export function TourBuilder({ products }: { products: ActivityProps[] }) {
+  const [activeLevel, setActiveLevel] = useState<string>('all');
+  const [selectedActivity, setSelectedActivity] = useState<ActivityProps | null>(null);
 
-  const selectedProducts = safeProducts.filter(p => selectedIds.includes(p._id));
-  const currentDuration = selectedProducts.reduce((sum, p) => sum + (p.durationDays || 1), 0);
+  const safeActivities = products || [];
 
-  const exactMatches = safeProducts.filter(p => (p.adventureScore || 5) === adventureLevel);
-  const lowerMatches = safeProducts
-    .filter(p => (p.adventureScore || 5) < adventureLevel)
-    .sort((a, b) => (b.adventureScore || 5) - (a.adventureScore || 5));
-  const higherMatches = safeProducts
-    .filter(p => (p.adventureScore || 5) > adventureLevel)
-    .sort((a, b) => (a.adventureScore || 5) - (b.adventureScore || 5));
+  // Filter activities by selected adventureLevel
+  const filteredActivities = safeActivities.filter((act) => {
+    if (activeLevel === 'all') return true;
+    return act.adventureLevel === parseInt(activeLevel);
+  });
 
-  const handleToggle = (id: string, duration: number) => {
-    if (selectedIds.includes(id)) {
-      setSelectedIds(selectedIds.filter(x => x !== id));
-    } else {
-      if (currentDuration + duration > daysStay) {
-        alert("Cannot add this module. It exceeds your selected length of stay.");
-        return;
-      }
-      setSelectedIds([...selectedIds, id]);
+  const getLevelLabel = (level: number) => {
+    switch (level) {
+      case 1:
+        return 'LEVEL 1 // RESTORATIVE';
+      case 2:
+        return 'LEVEL 2 // ACTIVE WILDERNESS';
+      case 3:
+        return 'LEVEL 3 // HIGH GRAVITY';
+      default:
+        return `LEVEL ${level}`;
     }
   };
 
-  const renderProductCard = (p: any, compact: boolean = false) => {
-    const isSelected = selectedIds.includes(p._id);
-    const duration = p.durationDays || 1;
-    const disabled = !isSelected && (currentDuration + duration > daysStay);
-
-    return (
+  return (
+    <div style={{ marginTop: 'var(--spacing-xl)' }}>
+      {/* ─── Level Filter Tabs ─── */}
       <div 
-        key={p._id} 
-        style={{
-          border: isSelected ? '1px solid var(--colors-brand)' : '1px solid #222',
-          background: isSelected ? '#1a1010' : '#111',
-          padding: compact ? '12px' : '16px',
-          cursor: disabled ? 'not-allowed' : 'pointer',
-          opacity: disabled ? 0.5 : 1,
-          transition: 'all 0.2s ease',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          marginBottom: '16px'
-        }}
-        onClick={() => {
-          if (!disabled || isSelected) handleToggle(p._id, duration);
+        style={{ 
+          display: 'flex', 
+          gap: '12px', 
+          marginBottom: 'var(--spacing-xxl)', 
+          borderBottom: '1px solid var(--colors-hairline-soft)',
+          paddingBottom: '16px',
+          overflowX: 'auto',
+          scrollbarWidth: 'none'
         }}
       >
-        <div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-            <span className="typography-mono-micro" style={{ color: 'var(--colors-brand)' }}>Level {p.adventureScore || 5}</span>
-            <span className="typography-mono-micro" style={{ color: 'var(--colors-mute)' }}>{duration} Days</span>
-          </div>
-          <h4 style={{ fontSize: compact ? '16px' : '18px', fontWeight: 500, marginBottom: '8px' }}>{p.title}</h4>
-        </div>
-        <Button variant={isSelected ? "primary" : "secondary-dark"} style={{ width: '100%', marginTop: '16px', padding: compact ? '6px' : '8px', fontSize: compact ? '12px' : '14px' }}>
-          {isSelected ? "Remove" : "Add to Itinerary"}
-        </Button>
-      </div>
-    );
-  };
+        {['all', '1', '2', '3'].map((lvl) => {
+          const isActive = activeLevel === lvl;
+          const label = 
+            lvl === 'all' 
+              ? 'ALL EXPERIENCES' 
+              : lvl === '1' 
+              ? 'LEVEL 1 // RESTORATIVE' 
+              : lvl === '2' 
+              ? 'LEVEL 2 // ACTIVE WILDERNESS' 
+              : 'LEVEL 3 // HIGH GRAVITY';
 
-  return (
-    <div className="tour-builder" style={{ width: '100%', marginTop: '24px', display: 'flex', gap: '48px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
-      
-      {/* ─── LEFT COLUMN: BROWSE & FILTER ─── */}
-      <div style={{ flex: '1 1 600px' }}>
-        
-        {/* Controls */}
-        <div style={{ marginBottom: '40px', display: 'flex', gap: '32px', flexWrap: 'wrap', background: '#111', padding: '24px', border: '1px solid #222' }}>
-          <div style={{ flex: 1, minWidth: '200px' }}>
-            <label className="typography-mono-eyebrow" style={{ display: 'block', marginBottom: '16px', color: 'var(--colors-mute)' }}>
-              TARGET ADVENTURE LEVEL: <span style={{ color: 'var(--colors-brand)' }}>{adventureLevel}</span>
-            </label>
-            <input 
-              type="range" 
-              min="1" 
-              max="10" 
-              value={adventureLevel} 
-              onChange={(e) => setAdventureLevel(Number(e.target.value))}
-              style={{ width: '100%', accentColor: 'var(--colors-brand)' }}
-            />
-          </div>
-          <div style={{ flex: 1, minWidth: '200px' }}>
-            <label className="typography-mono-eyebrow" style={{ display: 'block', marginBottom: '16px', color: 'var(--colors-mute)' }}>
-              LENGTH OF STAY (DAYS)
-            </label>
-            <input 
-              type="number" 
-              min="1" 
-              max="14" 
-              value={daysStay} 
-              onChange={(e) => setDaysStay(Number(e.target.value))}
-              style={{ 
-                width: '100%', 
-                background: '#0b0b0b', 
-                border: '1px solid #333', 
-                color: '#fff', 
-                padding: '8px 12px',
-                fontFamily: 'inherit'
+          return (
+            <button
+              key={lvl}
+              onClick={() => setActiveLevel(lvl)}
+              className="typography-mono-caps"
+              style={{
+                padding: 'var(--spacing-xs) var(--spacing-md)',
+                backgroundColor: isActive ? 'var(--colors-brand)' : 'var(--colors-canvas-soft)',
+                color: isActive ? '#0b0b0b' : 'var(--colors-ash)',
+                borderRadius: 'var(--rounded-app-sm)',
+                border: isActive ? '1px solid var(--colors-brand)' : '1px solid var(--colors-hairline-soft)',
+                cursor: 'pointer',
+                transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                whiteSpace: 'nowrap',
+                fontWeight: isActive ? 600 : 500
               }}
-            />
-          </div>
-        </div>
-
-        {/* Exact Matches */}
-        <div style={{ marginBottom: '48px' }}>
-          <p className="typography-mono-caps" style={{ color: 'var(--colors-mute)', marginBottom: '16px' }}>
-            // EXACT MATCHES (LEVEL {adventureLevel})
-          </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px' }}>
-            {exactMatches.map(p => renderProductCard(p, false))}
-            {exactMatches.length === 0 && (
-              <p style={{ color: 'var(--colors-ash)', fontSize: '14px' }}>No exact matches at this level. Check the alternatives below.</p>
-            )}
-          </div>
-        </div>
-
-        {/* Lower & Higher Branches */}
-        <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
-          <div style={{ flex: '1 1 280px' }}>
-            <p className="typography-mono-caps" style={{ color: 'var(--colors-mute)', marginBottom: '16px' }}>
-              // DIAL IT DOWN (LOWER INTENSITY)
-            </p>
-            {lowerMatches.map(p => renderProductCard(p, true))}
-            {lowerMatches.length === 0 && (
-              <p style={{ color: 'var(--colors-ash)', fontSize: '14px' }}>No lower intensity options available.</p>
-            )}
-          </div>
-          
-          <div style={{ flex: '1 1 280px' }}>
-            <p className="typography-mono-caps" style={{ color: 'var(--colors-mute)', marginBottom: '16px' }}>
-              // PUSH THE LIMITS (HIGHER INTENSITY)
-            </p>
-            {higherMatches.map(p => renderProductCard(p, true))}
-            {higherMatches.length === 0 && (
-              <p style={{ color: 'var(--colors-ash)', fontSize: '14px' }}>You are at the maximum intensity.</p>
-            )}
-          </div>
-        </div>
+              onMouseEnter={(e) => {
+                if (!isActive) {
+                  e.currentTarget.style.borderColor = 'var(--colors-brand)';
+                  e.currentTarget.style.color = '#fff';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!isActive) {
+                  e.currentTarget.style.borderColor = 'var(--colors-hairline-soft)';
+                  e.currentTarget.style.color = 'var(--colors-ash)';
+                }
+              }}
+            >
+              {label}
+            </button>
+          );
+        })}
       </div>
 
-      {/* ─── RIGHT COLUMN: SELECTED ITINERARY ─── */}
-      <div style={{ flex: '0 0 400px', position: 'sticky', top: '24px', background: '#111', border: '1px solid #222', padding: '32px', display: 'flex', flexDirection: 'column' }}>
-        <p className="typography-mono-caps" style={{ color: 'var(--colors-brand)', marginBottom: '8px' }}>
-          // COMPILED ITINERARY
-        </p>
-        <h3 className="typography-display-sm" style={{ marginBottom: '24px', fontSize: '24px' }}>
-          {currentDuration} / {daysStay} Days Filled
-        </h3>
-        
-        <div style={{ borderBottom: '1px solid #222', marginBottom: '24px', paddingBottom: '8px' }}>
-          {selectedProducts.length === 0 ? (
-            <p style={{ color: 'var(--colors-ash)', fontSize: '14px', fontStyle: 'italic', marginBottom: '16px' }}>
-              Your itinerary is empty. Select modules from the left to build your expedition.
-            </p>
-          ) : (
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-              {selectedProducts.map(p => (
-                <li key={p._id} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px', alignItems: 'center' }}>
-                  <div>
-                    <p style={{ fontSize: '14px', fontWeight: 500, margin: 0 }}>{p.title}</p>
-                    <p style={{ fontSize: '12px', color: 'var(--colors-mute)', margin: 0 }}>Level {p.adventureScore || 5}</p>
-                  </div>
-                  <span className="typography-mono-micro" style={{ color: 'var(--colors-ash)' }}>{p.durationDays || 1}d</span>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-        
-        <div style={{ marginTop: 'auto' }}>
-          <p className="typography-meta" style={{ color: 'var(--colors-mute)', marginBottom: '16px' }}>
-            Requires secure checkout to lock in dates and guide availability.
+      {/* ─── Grid Layout ─── */}
+      <div 
+        style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', 
+          gap: 'var(--spacing-lg)',
+          marginBottom: 'var(--spacing-section)'
+        }}
+      >
+        {filteredActivities.map((act) => {
+          const imageUrl = act.image ? urlFor(act.image).url() : `/images/${act.slug?.current}.png`;
+
+          return (
+            <div 
+              key={act._id} 
+              className="feature-card-dark"
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                padding: '0',
+                overflow: 'hidden',
+                transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease',
+                backgroundColor: 'var(--colors-canvas-soft)',
+                border: '1px solid var(--colors-hairline-soft)',
+                borderRadius: 'var(--rounded-marketing)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'var(--colors-brand)';
+                e.currentTarget.style.transform = 'translateY(-4px)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'var(--colors-hairline-soft)';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              {/* Image Frame */}
+              <div 
+                style={{ 
+                  width: '100%', 
+                  height: '220px', 
+                  backgroundImage: `url(${imageUrl})`, 
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  borderBottom: '1px solid var(--colors-hairline-soft)'
+                }}
+              />
+
+              {/* Content Block */}
+              <div style={{ padding: 'var(--spacing-xl)', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
+                <div>
+                  <p 
+                    className="typography-mono-eyebrow" 
+                    style={{ 
+                      color: 'var(--colors-brand)', 
+                      fontSize: '11px', 
+                      letterSpacing: '1px', 
+                      marginBottom: '12px' 
+                    }}
+                  >
+                    {getLevelLabel(act.adventureLevel)}
+                  </p>
+                  <h3 
+                    className="typography-heading-sm" 
+                    style={{ 
+                      marginBottom: '12px', 
+                      fontWeight: 500, 
+                      color: '#fff',
+                      fontSize: '22px',
+                      letterSpacing: '-0.4px'
+                    }}
+                  >
+                    {act.title}
+                  </h3>
+                  <p 
+                    className="typography-body-sm" 
+                    style={{ 
+                      color: 'var(--colors-ash)', 
+                      lineHeight: '1.6', 
+                      marginBottom: '24px' 
+                    }}
+                  >
+                    {act.description}
+                  </p>
+                </div>
+
+                {/* Actions */}
+                <div style={{ display: 'flex', gap: '12px', marginTop: 'auto' }}>
+                  <Button 
+                    variant="brand" 
+                    style={{ flex: 1, height: '40px', padding: '0', fontSize: '13px' }}
+                    onClick={() => setSelectedActivity(act)}
+                  >
+                    {act.ctaText || 'Book Now'}
+                  </Button>
+                  <Button 
+                    variant="secondary-dark" 
+                    style={{ flex: 1, height: '40px', padding: '0', fontSize: '13px' }}
+                    href={`/itinerary/${act.slug?.current}`}
+                  >
+                    View Itinerary
+                  </Button>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+
+        {filteredActivities.length === 0 && (
+          <p style={{ color: 'var(--colors-ash)', fontSize: '14px', gridColumn: '1 / -1', textAlign: 'center', padding: '48px 0' }}>
+            No experiences found matching this criteria.
           </p>
-          <Button variant="primary" style={{ width: '100%' }} onClick={() => alert("Checkout flow coming soon!")}>
-            Proceed to Checkout →
-          </Button>
-        </div>
+        )}
       </div>
 
+      {/* Booking Modal Fallback */}
+      {selectedActivity && (
+        <BookingModal 
+          activity={selectedActivity} 
+          onClose={() => setSelectedActivity(null)} 
+        />
+      )}
     </div>
   );
 }

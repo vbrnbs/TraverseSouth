@@ -52,14 +52,15 @@ export const homepageQuery = `*[_type == "homepage"][0]{
       }
     }
   },
-  "allProducts": *[_type == "product"] {
+  "allProducts": *[_type == "activity"] {
     _id,
     title,
     slug,
     eyebrow,
+    subtitle,
     description,
-    adventureScore,
-    durationDays,
+    adventureLevel,
+    ctaText,
     image,
     pricing
   }
