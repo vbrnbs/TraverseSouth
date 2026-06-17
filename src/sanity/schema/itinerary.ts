@@ -1,13 +1,13 @@
 import { defineType, defineField } from 'sanity'
 
 export default defineType({
-    name: 'activity',
-    title: 'Activity',
+    name: 'itinerary',
+    title: 'Itinerary',
     type: 'document',
     fields: [
         defineField({
             name: 'title',
-            title: 'Activity Title',
+            title: 'Itinerary Title',
             type: 'string',
             validation: (Rule) => Rule.required(),
         }),
@@ -37,47 +37,31 @@ export default defineType({
             type: 'text',
         }),
         defineField({
-            name: 'adventureLevel',
-            title: 'Adventure Level (1-3)',
-            type: 'number',
-            validation: (Rule) => Rule.required().min(1).max(3).integer(),
-        }),
-        defineField({
-            name: 'ctaText',
-            title: 'CTA Text',
-            type: 'string',
-        }),
-        defineField({
             name: 'image',
             title: 'Primary Image',
             type: 'image',
             options: { hotspot: true },
         }),
         defineField({
+            name: 'activities',
+            title: 'Included Activities',
+            type: 'array',
+            of: [
+                {
+                    type: 'reference',
+                    to: [{ type: 'activity' }],
+                },
+            ],
+            validation: (Rule) => Rule.required().min(1),
+        }),
+        defineField({
             name: 'pricing',
-            title: 'Pricing Details',
+            title: 'Pricing Details Override',
             type: 'object',
             fields: [
                 { name: 'priceString', title: 'Price String', type: 'string' },
                 { name: 'minimumGroup', title: 'Minimum Group Note', type: 'string' },
                 { name: 'inclusions', title: 'Inclusions', type: 'array', of: [{ type: 'string' }] },
-            ]
-        }),
-        defineField({
-            name: 'suppliers',
-            title: 'Supplier Network',
-            type: 'array',
-            of: [
-                {
-                    type: 'object',
-                    name: 'supplierItem',
-                    title: 'Supplier',
-                    fields: [
-                        { name: 'label', title: 'Supplier Label', type: 'string' },
-                        { name: 'name', title: 'Supplier Name', type: 'string' },
-                        { name: 'credential', title: 'Supplier Credential', type: 'string' },
-                    ]
-                }
             ]
         })
     ]

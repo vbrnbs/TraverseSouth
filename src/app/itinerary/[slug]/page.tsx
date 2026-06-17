@@ -5,8 +5,46 @@ import { draftMode } from 'next/headers';
 import Link from 'next/link';
 import { Metadata } from 'next';
 
+const itineraryQuery = `*[_type == "itinerary" && slug.current == $slug][0] {
+  _id,
+  _type,
+  title,
+  slug,
+  eyebrow,
+  subtitle,
+  description,
+  image,
+  pricing {
+    priceString,
+    minimumGroup,
+    inclusions
+  },
+  activities[]-> {
+    _id,
+    title,
+    slug,
+    eyebrow,
+    subtitle,
+    description,
+    adventureLevel,
+    ctaText,
+    image,
+    pricing {
+      priceString,
+      minimumGroup,
+      inclusions
+    },
+    suppliers[] {
+      label,
+      name,
+      credential
+    }
+  }
+}`;
+
 const activityQuery = `*[_type == "activity" && slug.current == $slug][0] {
   _id,
+  _type,
   title,
   slug,
   eyebrow,
@@ -19,12 +57,6 @@ const activityQuery = `*[_type == "activity" && slug.current == $slug][0] {
     priceString,
     minimumGroup,
     inclusions
-  },
-  days[] {
-    dayNumber,
-    title,
-    description,
-    logistics
   },
   suppliers[] {
     label,
@@ -41,17 +73,27 @@ export async function generateMetadata({ params }: ItineraryPageProps): Promise<
   const { slug } = await params;
   const isDraft = (await draftMode()).isEnabled;
   const client = isDraft ? previewClient : sanityClient;
-  const activity = await client.fetch(activityQuery, { slug });
-
-  if (!activity) {
+  
+  // Try itinerary first
+  const itinerary = await client.fetch(itineraryQuery, { slug });
+  if (itinerary) {
     return {
-      title: 'Itinerary | Traverse South',
+      title: `${itinerary.title} | Traverse South`,
+      description: itinerary.subtitle || itinerary.description,
+    };
+  }
+
+  // Fallback to activity
+  const activity = await client.fetch(activityQuery, { slug });
+  if (activity) {
+    return {
+      title: `${activity.title} Itinerary | Traverse South`,
+      description: activity.subtitle || activity.description,
     };
   }
 
   return {
-    title: `${activity.title} Itinerary | Traverse South`,
-    description: activity.subtitle || `Surgical logistical envelope and chronological timeline for the ${activity.title} private expedition.`,
+    title: 'Itinerary | Traverse South',
   };
 }
 
@@ -59,24 +101,49 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
   const { slug } = await params;
   const isDraft = (await draftMode()).isEnabled;
   const client = isDraft ? previewClient : sanityClient;
-  const activity = await client.fetch(activityQuery, { slug });
 
-  if (!activity) {
-    notFound();
+  // Try fetching as itinerary
+  const itinerary = await client.fetch(itineraryQuery, { slug });
+  let activity = null;
+
+  if (!itinerary) {
+    // Fallback to activity
+    activity = await client.fetch(activityQuery, { slug });
+    if (!activity) {
+      notFound();
+    }
   }
 
-  const imageUrl = activity.image ? urlFor(activity.image).url() : `/images/${activity.slug?.current}.png`;
+  // Determine metadata values
+  const title = itinerary ? itinerary.title : activity.title;
+  const subtitle = itinerary ? itinerary.subtitle : (activity.subtitle || activity.description);
+  const description = itinerary ? itinerary.description : activity.description;
+  
+  // Resolve image URL
+  let imageUrl = '';
+  if (itinerary) {
+    imageUrl = itinerary.image 
+      ? urlFor(itinerary.image).url() 
+      : (itinerary.activities?.[0]?.image 
+          ? urlFor(itinerary.activities[0].image).url() 
+          : `/images/${itinerary.activities?.[0]?.slug?.current}.png`);
+  } else if (activity) {
+    imageUrl = activity.image 
+      ? urlFor(activity.image).url() 
+      : `/images/${activity.slug?.current}.png`;
+  }
+
+  // Calculate stats
+  const maxAdventureLevel = itinerary
+    ? Math.max(...(itinerary.activities || []).map((a: any) => a.adventureLevel || 1))
+    : (activity.adventureLevel || 1);
 
   const getLevelLabel = (level: number) => {
     switch (level) {
-      case 1:
-        return 'LEVEL 1 // RESTORATIVE';
-      case 2:
-        return 'LEVEL 2 // ACTIVE WILDERNESS';
-      case 3:
-        return 'LEVEL 3 // HIGH GRAVITY';
-      default:
-        return `LEVEL ${level}`;
+      case 1: return 'LEVEL 1 // RESTORATIVE';
+      case 2: return 'LEVEL 2 // ACTIVE WILDERNESS';
+      case 3: return 'LEVEL 3 // HIGH GRAVITY';
+      default: return `LEVEL ${level}`;
     }
   };
 
@@ -97,6 +164,65 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
       default: return 'Standard';
     }
   };
+
+  // Pricing & Inclusions aggregation
+  const priceString = itinerary 
+    ? (itinerary.pricing?.priceString || 'Bespoke Package Quote')
+    : (activity.pricing?.priceString || 'Bespoke Quote');
+
+  const minimumGroup = itinerary
+    ? (itinerary.pricing?.minimumGroup || 'Tailored to private groups')
+    : (activity.pricing?.minimumGroup || 'Tailored for private groups');
+
+  const inclusions = itinerary
+    ? (itinerary.pricing?.inclusions && itinerary.pricing.inclusions.length > 0
+        ? itinerary.pricing.inclusions
+        : (itinerary.activities || []).flatMap((a: any) => a.pricing?.inclusions || []))
+    : (activity.pricing?.inclusions || [
+        'Private transfers and safety crews',
+        'Bespoke guiding and premium gear'
+      ]);
+
+  // Aggregate verified operators list
+  const uniqueSuppliers: any[] = [];
+  const supplierNames = new Set<string>();
+
+  if (itinerary) {
+    (itinerary.activities || []).forEach((act: any) => {
+      (act.suppliers || []).forEach((sup: any) => {
+        if (!supplierNames.has(sup.name)) {
+          supplierNames.add(sup.name);
+          uniqueSuppliers.push(sup);
+        }
+      });
+    });
+  } else if (activity) {
+    (activity.suppliers || []).forEach((sup: any) => {
+      if (!supplierNames.has(sup.name)) {
+        supplierNames.add(sup.name);
+        uniqueSuppliers.push(sup);
+      }
+    });
+  }
+
+  // Format Day Timeline Phases
+  const timelineDays = itinerary 
+    ? (itinerary.activities || []).map((act: any, idx: number) => ({
+        dayNumber: `PHASE ${idx + 1}`,
+        title: act.title,
+        description: act.description,
+        logistics: act.suppliers?.[0] 
+          ? `Transit & guides by certified operator: ${act.suppliers[0].name} (${act.suppliers[0].credential})`
+          : 'Surgical field transit & safety guides network'
+      }))
+    : [{
+        dayNumber: 'PHASE 1',
+        title: activity.title,
+        description: activity.description,
+        logistics: activity.suppliers?.[0]
+          ? `Coordinated by operator: ${activity.suppliers[0].name} (${activity.suppliers[0].credential})`
+          : 'Surgical field transit & safety guides network'
+      }];
 
   return (
     <main style={{ backgroundColor: '#0b0b0b', color: '#b9b9b9', minHeight: '100vh', paddingBottom: 'var(--spacing-section-lg)' }}>
@@ -138,13 +264,13 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
         {/* Header Block */}
         <div style={{ borderBottom: '1px solid var(--colors-hairline-soft)', paddingBottom: '40px', marginBottom: '48px' }}>
           <p className="typography-mono-eyebrow" style={{ color: 'var(--colors-brand)', marginBottom: '16px', letterSpacing: '1px' }}>
-            {getLevelLabel(activity.adventureLevel)}
+            {getLevelLabel(maxAdventureLevel)}
           </p>
           <h1 className="typography-display-xl" style={{ color: '#fff', marginBottom: '24px' }}>
-            {activity.title}
+            {title}
           </h1>
           <p className="typography-subtitle" style={{ color: 'var(--colors-ash)', maxWidth: '800px', lineHeight: 1.6 }}>
-            {activity.subtitle || activity.description}
+            {subtitle}
           </p>
         </div>
 
@@ -157,7 +283,7 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
             </h2>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
-              {(activity.days || []).map((day: any, idx: number) => (
+              {timelineDays.map((day: any, idx: number) => (
                 <div key={idx} style={{ display: 'flex', gap: '24px' }}>
                   {/* Timeline node */}
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -177,7 +303,7 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
                     }}>
                       {idx + 1}
                     </div>
-                    {idx < activity.days.length - 1 && (
+                    {idx < timelineDays.length - 1 && (
                       <div style={{ flex: 1, width: '1px', backgroundColor: 'var(--colors-hairline-soft)', margin: '12px 0' }} />
                     )}
                   </div>
@@ -185,7 +311,7 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
                   {/* Timeline details */}
                   <div style={{ flex: 1 }}>
                     <p className="typography-mono-eyebrow" style={{ color: 'var(--colors-mute)', fontSize: '11px', textTransform: 'uppercase', marginBottom: '8px' }}>
-                      {day.dayNumber || `PHASE ${idx + 1}`}
+                      {day.dayNumber}
                     </p>
                     <h3 className="typography-heading-sm" style={{ color: '#fff', marginBottom: '16px', fontWeight: 500 }}>
                       {day.title}
@@ -269,13 +395,13 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
               <div style={{ borderBottom: '1px solid #333', paddingBottom: '20px', marginBottom: '20px' }}>
                 <span style={{ fontSize: '12px', color: 'var(--colors-mute)', display: 'block', textTransform: 'uppercase', marginBottom: '4px' }}>ESTIMATED COSTING</span>
                 <span className="typography-heading-md" style={{ color: '#fff', fontWeight: 600 }}>
-                  {activity.pricing?.priceString || 'Bespoke Quote'}
+                  {priceString}
                 </span>
                 <span style={{ fontSize: '13px', color: 'var(--colors-mute)', marginLeft: '6px' }}>
-                  {activity.pricing?.priceString ? '/ person' : ''}
+                  {priceString !== 'Bespoke Package Quote' ? '' : ''}
                 </span>
                 <p style={{ fontSize: '12px', color: 'var(--colors-ash)', marginTop: '6px' }}>
-                  {activity.pricing?.minimumGroup || 'Tailored to private groups.'}
+                  {minimumGroup}
                 </p>
               </div>
 
@@ -283,15 +409,19 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', borderBottom: '1px solid #333', paddingBottom: '20px', marginBottom: '20px' }}>
                 <div>
                   <span style={{ fontSize: '10px', color: 'var(--colors-mute)', display: 'block', textTransform: 'uppercase', marginBottom: '2px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>DURATION</span>
-                  <span style={{ color: '#fff', fontSize: '15px' }}>1 Day (Expedition Extension Available)</span>
+                  <span style={{ color: '#fff', fontSize: '15px' }}>
+                    {itinerary 
+                      ? `${itinerary.activities?.length || 1} Days (Custom Adjustments Available)`
+                      : '1 Day (Expedition Extension Available)'}
+                  </span>
                 </div>
                 <div>
                   <span style={{ fontSize: '10px', color: 'var(--colors-mute)', display: 'block', textTransform: 'uppercase', marginBottom: '2px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>TECHNICAL DIFFICULTY</span>
-                  <span style={{ color: '#fff', fontSize: '15px' }}>{getTechLevel(activity.adventureLevel)}</span>
+                  <span style={{ color: '#fff', fontSize: '15px' }}>{getTechLevel(maxAdventureLevel)}</span>
                 </div>
                 <div>
                   <span style={{ fontSize: '10px', color: 'var(--colors-mute)', display: 'block', textTransform: 'uppercase', marginBottom: '2px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>PHYSICAL INTENSITY</span>
-                  <span style={{ color: '#fff', fontSize: '15px' }}>{getPhysicalIntensity(activity.adventureLevel)}</span>
+                  <span style={{ color: '#fff', fontSize: '15px' }}>{getPhysicalIntensity(maxAdventureLevel)}</span>
                 </div>
               </div>
 
@@ -299,11 +429,7 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
               <div style={{ borderBottom: '1px solid #333', paddingBottom: '20px', marginBottom: '20px' }}>
                 <span style={{ fontSize: '10px', color: 'var(--colors-mute)', display: 'block', textTransform: 'uppercase', marginBottom: '12px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>EXPEDITION INCLUSIONS</span>
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                  {(activity.pricing?.inclusions || [
-                    'Private helicopter transfers',
-                    'Bespoke guiding and safety crew',
-                    'Gourmet field dining and vintage wines'
-                  ]).map((inc: string, idx: number) => (
+                  {inclusions.map((inc: string, idx: number) => (
                     <li key={idx} style={{ fontSize: '13px', color: 'var(--colors-ash)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
                       <span style={{ color: 'var(--colors-brand)', fontWeight: 'bold' }}>✓</span>
                       <span>{inc}</span>
@@ -313,11 +439,11 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
               </div>
 
               {/* Verified Operators */}
-              {activity.suppliers && activity.suppliers.length > 0 && (
+              {uniqueSuppliers.length > 0 && (
                 <div>
                   <span style={{ fontSize: '10px', color: 'var(--colors-mute)', display: 'block', textTransform: 'uppercase', marginBottom: '12px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>LICENSED OPERATOR NETWORK</span>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                    {activity.suppliers.map((sup: any, idx: number) => (
+                    {uniqueSuppliers.map((sup: any, idx: number) => (
                       <div key={idx} style={{ fontSize: '13px' }}>
                         <span style={{ color: '#fff', display: 'block', fontWeight: 500 }}>{sup.name}</span>
                         <span style={{ color: 'var(--colors-mute)', fontSize: '11px', display: 'block', marginTop: '2px' }}>{sup.credential}</span>
