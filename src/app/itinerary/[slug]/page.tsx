@@ -5,6 +5,8 @@ import { draftMode } from 'next/headers';
 import Link from 'next/link';
 import { Metadata } from 'next';
 
+export const revalidate = 60;
+
 const itineraryQuery = `*[_type == "itinerary" && slug.current == $slug][0] {
   _id,
   _type,

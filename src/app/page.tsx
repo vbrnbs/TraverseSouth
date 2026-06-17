@@ -6,6 +6,9 @@ import { ScrollObserver } from '@/components/ScrollObserver';
 import { TourBuilder } from '@/components/TourBuilder';
 import { draftMode } from 'next/headers';
 
+// Configure dynamic pages to prerender at build time, but allow dynamic cache revalidation
+export const revalidate = 60;
+
 /* ═══════════════════════════════════════════════
    Server Component — fetches 100% dynamically from
    Sanity Studio at request/build time.
@@ -17,7 +20,7 @@ export default async function Home() {
   const client = isDraft ? previewClient : sanityClient;
 
   try {
-    data = await client.fetch(homepageQuery, {}, { cache: isDraft ? 'no-store' : 'force-cache' });
+    data = await client.fetch(homepageQuery, {}, { next: { revalidate: isDraft ? 0 : 60 } });
   } catch (error) {
     console.error('Error fetching homepage data from Sanity:', error);
   }

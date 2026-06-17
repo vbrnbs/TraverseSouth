@@ -2,6 +2,8 @@ import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: 'Legal Portal & Regulatory Disclosures | Traverse South',
   description: 'Terms of Service, Privacy Policy, and Operational Bio for Traverse South.',
