@@ -112,6 +112,21 @@
    Navigation
    ═══════════════════════════════════════════════ */
 
+.header-dropdown-link {
+  display: block;
+  padding: 10px 20px;
+  color: var(--colors-ash);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.header-dropdown-link:hover {
+  background-color: var(--colors-canvas-soft);
+  color: var(--colors-on-primary);
+}
+
 .nav-bar-dark {
   background-color: var(--colors-canvas);
   color: var(--colors-on-primary);

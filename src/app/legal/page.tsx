@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function LegalPage() {
   return (
-    <main style={{ backgroundColor: '#0b0b0b', color: '#b9b9b9', minHeight: '100vh', padding: 'var(--spacing-section-lg) 0' }}>
+    <main style={{ backgroundColor: '#0b0b0b', color: '#b9b9b9', minHeight: '100vh', paddingTop: '120px', paddingBottom: 'var(--spacing-section-lg)' }}>
       <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
         {/* Navigation Breadcrumb */}
         <div style={{ marginBottom: '48px' }}>

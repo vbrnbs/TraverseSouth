@@ -7,137 +7,121 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <>
-      {/* ─── Transparent Fixed Header ─── */}
-      <header 
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '80px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '0 48px',
-          zIndex: 999,
-          background: 'transparent',
-          pointerEvents: 'none'
-        }}
-      >
-        {/* Invisible spacer on left for centering */}
-        <div style={{ width: '60px' }}></div>
-
-        {/* Central Brand Wordmark */}
-        <div style={{ pointerEvents: 'auto' }}>
-          <Link 
-            href="/" 
-            className="typography-heading-md" 
+    <header 
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '72px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: '0 48px',
+        zIndex: 999,
+        background: 'rgba(11, 11, 11, 0.95)',
+        backdropFilter: 'blur(8px)',
+        borderBottom: '1px solid var(--colors-hairline-soft)'
+      }}
+    >
+      {/* Left logo (matches footer layout) */}
+      <div>
+        <Link 
+          href="/" 
+          style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            textDecoration: 'none' 
+          }}
+        >
+          <div className="brand-dot"></div>
+          <span 
             style={{ 
               fontWeight: 500, 
-              letterSpacing: '-0.4px', 
-              fontSize: '22px', 
-              color: '#fff',
-              textDecoration: 'none'
+              letterSpacing: '-0.32px', 
+              fontSize: '16px', 
+              color: '#fff' 
             }}
           >
             Traverse South
-          </Link>
-        </div>
+          </span>
+        </Link>
+      </div>
 
-        {/* Right typographic MENU trigger */}
-        <div style={{ pointerEvents: 'auto' }}>
-          <button 
-            onClick={() => setIsOpen(true)}
-            className="typography-mono-caps"
-            style={{
-              background: 'none',
-              border: 'none',
-              color: '#fff',
-              cursor: 'pointer',
-              fontSize: '13px',
-              letterSpacing: '1.5px',
-              padding: '8px 0',
-              fontWeight: 600
-            }}
-          >
-            MENU
-          </button>
-        </div>
-      </header>
-
-      {/* ─── Full-Screen Dark Navigation Overlay ─── */}
-      {isOpen && (
-        <div 
+      {/* Right typographic MENU trigger */}
+      <div style={{ position: 'relative' }}>
+        <button 
+          onClick={() => setIsOpen(!isOpen)}
+          className="typography-mono-caps"
           style={{
-            position: 'fixed',
-            inset: 0,
-            backgroundColor: '#0b0b0b',
-            zIndex: 1000,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            animation: 'fadeIn 0.25s ease-out'
+            background: 'none',
+            border: 'none',
+            color: '#fff',
+            cursor: 'pointer',
+            fontSize: '13px',
+            letterSpacing: '1.5px',
+            padding: '8px 0',
+            fontWeight: 600
           }}
         >
-          {/* Top Close trigger */}
-          <div 
-            style={{
-              position: 'absolute',
-              top: '20px',
-              right: '48px',
-              height: '80px',
-              display: 'flex',
-              alignItems: 'center'
-            }}
-          >
-            <button 
+          {isOpen ? 'CLOSE' : 'MENU'}
+        </button>
+
+        {/* Dropdown Menu below the trigger */}
+        {isOpen && (
+          <>
+            {/* Click outside to close backdrop */}
+            <div 
               onClick={() => setIsOpen(false)}
-              className="typography-mono-caps"
               style={{
-                background: 'none',
-                border: 'none',
-                color: '#fff',
-                cursor: 'pointer',
-                fontSize: '13px',
-                letterSpacing: '1.5px',
-                fontWeight: 600
+                position: 'fixed',
+                inset: 0,
+                zIndex: 997,
+                background: 'transparent',
+              }}
+            />
+            {/* Dropdown Box */}
+            <div 
+              style={{
+                position: 'absolute',
+                top: '48px', // situated below the trigger button
+                right: '0',
+                width: '220px',
+                backgroundColor: '#0b0b0b',
+                border: '1px solid var(--colors-hairline-soft)',
+                borderRadius: '6px',
+                padding: '8px 0',
+                zIndex: 998,
+                boxShadow: '0 10px 30px rgba(0,0,0,0.6)',
+                display: 'flex',
+                flexDirection: 'column'
               }}
             >
-              CLOSE
-            </button>
-          </div>
-
-          {/* Typographic Navigation Links */}
-          <nav style={{ display: 'flex', flexDirection: 'column', gap: '32px', textAlign: 'center' }}>
-            <Link 
-              href="/" 
-              onClick={() => setIsOpen(false)}
-              className="typography-display-sm"
-              style={{ color: '#fff', textDecoration: 'none', fontSize: '38px', letterSpacing: '-1.5px' }}
-            >
-              Home / Manifest
-            </Link>
-            <Link 
-              href="/#adventures" 
-              onClick={() => setIsOpen(false)}
-              className="typography-display-sm"
-              style={{ color: '#fff', textDecoration: 'none', fontSize: '38px', letterSpacing: '-1.5px' }}
-            >
-              Expeditions
-            </Link>
-            <Link 
-              href="/legal" 
-              onClick={() => setIsOpen(false)}
-              className="typography-display-sm"
-              style={{ color: '#fff', textDecoration: 'none', fontSize: '38px', letterSpacing: '-1.5px' }}
-            >
-              Legal & Disclosures
-            </Link>
-          </nav>
-        </div>
-      )}
-    </>
+              <Link 
+                href="/" 
+                onClick={() => setIsOpen(false)}
+                className="header-dropdown-link"
+              >
+                Home / Manifest
+              </Link>
+              <Link 
+                href="/#adventures" 
+                onClick={() => setIsOpen(false)}
+                className="header-dropdown-link"
+              >
+                Expeditions
+              </Link>
+              <Link 
+                href="/legal" 
+                onClick={() => setIsOpen(false)}
+                className="header-dropdown-link"
+              >
+                Legal & Disclosures
+              </Link>
+            </div>
+          </>
+        )}
+      </div>
+    </header>
   );
 }
