@@ -18,3 +18,9 @@ This document defines the strict engineering parameters, frameworks, and structu
     *   `itinerary.ts`: The predictive recommendation framework. Multi-day narratives utilizing arrays of references that point directly back to independent activities.
         *   **Conversion Routing**: `itinerary.ts` narratives utilize Portable Text with custom annotations to create direct, inline links to `activity.ts` single-day epics.
         *   **Frontend Rendering**: Embedded activity links within the narrative are styled distinctly with Coral-Red (`#f36458`) to drive frictionless conversions.
+
+## 📐 Global UI & Mobile Architecture
+* **Global Header**: Minimalist approach. Central wordmark with a typographical "MENU" trigger opening a full-screen dark overlay. No traditional horizontal navigation bars.
+* **Global Footer**: High-contrast, text-heavy authoritative footer featuring a minimalist newsletter capture and compliance links.
+* **Visual Separation Logic**: Differentiates transactional activities from inspirational packages via layout shifts (functional tight grid vs. oversized editorial cards) rather than background color changes.
+* **Mobile Constraint**: Strict single-column vertical stacking for all grids on mobile.
