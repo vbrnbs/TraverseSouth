@@ -47,7 +47,10 @@ Modular, high-end South Island adventure packages (approx. 1 week each), designe
 ---
 
 ## 🤝 Agent Cooperation Protocol
-- **Shared Memory:** All agents **MUST** read and update the central project logic before and after significant tasks to maintain a synchronized global state.
+- **Shared Memory (Google Drive SSOT & Gem Sync)**: The project operates on a Single Source of Truth (SSOT) using the Google Drive file [traverse_south_state.md](https://docs.google.com/document/d/1GETxDYz5Jj8TttlR1rtlGEe2MK5_-zUEa91U-zj5TFA/edit) (ID: `1GETxDYz5Jj8TttlR1rtlGEe2MK5_-zUEa91U-zj5TFA`).
+  - **Read State**: Before proposing solutions, writing code, or altering system logic, all agents MUST load the current project state from this Google Drive file to bypass isolated chat memory constraints.
+  - **Update State**: Upon completing any major milestone, structural refactoring, or database schema changes, the agent must output a concise Markdown summary under the heading `CORE UPDATE` and write it directly to the Google Drive document.
+  - **Gem Alignment**: To keep the Gemini platform **Gem** aligned with the live environment, all core issues and system updates must be synchronized to this Google Drive file, which serves as the Gem's data source.
 - **Task Handoffs:** 
   - When the *Growth Concierge* wants to test a new package bundle, it must hand off the logistical validation to the *Experience Architect*.
   - When the *Experience Architect* updates a price or module, it must hand off to the *Conversion Engineer* to update the frontend UI.
