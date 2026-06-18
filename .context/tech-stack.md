@@ -16,3 +16,5 @@ This document defines the strict engineering parameters, frameworks, and structu
 4.  **Decoupled Schemas (Sanity.io)**:
     *   `activity.ts`: The transactional core. Single-day epic events (e.g., specific heli-ski drops) containing individual pricing and Rezdy IDs.
     *   `itinerary.ts`: The predictive recommendation framework. Multi-day narratives utilizing arrays of references that point directly back to independent activities.
+        *   **Conversion Routing**: `itinerary.ts` narratives utilize Portable Text with custom annotations to create direct, inline links to `activity.ts` single-day epics.
+        *   **Frontend Rendering**: Embedded activity links within the narrative are styled distinctly with Coral-Red (`#f36458`) to drive frictionless conversions.
