@@ -122,6 +122,27 @@ async function run() {
       console.warn(`Warning: Itinerary ${it.title} has no resolved activities. Skipping.`);
       continue;
     }
+    
+    // Dynamically convert string description to Portable Text block array to match schema definition
+    if (typeof it.description === 'string') {
+      it.description = [
+        {
+          _type: 'block',
+          _key: 'desc-' + Math.random().toString(36).substring(2, 10),
+          style: 'normal',
+          markDefs: [],
+          children: [
+            {
+              _type: 'span',
+              _key: 'span-' + Math.random().toString(36).substring(2, 10),
+              text: it.description,
+              marks: []
+            }
+          ]
+        }
+      ];
+    }
+
     console.log(`Seeding itinerary: ${it.title}...`);
     await client.createOrReplace(it);
     console.log(`Seeded and published itinerary: ${it._id}`);
