@@ -13,6 +13,7 @@ interface ActivityProps {
   subtitle?: string;
   description?: string;
   adventureLevel: number;
+  region?: string;
   ctaText?: string;
   image?: any;
   pricing?: {
@@ -23,15 +24,17 @@ interface ActivityProps {
 }
 
 export function TourBuilder({ products }: { products: ActivityProps[] }) {
+  const [activeRegion, setActiveRegion] = useState<string>('all');
   const [activeLevel, setActiveLevel] = useState<string>('all');
   const [selectedActivity, setSelectedActivity] = useState<ActivityProps | null>(null);
 
   const safeActivities = products || [];
 
-  // Filter activities by selected adventureLevel
+  // Filter activities by selected Region and Level
   const filteredActivities = safeActivities.filter((act) => {
-    if (activeLevel === 'all') return true;
-    return act.adventureLevel === parseInt(activeLevel);
+    const matchesLevel = activeLevel === 'all' || act.adventureLevel === parseInt(activeLevel);
+    const matchesRegion = activeRegion === 'all' || act.region?.toLowerCase() === activeRegion.toLowerCase();
+    return matchesLevel && matchesRegion;
   });
 
   const getLevelLabel = (level: number) => {
@@ -47,82 +50,128 @@ export function TourBuilder({ products }: { products: ActivityProps[] }) {
     }
   };
 
+  const getCardClassName = (index: number) => {
+    // Staggered asymmetric layout: 0, 3, 4 are span 2; 1, 2, 5 are span 1
+    const mod = index % 6;
+    if (mod === 0 || mod === 3 || mod === 4) {
+      return 'adventure-card-span-2';
+    }
+    return 'adventure-card-span-1';
+  };
+
+  const regions = [
+    { title: 'ALL REGIONS', value: 'all' },
+    { title: 'OTAGO', value: 'otago' },
+    { title: 'SOUTHLAND', value: 'southland' },
+    { title: 'CANTERBURY', value: 'canterbury' }
+  ];
+
+  const levels = [
+    { title: 'ALL EXPERIENCES', value: 'all' },
+    { title: 'LEVEL 1 // RESTORATIVE', value: '1' },
+    { title: 'LEVEL 2 // ACTIVE WILDERNESS', value: '2' },
+    { title: 'LEVEL 3 // HIGH GRAVITY', value: '3' }
+  ];
+
   return (
     <div style={{ marginTop: 'var(--spacing-xl)' }}>
-      {/* ─── Level Filter Tabs ─── */}
-      <div 
-        style={{ 
-          display: 'flex', 
-          gap: '12px', 
-          marginBottom: 'var(--spacing-xxl)', 
-          borderBottom: '1px solid var(--colors-hairline-soft)',
-          paddingBottom: '16px',
-          overflowX: 'auto',
-          scrollbarWidth: 'none'
-        }}
-      >
-        {['all', '1', '2', '3'].map((lvl) => {
-          const isActive = activeLevel === lvl;
-          const label = 
-            lvl === 'all' 
-              ? 'ALL EXPERIENCES' 
-              : lvl === '1' 
-              ? 'LEVEL 1 // RESTORATIVE' 
-              : lvl === '2' 
-              ? 'LEVEL 2 // ACTIVE WILDERNESS' 
-              : 'LEVEL 3 // HIGH GRAVITY';
+      
+      {/* ─── Filter Section ─── */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: 'var(--spacing-xxl)' }}>
+        
+        {/* Region Filter Row */}
+        <div>
+          <p className="typography-mono-caps" style={{ color: 'var(--colors-mute)', fontSize: '10px', marginBottom: '8px', letterSpacing: '1px' }}>
+            // REGION MANIFEST
+          </p>
+          <div 
+            style={{ 
+              display: 'flex', 
+              gap: '12px', 
+              borderBottom: '1px solid var(--colors-hairline-soft)',
+              paddingBottom: '12px',
+              overflowX: 'auto',
+              scrollbarWidth: 'none'
+            }}
+          >
+            {regions.map((reg) => {
+              const isActive = activeRegion === reg.value;
+              return (
+                <button
+                  key={reg.value}
+                  onClick={() => setActiveRegion(reg.value)}
+                  className="typography-mono-caps"
+                  style={{
+                    padding: 'var(--spacing-xs) var(--spacing-md)',
+                    backgroundColor: isActive ? 'var(--colors-brand)' : 'var(--colors-canvas-soft)',
+                    color: isActive ? '#0b0b0b' : 'var(--colors-ash)',
+                    borderRadius: 'var(--rounded-app-sm)',
+                    border: isActive ? '1px solid var(--colors-brand)' : '1px solid var(--colors-hairline-soft)',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                    whiteSpace: 'nowrap',
+                    fontWeight: isActive ? 600 : 500
+                  }}
+                >
+                  {reg.title}
+                </button>
+              );
+            })}
+          </div>
+        </div>
 
-          return (
-            <button
-              key={lvl}
-              onClick={() => setActiveLevel(lvl)}
-              className="typography-mono-caps"
-              style={{
-                padding: 'var(--spacing-xs) var(--spacing-md)',
-                backgroundColor: isActive ? 'var(--colors-brand)' : 'var(--colors-canvas-soft)',
-                color: isActive ? '#0b0b0b' : 'var(--colors-ash)',
-                borderRadius: 'var(--rounded-app-sm)',
-                border: isActive ? '1px solid var(--colors-brand)' : '1px solid var(--colors-hairline-soft)',
-                cursor: 'pointer',
-                transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
-                whiteSpace: 'nowrap',
-                fontWeight: isActive ? 600 : 500
-              }}
-              onMouseEnter={(e) => {
-                if (!isActive) {
-                  e.currentTarget.style.borderColor = 'var(--colors-brand)';
-                  e.currentTarget.style.color = '#fff';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!isActive) {
-                  e.currentTarget.style.borderColor = 'var(--colors-hairline-soft)';
-                  e.currentTarget.style.color = 'var(--colors-ash)';
-                }
-              }}
-            >
-              {label}
-            </button>
-          );
-        })}
+        {/* Level Filter Row */}
+        <div>
+          <p className="typography-mono-caps" style={{ color: 'var(--colors-mute)', fontSize: '10px', marginBottom: '8px', letterSpacing: '1px' }}>
+            // GRAVITY & INTENSITY
+          </p>
+          <div 
+            style={{ 
+              display: 'flex', 
+              gap: '12px', 
+              borderBottom: '1px solid var(--colors-hairline-soft)',
+              paddingBottom: '12px',
+              overflowX: 'auto',
+              scrollbarWidth: 'none'
+            }}
+          >
+            {levels.map((lvl) => {
+              const isActive = activeLevel === lvl.value;
+              return (
+                <button
+                  key={lvl.value}
+                  onClick={() => setActiveLevel(lvl.value)}
+                  className="typography-mono-caps"
+                  style={{
+                    padding: 'var(--spacing-xs) var(--spacing-md)',
+                    backgroundColor: isActive ? 'var(--colors-brand)' : 'var(--colors-canvas-soft)',
+                    color: isActive ? '#0b0b0b' : 'var(--colors-ash)',
+                    borderRadius: 'var(--rounded-app-sm)',
+                    border: isActive ? '1px solid var(--colors-brand)' : '1px solid var(--colors-hairline-soft)',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                    whiteSpace: 'nowrap',
+                    fontWeight: isActive ? 600 : 500
+                  }}
+                >
+                  {lvl.title}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
       </div>
 
-      {/* ─── Grid Layout ─── */}
-      <div 
-        style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))', 
-          gap: 'var(--spacing-lg)',
-          marginBottom: 'var(--spacing-section)'
-        }}
-      >
-        {filteredActivities.map((act) => {
+      {/* ─── Asymmetric Grid Layout ─── */}
+      <div className="adventures-grid">
+        {filteredActivities.map((act, index) => {
           const imageUrl = act.image ? urlFor(act.image).url() : `/images/${act.slug?.current}.png`;
 
           return (
             <div 
               key={act._id} 
-              className="feature-card-dark"
+              className={`feature-card-dark ${getCardClassName(index)}`}
               style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -132,22 +181,15 @@ export function TourBuilder({ products }: { products: ActivityProps[] }) {
                 transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease',
                 backgroundColor: 'var(--colors-canvas-soft)',
                 border: '1px solid var(--colors-hairline-soft)',
-                borderRadius: 'var(--rounded-marketing)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'var(--colors-brand)';
-                e.currentTarget.style.transform = 'translateY(-4px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'var(--colors-hairline-soft)';
-                e.currentTarget.style.transform = 'translateY(0)';
+                borderRadius: 'var(--rounded-marketing)',
+                minHeight: '520px' // Ensures no card button clipping and aligns row heights
               }}
             >
               {/* Image Frame */}
               <div 
                 style={{ 
                   width: '100%', 
-                  height: '220px', 
+                  height: '240px', 
                   backgroundImage: `url(${imageUrl})`, 
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
@@ -158,17 +200,24 @@ export function TourBuilder({ products }: { products: ActivityProps[] }) {
               {/* Content Block */}
               <div style={{ padding: 'var(--spacing-xl)', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
                 <div>
-                  <p 
-                    className="typography-mono-eyebrow" 
-                    style={{ 
-                      color: 'var(--colors-brand)', 
-                      fontSize: '11px', 
-                      letterSpacing: '1px', 
-                      marginBottom: '12px' 
-                    }}
-                  >
-                    {getLevelLabel(act.adventureLevel)}
-                  </p>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                    <p 
+                      className="typography-mono-eyebrow" 
+                      style={{ 
+                        color: 'var(--colors-brand)', 
+                        fontSize: '11px', 
+                        letterSpacing: '1px', 
+                        margin: 0
+                      }}
+                    >
+                      {getLevelLabel(act.adventureLevel)}
+                    </p>
+                    {act.region && (
+                      <span className="typography-mono-micro" style={{ color: 'var(--colors-mute)', textTransform: 'uppercase' }}>
+                        // {act.region}
+                      </span>
+                    )}
+                  </div>
                   <h3 
                     className="typography-heading-sm" 
                     style={{ 
@@ -194,7 +243,7 @@ export function TourBuilder({ products }: { products: ActivityProps[] }) {
                 </div>
 
                 {/* Actions */}
-                <div style={{ display: 'flex', gap: '12px', marginTop: 'auto' }}>
+                <div style={{ display: 'flex', gap: '12px', marginTop: 'auto', paddingTop: '16px' }}>
                   <Button 
                     variant="brand" 
                     style={{ flex: 1, height: '40px', padding: '0', fontSize: '13px' }}

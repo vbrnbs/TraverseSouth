@@ -129,3 +129,76 @@ button {
   color: var(--colors-ink);
   padding: var(--spacing-section-lg) 0;
 }
+
+/* Asymmetric Adventure Grid Layout */
+.adventures-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-section);
+}
+
+.adventure-card-span-2 {
+  grid-column: span 2;
+}
+
+.adventure-card-span-1 {
+  grid-column: span 1;
+}
+
+@media (max-width: 1024px) {
+  .adventures-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .adventure-card-span-2,
+  .adventure-card-span-1 {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .adventures-grid {
+    grid-template-columns: 1fr;
+  }
+  .adventure-card-span-2,
+  .adventure-card-span-1 {
+    grid-column: span 1 !important;
+  }
+}
+
+/* Staggered Brand Manifesto Rows */
+.manifesto-row {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  margin-bottom: 64px;
+}
+
+.manifesto-row:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.manifesto-text {
+  flex: 1.2;
+}
+
+.manifesto-image {
+  flex: 1;
+  height: 380px;
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--rounded-marketing);
+  border: 1px solid var(--colors-hairline-soft);
+}
+
+@media (max-width: 768px) {
+  .manifesto-row {
+    flex-direction: column !important;
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+  .manifesto-image {
+    width: 100%;
+    height: 280px;
+  }
+}

@@ -1798,5 +1798,59 @@
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
     "sessionToken": "ts-sess-qouaww0owt-mqhwhqqi",
     "timestamp": "2026-06-18T02:39:05.495Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-qouaww0owt-mqhwhqqi",
+    "timestamp": "2026-06-18T02:45:13.285Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-qouaww0owt-mqhwhqqi",
+    "timestamp": "2026-06-18T02:45:17.415Z"
+  },
+  {
+    "pathname": "/legal",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-qouaww0owt-mqhwhqqi",
+    "timestamp": "2026-06-18T02:45:49.334Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-qouaww0owt-mqhwhqqi",
+    "timestamp": "2026-06-18T02:45:51.911Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "Direct",
+    "language": "en-GB",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-6ahaxpcz33f-mqiwhtkn",
+    "timestamp": "2026-06-18T02:48:41.261Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "Direct",
+    "language": "en-GB",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-6ahaxpcz33f-mqiwhtkn",
+    "timestamp": "2026-06-18T02:56:08.991Z"
   }
 ]

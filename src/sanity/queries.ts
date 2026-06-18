@@ -62,7 +62,8 @@ export const homepageQuery = `*[_type == "homepage"][0]{
     adventureLevel,
     ctaText,
     image,
-    pricing
+    pricing,
+    region
   },
   "allItineraries": *[_type == "itinerary"] {
     _id,
@@ -71,6 +72,9 @@ export const homepageQuery = `*[_type == "homepage"][0]{
     eyebrow,
     subtitle,
     image,
-    pricing
+    pricing,
+    activities[]-> {
+      image
+    }
   }
 }`;

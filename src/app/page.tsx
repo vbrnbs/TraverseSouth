@@ -77,24 +77,46 @@ export default async function Home() {
           02. Manifesto / Our Blueprint
           ═══════════════════════════════════════ */}
       <section id="blueprint" className="marketing-section-dark" style={{ borderTop: '1px solid var(--colors-hairline-soft)', padding: 'var(--spacing-section-lg) 0' }}>
-        <div className="container" style={{ maxWidth: '900px', margin: '0 auto' }}>
+        <div className="container" style={{ maxWidth: '1200px' }}>
           <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-brand)', textTransform: 'uppercase', letterSpacing: '1.5px', fontSize: '12px' }}>
             // OUR BLUEPRINT
           </p>
-          <h2 className="typography-display-sm" style={{ maxWidth: '800px', color: '#fff', fontSize: '42px', marginBottom: 'var(--spacing-xl)', letterSpacing: '-1.5px', lineHeight: '1.2' }}>
-            Surgical Wilderness Manifests.
-          </h2>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', marginTop: 'var(--spacing-xl)' }}>
-            <p className="typography-subtitle" style={{ color: 'var(--colors-on-primary)', lineHeight: '1.7', fontSize: '20px', fontWeight: 400 }}>
-              We do not believe in standard tourism; we believe in the surgical execution of untouched wilderness experiences. For those whose time is their most valuable currency, waiting on a traditional travel agent is a friction point. Traverse South decouples luxury travel from administrative delay, offering pre-qualified, logistically validated day modules that stack into the ultimate South Island itinerary.
-            </p>
-            <p className="typography-body" style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '16px' }}>
-              Every blueprint is built on direct relationships with elite local operators. We coordinate AS350 turbine helicopters, 24-meter deep-fiord catamarans, restricted high-country Land Rover Defender convoys, and IFMGA-certified mountain guides. Each transit window and safety envelope is calculated to the minute, ensuring that your transition from high-alpine powder to ocean-level restoration is absolute.
-            </p>
-            <p className="typography-body" style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '16px' }}>
-              Quiet luxury is defined by capability and speed. By bypassing middle-tier tour brokers, our portal connects your booking manifest directly into supplier operations. No placeholder itineraries. No standard schedules. Just pure, uncompromised gravity and wilderness.
-            </p>
+            
+            {/* Row 1 */}
+            <div className="manifesto-row">
+              <div className="manifesto-text">
+                <h2 className="typography-display-sm" style={{ color: '#fff', fontSize: '38px', marginBottom: '24px', letterSpacing: '-1.5px', lineHeight: '1.2' }}>
+                  Surgical Wilderness Manifests.
+                </h2>
+                <p className="typography-subtitle" style={{ color: 'var(--colors-on-primary)', lineHeight: '1.7', fontSize: '19px', fontWeight: 400, margin: 0 }}>
+                  We do not believe in standard tourism; we believe in the surgical execution of untouched wilderness experiences. For those whose time is their most valuable currency, waiting on a traditional travel agent is a friction point. Traverse South decouples luxury travel from administrative delay, offering pre-qualified, logistically validated day modules that stack into the ultimate South Island itinerary.
+                </p>
+              </div>
+              <div className="manifesto-image" style={{ backgroundImage: 'url(/images/glacier_landing.png)' }} />
+            </div>
+
+            {/* Row 2 */}
+            <div className="manifesto-row">
+              <div className="manifesto-text">
+                <p className="typography-body" style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '16px', margin: 0 }}>
+                  Every blueprint is built on direct relationships with elite local operators. We coordinate AS350 turbine helicopters, 24-meter deep-fiord catamarans, restricted high-country Land Rover Defender convoys, and IFMGA-certified mountain guides. Each transit window and safety envelope is calculated to the minute, ensuring that your transition from high-alpine powder to ocean-level restoration is absolute.
+                </p>
+              </div>
+              <div className="manifesto-image" style={{ backgroundImage: 'url(/images/off_road.png)' }} />
+            </div>
+
+            {/* Row 3 */}
+            <div className="manifesto-row">
+              <div className="manifesto-text">
+                <p className="typography-body" style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '16px', margin: 0 }}>
+                  Quiet luxury is defined by capability and speed. By bypassing middle-tier tour brokers, our portal connects your booking manifest directly into supplier operations. No placeholder itineraries. No standard schedules. Just pure, uncompromised gravity and wilderness.
+                </p>
+              </div>
+              <div className="manifesto-image" style={{ backgroundImage: 'url(/images/yacht_charter.png)' }} />
+            </div>
+
           </div>
         </div>
       </section>
@@ -143,7 +165,11 @@ export default async function Home() {
               }}
             >
               {allItineraries.map((itinerary: any) => {
-                const imageUrl = itinerary.image ? urlFor(itinerary.image).url() : '';
+                const imageUrl = itinerary.image 
+                  ? urlFor(itinerary.image).url() 
+                  : (itinerary.activities?.[0]?.image 
+                      ? urlFor(itinerary.activities[0].image).url() 
+                      : '');
                 return (
                   <Link 
                     href={`/itinerary/${itinerary.slug?.current}`}

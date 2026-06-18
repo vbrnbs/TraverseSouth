@@ -43,6 +43,21 @@ export default defineType({
             validation: (Rule) => Rule.required().min(1).max(3).integer(),
         }),
         defineField({
+            name: 'region',
+            title: 'Region',
+            type: 'string',
+            options: {
+                list: [
+                    { title: 'Otago', value: 'otago' },
+                    { title: 'Southland', value: 'southland' },
+                    { title: 'Canterbury', value: 'canterbury' },
+                    { title: 'West Coast', value: 'west-coast' },
+                    { title: 'Marlborough', value: 'marlborough' },
+                    { title: 'Tasman', value: 'tasman' },
+                ],
+            },
+        }),
+        defineField({
             name: 'ctaText',
             title: 'CTA Text',
             type: 'string',
