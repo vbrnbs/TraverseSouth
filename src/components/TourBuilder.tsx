@@ -111,7 +111,7 @@ export function TourBuilder({ products }: { products: ActivityProps[] }) {
       <div 
         style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))', 
           gap: 'var(--spacing-lg)',
           marginBottom: 'var(--spacing-section)'
         }}

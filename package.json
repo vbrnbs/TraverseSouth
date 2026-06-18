@@ -10,6 +10,7 @@
     "populate": "sanity dataset import homepage-defaults.ndjson production --replace"
   },
   "dependencies": {
+    "@portabletext/react": "^6.2.0",
     "@sanity/client": "^7.22.0",
     "@sanity/presentation": "^2.0.0",
     "@sanity/vision": "^5.26.0",

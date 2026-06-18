@@ -63,5 +63,14 @@ export const homepageQuery = `*[_type == "homepage"][0]{
     ctaText,
     image,
     pricing
+  },
+  "allItineraries": *[_type == "itinerary"] {
+    _id,
+    title,
+    slug,
+    eyebrow,
+    subtitle,
+    image,
+    pricing
   }
 }`;

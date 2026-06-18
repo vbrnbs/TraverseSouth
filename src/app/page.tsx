@@ -1,10 +1,11 @@
 import React from 'react';
 import { Button } from '@/components/Button';
-import { sanityClient, previewClient } from '@/sanity/client';
+import { sanityClient, previewClient, urlFor } from '@/sanity/client';
 import { homepageQuery } from '@/sanity/queries';
 import { ScrollObserver } from '@/components/ScrollObserver';
 import { TourBuilder } from '@/components/TourBuilder';
 import { draftMode } from 'next/headers';
+import Link from 'next/link';
 
 // Configure dynamic pages to prerender at build time, but allow dynamic cache revalidation
 export const revalidate = 60;
@@ -36,7 +37,7 @@ export default async function Home() {
     );
   }
 
-  const { allProducts } = data;
+  const { allProducts, allItineraries } = data;
 
   return (
     <main>
@@ -67,25 +68,25 @@ export default async function Home() {
           </p>
           <div style={{ display: 'flex', gap: '16px' }}>
             <Button variant="brand" href="#adventures">Explore Blueprints</Button>
-            <Button variant="secondary-dark" href="#manifesto">Our Manifesto</Button>
+            <Button variant="secondary-dark" href="#blueprint">Our Blueprint</Button>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════
-          02. The Luxury Adventure Manifesto
+          02. Manifesto / Our Blueprint
           ═══════════════════════════════════════ */}
-      <section id="manifesto" className="marketing-section-dark" style={{ borderTop: '1px solid var(--colors-hairline-soft)' }}>
-        <div className="container" style={{ maxWidth: '1000px', margin: '0 auto' }}>
-          <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-brand)', textTransform: 'uppercase', letterSpacing: '1.5px', textAlign: 'center' }}>
-            MANIFESTO
+      <section id="blueprint" className="marketing-section-dark" style={{ borderTop: '1px solid var(--colors-hairline-soft)', padding: 'var(--spacing-section-lg) 0' }}>
+        <div className="container" style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-brand)', textTransform: 'uppercase', letterSpacing: '1.5px', fontSize: '12px' }}>
+            // OUR BLUEPRINT
           </p>
-          <h2 className="typography-display-sm" style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto var(--spacing-xxl)', color: '#fff', fontSize: '38px' }}>
+          <h2 className="typography-display-sm" style={{ maxWidth: '800px', color: '#fff', fontSize: '42px', marginBottom: 'var(--spacing-xl)', letterSpacing: '-1.5px', lineHeight: '1.2' }}>
             Surgical Wilderness Manifests.
           </h2>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', marginTop: 'var(--spacing-xl)' }}>
-            <p className="typography-subtitle" style={{ color: 'var(--colors-on-primary)', lineHeight: '1.7', fontSize: '20px' }}>
+            <p className="typography-subtitle" style={{ color: 'var(--colors-on-primary)', lineHeight: '1.7', fontSize: '20px', fontWeight: 400 }}>
               We do not believe in standard tourism; we believe in the surgical execution of untouched wilderness experiences. For those whose time is their most valuable currency, waiting on a traditional travel agent is a friction point. Traverse South decouples luxury travel from administrative delay, offering pre-qualified, logistically validated day modules that stack into the ultimate South Island itinerary.
             </p>
             <p className="typography-body" style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '16px' }}>
@@ -116,6 +117,117 @@ export default async function Home() {
           <TourBuilder products={allProducts || []} />
         </div>
       </section>
+
+      {/* ═══════════════════════════════════════
+          04. Inspirational Package Editorials
+          ═══════════════════════════════════════ */}
+      {allItineraries && allItineraries.length > 0 && (
+        <section id="itineraries" className="marketing-section-dark" style={{ borderTop: '1px solid var(--colors-hairline-soft)' }}>
+          <div className="container">
+            <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-brand)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
+              // INSPIRATIONAL BLUEPRINTS
+            </p>
+            <h2 className="typography-display-xl" style={{ marginBottom: '16px', color: '#fff' }}>
+              Multi-Day Journeys
+            </h2>
+            <p className="typography-subtitle" style={{ maxWidth: '600px', color: 'var(--colors-ash)', marginBottom: '48px' }}>
+              Expertly curated narratives combining private aviation, guides, and ultra-luxe lodges.
+            </p>
+
+            <div 
+              style={{ 
+                display: 'grid', 
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 480px), 1fr))', 
+                gap: 'var(--spacing-xl)',
+                marginBottom: 'var(--spacing-section)'
+              }}
+            >
+              {allItineraries.map((itinerary: any) => {
+                const imageUrl = itinerary.image ? urlFor(itinerary.image).url() : '';
+                return (
+                  <Link 
+                    href={`/itinerary/${itinerary.slug?.current}`}
+                    key={itinerary._id}
+                    className="feature-card-dark"
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      padding: '0',
+                      overflow: 'hidden',
+                      transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease',
+                      backgroundColor: 'var(--colors-canvas-soft)',
+                      border: '1px solid var(--colors-hairline-soft)',
+                      borderRadius: 'var(--rounded-marketing)'
+                    }}
+                  >
+                    {/* Oversized Image Frame */}
+                    {imageUrl && (
+                      <div 
+                        style={{ 
+                          width: '100%', 
+                          height: '320px', 
+                          backgroundImage: `url(${imageUrl})`, 
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          borderBottom: '1px solid var(--colors-hairline-soft)'
+                        }}
+                      />
+                    )}
+
+                    {/* Content Block */}
+                    <div style={{ padding: 'var(--spacing-xl)' }}>
+                      <p 
+                        className="typography-mono-eyebrow" 
+                        style={{ 
+                          color: 'var(--colors-brand)', 
+                          fontSize: '11px', 
+                          letterSpacing: '1.2px', 
+                          marginBottom: '12px',
+                          textTransform: 'uppercase'
+                        }}
+                      >
+                        {itinerary.eyebrow || 'MULTI-DAY EXPEDITION'}
+                      </p>
+                      <h3 
+                        className="typography-heading-md" 
+                        style={{ 
+                          marginBottom: '12px', 
+                          fontWeight: 400, 
+                          color: '#fff',
+                          fontSize: '26px',
+                          letterSpacing: '-0.5px'
+                        }}
+                      >
+                        {itinerary.title}
+                      </h3>
+                      <p 
+                        className="typography-body-sm" 
+                        style={{ 
+                          color: 'var(--colors-ash)', 
+                          lineHeight: '1.6', 
+                          marginBottom: '24px' 
+                        }}
+                      >
+                        {itinerary.subtitle}
+                      </p>
+
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #333', paddingTop: '16px' }}>
+                        <span style={{ fontSize: '11px', fontFamily: 'var(--font-ibm-plex-mono), monospace', color: 'var(--colors-mute)' }}>
+                          COSTING: {itinerary.pricing?.priceString || 'Bespoke Package'}
+                        </span>
+                        <span style={{ color: 'var(--colors-brand)', fontSize: '13px', fontWeight: 500, fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>
+                          EXPLORE BLUEPRINT →
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
     </main>
   );
 }

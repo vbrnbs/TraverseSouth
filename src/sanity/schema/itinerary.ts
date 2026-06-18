@@ -1,4 +1,4 @@
-import { defineType, defineField } from 'sanity'
+import { defineType, defineField, defineArrayMember } from 'sanity'
 
 export default defineType({
     name: 'itinerary',
@@ -34,7 +34,30 @@ export default defineType({
         defineField({
             name: 'description',
             title: 'Detailed Description',
-            type: 'text',
+            type: 'array',
+            of: [
+                defineArrayMember({
+                    type: 'block',
+                    marks: {
+                        annotations: [
+                            {
+                                name: 'activityLink',
+                                type: 'object',
+                                title: 'Activity Link',
+                                fields: [
+                                    defineField({
+                                        name: 'reference',
+                                        type: 'reference',
+                                        title: 'Activity Reference',
+                                        to: [{ type: 'activity' }],
+                                        validation: (Rule) => Rule.required(),
+                                    })
+                                ]
+                            }
+                        ]
+                    }
+                })
+            ]
         }),
         defineField({
             name: 'image',
@@ -47,10 +70,10 @@ export default defineType({
             title: 'Included Activities',
             type: 'array',
             of: [
-                {
+                defineArrayMember({
                     type: 'reference',
                     to: [{ type: 'activity' }],
-                },
+                }),
             ],
             validation: (Rule) => Rule.required().min(1),
         }),

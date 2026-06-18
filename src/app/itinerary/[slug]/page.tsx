@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import { draftMode } from 'next/headers';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { PortableText } from '@portabletext/react';
+import { ItineraryBooking } from '@/components/ItineraryBooking';
 
 export const revalidate = 60;
 
@@ -14,7 +16,16 @@ const itineraryQuery = `*[_type == "itinerary" && slug.current == $slug][0] {
   slug,
   eyebrow,
   subtitle,
-  description,
+  description[] {
+    ...,
+    markDefs[] {
+      ...,
+      _type == "activityLink" => {
+        ...,
+        "slug": reference->slug.current
+      }
+    }
+  },
   image,
   pricing {
     priceString,
@@ -81,7 +92,7 @@ export async function generateMetadata({ params }: ItineraryPageProps): Promise<
   if (itinerary) {
     return {
       title: `${itinerary.title} | Traverse South`,
-      description: itinerary.subtitle || itinerary.description,
+      description: itinerary.subtitle || (typeof itinerary.description === 'string' ? itinerary.description : ''),
     };
   }
 
@@ -98,6 +109,67 @@ export async function generateMetadata({ params }: ItineraryPageProps): Promise<
     title: 'Itinerary | Traverse South',
   };
 }
+
+const portableTextComponents = {
+  marks: {
+    activityLink: ({ children, value }: any) => {
+      const slug = value?.slug;
+      if (!slug) return <span>{children}</span>;
+      return (
+        <Link 
+          href={`/itinerary/${slug}`}
+          style={{
+            color: 'var(--colors-brand)',
+            fontWeight: 500,
+            textDecoration: 'underline',
+            textUnderlineOffset: '4px',
+            transition: 'opacity 0.2s',
+          }}
+          className="activity-link-hover"
+        >
+          {children}
+        </Link>
+      );
+    },
+    link: ({ children, value }: any) => {
+      return (
+        <a 
+          href={value?.href} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{
+            color: 'var(--colors-link-blue-soft)',
+            textDecoration: 'underline'
+          }}
+        >
+          {children}
+        </a>
+      );
+    }
+  },
+  block: {
+    h1: ({ children }: any) => (
+      <h1 className="typography-display-sm" style={{ color: '#fff', marginTop: '40px', marginBottom: '20px' }}>
+        {children}
+      </h1>
+    ),
+    h2: ({ children }: any) => (
+      <h2 className="typography-heading-md" style={{ color: '#fff', marginTop: '36px', marginBottom: '16px' }}>
+        {children}
+      </h2>
+    ),
+    h3: ({ children }: any) => (
+      <h3 className="typography-heading-sm" style={{ color: '#fff', marginTop: '28px', marginBottom: '12px' }}>
+        {children}
+      </h3>
+    ),
+    normal: ({ children }: any) => (
+      <p className="typography-body" style={{ color: 'var(--colors-ash)', lineHeight: '1.8', marginBottom: '24px', fontSize: '17px' }}>
+        {children}
+      </p>
+    )
+  }
+};
 
 export default async function ItineraryPage({ params }: ItineraryPageProps) {
   const { slug } = await params;
@@ -207,256 +279,284 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
     });
   }
 
-  // Format Day Timeline Phases
-  const timelineDays = itinerary 
-    ? (itinerary.activities || []).map((act: any, idx: number) => ({
-        dayNumber: `PHASE ${idx + 1}`,
-        title: act.title,
-        description: act.description,
-        logistics: act.suppliers?.[0] 
-          ? `Transit & guides by certified operator: ${act.suppliers[0].name} (${act.suppliers[0].credential})`
-          : 'Surgical field transit & safety guides network'
-      }))
-    : [{
-        dayNumber: 'PHASE 1',
+  // Construct fake activity for client booking modal
+  const bookingActivity = itinerary 
+    ? {
+        _id: itinerary._id,
+        title: itinerary.title,
+        slug: itinerary.slug,
+        eyebrow: itinerary.eyebrow,
+        subtitle: itinerary.subtitle,
+        description: typeof itinerary.description === 'string' 
+          ? itinerary.description 
+          : (itinerary.subtitle || ''),
+        adventureLevel: maxAdventureLevel,
+        ctaText: 'Request Itinerary Booking',
+        image: itinerary.image || itinerary.activities?.[0]?.image,
+        pricing: {
+          priceString: priceString,
+          minimumGroup: minimumGroup,
+          inclusions: inclusions
+        }
+      }
+    : {
+        _id: activity._id,
         title: activity.title,
+        slug: activity.slug,
+        eyebrow: activity.eyebrow,
+        subtitle: activity.subtitle,
         description: activity.description,
-        logistics: activity.suppliers?.[0]
-          ? `Coordinated by operator: ${activity.suppliers[0].name} (${activity.suppliers[0].credential})`
-          : 'Surgical field transit & safety guides network'
-      }];
+        adventureLevel: activity.adventureLevel || 1,
+        ctaText: activity.ctaText || 'Book Private Experience',
+        image: activity.image,
+        pricing: {
+          priceString: priceString,
+          minimumGroup: minimumGroup,
+          inclusions: inclusions
+        }
+      };
 
   return (
     <main style={{ backgroundColor: '#0b0b0b', color: '#b9b9b9', minHeight: '100vh', paddingBottom: 'var(--spacing-section-lg)' }}>
-      {/* Editorial Banner */}
-      <div 
-        style={{
-          width: '100%',
-          height: '40vh',
-          minHeight: '300px',
-          backgroundImage: `url(${imageUrl})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          position: 'relative'
-        }}
-      >
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(to top, #0b0b0b 0%, rgba(11, 11, 11, 0.4) 100%)'
-        }} />
-      </div>
-
-      <div className="container" style={{ marginTop: '-80px', position: 'relative', zIndex: 10 }}>
+      {/* Editorial Content Container */}
+      <div className="container" style={{ maxWidth: '800px', paddingTop: '120px', paddingBottom: '40px' }}>
+        
         {/* Navigation Breadcrumb */}
-        <div style={{ marginBottom: '32px' }}>
+        <div style={{ marginBottom: '40px' }}>
           <Link href="/#adventures" style={{
             fontFamily: 'var(--font-ibm-plex-mono), monospace',
-            fontSize: '13px',
+            fontSize: '12px',
             color: 'var(--colors-brand)',
             textTransform: 'uppercase',
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '8px'
+            gap: '8px',
+            letterSpacing: '1px'
           }}>
             ← Return to manifests
           </Link>
         </div>
 
         {/* Header Block */}
-        <div style={{ borderBottom: '1px solid var(--colors-hairline-soft)', paddingBottom: '40px', marginBottom: '48px' }}>
-          <p className="typography-mono-eyebrow" style={{ color: 'var(--colors-brand)', marginBottom: '16px', letterSpacing: '1px' }}>
+        <div style={{ marginBottom: '48px' }}>
+          <p className="typography-mono-eyebrow" style={{ color: 'var(--colors-mute)', marginBottom: '16px', letterSpacing: '1px' }}>
             {getLevelLabel(maxAdventureLevel)}
           </p>
-          <h1 className="typography-display-xl" style={{ color: '#fff', marginBottom: '24px' }}>
+          <h1 className="typography-display-md" style={{ color: '#fff', marginBottom: '24px', lineHeight: '1.1', letterSpacing: '-2.0px' }}>
             {title}
           </h1>
-          <p className="typography-subtitle" style={{ color: 'var(--colors-ash)', maxWidth: '800px', lineHeight: 1.6 }}>
+          <p className="typography-subtitle" style={{ color: 'var(--colors-ash)', lineHeight: 1.6, fontSize: '20px' }}>
             {subtitle}
           </p>
         </div>
 
-        {/* Split Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '64px' }}>
-          {/* Left Column: Narrative Timeline */}
+        {/* Main Editorial Image */}
+        {imageUrl && (
+          <div style={{ 
+            width: '100%', 
+            height: '450px', 
+            backgroundImage: `url(${imageUrl})`, 
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            borderRadius: 'var(--rounded-marketing)',
+            border: '1px solid var(--colors-hairline-soft)',
+            marginBottom: '48px'
+          }} />
+        )}
+
+        {/* Stats Bar */}
+        <div 
+          style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', 
+            gap: '24px', 
+            padding: '24px 0', 
+            borderTop: '1px solid var(--colors-hairline-soft)', 
+            borderBottom: '1px solid var(--colors-hairline-soft)',
+            marginBottom: '56px'
+          }}
+        >
           <div>
-            <h2 className="typography-mono-caps" style={{ color: 'var(--colors-mute)', marginBottom: '32px', borderBottom: '1px solid #222', paddingBottom: '12px' }}>
-              // CHRONOLOGICAL TIMELINE
-            </h2>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
-              {timelineDays.map((day: any, idx: number) => (
-                <div key={idx} style={{ display: 'flex', gap: '24px' }}>
-                  {/* Timeline node */}
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <div style={{
-                      width: '32px',
-                      height: '32px',
-                      borderRadius: '50%',
-                      border: '1px solid var(--colors-brand)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: 'var(--colors-brand)',
-                      fontFamily: 'var(--font-ibm-plex-mono), monospace',
-                      fontSize: '12px',
-                      fontWeight: 600,
-                      backgroundColor: '#0b0b0b'
-                    }}>
-                      {idx + 1}
-                    </div>
-                    {idx < timelineDays.length - 1 && (
-                      <div style={{ flex: 1, width: '1px', backgroundColor: 'var(--colors-hairline-soft)', margin: '12px 0' }} />
-                    )}
-                  </div>
-
-                  {/* Timeline details */}
-                  <div style={{ flex: 1 }}>
-                    <p className="typography-mono-eyebrow" style={{ color: 'var(--colors-mute)', fontSize: '11px', textTransform: 'uppercase', marginBottom: '8px' }}>
-                      {day.dayNumber}
-                    </p>
-                    <h3 className="typography-heading-sm" style={{ color: '#fff', marginBottom: '16px', fontWeight: 500 }}>
-                      {day.title}
-                    </h3>
-                    <p className="typography-body" style={{ color: 'var(--colors-ash)', lineHeight: 1.7, marginBottom: '20px' }}>
-                      {day.description}
-                    </p>
-
-                    {day.logistics && (
-                      <div style={{ 
-                        backgroundColor: 'var(--colors-canvas-soft)', 
-                        padding: '16px', 
-                        borderRadius: 'var(--rounded-app-md)', 
-                        border: '1px solid var(--colors-hairline-soft)',
-                        fontFamily: 'var(--font-ibm-plex-mono), monospace',
-                        fontSize: '12px',
-                        color: 'var(--colors-ash)',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '6px'
-                      }}>
-                        <span style={{ color: 'var(--colors-brand)', fontSize: '10px', letterSpacing: '1px' }}>// LOGISTICS & SAFETY ENVELOPE</span>
-                        <span>{day.logistics}</span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* In-Line calendar widget placeholder */}
-            <div style={{ marginTop: '64px', borderTop: '1px solid var(--colors-hairline-soft)', paddingTop: '48px' }}>
-              <p className="typography-mono-eyebrow" style={{ color: 'var(--colors-brand)', marginBottom: '16px' }}>
-                // DIRECT BOOKING WIDGET
-              </p>
-              <h3 className="typography-heading-md" style={{ color: '#fff', marginBottom: '24px' }}>
-                Select Your Expedition Window
-              </h3>
-              
-              <div 
-                style={{ 
-                  borderRadius: 'var(--rounded-marketing)', 
-                  overflow: 'hidden', 
-                  border: '1px solid var(--colors-hairline-soft)',
-                  backgroundColor: '#000',
-                  padding: '16px',
-                  maxWidth: '560px',
-                  marginBottom: '24px'
-                }}
-              >
-                <img 
-                  src="/images/booking_calendar.png" 
-                  alt="Calendar Date Selection UI Mockup" 
-                  style={{ width: '100%', height: 'auto', display: 'block' }}
-                />
-              </div>
-
-              <p className="typography-meta" style={{ color: 'var(--colors-mute)', maxWidth: '560px', lineHeight: 1.6 }}>
-                "Selecting dates on these individual manifests locks in your slot directly with our certified local operators. All transfers, safety guides, and rotorcraft availability are reserved in real-time, removing the traditional delays of luxury travel booking."
-              </p>
-            </div>
+            <span style={{ fontSize: '10px', color: 'var(--colors-mute)', display: 'block', textTransform: 'uppercase', marginBottom: '4px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>// ESTIMATED COSTING</span>
+            <span style={{ color: '#fff', fontSize: '18px', fontWeight: 500 }}>{priceString}</span>
+            <span style={{ fontSize: '12px', color: 'var(--colors-mute)', display: 'block', marginTop: '2px' }}>{minimumGroup}</span>
           </div>
-
-          {/* Right Column: Logistics Overview Block */}
           <div>
-            <div 
-              style={{
-                backgroundColor: 'var(--colors-canvas-soft)',
-                border: '1px solid var(--colors-hairline-soft)',
-                borderRadius: 'var(--rounded-marketing)',
-                padding: 'var(--spacing-xl)',
-                position: 'sticky',
-                top: '100px'
-              }}
-            >
-              <p className="typography-mono-eyebrow" style={{ color: 'var(--colors-mute)', marginBottom: '16px' }}>
-                // EXPEDITION BLUEPRINT
-              </p>
-
-              {/* Price Row */}
-              <div style={{ borderBottom: '1px solid #333', paddingBottom: '20px', marginBottom: '20px' }}>
-                <span style={{ fontSize: '12px', color: 'var(--colors-mute)', display: 'block', textTransform: 'uppercase', marginBottom: '4px' }}>ESTIMATED COSTING</span>
-                <span className="typography-heading-md" style={{ color: '#fff', fontWeight: 600 }}>
-                  {priceString}
-                </span>
-                <span style={{ fontSize: '13px', color: 'var(--colors-mute)', marginLeft: '6px' }}>
-                  {priceString !== 'Bespoke Package Quote' ? '' : ''}
-                </span>
-                <p style={{ fontSize: '12px', color: 'var(--colors-ash)', marginTop: '6px' }}>
-                  {minimumGroup}
-                </p>
-              </div>
-
-              {/* Specs Rows */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', borderBottom: '1px solid #333', paddingBottom: '20px', marginBottom: '20px' }}>
-                <div>
-                  <span style={{ fontSize: '10px', color: 'var(--colors-mute)', display: 'block', textTransform: 'uppercase', marginBottom: '2px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>DURATION</span>
-                  <span style={{ color: '#fff', fontSize: '15px' }}>
-                    {itinerary 
-                      ? `${itinerary.activities?.length || 1} Days (Custom Adjustments Available)`
-                      : '1 Day (Expedition Extension Available)'}
-                  </span>
-                </div>
-                <div>
-                  <span style={{ fontSize: '10px', color: 'var(--colors-mute)', display: 'block', textTransform: 'uppercase', marginBottom: '2px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>TECHNICAL DIFFICULTY</span>
-                  <span style={{ color: '#fff', fontSize: '15px' }}>{getTechLevel(maxAdventureLevel)}</span>
-                </div>
-                <div>
-                  <span style={{ fontSize: '10px', color: 'var(--colors-mute)', display: 'block', textTransform: 'uppercase', marginBottom: '2px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>PHYSICAL INTENSITY</span>
-                  <span style={{ color: '#fff', fontSize: '15px' }}>{getPhysicalIntensity(maxAdventureLevel)}</span>
-                </div>
-              </div>
-
-              {/* Inclusions */}
-              <div style={{ borderBottom: '1px solid #333', paddingBottom: '20px', marginBottom: '20px' }}>
-                <span style={{ fontSize: '10px', color: 'var(--colors-mute)', display: 'block', textTransform: 'uppercase', marginBottom: '12px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>EXPEDITION INCLUSIONS</span>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                  {inclusions.map((inc: string, idx: number) => (
-                    <li key={idx} style={{ fontSize: '13px', color: 'var(--colors-ash)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                      <span style={{ color: 'var(--colors-brand)', fontWeight: 'bold' }}>✓</span>
-                      <span>{inc}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Verified Operators */}
-              {uniqueSuppliers.length > 0 && (
-                <div>
-                  <span style={{ fontSize: '10px', color: 'var(--colors-mute)', display: 'block', textTransform: 'uppercase', marginBottom: '12px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>LICENSED OPERATOR NETWORK</span>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                    {uniqueSuppliers.map((sup: any, idx: number) => (
-                      <div key={idx} style={{ fontSize: '13px' }}>
-                        <span style={{ color: '#fff', display: 'block', fontWeight: 500 }}>{sup.name}</span>
-                        <span style={{ color: 'var(--colors-mute)', fontSize: '11px', display: 'block', marginTop: '2px' }}>{sup.credential}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+            <span style={{ fontSize: '10px', color: 'var(--colors-mute)', display: 'block', textTransform: 'uppercase', marginBottom: '4px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>// DURATION</span>
+            <span style={{ color: '#fff', fontSize: '18px', fontWeight: 500 }}>
+              {itinerary 
+                ? `${itinerary.activities?.length || 1} Days`
+                : '1 Day'}
+            </span>
+            <span style={{ fontSize: '12px', color: 'var(--colors-mute)', display: 'block', marginTop: '2px' }}>Custom modules available</span>
+          </div>
+          <div>
+            <span style={{ fontSize: '10px', color: 'var(--colors-mute)', display: 'block', textTransform: 'uppercase', marginBottom: '4px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>// TECHNICAL DIFFICULTY</span>
+            <span style={{ color: '#fff', fontSize: '18px', fontWeight: 500 }}>{getTechLevel(maxAdventureLevel)}</span>
+          </div>
+          <div>
+            <span style={{ fontSize: '10px', color: 'var(--colors-mute)', display: 'block', textTransform: 'uppercase', marginBottom: '4px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>// PHYSICAL INTENSITY</span>
+            <span style={{ color: '#fff', fontSize: '18px', fontWeight: 500 }}>{getPhysicalIntensity(maxAdventureLevel)}</span>
           </div>
         </div>
+
+        {/* Main Description / Narrative Editorial */}
+        <div style={{ marginBottom: '64px' }}>
+          {description ? (
+            Array.isArray(description) ? (
+              <PortableText value={description} components={portableTextComponents} />
+            ) : (
+              <p className="typography-body" style={{ color: 'var(--colors-ash)', lineHeight: '1.8', fontSize: '17px' }}>
+                {description}
+              </p>
+            )
+          ) : null}
+        </div>
+
+        {/* Activities / Phases Sections (Only if itinerary document) */}
+        {itinerary && itinerary.activities && itinerary.activities.length > 0 && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', marginTop: '80px', borderTop: '1px solid var(--colors-hairline-soft)', paddingTop: '80px' }}>
+            <h2 className="typography-mono-caps" style={{ color: 'var(--colors-mute)', fontSize: '12px', letterSpacing: '1.5px', marginBottom: '-40px' }}>
+              // EXPEDITION SEQUENTIAL PHASES
+            </h2>
+
+            {itinerary.activities.map((act: any, idx: number) => {
+              const actImageUrl = act.image ? urlFor(act.image).url() : `/images/${act.slug?.current}.png`;
+              return (
+                <div key={act._id} style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px' }}>
+                    <span style={{
+                      fontFamily: 'var(--font-ibm-plex-mono), monospace',
+                      fontSize: '14px',
+                      color: 'var(--colors-brand)',
+                      fontWeight: 600
+                    }}>
+                      PHASE 0{idx + 1}
+                    </span>
+                    <span style={{ color: 'var(--colors-mute)', fontSize: '12px' }}>—</span>
+                    <span className="typography-mono-eyebrow" style={{ color: 'var(--colors-mute)' }}>
+                      {getLevelLabel(act.adventureLevel)}
+                    </span>
+                  </div>
+
+                  <h3 className="typography-heading-md" style={{ color: '#fff', fontWeight: 500, margin: 0, fontSize: '28px', letterSpacing: '-0.5px' }}>
+                    {act.title}
+                  </h3>
+
+                  {actImageUrl && (
+                    <div style={{ 
+                      width: '100%', 
+                      height: '350px', 
+                      backgroundImage: `url(${actImageUrl})`, 
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      borderRadius: 'var(--rounded-marketing)',
+                      border: '1px solid var(--colors-hairline-soft)'
+                    }} />
+                  )}
+
+                  <p className="typography-body" style={{ color: 'var(--colors-ash)', lineHeight: '1.8', margin: 0 }}>
+                    {act.description}
+                  </p>
+
+                  {/* Operator info / logistics card */}
+                  {act.suppliers?.[0] && (
+                    <div style={{ 
+                      backgroundColor: 'var(--colors-canvas-soft)', 
+                      padding: '20px', 
+                      borderRadius: 'var(--rounded-marketing)', 
+                      border: '1px solid var(--colors-hairline-soft)',
+                      fontFamily: 'var(--font-ibm-plex-mono), monospace',
+                      fontSize: '13px',
+                      color: 'var(--colors-ash)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '8px'
+                    }}>
+                      <span style={{ color: 'var(--colors-brand)', fontSize: '11px', letterSpacing: '1px', fontWeight: 600 }}>
+                        // LICENSED OPERATOR NETWORK
+                      </span>
+                      <span style={{ color: '#fff', fontWeight: 500 }}>{act.suppliers[0].name}</span>
+                      <span style={{ color: 'var(--colors-mute)', fontSize: '12px' }}>{act.suppliers[0].credential}</span>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Integrated Inclusions & Operator Summary Section */}
+        <div style={{ marginTop: '80px', borderTop: '1px solid var(--colors-hairline-soft)', paddingTop: '64px' }}>
+          <h4 className="typography-mono-caps" style={{ color: 'var(--colors-mute)', marginBottom: '24px' }}>
+            // INCLUDED IN THIS EXPEDITION
+          </h4>
+          <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 48px 0', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+            {inclusions.map((inc: string, idx: number) => (
+              <li key={idx} style={{ fontSize: '14px', color: 'var(--colors-ash)', display: 'flex', alignItems: 'flex-start', gap: '10px', lineHeight: '1.5' }}>
+                <span style={{ color: 'var(--colors-brand)', fontWeight: 'bold' }}>✓</span>
+                <span>{inc}</span>
+              </li>
+            ))}
+          </ul>
+
+          {uniqueSuppliers.length > 0 && (
+            <div style={{ marginBottom: '64px' }}>
+              <h4 className="typography-mono-caps" style={{ color: 'var(--colors-mute)', marginBottom: '24px' }}>
+                // VERIFIED SERVICE PARTNERS
+              </h4>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '24px' }}>
+                {uniqueSuppliers.map((sup: any, idx: number) => (
+                  <div key={idx} style={{ 
+                    backgroundColor: 'var(--colors-canvas-soft)', 
+                    padding: '16px', 
+                    borderRadius: 'var(--rounded-marketing)', 
+                    border: '1px solid var(--colors-hairline-soft)'
+                  }}>
+                    <span style={{ color: '#fff', display: 'block', fontWeight: 500, fontSize: '14px' }}>{sup.name}</span>
+                    <span style={{ color: 'var(--colors-mute)', fontSize: '11px', display: 'block', marginTop: '4px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>{sup.credential}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Booking Calendar Widget & Final CTA Section */}
+        <div style={{ marginTop: '80px', borderTop: '1px solid var(--colors-hairline-soft)', paddingTop: '64px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <p className="typography-mono-eyebrow" style={{ color: 'var(--colors-brand)', marginBottom: '16px', letterSpacing: '1px', textTransform: 'uppercase' }}>
+            // SECURE EXPEDITION SLOT
+          </p>
+          <h3 className="typography-heading-md" style={{ color: '#fff', marginBottom: '16px', textAlign: 'center' }}>
+            Select Your Window & Connect Manifest
+          </h3>
+          <p className="typography-body" style={{ color: 'var(--colors-ash)', maxWidth: '600px', textAlign: 'center', marginBottom: '32px', lineHeight: '1.6' }}>
+            Selecting dates on these individual manifests locks in your slot directly with our certified local operators. All transfers, safety guides, and rotorcraft availability are reserved in real-time, removing the traditional delays of luxury travel booking.
+          </p>
+          
+          <div 
+            style={{ 
+              borderRadius: 'var(--rounded-marketing)', 
+              overflow: 'hidden', 
+              border: '1px solid var(--colors-hairline-soft)',
+              backgroundColor: '#000',
+              padding: '16px',
+              maxWidth: '560px',
+              width: '100%',
+              marginBottom: '40px'
+            }}
+          >
+            <img 
+              src="/images/booking_calendar.png" 
+              alt="Calendar Date Selection UI Mockup" 
+              style={{ width: '100%', height: 'auto', display: 'block' }}
+            />
+          </div>
+
+          {/* Dynamic Client Booking Trigger button */}
+          <ItineraryBooking activity={bookingActivity} />
+        </div>
+
       </div>
     </main>
   );
