@@ -3,6 +3,7 @@ import activity from './activity'
 import operator from './operator'
 import itinerary from './itinerary'
 import { landing } from './landing'
+import { mission } from './mission'
 import { hero } from './hero'
 import { footer } from './footer'
 import { page } from './page'
@@ -13,6 +14,7 @@ export const schemaTypes = [
     operator,
     itinerary,
     landing,
+    mission,
     hero,
     footer,
     page,

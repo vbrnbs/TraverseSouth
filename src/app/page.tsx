@@ -7,9 +7,10 @@ import { TourBuilder } from '@/components/TourBuilder';
 import { MuxBackgroundVideo } from '@/components/MuxBackgroundVideo';
 import { draftMode } from 'next/headers';
 import Link from 'next/link';
+import { PortableText } from '@portabletext/react';
 
-// Configure dynamic pages to prerender at build time, but allow dynamic cache revalidation
-export const revalidate = 60;
+// Configure dynamic pages to always fetch fresh data from Sanity on every request
+export const revalidate = 0;
 
 /* ═══════════════════════════════════════════════
    Server Component — fetches 100% dynamically from
@@ -22,7 +23,7 @@ export default async function Home() {
   const client = isDraft ? previewClient : sanityClient;
 
   try {
-    data = await client.fetch(homepageQuery, {}, { next: { revalidate: isDraft ? 0 : 60 } });
+    data = await client.fetch(homepageQuery, {}, { next: { revalidate: 0 } });
   } catch (error) {
     console.error('Error fetching homepage data from Sanity:', error);
   }
@@ -38,7 +39,7 @@ export default async function Home() {
     );
   }
 
-  const { hero, allProducts, allItineraries } = data;
+  const { hero, mission, allProducts, allItineraries } = data;
 
   return (
     <main>
@@ -49,7 +50,7 @@ export default async function Home() {
           ═══════════════════════════════════════ */}
       <section className="hero-section" id="hero" style={{ height: 'calc(100vh - 72px)', minHeight: 'calc(100vh - 72px)', marginTop: '72px' }}>
         <div className="hero-overlay"></div>
-        
+
         {/* Cinematic Background Video Frame */}
         <div className="hero-video-bg">
           <MuxBackgroundVideo
@@ -70,54 +71,88 @@ export default async function Home() {
           </p>
           <div style={{ display: 'flex', gap: '16px' }}>
             <Button variant="brand" href="#adventures">{hero?.primaryCta || 'Explore Blueprints'}</Button>
-            <Button variant="secondary-dark" href="#blueprint">{hero?.secondaryCta || 'Our Blueprint'}</Button>
+            {/* <Button variant="secondary-dark" href="#blueprint">{hero?.secondaryCta || 'Our Blueprint'}</Button> */}
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════
-          02. Manifesto / Our Blueprint
+          02. Manifesto / Our Mission
           ═══════════════════════════════════════ */}
-      <section id="blueprint" className="marketing-section-dark" style={{ borderTop: '1px solid var(--colors-hairline-soft)', padding: 'var(--spacing-section-lg) 0' }}>
+      <section id="mission" className="marketing-section-dark" style={{ borderTop: '1px solid var(--colors-hairline-soft)', padding: 'var(--spacing-section-lg) 0' }}>
         <div className="container" style={{ maxWidth: '1200px' }}>
           <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-brand)', textTransform: 'uppercase', letterSpacing: '1.5px', fontSize: '12px' }}>
-            // OUR BLUEPRINT
+            {mission?.eyebrow || '// OUR MISSION'}
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', marginTop: 'var(--spacing-xl)' }}>
             
-            {/* Row 1 */}
-            <div className="manifesto-row">
-              <div className="manifesto-text">
-                <h2 className="typography-display-sm" style={{ color: '#fff', fontSize: '38px', marginBottom: '24px', letterSpacing: '-1.5px', lineHeight: '1.2' }}>
-                  Surgical Wilderness Manifests.
-                </h2>
-                <p className="typography-subtitle" style={{ color: 'var(--colors-on-primary)', lineHeight: '1.7', fontSize: '19px', fontWeight: 400, margin: 0 }}>
-                  We do not believe in standard tourism; we believe in the surgical execution of untouched wilderness experiences. For those whose time is their most valuable currency, waiting on a traditional travel agent is a friction point. Traverse South decouples luxury travel from administrative delay, offering pre-qualified, logistically validated day modules that stack into the ultimate South Island itinerary.
-                </p>
-              </div>
-              <div className="manifesto-image" style={{ backgroundImage: 'url(/images/glacier_landing.png)' }} />
-            </div>
+            {mission?.bodyText ? (
+              // DYNAMIC SANITY RENDER
+              <>
+                <div className="manifesto-row" style={{ display: 'block' }}>
+                  <div className="manifesto-text" style={{ width: '100%', maxWidth: '800px' }}>
+                    {mission.heading && (
+                      <h2 className="typography-display-sm" style={{ color: '#fff', fontSize: '38px', marginBottom: '32px', letterSpacing: '-1.5px', lineHeight: '1.2' }}>
+                        {mission.heading}
+                      </h2>
+                    )}
+                  </div>
+                </div>
 
-            {/* Row 2 */}
-            <div className="manifesto-row">
-              <div className="manifesto-text">
-                <p className="typography-body" style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '16px', margin: 0 }}>
-                  Every blueprint is built on direct relationships with elite local operators. We coordinate AS350 turbine helicopters, 24-meter deep-fiord catamarans, restricted high-country Land Rover Defender convoys, and IFMGA-certified mountain guides. Each transit window and safety envelope is calculated to the minute, ensuring that your transition from high-alpine powder to ocean-level restoration is absolute.
-                </p>
-              </div>
-              <div className="manifesto-image" style={{ backgroundImage: 'url(/images/off_road.png)' }} />
-            </div>
+                {mission.imageGallery?.length > 0 && (
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '40px' }}>
+                    {mission.imageGallery.map((img: any, i: number) => (
+                      <div key={i} style={{ width: '100%', height: '350px', backgroundImage: `url(${urlFor(img).url()})`, backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '4px' }} />
+                    ))}
+                  </div>
+                )}
 
-            {/* Row 3 */}
-            <div className="manifesto-row">
-              <div className="manifesto-text">
-                <p className="typography-body" style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '16px', margin: 0 }}>
-                  Quiet luxury is defined by capability and speed. By bypassing middle-tier tour brokers, our portal connects your booking manifest directly into supplier operations. No placeholder itineraries. No standard schedules. Just pure, uncompromised gravity and wilderness.
-                </p>
-              </div>
-              <div className="manifesto-image" style={{ backgroundImage: 'url(/images/yacht_charter.png)' }} />
-            </div>
+                <div className="manifesto-row" style={{ display: 'block' }}>
+                  <div className="manifesto-text" style={{ width: '100%', maxWidth: '800px' }}>
+                    <div className="portable-text-content" style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '18px' }}>
+                      <PortableText value={mission.bodyText} />
+                    </div>
+                  </div>
+                </div>
+              </>
+            ) : (
+              // HARDCODED FALLBACK (Until populated in Sanity)
+              <>
+                {/* Row 1 */}
+                <div className="manifesto-row">
+                  <div className="manifesto-text">
+                    <h2 className="typography-display-sm" style={{ color: '#fff', fontSize: '38px', marginBottom: '24px', letterSpacing: '-1.5px', lineHeight: '1.2' }}>
+                      {mission?.heading || 'Surgical Wilderness Manifests.'}
+                    </h2>
+                    <p className="typography-subtitle" style={{ color: 'var(--colors-on-primary)', lineHeight: '1.7', fontSize: '19px', fontWeight: 400, margin: 0 }}>
+                      We do not believe in standard tourism; we believe in the surgical execution of untouched wilderness experiences. For those whose time is their most valuable currency, waiting on a traditional travel agent is a friction point. Traverse South decouples luxury travel from administrative delay, offering pre-qualified, logistically validated day modules that stack into the ultimate South Island itinerary.
+                    </p>
+                  </div>
+                  <div className="manifesto-image" style={{ backgroundImage: 'url(/images/glacier_landing.png)' }} />
+                </div>
+
+                {/* Row 2 */}
+                <div className="manifesto-row">
+                  <div className="manifesto-text">
+                    <p className="typography-body" style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '16px', margin: 0 }}>
+                      Every blueprint is built on direct relationships with elite local operators. We coordinate AS350 turbine helicopters, 24-meter deep-fiord catamarans, restricted high-country Land Rover Defender convoys, and IFMGA-certified mountain guides. Each transit window and safety envelope is calculated to the minute, ensuring that your transition from high-alpine powder to ocean-level restoration is absolute.
+                    </p>
+                  </div>
+                  <div className="manifesto-image" style={{ backgroundImage: 'url(/images/off_road.png)' }} />
+                </div>
+
+                {/* Row 3 */}
+                <div className="manifesto-row">
+                  <div className="manifesto-text">
+                    <p className="typography-body" style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '16px', margin: 0 }}>
+                      Quiet luxury is defined by capability and speed. By bypassing middle-tier tour brokers, our portal connects your booking manifest directly into supplier operations. No placeholder itineraries. No standard schedules. Just pure, uncompromised gravity and wilderness.
+                    </p>
+                  </div>
+                  <div className="manifesto-image" style={{ backgroundImage: 'url(/images/yacht_charter.png)' }} />
+                </div>
+              </>
+            )}
 
           </div>
         </div>
@@ -137,7 +172,7 @@ export default async function Home() {
           <p className="typography-subtitle" style={{ maxWidth: '600px', color: 'var(--colors-ash)', marginBottom: '32px' }}>
             Surgical day modules filterable by gravity and wilderness intensity.
           </p>
-          
+
           <TourBuilder products={allProducts || []} />
         </div>
       </section>
@@ -158,22 +193,22 @@ export default async function Home() {
               Expertly curated narratives combining private aviation, guides, and ultra-luxe lodges.
             </p>
 
-            <div 
-              style={{ 
-                display: 'grid', 
-                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 480px), 1fr))', 
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 480px), 1fr))',
                 gap: 'var(--spacing-xl)',
                 marginBottom: 'var(--spacing-section)'
               }}
             >
               {allItineraries.map((itinerary: any) => {
-                const imageUrl = itinerary.image 
-                  ? urlFor(itinerary.image).url() 
-                  : (itinerary.activities?.[0]?.image 
-                      ? urlFor(itinerary.activities[0].image).url() 
-                      : '');
+                const imageUrl = itinerary.image
+                  ? urlFor(itinerary.image).url()
+                  : (itinerary.activities?.[0]?.image
+                    ? urlFor(itinerary.activities[0].image).url()
+                    : '');
                 return (
-                  <Link 
+                  <Link
                     href={`/itinerary/${itinerary.slug?.current}`}
                     key={itinerary._id}
                     className="feature-card-dark"
@@ -191,11 +226,11 @@ export default async function Home() {
                   >
                     {/* Oversized Image Frame */}
                     {imageUrl && (
-                      <div 
-                        style={{ 
-                          width: '100%', 
-                          height: '320px', 
-                          backgroundImage: `url(${imageUrl})`, 
+                      <div
+                        style={{
+                          width: '100%',
+                          height: '320px',
+                          backgroundImage: `url(${imageUrl})`,
                           backgroundSize: 'cover',
                           backgroundPosition: 'center',
                           borderBottom: '1px solid var(--colors-hairline-soft)'
@@ -205,23 +240,23 @@ export default async function Home() {
 
                     {/* Content Block */}
                     <div style={{ padding: 'var(--spacing-xl)' }}>
-                      <p 
-                        className="typography-mono-eyebrow" 
-                        style={{ 
-                          color: 'var(--colors-brand)', 
-                          fontSize: '11px', 
-                          letterSpacing: '1.2px', 
+                      <p
+                        className="typography-mono-eyebrow"
+                        style={{
+                          color: 'var(--colors-brand)',
+                          fontSize: '11px',
+                          letterSpacing: '1.2px',
                           marginBottom: '12px',
                           textTransform: 'uppercase'
                         }}
                       >
                         {itinerary.eyebrow || 'MULTI-DAY EXPEDITION'}
                       </p>
-                      <h3 
-                        className="typography-heading-md" 
-                        style={{ 
-                          marginBottom: '12px', 
-                          fontWeight: 400, 
+                      <h3
+                        className="typography-heading-md"
+                        style={{
+                          marginBottom: '12px',
+                          fontWeight: 400,
                           color: '#fff',
                           fontSize: '26px',
                           letterSpacing: '-0.5px'
@@ -229,12 +264,12 @@ export default async function Home() {
                       >
                         {itinerary.title}
                       </h3>
-                      <p 
-                        className="typography-body-sm" 
-                        style={{ 
-                          color: 'var(--colors-ash)', 
-                          lineHeight: '1.6', 
-                          marginBottom: '24px' 
+                      <p
+                        className="typography-body-sm"
+                        style={{
+                          color: 'var(--colors-ash)',
+                          lineHeight: '1.6',
+                          marginBottom: '24px'
                         }}
                       >
                         {itinerary.subtitle}

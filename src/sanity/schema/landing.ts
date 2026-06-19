@@ -12,6 +12,13 @@ export const landing = defineType({
       type: 'hero',
     }),
 
+    // ─── Our Mission ───
+    defineField({
+      name: 'mission',
+      title: 'Our Mission',
+      type: 'mission',
+    }),
+
     // ─── Footer ───
     defineField({
       name: 'footer',

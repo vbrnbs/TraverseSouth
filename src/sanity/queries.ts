@@ -9,12 +9,9 @@ export const homepageQuery = `*[_type == "landing"][0]{
   },
   mission {
     eyebrow,
-    headline,
+    heading,
     bodyText,
-    photoDeck[] {
-      label,
-      image
-    }
+    imageGallery
   },
   categories[]-> {
     eyebrow,

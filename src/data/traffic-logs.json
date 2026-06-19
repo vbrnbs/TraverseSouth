@@ -682,5 +682,347 @@
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
     "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
     "timestamp": "2026-06-19T03:33:31.495Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-vsqvwbxq0rr-mqj2l2p5",
+    "timestamp": "2026-06-19T03:40:38.728Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-vsqvwbxq0rr-mqj2l2p5",
+    "timestamp": "2026-06-19T04:01:48.578Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-vsqvwbxq0rr-mqj2l2p5",
+    "timestamp": "2026-06-19T04:10:37.702Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-vsqvwbxq0rr-mqj2l2p5",
+    "timestamp": "2026-06-19T04:10:47.862Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "1365x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-vsqvwbxq0rr-mqj2l2p5",
+    "timestamp": "2026-06-19T04:11:11.598Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "1365x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-vsqvwbxq0rr-mqj2l2p5",
+    "timestamp": "2026-06-19T04:12:42.688Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-vsqvwbxq0rr-mqj2l2p5",
+    "timestamp": "2026-06-19T04:16:10.314Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-vsqvwbxq0rr-mqj2l2p5",
+    "timestamp": "2026-06-19T04:18:57.800Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-vsqvwbxq0rr-mqj2l2p5",
+    "timestamp": "2026-06-19T04:19:03.623Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing%2Cpath%3Dfooter.columns%255B_key%253D%253D%2522col1%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:22:45.294Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing%2Cpath%3Dfooter.columns%255B_key%253D%253D%2522col1%2522%255D.links%255B_key%253D%253D%2522link1_1%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:22:45.303Z"
+  },
+  {
+    "pathname": "/studio/structure/activities",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:22:49.520Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;activity-yacht-charter",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:22:51.789Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;activity-off-road",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:23:09.058Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;activity-off-road",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:25:06.805Z"
+  },
+  {
+    "pathname": "/studio/structure",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:29:24.053Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:29:25.040Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:29:27.478Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing%2Cpath%3Dmission.imageGallery%255B_key%253D%253D%25226d1ea58879d0%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:32:55.071Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:33:07.933Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing%2Cpath%3Dmission.imageGallery%255B_key%253D%253D%2522548b72103c12%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:33:09.744Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:33:29.163Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing%2Cpath%3Dmission.imageGallery%255B_key%253D%253D%25226d1ea58879d0%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:33:30.592Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:33:37.646Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing%2Cpath%3Dmission.imageGallery%255B_key%253D%253D%252259687e85de43%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:33:39.242Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:33:57.542Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing%2Cpath%3Dmission.imageGallery%255B_key%253D%253D%2522be6851c84cfc%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:33:59.071Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:34:15.104Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing%2Cpath%3Dmission.imageGallery%255B_key%253D%253D%25220bb73a74bbe7%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:34:16.262Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:34:30.396Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing%2Cpath%3Dmission.imageGallery%255B_key%253D%253D%25220fddaf54b3bd%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:34:31.605Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:34:43.115Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing%2Cpath%3Dmission.imageGallery%255B_key%253D%253D%252202c7ab89c159%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:34:44.455Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:34:57.266Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing%2Cpath%3Dmission.imageGallery%255B_key%253D%253D%25227f15c2589576%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:34:58.815Z"
+  },
+  {
+    "pathname": "/studio/structure/homepage;landing",
+    "referrer": "http://localhost:3000/studio/structure/activities;activity-off-road",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-24jzps06ae9-mqj2lqb0",
+    "timestamp": "2026-06-19T04:35:14.223Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-vsqvwbxq0rr-mqj2l2p5",
+    "timestamp": "2026-06-19T04:46:18.547Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-vsqvwbxq0rr-mqj2l2p5",
+    "timestamp": "2026-06-19T04:48:45.985Z"
   }
 ]
