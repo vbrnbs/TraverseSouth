@@ -1,8 +1,8 @@
 import { defineType, defineField } from 'sanity';
 
-export const homepage = defineType({
-  name: 'homepage',
-  title: 'Homepage',
+export const landing = defineType({
+  name: 'landing',
+  title: 'Landing',
   type: 'document',
   fields: [
     // ─── Hero ───
@@ -11,7 +11,6 @@ export const homepage = defineType({
       title: 'Hero Section',
       type: 'hero',
     }),
-
 
     // ─── Footer ───
     defineField({
@@ -22,7 +21,7 @@ export const homepage = defineType({
   ],
   preview: {
     prepare() {
-      return { title: 'Homepage' };
+      return { title: 'Landing' };
     },
   },
 });

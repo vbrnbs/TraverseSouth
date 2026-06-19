@@ -4,6 +4,7 @@ import { sanityClient, previewClient, urlFor } from '@/sanity/client';
 import { homepageQuery } from '@/sanity/queries';
 import { ScrollObserver } from '@/components/ScrollObserver';
 import { TourBuilder } from '@/components/TourBuilder';
+import { MuxBackgroundVideo } from '@/components/MuxBackgroundVideo';
 import { draftMode } from 'next/headers';
 import Link from 'next/link';
 
@@ -37,7 +38,7 @@ export default async function Home() {
     );
   }
 
-  const { allProducts, allItineraries } = data;
+  const { hero, allProducts, allItineraries } = data;
 
   return (
     <main>
@@ -46,29 +47,30 @@ export default async function Home() {
       {/* ═══════════════════════════════════════
           01. Hero Section
           ═══════════════════════════════════════ */}
-      <section className="hero-section" id="hero" style={{ minHeight: '92vh' }}>
+      <section className="hero-section" id="hero" style={{ height: 'calc(100vh - 72px)', minHeight: 'calc(100vh - 72px)', marginTop: '72px' }}>
         <div className="hero-overlay"></div>
         
         {/* Cinematic Background Video Frame */}
         <div className="hero-video-bg">
-          <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.18 }}>
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-beautiful-aerial-view-of-snowy-mountains-42211-large.mp4" type="video/mp4" />
-          </video>
+          <MuxBackgroundVideo
+            playbackId={hero?.muxPlaybackId}
+            fallbackUrl="https://assets.mixkit.co/videos/preview/mixkit-beautiful-aerial-view-of-snowy-mountains-42211-large.mp4"
+          />
         </div>
 
         <div className="hero-content" style={{ paddingBottom: 'var(--spacing-xxl)' }}>
           <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-brand)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
-            TRAVERSE SOUTH // UNTRACKED SOUTHERN WILDERNESS FOR ADVENTURE SEEKERS
+            {hero?.eyebrow || 'TRAVERSE SOUTH // UNTRACKED SOUTHERN WILDERNESS FOR ADVENTURE SEEKERS'}
           </p>
           <h1 className="typography-display-mega" style={{ maxWidth: '1200px', marginBottom: '32px', color: 'var(--colors-on-primary)' }}>
-            Traverse South — Elite Southern Blueprints.
+            {hero?.headline || 'Traverse South — Elite Southern Blueprints.'}
           </h1>
           <p className="typography-subtitle" style={{ maxWidth: '650px', color: 'var(--colors-ash)', marginBottom: '40px', lineHeight: '1.6' }}>
-            Frictionless, high-gravity expeditions engineered for those whose rarest asset is time. We compile private rotorcraft, marine charters, and elite mountain guides into uncompromised, surgical wilderness manifests.
+            {hero?.subtitle || 'Frictionless, high-gravity expeditions engineered for those whose rarest asset is time. We compile private rotorcraft, marine charters, and elite mountain guides into uncompromised, surgical wilderness manifests.'}
           </p>
           <div style={{ display: 'flex', gap: '16px' }}>
-            <Button variant="brand" href="#adventures">Explore Blueprints</Button>
-            <Button variant="secondary-dark" href="#blueprint">Our Blueprint</Button>
+            <Button variant="brand" href="#adventures">{hero?.primaryCta || 'Explore Blueprints'}</Button>
+            <Button variant="secondary-dark" href="#blueprint">{hero?.secondaryCta || 'Our Blueprint'}</Button>
           </div>
         </div>
       </section>

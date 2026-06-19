@@ -10,6 +10,7 @@
     "populate": "sanity dataset import homepage-defaults.ndjson production --replace"
   },
   "dependencies": {
+    "@mux/mux-player-react": "^3.13.0",
     "@portabletext/react": "^6.2.0",
     "@sanity/client": "^7.22.0",
     "@sanity/presentation": "^2.0.0",
@@ -20,6 +21,7 @@
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "sanity": "^5.26.0",
+    "sanity-plugin-mux-input": "^3.0.3",
     "styled-components": "^6.4.2"
   },
   "devDependencies": {

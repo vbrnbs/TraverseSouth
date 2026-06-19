@@ -202,3 +202,15 @@ button {
     height: 280px;
   }
 }
+
+/* Sanity Studio Custom Container and Layout Height Constraint */
+.sanity-studio-container {
+  height: calc(100vh - 72px) !important;
+}
+
+.sanity-studio-container [data-testid="studio-layout"],
+.sanity-studio-container [class*="StudioLayout"] {
+  height: 100% !important;
+  min-height: 100% !important;
+  max-height: 100% !important;
+}

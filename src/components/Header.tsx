@@ -1,10 +1,35 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { Button } from '@/components/Button';
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Keep header visible when near the top (less than 10px scrolled)
+      if (currentScrollY < 10) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down - hide header
+        setIsVisible(false);
+      } else {
+        // Scrolling up - show header
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   return (
     <header 
@@ -21,7 +46,9 @@ export function Header() {
         zIndex: 999,
         background: 'rgba(11, 11, 11, 0.95)',
         backdropFilter: 'blur(8px)',
-        borderBottom: '1px solid var(--colors-hairline-soft)'
+        borderBottom: '1px solid var(--colors-hairline-soft)',
+        transform: isVisible ? 'translateY(0)' : 'translateY(-100%)',
+        transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
       }}
     >
       {/* Left logo (matches footer layout) */}
@@ -48,8 +75,27 @@ export function Header() {
         </Link>
       </div>
 
-      {/* Right typographic MENU trigger */}
-      <div style={{ position: 'relative' }}>
+      {/* Right typographic MENU trigger & Highlighted Contact Us button */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '24px', position: 'relative' }}>
+        {/* Highlighted Contact Us Button */}
+        <Button 
+          variant="brand" 
+          href="/tailor-made"
+          style={{
+            height: '36px',
+            padding: '0 16px',
+            fontSize: '13px',
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            textDecoration: 'none',
+            fontWeight: 600
+          }}
+        >
+          Contact Us
+        </Button>
+
+        {/* MENU button trigger */}
         <button 
           onClick={() => setIsOpen(!isOpen)}
           className="typography-mono-caps"
@@ -98,25 +144,39 @@ export function Header() {
               }}
             >
               <Link 
-                href="/" 
+                href="/about-us" 
                 onClick={() => setIsOpen(false)}
                 className="header-dropdown-link"
               >
-                Home / Manifest
+                About Us
               </Link>
               <Link 
-                href="/#adventures" 
+                href="/itineraries" 
                 onClick={() => setIsOpen(false)}
                 className="header-dropdown-link"
               >
-                Expeditions
+                Itineraries
               </Link>
               <Link 
-                href="/legal" 
+                href="/trips" 
                 onClick={() => setIsOpen(false)}
                 className="header-dropdown-link"
               >
-                Legal & Disclosures
+                Trips
+              </Link>
+              <Link 
+                href="/tailor-made" 
+                onClick={() => setIsOpen(false)}
+                className="header-dropdown-link"
+              >
+                Tailor Made Trips
+              </Link>
+              <Link 
+                href="/stories" 
+                onClick={() => setIsOpen(false)}
+                className="header-dropdown-link"
+              >
+                Stories
               </Link>
             </div>
           </>

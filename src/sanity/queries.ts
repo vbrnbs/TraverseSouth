@@ -1,10 +1,11 @@
-export const homepageQuery = `*[_type == "homepage"][0]{
+export const homepageQuery = `*[_type == "landing"][0]{
   hero {
     eyebrow,
     headline,
     subtitle,
     primaryCta,
-    secondaryCta
+    secondaryCta,
+    "muxPlaybackId": muxVideo.asset->playbackId
   },
   mission {
     eyebrow,
