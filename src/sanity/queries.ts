@@ -4,14 +4,15 @@ export const homepageQuery = `*[_type == "landing"][0]{
     headline,
     subtitle,
     primaryCta,
-    secondaryCta,
+    riskReversals,
     "muxPlaybackId": muxVideo.asset->playbackId
   },
   mission {
     eyebrow,
     heading,
     bodyText,
-    imageGallery
+    imageGallery,
+    badges
   },
   categories[]-> {
     eyebrow,
@@ -50,7 +51,7 @@ export const homepageQuery = `*[_type == "landing"][0]{
       }
     }
   },
-  "allProducts": *[_type == "activity"] {
+  featuredActivities[]-> {
     _id,
     title,
     slug,
@@ -63,7 +64,7 @@ export const homepageQuery = `*[_type == "landing"][0]{
     pricing,
     region
   },
-  "allItineraries": *[_type == "itinerary"] {
+  featuredItineraries[]-> {
     _id,
     title,
     slug,

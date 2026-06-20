@@ -39,7 +39,7 @@ export default async function Home() {
     );
   }
 
-  const { hero, mission, allProducts, allItineraries } = data;
+  const { hero, mission, featuredActivities, featuredItineraries } = data;
 
   return (
     <main>
@@ -64,20 +64,34 @@ export default async function Home() {
             {hero?.eyebrow || 'TRAVERSE SOUTH // UNTRACKED SOUTHERN WILDERNESS FOR ADVENTURE SEEKERS'}
           </p>
           <h1 className="typography-display-mega" style={{ maxWidth: '1200px', marginBottom: '32px', color: 'var(--colors-on-primary)' }}>
-            {hero?.headline || 'Traverse South — Elite Southern Blueprints.'}
+            {hero?.headline || 'High-Altitude Surgical Insertions.'}
           </h1>
           <p className="typography-subtitle" style={{ maxWidth: '650px', color: 'var(--colors-ash)', marginBottom: '40px', lineHeight: '1.6' }}>
-            {hero?.subtitle || 'Frictionless, high-gravity expeditions engineered for those whose rarest asset is time. We compile private rotorcraft, marine charters, and elite mountain guides into uncompromised, surgical wilderness manifests.'}
+            {hero?.subtitle || 'Zero-friction private expeditions across New Zealand’s remote Southern Alps. We control the assets, the timeline, and the terrain.'}
           </p>
-          <div style={{ display: 'flex', gap: '16px' }}>
+          <div style={{ display: 'flex', gap: '16px', marginBottom: '24px' }}>
             <Button variant="brand" href="#adventures">{hero?.primaryCta || 'Explore Blueprints'}</Button>
-            {/* <Button variant="secondary-dark" href="#blueprint">{hero?.secondaryCta || 'Our Blueprint'}</Button> */}
           </div>
+          
+          {/* Hormozi Risk Reversals */}
+          {hero?.riskReversals && hero.riskReversals.length > 0 && (
+            <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', alignItems: 'center' }}>
+              {hero.riskReversals.map((badge: string, i: number) => (
+                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--colors-brand)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span style={{ color: 'var(--colors-ash)', fontSize: '13px', fontFamily: 'var(--font-ibm-plex-mono), monospace', textTransform: 'uppercase' }}>{badge}</span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
       {/* ═══════════════════════════════════════
-          02. Manifesto / Our Mission
+          02. Brand Manifesto / Intro
           ═══════════════════════════════════════ */}
       <section id="mission" className="marketing-section-dark" style={{ borderTop: '1px solid var(--colors-hairline-soft)', padding: 'var(--spacing-section-lg) 0' }}>
         <div className="container" style={{ maxWidth: '1200px' }}>
@@ -100,6 +114,7 @@ export default async function Home() {
                   </div>
                 </div>
 
+                {/* 1. Image Gallery Grid */}
                 {mission.imageGallery?.length > 0 && (
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '40px' }}>
                     {mission.imageGallery.map((img: any, i: number) => (
@@ -107,6 +122,32 @@ export default async function Home() {
                     ))}
                   </div>
                 )}
+
+                {/* 2. Partner Logos Marquee */}
+                <div style={{ width: '100%', overflow: 'hidden', whiteSpace: 'nowrap', padding: '32px 0', borderTop: '1px solid var(--colors-hairline-soft)', borderBottom: '1px solid var(--colors-hairline-soft)', marginBottom: '40px' }}>
+                  <div className="animate-marquee" style={{ display: 'flex', gap: '64px', alignItems: 'center' }}>
+                    {mission.badges?.length > 0 ? (
+                      [...mission.badges, ...mission.badges, ...mission.badges].map((img: any, i: number) => (
+                        <img 
+                          key={i} 
+                          src={urlFor(img).url()} 
+                          alt="Operator or Award Logo" 
+                          className="marquee-logo"
+                        />
+                      ))
+                    ) : (
+                      [1, 2, 3, 1, 2, 3, 1, 2, 3].map((num, i) => (
+                        <img 
+                          key={i} 
+                          src={`/images/badge${num}.png`} 
+                          alt="Operator Logo Fallback" 
+                          className="marquee-logo"
+                          style={{ filter: 'invert(1) grayscale(100%) opacity(0.6)' }}
+                        />
+                      ))
+                    )}
+                  </div>
+                </div>
 
                 <div className="manifesto-row" style={{ display: 'block' }}>
                   <div className="manifesto-text" style={{ width: '100%', maxWidth: '800px' }}>
@@ -119,37 +160,42 @@ export default async function Home() {
             ) : (
               // HARDCODED FALLBACK (Until populated in Sanity)
               <>
-                {/* Row 1 */}
-                <div className="manifesto-row">
-                  <div className="manifesto-text">
-                    <h2 className="typography-display-sm" style={{ color: '#fff', fontSize: '38px', marginBottom: '24px', letterSpacing: '-1.5px', lineHeight: '1.2' }}>
+                <div className="manifesto-row" style={{ display: 'block' }}>
+                  <div className="manifesto-text" style={{ width: '100%', maxWidth: '800px' }}>
+                    <h2 className="typography-display-sm" style={{ color: '#fff', fontSize: '38px', marginBottom: '32px', letterSpacing: '-1.5px', lineHeight: '1.2' }}>
                       {mission?.heading || 'Surgical Wilderness Manifests.'}
                     </h2>
-                    <p className="typography-subtitle" style={{ color: 'var(--colors-on-primary)', lineHeight: '1.7', fontSize: '19px', fontWeight: 400, margin: 0 }}>
-                      We do not believe in standard tourism; we believe in the surgical execution of untouched wilderness experiences. For those whose time is their most valuable currency, waiting on a traditional travel agent is a friction point. Traverse South decouples luxury travel from administrative delay, offering pre-qualified, logistically validated day modules that stack into the ultimate South Island itinerary.
-                    </p>
                   </div>
-                  <div className="manifesto-image" style={{ backgroundImage: 'url(/images/glacier_landing.png)' }} />
                 </div>
 
-                {/* Row 2 */}
-                <div className="manifesto-row">
-                  <div className="manifesto-text">
-                    <p className="typography-body" style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '16px', margin: 0 }}>
-                      Every blueprint is built on direct relationships with elite local operators. We coordinate AS350 turbine helicopters, 24-meter deep-fiord catamarans, restricted high-country Land Rover Defender convoys, and IFMGA-certified mountain guides. Each transit window and safety envelope is calculated to the minute, ensuring that your transition from high-alpine powder to ocean-level restoration is absolute.
-                    </p>
-                  </div>
-                  <div className="manifesto-image" style={{ backgroundImage: 'url(/images/off_road.png)' }} />
+                {/* 1. Image Gallery Grid */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '40px' }}>
+                  <div style={{ width: '100%', height: '350px', backgroundImage: 'url(/images/glacier_landing.png)', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '4px' }} />
+                  <div style={{ width: '100%', height: '350px', backgroundImage: 'url(/images/yacht_charter.png)', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '4px' }} />
+                  <div style={{ width: '100%', height: '350px', backgroundImage: 'url(/images/off_road.png)', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '4px' }} />
                 </div>
 
-                {/* Row 3 */}
-                <div className="manifesto-row">
-                  <div className="manifesto-text">
-                    <p className="typography-body" style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '16px', margin: 0 }}>
-                      Quiet luxury is defined by capability and speed. By bypassing middle-tier tour brokers, our portal connects your booking manifest directly into supplier operations. No placeholder itineraries. No standard schedules. Just pure, uncompromised gravity and wilderness.
+                {/* 2. Partner Logos Marquee */}
+                <div style={{ width: '100%', overflow: 'hidden', whiteSpace: 'nowrap', padding: '32px 0', borderTop: '1px solid var(--colors-hairline-soft)', borderBottom: '1px solid var(--colors-hairline-soft)', marginBottom: '40px' }}>
+                  <div className="animate-marquee" style={{ display: 'flex', gap: '64px', alignItems: 'center' }}>
+                    {[1, 2, 3, 1, 2, 3, 1, 2, 3].map((num, i) => (
+                      <img 
+                        key={i} 
+                        src={`/images/badge${num}.png`} 
+                        alt="Operator Logo Fallback" 
+                        className="marquee-logo"
+                        style={{ filter: 'invert(1) grayscale(100%) opacity(0.6)' }}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="manifesto-row" style={{ display: 'block' }}>
+                  <div className="manifesto-text" style={{ width: '100%', maxWidth: '800px' }}>
+                    <p className="typography-subtitle" style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '18px' }}>
+                      We do not believe in standard tourism; we believe in the surgical execution of untouched wilderness experiences. Traverse South decouples luxury travel from administrative delay.
                     </p>
                   </div>
-                  <div className="manifesto-image" style={{ backgroundImage: 'url(/images/yacht_charter.png)' }} />
                 </div>
               </>
             )}
@@ -173,14 +219,14 @@ export default async function Home() {
             Surgical day modules filterable by gravity and wilderness intensity.
           </p>
 
-          <TourBuilder products={allProducts || []} />
+          <TourBuilder products={featuredActivities || []} />
         </div>
       </section>
 
       {/* ═══════════════════════════════════════
           04. Inspirational Package Editorials
           ═══════════════════════════════════════ */}
-      {allItineraries && allItineraries.length > 0 && (
+      {featuredItineraries && featuredItineraries.length > 0 && (
         <section id="itineraries" className="marketing-section-dark" style={{ borderTop: '1px solid var(--colors-hairline-soft)' }}>
           <div className="container">
             <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-brand)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
@@ -201,7 +247,7 @@ export default async function Home() {
                 marginBottom: 'var(--spacing-section)'
               }}
             >
-              {allItineraries.map((itinerary: any) => {
+              {featuredItineraries.map((itinerary: any) => {
                 const imageUrl = itinerary.image
                   ? urlFor(itinerary.image).url()
                   : (itinerary.activities?.[0]?.image

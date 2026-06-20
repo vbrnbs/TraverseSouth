@@ -43,6 +43,12 @@ export default defineType({
             validation: (Rule) => Rule.required().min(1).max(3).integer(),
         }),
         defineField({
+            name: 'category',
+            title: 'Category',
+            type: 'reference',
+            to: [{ type: 'category' }],
+        }),
+        defineField({
             name: 'region',
             title: 'Region',
             type: 'string',

@@ -9,7 +9,13 @@ export const hero = defineType({
     defineField({ name: 'headline', title: 'Headline', type: 'string' }),
     defineField({ name: 'subtitle', title: 'Subtitle', type: 'text', rows: 3 }),
     defineField({ name: 'primaryCta', title: 'Primary CTA Text', type: 'string' }),
-    defineField({ name: 'secondaryCta', title: 'Secondary CTA Text', type: 'string' }),
+    defineField({
+      name: 'riskReversals',
+      title: 'Risk Reversals (Badges)',
+      type: 'array',
+      of: [{ type: 'string' }],
+      description: 'Short trust badges displayed directly below the CTA (e.g., "Zero-Admin Weather Refunds").'
+    }),
     defineField({
       name: 'muxVideo',
       title: 'Mux Video',

@@ -19,6 +19,22 @@ export const landing = defineType({
       type: 'mission',
     }),
 
+    // ─── Curated Content ───
+    defineField({
+      name: 'featuredActivities',
+      title: 'Featured Activities',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'activity' }] }],
+      description: 'Manually select and order the specific activities you want displayed on the homepage.',
+    }),
+    defineField({
+      name: 'featuredItineraries',
+      title: 'Featured Itineraries',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'itinerary' }] }],
+      description: 'Manually select and order the specific itineraries you want displayed on the homepage.',
+    }),
+
     // ─── Footer ───
     defineField({
       name: 'footer',

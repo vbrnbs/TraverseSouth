@@ -214,3 +214,29 @@ button {
   min-height: 100% !important;
   max-height: 100% !important;
 }
+
+@keyframes marquee { 
+  0% { transform: translateX(0%); } 
+  100% { transform: translateX(-50%); } 
+} 
+.animate-marquee { 
+  display: flex; 
+  width: max-content; 
+  animation: marquee 30s linear infinite; 
+} 
+.animate-marquee:hover { 
+  animation-play-state: paused; 
+}
+
+.marquee-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.6);
+  transition: filter 0.3s ease;
+  cursor: pointer;
+}
+
+.marquee-logo:hover {
+  filter: grayscale(0%) opacity(1);
+}

@@ -1,5 +1,6 @@
 import destination from './destination'
 import activity from './activity'
+import category from './category'
 import operator from './operator'
 import itinerary from './itinerary'
 import { landing } from './landing'
@@ -10,6 +11,7 @@ import { page } from './page'
 
 export const schemaTypes = [
     destination,
+    category,
     activity,
     operator,
     itinerary,

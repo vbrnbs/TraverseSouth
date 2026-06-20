@@ -35,7 +35,26 @@ export const mission = defineType({
           ]
         }
       ],
-      description: 'Add as many images as you want to showcase the mission.'
+      description: 'Add images to visually showcase the mission (e.g. glacier landings, wild rivers).'
+    }),
+    defineField({
+      name: 'badges',
+      title: 'Badges, Awards & Operator Logos',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          options: { hotspot: true },
+          fields: [
+            defineField({
+              name: 'alt',
+              title: 'Alt Text',
+              type: 'string',
+            })
+          ]
+        }
+      ],
+      description: 'Upload logos of your operators, awards, or trust badges. They will display in a smoothly moving marquee slip.'
     }),
     defineField({
       name: 'bodyText',
