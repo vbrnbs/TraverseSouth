@@ -66,16 +66,13 @@ export default async function Home() {
           <h1 className="typography-display-mega" style={{ maxWidth: '1200px', marginBottom: '32px', color: 'var(--colors-on-primary)' }}>
             {hero?.headline || 'High-Altitude Surgical Insertions.'}
           </h1>
-          <p className="typography-subtitle" style={{ maxWidth: '650px', color: 'var(--colors-ash)', marginBottom: '40px', lineHeight: '1.6' }}>
+          <p className="typography-subtitle" style={{ maxWidth: '650px', color: 'var(--colors-ash)', marginBottom: '32px', lineHeight: '1.6' }}>
             {hero?.subtitle || 'Zero-friction private expeditions across New Zealand’s remote Southern Alps. We control the assets, the timeline, and the terrain.'}
           </p>
-          <div style={{ display: 'flex', gap: '16px', marginBottom: '24px' }}>
-            <Button variant="brand" href="#adventures">{hero?.primaryCta || 'Explore Blueprints'}</Button>
-          </div>
-          
+
           {/* Hormozi Risk Reversals */}
           {hero?.riskReversals && hero.riskReversals.length > 0 && (
-            <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', alignItems: 'center' }}>
+            <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', alignItems: 'center', marginBottom: '32px' }}>
               {hero.riskReversals.map((badge: string, i: number) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--colors-brand)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -87,120 +84,85 @@ export default async function Home() {
               ))}
             </div>
           )}
+
+          <div style={{ display: 'flex', gap: '16px', marginBottom: '24px' }}>
+            <Button variant="brand" href="#adventures">{hero?.primaryCta || 'Explore Blueprints'}</Button>
+          </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════
           02. Brand Manifesto / Intro
           ═══════════════════════════════════════ */}
-      <section id="mission" className="marketing-section-dark" style={{ borderTop: '1px solid var(--colors-hairline-soft)', padding: 'var(--spacing-section-lg) 0' }}>
-        <div className="container" style={{ maxWidth: '1200px' }}>
+      <section id="mission" className="marketing-section-dark" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', borderTop: '1px solid var(--colors-hairline-soft)', padding: 0 }}>
+
+        {/* Partner Logos Marquee (At the very top, full width) */}
+        <div style={{ width: '100%', overflow: 'hidden', whiteSpace: 'nowrap', padding: '32px 0', borderBottom: '1px solid var(--colors-hairline-soft)', backgroundColor: 'rgba(0,0,0,0.2)' }}>
+          <div className="animate-marquee" style={{ display: 'flex', gap: '64px', alignItems: 'center' }}>
+            {/* Forcing display of new full-color local logos so user can preview them immediately */}
+            {[1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3].map((num, i) => (
+              <img
+                key={i}
+                src={`/images/badge${num}.png`}
+                alt="Operator Logo"
+                className="marquee-logo"
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Centered Content Below */}
+        <div className="container" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', maxWidth: '1200px', padding: 'var(--spacing-section-lg) var(--spacing-lg)', textAlign: 'center' }}>
+
           <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-brand)', textTransform: 'uppercase', letterSpacing: '1.5px', fontSize: '12px' }}>
             {mission?.eyebrow || '// OUR MISSION'}
           </p>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', marginTop: 'var(--spacing-xl)' }}>
-            
-            {mission?.bodyText ? (
-              // DYNAMIC SANITY RENDER
-              <>
-                <div className="manifesto-row" style={{ display: 'block' }}>
-                  <div className="manifesto-text" style={{ width: '100%', maxWidth: '800px' }}>
-                    {mission.heading && (
-                      <h2 className="typography-display-sm" style={{ color: '#fff', fontSize: '38px', marginBottom: '32px', letterSpacing: '-1.5px', lineHeight: '1.2' }}>
-                        {mission.heading}
-                      </h2>
-                    )}
+          <h2 className="typography-display-sm" style={{ color: '#fff', fontSize: '38px', marginBottom: '40px', letterSpacing: '-1.5px', lineHeight: '1.2', maxWidth: '800px' }}>
+            {mission?.heading || 'Surgical Wilderness Manifests.'}
+          </h2>
+
+          {/* 1. Image Gallery Accordion */}
+          <div className="accordion-gallery">
+            {mission?.imageGallery?.length > 0 ? (
+              mission.imageGallery.map((img: any, i: number) => (
+                <div key={i} className="accordion-item" style={{ backgroundImage: `url(${urlFor(img).url()})` }}>
+                  <div className="accordion-overlay">
+                    <span className="accordion-text">{img.alt || `Sector 0${i + 1}`}</span>
                   </div>
                 </div>
-
-                {/* 1. Image Gallery Grid */}
-                {mission.imageGallery?.length > 0 && (
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '40px' }}>
-                    {mission.imageGallery.map((img: any, i: number) => (
-                      <div key={i} style={{ width: '100%', height: '350px', backgroundImage: `url(${urlFor(img).url()})`, backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '4px' }} />
-                    ))}
-                  </div>
-                )}
-
-                {/* 2. Partner Logos Marquee */}
-                <div style={{ width: '100%', overflow: 'hidden', whiteSpace: 'nowrap', padding: '32px 0', borderTop: '1px solid var(--colors-hairline-soft)', borderBottom: '1px solid var(--colors-hairline-soft)', marginBottom: '40px' }}>
-                  <div className="animate-marquee" style={{ display: 'flex', gap: '64px', alignItems: 'center' }}>
-                    {mission.badges?.length > 0 ? (
-                      [...mission.badges, ...mission.badges, ...mission.badges].map((img: any, i: number) => (
-                        <img 
-                          key={i} 
-                          src={urlFor(img).url()} 
-                          alt="Operator or Award Logo" 
-                          className="marquee-logo"
-                        />
-                      ))
-                    ) : (
-                      [1, 2, 3, 1, 2, 3, 1, 2, 3].map((num, i) => (
-                        <img 
-                          key={i} 
-                          src={`/images/badge${num}.png`} 
-                          alt="Operator Logo Fallback" 
-                          className="marquee-logo"
-                          style={{ filter: 'invert(1) grayscale(100%) opacity(0.6)' }}
-                        />
-                      ))
-                    )}
-                  </div>
-                </div>
-
-                <div className="manifesto-row" style={{ display: 'block' }}>
-                  <div className="manifesto-text" style={{ width: '100%', maxWidth: '800px' }}>
-                    <div className="portable-text-content" style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '18px' }}>
-                      <PortableText value={mission.bodyText} />
-                    </div>
-                  </div>
-                </div>
-              </>
+              ))
             ) : (
-              // HARDCODED FALLBACK (Until populated in Sanity)
               <>
-                <div className="manifesto-row" style={{ display: 'block' }}>
-                  <div className="manifesto-text" style={{ width: '100%', maxWidth: '800px' }}>
-                    <h2 className="typography-display-sm" style={{ color: '#fff', fontSize: '38px', marginBottom: '32px', letterSpacing: '-1.5px', lineHeight: '1.2' }}>
-                      {mission?.heading || 'Surgical Wilderness Manifests.'}
-                    </h2>
-                  </div>
+                <div className="accordion-item" style={{ backgroundImage: 'url(/images/glacier_landing.png)' }}>
+                  <div className="accordion-overlay"><span className="accordion-text">Alpine Insertions</span></div>
                 </div>
-
-                {/* 1. Image Gallery Grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '40px' }}>
-                  <div style={{ width: '100%', height: '350px', backgroundImage: 'url(/images/glacier_landing.png)', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '4px' }} />
-                  <div style={{ width: '100%', height: '350px', backgroundImage: 'url(/images/yacht_charter.png)', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '4px' }} />
-                  <div style={{ width: '100%', height: '350px', backgroundImage: 'url(/images/off_road.png)', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '4px' }} />
+                <div className="accordion-item" style={{ backgroundImage: 'url(/images/yacht_charter.png)' }}>
+                  <div className="accordion-overlay"><span className="accordion-text">Marine Assets</span></div>
                 </div>
-
-                {/* 2. Partner Logos Marquee */}
-                <div style={{ width: '100%', overflow: 'hidden', whiteSpace: 'nowrap', padding: '32px 0', borderTop: '1px solid var(--colors-hairline-soft)', borderBottom: '1px solid var(--colors-hairline-soft)', marginBottom: '40px' }}>
-                  <div className="animate-marquee" style={{ display: 'flex', gap: '64px', alignItems: 'center' }}>
-                    {[1, 2, 3, 1, 2, 3, 1, 2, 3].map((num, i) => (
-                      <img 
-                        key={i} 
-                        src={`/images/badge${num}.png`} 
-                        alt="Operator Logo Fallback" 
-                        className="marquee-logo"
-                        style={{ filter: 'invert(1) grayscale(100%) opacity(0.6)' }}
-                      />
-                    ))}
-                  </div>
+                <div className="accordion-item" style={{ backgroundImage: 'url(/images/off_road.png)' }}>
+                  <div className="accordion-overlay"><span className="accordion-text">Overland Traverse</span></div>
                 </div>
-
-                <div className="manifesto-row" style={{ display: 'block' }}>
-                  <div className="manifesto-text" style={{ width: '100%', maxWidth: '800px' }}>
-                    <p className="typography-subtitle" style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '18px' }}>
-                      We do not believe in standard tourism; we believe in the surgical execution of untouched wilderness experiences. Traverse South decouples luxury travel from administrative delay.
-                    </p>
-                  </div>
+                <div className="accordion-item" style={{ backgroundImage: 'url(/images/glacier_landing.png)' }}>
+                  <div className="accordion-overlay"><span className="accordion-text">Remote Outposts</span></div>
                 </div>
               </>
             )}
-
           </div>
+
+          {/* Body Text */}
+          <div style={{ width: '100%', maxWidth: '800px', margin: '0 auto' }}>
+            {mission?.bodyText ? (
+              <div className="portable-text-content" style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '18px' }}>
+                <PortableText value={mission.bodyText} />
+              </div>
+            ) : (
+              <p className="typography-subtitle" style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '18px' }}>
+                We do not believe in standard tourism; we believe in the surgical execution of untouched wilderness experiences. Traverse South decouples luxury travel from administrative delay.
+              </p>
+            )}
+          </div>
+
         </div>
       </section>
 

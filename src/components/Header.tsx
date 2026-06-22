@@ -12,7 +12,7 @@ export function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       // Keep header visible when near the top (less than 10px scrolled)
       if (currentScrollY < 10) {
         setIsVisible(true);
@@ -23,7 +23,7 @@ export function Header() {
         // Scrolling up - show header
         setIsVisible(true);
       }
-      
+
       setLastScrollY(currentScrollY);
     };
 
@@ -32,7 +32,7 @@ export function Header() {
   }, [lastScrollY]);
 
   return (
-    <header 
+    <header
       style={{
         position: 'fixed',
         top: 0,
@@ -44,7 +44,7 @@ export function Header() {
         justifyContent: 'space-between',
         padding: '0 48px',
         zIndex: 999,
-        background: 'rgba(11, 11, 11, 0.95)',
+        background: 'rgba(11, 11, 11, 0.8)',
         backdropFilter: 'blur(8px)',
         borderBottom: '1px solid var(--colors-hairline-soft)',
         transform: isVisible ? 'translateY(0)' : 'translateY(-100%)',
@@ -53,21 +53,21 @@ export function Header() {
     >
       {/* Left logo (matches footer layout) */}
       <div>
-        <Link 
-          href="/" 
-          style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            textDecoration: 'none' 
+        <Link
+          href="/"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            textDecoration: 'none'
           }}
         >
           <div className="brand-dot"></div>
-          <span 
-            style={{ 
-              fontWeight: 500, 
-              letterSpacing: '-0.32px', 
-              fontSize: '16px', 
-              color: '#fff' 
+          <span
+            style={{
+              fontWeight: 500,
+              letterSpacing: '-0.32px',
+              fontSize: '16px',
+              color: '#fff'
             }}
           >
             Traverse South
@@ -78,8 +78,8 @@ export function Header() {
       {/* Right typographic MENU trigger & Highlighted Contact Us button */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '24px', position: 'relative' }}>
         {/* Highlighted Contact Us Button */}
-        <Button 
-          variant="brand" 
+        <Button
+          variant="brand"
           href="/tailor-made"
           style={{
             height: '36px',
@@ -96,7 +96,7 @@ export function Header() {
         </Button>
 
         {/* MENU button trigger */}
-        <button 
+        <button
           onClick={() => setIsOpen(!isOpen)}
           className="typography-mono-caps"
           style={{
@@ -117,7 +117,7 @@ export function Header() {
         {isOpen && (
           <>
             {/* Click outside to close backdrop */}
-            <div 
+            <div
               onClick={() => setIsOpen(false)}
               style={{
                 position: 'fixed',
@@ -127,7 +127,7 @@ export function Header() {
               }}
             />
             {/* Dropdown Box */}
-            <div 
+            <div
               style={{
                 position: 'absolute',
                 top: '48px', // situated below the trigger button
@@ -143,36 +143,36 @@ export function Header() {
                 flexDirection: 'column'
               }}
             >
-              <Link 
-                href="/about-us" 
+              <Link
+                href="/about-us"
                 onClick={() => setIsOpen(false)}
                 className="header-dropdown-link"
               >
                 About Us
               </Link>
-              <Link 
-                href="/itineraries" 
+              <Link
+                href="/itineraries"
                 onClick={() => setIsOpen(false)}
                 className="header-dropdown-link"
               >
                 Itineraries
               </Link>
-              <Link 
-                href="/trips" 
+              <Link
+                href="/trips"
                 onClick={() => setIsOpen(false)}
                 className="header-dropdown-link"
               >
                 Trips
               </Link>
-              <Link 
-                href="/tailor-made" 
+              <Link
+                href="/tailor-made"
                 onClick={() => setIsOpen(false)}
                 className="header-dropdown-link"
               >
                 Tailor Made Trips
               </Link>
-              <Link 
-                href="/stories" 
+              <Link
+                href="/stories"
                 onClick={() => setIsOpen(false)}
                 className="header-dropdown-link"
               >
