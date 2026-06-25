@@ -247,8 +247,13 @@ button {
   padding: 24px;
 }
 
-.accordion-item:hover .accordion-overlay {
-  opacity: 1;
+@media (min-width: 769px) {
+  .accordion-item:hover {
+    flex: 3;
+  }
+  .accordion-item:hover .accordion-overlay {
+    opacity: 1;
+  }
 }
 
 .accordion-text {
@@ -262,16 +267,29 @@ button {
   white-space: nowrap;
 }
 
-.accordion-item:hover .accordion-text {
+@media (min-width: 769px) {
+  .accordion-item:hover .accordion-text {
+    transform: translateY(0);
+  }
+}
+
+.accordion-item.is-active {
+  flex: 3;
+}
+.accordion-item.is-active .accordion-overlay {
+  opacity: 1;
+}
+.accordion-item.is-active .accordion-text {
   transform: translateY(0);
 }
 
 @media (max-width: 768px) {
   .accordion-gallery {
     flex-direction: column;
-    height: 600px;
+    height: 700px;
   }
-  .accordion-item:hover {
+  
+  .accordion-item.is-active {
     flex: 2;
   }
 }

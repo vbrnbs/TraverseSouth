@@ -33,22 +33,9 @@ export function Header() {
 
   return (
     <header
+      className="site-header"
       style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        height: '72px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '0 48px',
-        zIndex: 999,
-        background: 'rgba(11, 11, 11, 0.8)',
-        backdropFilter: 'blur(8px)',
-        borderBottom: '1px solid var(--colors-hairline-soft)',
-        transform: isVisible ? 'translateY(0)' : 'translateY(-100%)',
-        transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+        transform: isVisible ? 'translateY(0)' : 'translateY(-100%)'
       }}
     >
       {/* Left logo (matches footer layout) */}

@@ -8,6 +8,7 @@ import { MuxBackgroundVideo } from '@/components/MuxBackgroundVideo';
 import { draftMode } from 'next/headers';
 import Link from 'next/link';
 import { PortableText } from '@portabletext/react';
+import { AccordionGallery } from '@/components/AccordionGallery';
 
 // Configure dynamic pages to always fetch fresh data from Sanity on every request
 export const revalidate = 0;
@@ -48,7 +49,7 @@ export default async function Home() {
       {/* ═══════════════════════════════════════
           01. Hero Section
           ═══════════════════════════════════════ */}
-      <section className="hero-section" id="hero" style={{ height: 'calc(100vh - 72px)', minHeight: 'calc(100vh - 72px)', marginTop: '72px' }}>
+      <section className="hero-section" id="hero">
         <div className="hero-overlay"></div>
 
         {/* Cinematic Background Video Frame */}
@@ -134,32 +135,7 @@ export default async function Home() {
           </h2>
 
           {/* 1. Image Gallery Accordion */}
-          <div className="accordion-gallery">
-            {mission?.imageGallery?.length > 0 ? (
-              mission.imageGallery.map((img: any, i: number) => (
-                <div key={i} className="accordion-item" style={{ backgroundImage: `url(${urlFor(img).url()})` }}>
-                  <div className="accordion-overlay">
-                    <span className="accordion-text">{img.alt || `Sector 0${i + 1}`}</span>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <>
-                <div className="accordion-item" style={{ backgroundImage: 'url(/images/glacier_landing.png)' }}>
-                  <div className="accordion-overlay"><span className="accordion-text">Alpine Insertions</span></div>
-                </div>
-                <div className="accordion-item" style={{ backgroundImage: 'url(/images/yacht_charter.png)' }}>
-                  <div className="accordion-overlay"><span className="accordion-text">Marine Assets</span></div>
-                </div>
-                <div className="accordion-item" style={{ backgroundImage: 'url(/images/off_road.png)' }}>
-                  <div className="accordion-overlay"><span className="accordion-text">Overland Traverse</span></div>
-                </div>
-                <div className="accordion-item" style={{ backgroundImage: 'url(/images/glacier_landing.png)' }}>
-                  <div className="accordion-overlay"><span className="accordion-text">Remote Outposts</span></div>
-                </div>
-              </>
-            )}
-          </div>
+          <AccordionGallery images={mission?.imageGallery} />
 
           {/* Body Text */}
           <div style={{ width: '100%', maxWidth: '800px', margin: '0 auto' }}>

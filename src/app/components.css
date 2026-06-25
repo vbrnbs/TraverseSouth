@@ -208,12 +208,35 @@
 
 
 /* ═══════════════════════════════════════════════
+   Header
+   ═══════════════════════════════════════════════ */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  z-index: 999;
+  background: rgba(11, 11, 11, 0.8);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--colors-hairline-soft);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ═══════════════════════════════════════════════
    Hero (Full Viewport Dark)
    ═══════════════════════════════════════════════ */
 
 .hero-section {
   position: relative;
-  min-height: 100vh;
+  height: calc(100svh - 72px);
+  min-height: calc(100svh - 72px);
+  margin-top: 72px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -669,6 +692,17 @@
 }
 
 @media (max-width: 768px) {
+  .site-header {
+    height: 56px;
+    padding: 0 var(--spacing-lg);
+  }
+
+  .hero-section {
+    height: calc(100svh - 56px);
+    min-height: calc(100svh - 56px);
+    margin-top: 56px;
+  }
+
   .hero-content {
     height: 100%;
     display: flex;
