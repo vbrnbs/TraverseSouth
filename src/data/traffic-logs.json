@@ -2248,5 +2248,32 @@
     "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
     "sessionToken": "ts-sess-pzzv7kw1x3-mqsuf5ut",
     "timestamp": "2026-06-25T02:29:37.938Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "550x932",
+    "userAgent": "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36",
+    "sessionToken": "ts-sess-2mgxc7a73jl-mqsu0pkc",
+    "timestamp": "2026-06-25T02:57:18.064Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "550x932",
+    "userAgent": "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36",
+    "sessionToken": "ts-sess-2mgxc7a73jl-mqsu0pkc",
+    "timestamp": "2026-06-25T03:00:28.255Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "718x932",
+    "userAgent": "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36",
+    "sessionToken": "ts-sess-pzzv7kw1x3-mqsuf5ut",
+    "timestamp": "2026-06-25T03:00:28.341Z"
   }
 ]
