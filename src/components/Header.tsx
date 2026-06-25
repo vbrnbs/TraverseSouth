@@ -81,6 +81,7 @@ export function Header() {
         <Button
           variant="brand"
           href="/tailor-made"
+          className="header-contact-btn"
           style={{
             height: '36px',
             padding: '0 16px',
@@ -100,6 +101,8 @@ export function Header() {
           onClick={() => setIsOpen(!isOpen)}
           className="typography-mono-caps"
           style={{
+            position: 'relative',
+            zIndex: 999,
             background: 'none',
             border: 'none',
             color: '#fff',
@@ -127,22 +130,7 @@ export function Header() {
               }}
             />
             {/* Dropdown Box */}
-            <div
-              style={{
-                position: 'absolute',
-                top: '48px', // situated below the trigger button
-                right: '0',
-                width: '220px',
-                backgroundColor: '#0b0b0b',
-                border: '1px solid var(--colors-hairline-soft)',
-                borderRadius: '6px',
-                padding: '8px 0',
-                zIndex: 998,
-                boxShadow: '0 10px 30px rgba(0,0,0,0.6)',
-                display: 'flex',
-                flexDirection: 'column'
-              }}
-            >
+            <div className="header-dropdown-menu">
               <Link
                 href="/about-us"
                 onClick={() => setIsOpen(false)}
