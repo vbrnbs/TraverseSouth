@@ -227,6 +227,8 @@ button {
   cursor: pointer;
   background-size: cover;
   background-position: center;
+  transform: translateZ(0);
+  will-change: flex;
 }
 
 .accordion-item:hover {
@@ -291,5 +293,17 @@ button {
   
   .accordion-item.is-active {
     flex: 2;
+  }
+
+  .accordion-item {
+    transition: flex 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  
+  .accordion-overlay {
+    transition: opacity 0.35s ease;
+  }
+  
+  .accordion-text {
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
   }
 }
