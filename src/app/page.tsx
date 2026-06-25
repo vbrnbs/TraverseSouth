@@ -99,15 +99,26 @@ export default async function Home() {
         {/* Partner Logos Marquee (At the very top, full width) */}
         <div style={{ width: '100%', overflow: 'hidden', whiteSpace: 'nowrap', padding: '32px 0', borderBottom: '1px solid var(--colors-hairline-soft)', backgroundColor: 'rgba(0,0,0,0.2)' }}>
           <div className="animate-marquee" style={{ display: 'flex', gap: '64px', alignItems: 'center' }}>
-            {/* Forcing display of new full-color local logos so user can preview them immediately */}
-            {[1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3].map((num, i) => (
-              <img
-                key={i}
-                src={`/images/badge${num}.png`}
-                alt="Operator Logo"
-                className="marquee-logo"
-              />
-            ))}
+            {mission?.badges?.length > 0 ? (
+              [...mission.badges, ...mission.badges, ...mission.badges, ...mission.badges, ...mission.badges, ...mission.badges].map((badge: any, i: number) => (
+                <img
+                  key={i}
+                  src={urlFor(badge).url()}
+                  alt={badge.alt || "Operator Logo"}
+                  className="marquee-logo"
+                />
+              ))
+            ) : (
+              /* Forcing display of new full-color local logos so user can preview them immediately */
+              [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3].map((num, i) => (
+                <img
+                  key={i}
+                  src={`/images/badge${num}.png`}
+                  alt="Operator Logo"
+                  className="marquee-logo"
+                />
+              ))
+            )}
           </div>
         </div>
 

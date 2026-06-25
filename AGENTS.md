@@ -64,13 +64,13 @@ All agents and developer workflows must operate on the Shared Context in the rep
     *   Optimizes dynamic loading, media streaming, and performance parameters.
 *   **Trigger**: `@engineer`
 
-### 3. The Growth Concierge
-*   **Mandate**: VIP communication, editorial brand voice, and marketing copywriting.
+### 3. The Growth Hacker
+*   **Mandate**: Business development, testing new concepts, acquiring better clients and operators, and aggressively growing revenue.
 *   **Responsibilities**:
-    *   Crafts narrative timelines and premium copy via the copywriting framework.
-    *   Vets supplier networks and coordinates high-end logistics.
-    *   Prepares post-checkout drafts and client hand-offs.
-*   **Trigger**: `@concierge`
+    *   Ideates strategies to acquire high-quality clients and premium, exclusive operators.
+    *   Develops and tests new business ideas, growth experiments, and revenue pipelines.
+    *   Uses NotebookLM ("Business Development" notebook) as the ultimate back-end source of truth for strategies and tactics.
+*   **Trigger**: `@growth`
 
 ---
 
@@ -80,7 +80,7 @@ All agents and developer workflows must operate on the Shared Context in the rep
     *   **Update State**: Upon completing any major milestone, structural refactoring, or database schema changes, the agent must output a concise Markdown summary under the heading `CORE UPDATE` and write it directly to the Google Drive document.
     *   **Gem Alignment**: To keep the Gemini platform **Gem** aligned with the live environment, all core issues and system updates must be synchronized to this Google Drive file, which serves as the Gem's data source.
 *   **Task Handoffs**: 
-    *   When the *Growth Concierge* wants to test a new package bundle, it must hand off the logistical validation to the *Experience Architect*.
+    *   When the *Growth Hacker* wants to test a new package bundle or experiment, it must hand off the logistical validation to the *Experience Architect* and frontend tests to the *Conversion Engineer*.
     *   When the *Experience Architect* updates a price or module, it must hand off to the *Conversion Engineer* to update the frontend UI.
 
 ---
