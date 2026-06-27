@@ -22,3 +22,10 @@ To build a premium, zero-friction luxury travel portal, our copy and technical e
 ## 4. Product Architecture & Technical Logic
 * **Single-Day Epics (`activity.ts`)**: A highly curated, filtered directory of the finest adventures available right now, providing a clear pathway to immediate conversion.
 * **Multi-Day Recommendations (`itinerary.ts`)**: Inspirational, expertly designed blueprints. The frontend acts as an intelligent predictive layer, suggesting the logical next step in their journey as they piece their expedition together.
+
+## 5. Market Intelligence & Revenue Projections
+* **Full Research**: See [Market Research: Adventure Tourism](file:///.context/market_research_adventure_tourism.md) for comprehensive global and NZ-specific data, sector growth analysis, and revenue benchmarks.
+* **Global Market**: Adventure tourism is a ~$500B+ USD market growing at 15–18% CAGR, projected to reach $1.7–2.7 trillion by 2033–2035.
+* **New Zealand**: $46.6B NZD total tourism expenditure (YE March 2025), with government actively investing to grow international arrivals beyond 2019 levels.
+* **Our Niches**: Helicopter tourism, hard adventure, luxury wilderness, and expedition/impact tourism are among the fastest-growing and highest-margin segments in the industry.
+* **Revenue Model**: A curated, direct-to-consumer niche adventure OTA can realistically target $125K–$250K gross sales in Year 1, scaling to $1.8M–$2.7M by Year 3 with strong execution.

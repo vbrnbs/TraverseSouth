@@ -8,6 +8,7 @@ import { draftMode } from 'next/headers';
 import { VisualEditing } from 'next-sanity/visual-editing';
 import { Button } from '@/components/Button';
 import { Header } from '@/components/Header';
+import { PublicChrome } from '@/components/PublicChrome';
 
 
 const inter = Inter({
@@ -91,15 +92,18 @@ export default async function RootLayout({
         <AnalyticsTracker />
         <Analytics />
 
-        {/* Global Navigation Header */}
-        <Header />
+        {/* Global Navigation Header (hidden on /admin and /studio) */}
+        <PublicChrome>
+          <Header />
+        </PublicChrome>
 
         {/* Page Content */}
         <div style={{ flex: 1 }}>
           {children}
         </div>
 
-        {/* Global Footer */}
+        {/* Global Footer (hidden on /admin and /studio) */}
+        <PublicChrome>
         <footer className="footer" style={{ borderTop: '1px solid var(--colors-hairline-soft)', backgroundColor: '#0b0b0b', padding: 'var(--spacing-section) 0' }}>
           <div className="container">
             <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '48px', marginBottom: '64px' }}>
@@ -184,6 +188,7 @@ export default async function RootLayout({
             </div>
           </div>
         </footer>
+        </PublicChrome>
 
         {isDraft && (
           <VisualEditing

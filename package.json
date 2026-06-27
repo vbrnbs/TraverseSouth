@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@mux/mux-player-react": "^3.13.0",
+    "@notionhq/client": "^5.22.0",
     "@portabletext/react": "^6.2.0",
     "@sanity/client": "^7.22.0",
     "@sanity/presentation": "^2.0.0",
