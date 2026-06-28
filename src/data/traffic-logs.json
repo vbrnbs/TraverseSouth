@@ -2581,5 +2581,50 @@
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
     "sessionToken": "ts-sess-5h37n7xv9t6-mqvt4zy9",
     "timestamp": "2026-06-27T03:35:44.485Z"
+  },
+  {
+    "pathname": "/admin/pm",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "958x944",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-qwfrddng7hn-mqvro6cx",
+    "timestamp": "2026-06-27T03:41:12.215Z"
+  },
+  {
+    "pathname": "/admin/pm",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-qwfrddng7hn-mqvro6cx",
+    "timestamp": "2026-06-27T23:29:58.503Z"
+  },
+  {
+    "pathname": "/admin/pm",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-qwfrddng7hn-mqvro6cx",
+    "timestamp": "2026-06-27T23:34:47.986Z"
+  },
+  {
+    "pathname": "/admin/pm",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-qwfrddng7hn-mqvro6cx",
+    "timestamp": "2026-06-27T23:39:14.469Z"
+  },
+  {
+    "pathname": "/admin/pm",
+    "referrer": "http://localhost:3000/admin/pm",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-qwfrddng7hn-mqvro6cx",
+    "timestamp": "2026-06-28T00:19:46.783Z"
   }
 ]

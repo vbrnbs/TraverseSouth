@@ -206,6 +206,85 @@ export function DashboardClient({
   const inProgressTasks = tasksByStatus('in-progress').length;
   const sprintProgress = totalTasks > 0 ? Math.round((doneTasks / totalTasks) * 100) : 0;
 
+  // Calculate Time Tracking Stats
+  const getTimeStats = () => {
+    const now = new Date();
+    
+    // Define Q3 2026 (July 1, 2026 - Sept 30, 2026)
+    const quarterStart = new Date(2026, 6, 1); // July 1st
+    const quarterEnd = new Date(2026, 8, 30, 23, 59, 59); // Sept 30th
+    
+    const totalQuarterMs = quarterEnd.getTime() - quarterStart.getTime();
+    let quarterElapsedMs = now.getTime() - quarterStart.getTime();
+    
+    if (quarterElapsedMs < 0) quarterElapsedMs = 0;
+    if (quarterElapsedMs > totalQuarterMs) quarterElapsedMs = totalQuarterMs;
+    
+    const quarterPercent = Math.round((quarterElapsedMs / totalQuarterMs) * 100);
+    const quarterDaysLeft = Math.ceil((quarterEnd.getTime() - Math.max(now.getTime(), quarterStart.getTime())) / (1000 * 60 * 60 * 24));
+
+    // Calculate relative to the active sprint number fetched from the tasks
+    const sprintNumber = tasks[0]?.sprint || 1;
+    const sprintStartRef = new Date(2026, 6, 1); // Sprint 1 starts July 1st, 2026
+    const msPerDay = 1000 * 60 * 60 * 24;
+    const msPerSprint = 14 * msPerDay;
+    
+    const activeSprintStart = new Date(sprintStartRef.getTime() + (sprintNumber - 1) * msPerSprint);
+    const activeSprintEnd = new Date(activeSprintStart.getTime() + msPerSprint - 1000); // 14 days later minus 1s
+    
+    let sprintElapsedMs = now.getTime() - activeSprintStart.getTime();
+    if (sprintElapsedMs < 0) sprintElapsedMs = 0;
+    if (sprintElapsedMs > msPerSprint) sprintElapsedMs = msPerSprint;
+    
+    const sprintPercent = Math.round((sprintElapsedMs / msPerSprint) * 100);
+    const sprintDaysLeft = Math.ceil((activeSprintEnd.getTime() - Math.max(now.getTime(), activeSprintStart.getTime())) / msPerDay);
+    
+    return {
+      sprintPercent,
+      sprintDaysLeft: Math.max(sprintDaysLeft, 0),
+      quarterPercent,
+      quarterDaysLeft: Math.max(quarterDaysLeft, 0)
+    };
+  };
+
+  const timeStats = getTimeStats();
+
+  const getSprintPace = () => {
+    if (totalTasks === 0) return { value: '3/5', emoji: '🚶', color: '#797979' };
+    
+    const timePercent = timeStats.sprintPercent;
+    const taskPercent = sprintProgress;
+    
+    let score = 3;
+    if (timePercent === 0) {
+      score = taskPercent > 0 ? 5 : 3;
+    } else {
+      const ratio = taskPercent / timePercent;
+      if (ratio >= 1.5) score = 5;
+      else if (ratio >= 1.1) score = 4;
+      else if (ratio >= 0.9) score = 3;
+      else if (ratio >= 0.5) score = 2;
+      else score = 1;
+    }
+    
+    const emojiMap: Record<number, { emoji: string; color: string }> = {
+      5: { emoji: '🚀', color: '#37cd84' },
+      4: { emoji: '🏃', color: '#37cd84' },
+      3: { emoji: '🚶', color: '#797979' },
+      2: { emoji: '🐢', color: '#55beff' },
+      1: { emoji: '🐌', color: '#f36458' },
+    };
+    
+    const config = emojiMap[score] || emojiMap[3];
+    return {
+      value: `${score}/5`,
+      emoji: config.emoji,
+      color: config.color,
+    };
+  };
+
+  const sprintPace = getSprintPace();
+
   // Check if there's a "sales wolf" task in the sprint
   const salesWolfTasks = tasks.filter(t => t.priority === 'sales-wolf');
   const hasSalesWolfInProgress = salesWolfTasks.some(t => t.status === 'in-progress' || t.status === 'done');
@@ -422,15 +501,17 @@ export function DashboardClient({
 
       {/* ── Stats Row ─────────────────────── */}
       <section style={{ marginBottom: '32px' }}>
+        <SectionHeader label="// Task & Time Metrics" />
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
           gap: '8px',
+          marginBottom: '8px',
         }}>
           {[
             { label: 'In Progress', value: inProgressTasks, color: '#f36458' },
-            { label: 'Sprint', value: sprintProgress + '%', color: '#37cd84' },
-            { label: 'Quarter', value: quarter?.progress + '%' || '0%', color: '#55beff' },
+            { label: 'Sprint Done', value: sprintProgress + '%', color: '#37cd84' },
+            { label: 'Quarter Done', value: (quarter?.progress ?? 0) + '%', color: '#55beff' },
           ].map((stat, i) => (
             <div key={i} style={{
               backgroundColor: '#212121',
@@ -458,6 +539,78 @@ export function DashboardClient({
               }}>
                 {stat.label}
               </div>
+            </div>
+          ))}
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: '8px',
+        }}>
+          {[
+            { 
+              label: 'Sprint Pace', 
+              value: `${sprintPace.emoji} ${sprintPace.value}`, 
+              color: sprintPace.color,
+              subtext: `${doneTasks}/${totalTasks} tasks`
+            },
+            { 
+              label: 'Sprint Time', 
+              value: `${timeStats.sprintPercent}%`, 
+              color: '#37cd84',
+              subtext: `${timeStats.sprintDaysLeft}d left`
+            },
+            { 
+              label: 'Quarter Time', 
+              value: `${timeStats.quarterPercent}%`, 
+              color: '#55beff',
+              subtext: `${timeStats.quarterDaysLeft}d left`
+            },
+          ].map((stat, i) => (
+            <div key={i} style={{
+              backgroundColor: '#212121',
+              border: '1px solid #353535',
+              borderRadius: '6px',
+              padding: '12px 8px',
+              textAlign: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+              <div style={{
+                fontSize: '24px',
+                fontWeight: 700,
+                color: stat.color,
+                letterSpacing: '-1px',
+                fontFamily: 'var(--font-inter), sans-serif',
+                lineHeight: 1.1,
+              }}>
+                {stat.value}
+              </div>
+              <div style={{
+                fontSize: '10px',
+                color: '#797979',
+                fontFamily: 'var(--font-ibm-plex-mono), monospace',
+                letterSpacing: '0.5px',
+                textTransform: 'uppercase',
+                marginTop: '4px',
+                lineHeight: 1.2,
+              }}>
+                {stat.label}
+              </div>
+              {stat.subtext && (
+                <div style={{
+                  fontSize: '10px',
+                  color: '#555',
+                  fontFamily: 'var(--font-ibm-plex-mono), monospace',
+                  marginTop: '2px',
+                  lineHeight: 1,
+                }}>
+                  {stat.subtext}
+                </div>
+              )}
             </div>
           ))}
         </div>

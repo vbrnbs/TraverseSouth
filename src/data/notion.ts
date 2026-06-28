@@ -48,7 +48,7 @@ export async function getQuarterGoal(): Promise<NotionQuarterGoal | null> {
     const progress = properties.Progress?.number || 0;
     const keyResultsRaw = properties['Key Results']?.rich_text?.[0]?.plain_text || '';
     // Handle both literal string "\n" and actual newlines
-    const keyResults = keyResultsRaw.split(/\\n|\n/).map(s => s.trim()).filter(Boolean);
+    const keyResults = (keyResultsRaw as string).split(/\\n|\n/).map((s: string) => s.trim()).filter(Boolean);
 
     return {
       title,
