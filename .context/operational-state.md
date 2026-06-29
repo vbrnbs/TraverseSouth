@@ -21,7 +21,6 @@ This document tracks the immediate development goals, active sprint tasks, busin
 * **Activity Detail Pages**: Begin mapping dynamic GROQ queries to populate the `activity.ts` single-day detail pages (served via fallback logic in `itinerary/[slug]/page.tsx`).
 * **Dark-First Canvas Development**: Construct the main entry point UI, enforcing the `#0b0b0b` background and strategic use of `#f36458` for primary conversion points.
 
-## 🏢 Business & Legal Operations
-* **Entity Registration**: Complete the formal registration for the NZBN and establish the official business bank account.
-* **Legal Compliance**: Draft and finalize the liability waivers and terms of service, explicitly stating that operational and weather liability rests with the operators.
-* **Vendor Agreements**: Formalize operational agreements with the curated, hyper-professional local operators.
+## 🏢 Business & Legal Operations (Current 14-Day Sprint)
+* **Week 1 (High Energy)**: Register company, open business bank account, finalize copy, and time-box social posts. Agent Delegation: Build out About, Contact, Story pages, write T&Cs/Refund policy, and fix DNS.
+* **Week 2 (Low Energy)**: Founder sends 3 emails to operators, time-box social posts. Agent Delegation: Create and document internal processes and databases for zero-admin protocol.

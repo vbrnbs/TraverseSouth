@@ -185,14 +185,16 @@ export function TourBuilder({ products }: { products: ActivityProps[] }) {
                 minHeight: '520px' // Ensures no card button clipping and aligns row heights
               }}
             >
-              {/* Image Frame */}
-              <div 
+              {/* Image Frame with Lazy Loading & Skeleton Color */}
+              <img 
+                src={imageUrl} 
+                alt={act.title || 'Adventure Image'}
+                loading="lazy"
                 style={{ 
                   width: '100%', 
                   height: '240px', 
-                  backgroundImage: `url(${imageUrl})`, 
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
+                  objectFit: 'cover',
+                  backgroundColor: 'var(--colors-hairline-soft)', // Acts as a skeleton loader
                   borderBottom: '1px solid var(--colors-hairline-soft)'
                 }}
               />

@@ -62,29 +62,35 @@ export default async function Home() {
 
         <div className="hero-content" style={{ paddingBottom: 'var(--spacing-xxl)' }}>
           <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-brand)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
-            {hero?.eyebrow || 'TRAVERSE SOUTH // UNTRACKED SOUTHERN WILDERNESS FOR ADVENTURE SEEKERS'}
+            {hero?.eyebrow || 'TRAVERSE SOUTH // SOUTHERN ALPS, NZ'}
           </p>
           <h1 className="typography-display-mega" style={{ maxWidth: '1200px', marginBottom: '32px', color: 'var(--colors-on-primary)' }}>
-            {hero?.headline || 'High-Altitude Surgical Insertions.'}
+            {hero?.headline || 'Epic NZ Adventures. Zero Admin.'}
           </h1>
           <p className="typography-subtitle" style={{ maxWidth: '650px', color: 'var(--colors-ash)', marginBottom: '32px', lineHeight: '1.6' }}>
-            {hero?.subtitle || 'Zero-friction private expeditions across New Zealand’s remote Southern Alps. We control the assets, the timeline, and the terrain.'}
+            {hero?.subtitle || 'We filter out the noise to connect you with New Zealand\'s elite operators. We handle the logistics, the premium lodgings, and the weather pivots—so you can experience the world\'s most remote wilderness with zero friction.'}
           </p>
 
           {/* Hormozi Risk Reversals */}
-          {hero?.riskReversals && hero.riskReversals.length > 0 && (
-            <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', alignItems: 'center', marginBottom: '32px' }}>
-              {hero.riskReversals.map((badge: string, i: number) => (
-                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--colors-brand)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                  </svg>
-                  <span style={{ color: 'var(--colors-ash)', fontSize: '13px', fontFamily: 'var(--font-ibm-plex-mono), monospace', textTransform: 'uppercase' }}>{badge}</span>
-                </div>
-              ))}
-            </div>
-          )}
+          {(() => {
+            const badges = (hero?.riskReversals && hero.riskReversals.length > 0) 
+              ? hero.riskReversals 
+              : ["NZ's Best Operators Only", "100% Kiwi Operated", "Zero-Admin Weather Refunds"];
+            
+            return (
+              <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', alignItems: 'center', marginBottom: '32px' }}>
+                {badges.map((badge: string, i: number) => (
+                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--colors-brand)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span style={{ color: 'var(--colors-ash)', fontSize: '13px', fontFamily: 'var(--font-ibm-plex-mono), monospace', textTransform: 'uppercase' }}>{badge}</span>
+                  </div>
+                ))}
+              </div>
+            );
+          })()}
 
           <div style={{ display: 'flex', gap: '16px', marginBottom: '24px' }}>
             <Button variant="brand" href="#adventures">{hero?.primaryCta || 'Explore Blueprints'}</Button>
@@ -98,6 +104,7 @@ export default async function Home() {
       <section id="mission" className="marketing-section-dark" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', borderTop: '1px solid var(--colors-hairline-soft)', padding: 0 }}>
 
         {/* Partner Logos Marquee (At the very top, full width) */}
+        {/* TEMPORARILY HIDDEN UNTIL OPERATOR LOGOS ARE ADDED
         <div style={{ width: '100%', overflow: 'hidden', whiteSpace: 'nowrap', padding: '32px 0', borderBottom: '1px solid var(--colors-hairline-soft)', backgroundColor: 'rgba(0,0,0,0.2)' }}>
           <div className="animate-marquee" style={{ display: 'flex', gap: '64px', alignItems: 'center' }}>
             {mission?.badges?.length > 0 ? (
@@ -110,7 +117,6 @@ export default async function Home() {
                 />
               ))
             ) : (
-              /* Forcing display of new full-color local logos so user can preview them immediately */
               [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3].map((num, i) => (
                 <img
                   key={i}
@@ -122,6 +128,7 @@ export default async function Home() {
             )}
           </div>
         </div>
+        */}
 
         {/* Centered Content Below */}
         <div className="container" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', maxWidth: '1200px', padding: 'var(--spacing-section-lg) var(--spacing-lg)', textAlign: 'center' }}>
@@ -154,7 +161,7 @@ export default async function Home() {
       </section>
 
       {/* ═══════════════════════════════════════
-          03. Combined Premium Adventures Grid
+          03. Combined Premium Adventures Grid (Activities)
           ═══════════════════════════════════════ */}
       <section id="adventures" className="marketing-section-dark" style={{ borderTop: '1px solid var(--colors-hairline-soft)' }}>
         <div className="container" id="modules">
@@ -173,7 +180,7 @@ export default async function Home() {
       </section>
 
       {/* ═══════════════════════════════════════
-          04. Inspirational Package Editorials
+          04. Inspirational Package Editorials (Trips)
           ═══════════════════════════════════════ */}
       {featuredItineraries && featuredItineraries.length > 0 && (
         <section id="itineraries" className="marketing-section-dark" style={{ borderTop: '1px solid var(--colors-hairline-soft)' }}>

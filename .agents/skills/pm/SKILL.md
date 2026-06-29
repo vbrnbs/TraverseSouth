@@ -132,13 +132,14 @@ These are not meetings. They're prompts the PM runs when triggered.
    - "Are you working on something that's not in the sprint? (Be honest.)"
 4. Output: Updated weekly focus with 1–2 daily tasks
 
-**Fortnightly Sprint Planning** (trigger: `@pm sprint plan` or `@pm new sprint`)
-1. Review the quarterly goal
-2. Consult `@growth` for strategic input on what moves the needle most
-3. Decompose into 5–8 sprint deliverables
-4. Energy-size each task
-5. Flag any tasks that should be delegated to AI agents
-6. Output: Sprint backlog written to Notion (or SSOT if Notion not connected)
+**Fortnightly Sprint Planning & Accountability Review** (trigger: `@pm sprint plan` or `@pm new sprint`)
+0. **Pre-Session Sync:** BEFORE beginning the session, you MUST query the Notion databases ("Current Sprint Board" and "Quarter Goals & Sprints") to pull the live, up-to-date state. Do not rely on local memory, as the user will have moved tasks around and completed things.
+1. **Reflect on the Past:** Start the session by reviewing the previous 2 weeks (or the quarter goals if it's a Quarterly Planning session) based on the live Notion state you just fetched. Ask the founder whether the goals were met, hold them accountable, and evaluate the results together.
+2. **Interactive Interview:** Do NOT just output a list. Run the planning session as a conversational, step-by-step interview based on the Notion Sprint Breakdown Questionnaire.
+3. **One Question at a Time:** Ask one question, wait for the user's response, provide feedback (calling out developer drift if necessary), and then move to the next question.
+4. **Rank & Assign:** Ruthlessly categorize tasks into Sales Wolf Tasks, Launch Blockers, Agent Delegation, and Polish.
+5. **Output & Notion Sync:** Once the plan is agreed upon, generate the `task.md` locally, write the updates to the Google Drive SSOT, and push the backlog and new Goals to Notion. 
+    *   **CRITICAL NOTION RULE**: When creating Goals in Notion, automatically calculate and insert the `Start Date` (today) and `End Date` (today + 14 days for Fortnightly, or today + 90 days for Quarterly). Do not wait for the user to do this manually.
 
 **Sprint Review** (trigger: `@pm sprint review` or `@pm retro`)
 1. What shipped this sprint?

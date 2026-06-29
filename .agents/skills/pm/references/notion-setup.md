@@ -44,7 +44,7 @@ Once the Notion MCP is connected, the PM skill will create two databases automat
 
 ### Sprint Board Database Schema
 
-The PM will create a database called **"TS Sprint Board"** with these properties:
+The PM will create a database called **"Current Sprint Board"** with these properties:
 
 | Property | Type | Options |
 |----------|------|---------|
@@ -60,7 +60,7 @@ The PM will create a database called **"TS Sprint Board"** with these properties
 
 ### Goals Database Schema
 
-The PM will create a database called **"TS Goals"** with these properties:
+The PM will create a database called **"Quarter Goals & Sprints"** with these properties:
 
 | Property | Type | Options |
 |----------|------|---------|
