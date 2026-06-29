@@ -544,6 +544,19 @@
   padding: var(--spacing-xl);
   border-radius: var(--rounded-marketing);
   border: 1px solid var(--colors-hairline-soft);
+  transition: border-color 0.4s ease;
+}
+
+.feature-card-dark:hover {
+  border-color: var(--colors-brand);
+}
+
+.feature-card-dark .card-image {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.feature-card-dark:hover .card-image {
+  transform: scale(1.05);
 }
 
 .feature-card-light {

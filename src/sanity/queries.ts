@@ -7,6 +7,17 @@ export const homepageQuery = `*[_type == "landing"][0]{
     riskReversals,
     "muxPlaybackId": muxVideo.asset->playbackId
   },
+  adventures {
+    eyebrow,
+    heading,
+    subtitle,
+    viewAllCard {
+      title,
+      subtitle,
+      ctaText,
+      image
+    }
+  },
   mission {
     eyebrow,
     heading,
@@ -59,7 +70,9 @@ export const homepageQuery = `*[_type == "landing"][0]{
     subtitle,
     description,
     adventureLevel,
+    levelLabel,
     ctaText,
+    secondaryCtaText,
     image,
     pricing,
     region

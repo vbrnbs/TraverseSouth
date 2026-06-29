@@ -40,7 +40,7 @@ export default async function Home() {
     );
   }
 
-  const { hero, mission, featuredActivities, featuredItineraries } = data;
+  const { hero, adventures, mission, featuredActivities, featuredItineraries } = data;
 
   return (
     <main>
@@ -99,7 +99,29 @@ export default async function Home() {
       </section>
 
       {/* ═══════════════════════════════════════
-          02. Brand Manifesto / Intro
+          02. Combined Premium Adventures Grid (Activities)
+          ═══════════════════════════════════════ */}
+      <section id="adventures" className="marketing-section-dark" style={{ borderTop: '1px solid var(--colors-hairline-soft)' }}>
+        <div className="container" id="modules">
+          <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-brand)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
+            {adventures?.eyebrow || '// THE MANIFEST'}
+          </p>
+          <h2 className="typography-display-xl" style={{ marginBottom: '16px', color: '#fff' }}>
+            {adventures?.heading || 'Premium Adventures Grid'}
+          </h2>
+          <p className="typography-subtitle" style={{ maxWidth: '600px', color: 'var(--colors-ash)' }}>
+            {adventures?.subtitle || 'Surgical day modules filterable by gravity and wilderness intensity.'}
+          </p>
+        </div>
+        
+        {/* Full Bleed Scrolling Row */}
+        <div style={{ '--layout-padding-left': 'max(var(--spacing-lg), calc((100vw - 1640px) / 2 + var(--spacing-lg)))', width: '100%', paddingLeft: 'var(--layout-padding-left)', paddingRight: 'var(--spacing-lg)' } as React.CSSProperties}>
+          <TourBuilder products={featuredActivities || []} viewAllCard={adventures?.viewAllCard} isScrollable={true} />
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════
+          03. Brand Manifesto / Intro
           ═══════════════════════════════════════ */}
       <section id="mission" className="marketing-section-dark" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', borderTop: '1px solid var(--colors-hairline-soft)', padding: 0 }}>
 
@@ -157,25 +179,6 @@ export default async function Home() {
             )}
           </div>
 
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════
-          03. Combined Premium Adventures Grid (Activities)
-          ═══════════════════════════════════════ */}
-      <section id="adventures" className="marketing-section-dark" style={{ borderTop: '1px solid var(--colors-hairline-soft)' }}>
-        <div className="container" id="modules">
-          <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-brand)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
-            // THE MANIFEST
-          </p>
-          <h2 className="typography-display-xl" style={{ marginBottom: '16px', color: '#fff' }}>
-            Premium Adventures Grid
-          </h2>
-          <p className="typography-subtitle" style={{ maxWidth: '600px', color: 'var(--colors-ash)', marginBottom: '32px' }}>
-            Surgical day modules filterable by gravity and wilderness intensity.
-          </p>
-
-          <TourBuilder products={featuredActivities || []} />
         </div>
       </section>
 

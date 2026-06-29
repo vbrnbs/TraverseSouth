@@ -64,8 +64,18 @@ export default defineType({
             },
         }),
         defineField({
+            name: 'levelLabel',
+            title: 'Level Label (e.g. LEVEL 2 // ACTIVE WILDERNESS)',
+            type: 'string',
+        }),
+        defineField({
             name: 'ctaText',
-            title: 'CTA Text',
+            title: 'Primary CTA Text',
+            type: 'string',
+        }),
+        defineField({
+            name: 'secondaryCtaText',
+            title: 'Secondary CTA Text',
             type: 'string',
         }),
         defineField({

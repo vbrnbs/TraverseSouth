@@ -12,6 +12,36 @@ export const landing = defineType({
       type: 'hero',
     }),
 
+    // ─── Adventures Grid (The Manifest) ───
+    defineField({
+      name: 'adventures',
+      title: 'Adventures Section',
+      type: 'object',
+      fields: [
+        { name: 'eyebrow', title: 'Eyebrow', type: 'string' },
+        { name: 'heading', title: 'Heading', type: 'string' },
+        { name: 'subtitle', title: 'Subtitle', type: 'text' },
+        {
+          name: 'viewAllCard',
+          title: 'View All Card (Last Grid Item)',
+          type: 'object',
+          fields: [
+            { name: 'title', title: 'Card Title', type: 'string' },
+            { name: 'subtitle', title: 'Card Subtitle', type: 'string' },
+            { name: 'ctaText', title: 'Button Text', type: 'string' },
+            { name: 'image', title: 'Background Image', type: 'image', options: { hotspot: true } }
+          ]
+        }
+      ]
+    }),
+    defineField({
+      name: 'featuredActivities',
+      title: 'Featured Activities',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'activity' }] }],
+      description: 'Manually select and order the specific activities you want displayed on the homepage.',
+    }),
+
     // ─── Our Mission ───
     defineField({
       name: 'mission',
@@ -20,13 +50,6 @@ export const landing = defineType({
     }),
 
     // ─── Curated Content ───
-    defineField({
-      name: 'featuredActivities',
-      title: 'Featured Activities',
-      type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'activity' }] }],
-      description: 'Manually select and order the specific activities you want displayed on the homepage.',
-    }),
     defineField({
       name: 'featuredItineraries',
       title: 'Featured Itineraries',
