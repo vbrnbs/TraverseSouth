@@ -116,42 +116,66 @@ export function Header() {
                 background: 'transparent',
               }}
             />
-            {/* Dropdown Box */}
-            <div className="header-dropdown-menu">
+            {/* Mega Menu Panel */}
+            <div className="header-mega-menu">
               <Link
-                href="/about-us"
+                href="/adventures"
                 onClick={() => setIsOpen(false)}
-                className="header-dropdown-link"
+                className="mega-menu-item"
               >
-                About Us
+                <div className="mega-menu-title-row">
+                  <span className="mega-menu-title">Adventures</span>
+                </div>
+                <p className="mega-menu-subtitle">Surgical day expeditions across the South Island</p>
               </Link>
+
               <Link
                 href="/itineraries"
                 onClick={() => setIsOpen(false)}
-                className="header-dropdown-link"
+                className="mega-menu-item"
               >
-                Itineraries
+                <div className="mega-menu-title-row">
+                  <span className="mega-menu-title">Itineraries</span>
+                  <span className="mega-menu-badge">Coming Soon</span>
+                </div>
+                <p className="mega-menu-subtitle" style={{ color: 'var(--colors-brand)' }}>
+                  Multi-day curated journeys // Get Early Access →
+                </p>
               </Link>
-              <Link
-                href="/trips"
-                onClick={() => setIsOpen(false)}
-                className="header-dropdown-link"
-              >
-                Trips
-              </Link>
+
               <Link
                 href="/tailor-made"
                 onClick={() => setIsOpen(false)}
-                className="header-dropdown-link"
+                className="mega-menu-item"
               >
-                Tailor Made Trips
+                <div className="mega-menu-title-row">
+                  <span className="mega-menu-title">Tailor-Made Trips</span>
+                </div>
+                <p className="mega-menu-subtitle">Transport, lodging & private tours arranged for you</p>
               </Link>
+
               <Link
-                href="/stories"
+                href="/group-business"
                 onClick={() => setIsOpen(false)}
-                className="header-dropdown-link"
+                className="mega-menu-item"
               >
-                Stories
+                <div className="mega-menu-title-row">
+                  <span className="mega-menu-title">Group & Business Trips</span>
+                </div>
+                <p className="mega-menu-subtitle">Private coaches, facilitators & corporate retreats</p>
+              </Link>
+
+              <div className="mega-menu-divider" />
+
+              <Link
+                href="/about-us"
+                onClick={() => setIsOpen(false)}
+                className="mega-menu-item"
+              >
+                <div className="mega-menu-title-row">
+                  <span className="mega-menu-title">About Us</span>
+                </div>
+                <p className="mega-menu-subtitle">Brand manifesto and operational guarantee</p>
               </Link>
             </div>
           </>

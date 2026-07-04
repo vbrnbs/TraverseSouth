@@ -42,6 +42,21 @@ export const landing = defineType({
       description: 'Manually select and order the specific activities you want displayed on the homepage.',
     }),
 
+    // ─── Itineraries Waitlist Section ───
+    defineField({
+      name: 'itinerariesSection',
+      title: 'Itineraries Waitlist Section (Synced with Itineraries Page)',
+      type: 'object',
+      description: '⚡ Synced bi-directionally with the standalone "Itineraries" Page document under Homepage & Pages. Editing here updates both the homepage and the /itineraries menu page.',
+      fields: [
+        { name: 'eyebrow', title: 'Eyebrow', type: 'string', initialValue: '// EXPEDITION BLUEPRINTS' },
+        { name: 'title', title: 'Heading', type: 'string', initialValue: 'Multi-Day Sovereign Journeys' },
+        { name: 'subtitle', title: 'Subtitle', type: 'text', initialValue: 'Expertly curated narratives combining private aviation, elite guides, and ultra-luxe lodges. We are currently hand-selecting our founding expedition routes for the upcoming season.' },
+        { name: 'ctaText', title: 'CTA Button Text', type: 'string', initialValue: 'Get Early Access →' },
+        { name: 'image', title: 'Background Image', type: 'image', options: { hotspot: true } }
+      ]
+    }),
+
     // ─── Our Mission ───
     defineField({
       name: 'mission',

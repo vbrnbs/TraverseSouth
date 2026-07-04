@@ -9,6 +9,7 @@ import { draftMode } from 'next/headers';
 import Link from 'next/link';
 import { PortableText } from '@portabletext/react';
 import { AccordionGallery } from '@/components/AccordionGallery';
+import { ItinerariesWaitlist } from '@/components/ItinerariesWaitlist';
 
 // Configure dynamic pages to always fetch fresh data from Sanity on every request
 export const revalidate = 0;
@@ -40,7 +41,20 @@ export default async function Home() {
     );
   }
 
-  const { hero, adventures, mission, featuredActivities, featuredItineraries } = data;
+  const { hero, adventures, mission, featuredActivities, featuredItineraries, itinerariesSection, itinerariesPage } = data;
+
+  // Sync and merge itineraries data (latest updated document wins, falling back to the other)
+  const useLanding = !itinerariesPage?._updatedAt || (itinerariesSection?._updatedAt && itinerariesSection._updatedAt >= itinerariesPage._updatedAt);
+  const primaryItin = useLanding ? itinerariesSection : itinerariesPage;
+  const secondaryItin = useLanding ? itinerariesPage : itinerariesSection;
+
+  const syncedItinerariesData = {
+    eyebrow: primaryItin?.eyebrow || secondaryItin?.eyebrow || '// EXPEDITION BLUEPRINTS',
+    title: primaryItin?.title || secondaryItin?.title || 'Multi-Day Sovereign Journeys',
+    subtitle: primaryItin?.subtitle || primaryItin?.seoDescription || secondaryItin?.subtitle || secondaryItin?.seoDescription || 'Expertly curated narratives combining private aviation, elite guides, and ultra-luxe lodges. We are currently hand-selecting our founding expedition routes for the upcoming season.',
+    ctaText: primaryItin?.ctaText || secondaryItin?.ctaText || 'Get Early Access →',
+    image: primaryItin?.image || secondaryItin?.image,
+  };
 
   return (
     <main>
@@ -115,13 +129,18 @@ export default async function Home() {
         </div>
         
         {/* Full Bleed Scrolling Row */}
-        <div style={{ '--layout-padding-left': 'max(var(--spacing-lg), calc((100vw - 1640px) / 2 + var(--spacing-lg)))', width: '100%', paddingLeft: 'var(--layout-padding-left)', paddingRight: 'var(--spacing-lg)' } as React.CSSProperties}>
+        <div style={{ '--layout-padding-left': 'max(var(--spacing-lg), calc((100% - 1640px) / 2 + var(--spacing-lg)))', width: '100%', paddingLeft: 'var(--layout-padding-left)', paddingRight: 'var(--spacing-lg)' } as React.CSSProperties}>
           <TourBuilder products={featuredActivities || []} viewAllCard={adventures?.viewAllCard} isScrollable={true} />
         </div>
       </section>
 
       {/* ═══════════════════════════════════════
-          03. Brand Manifesto / Intro
+          03. Inspirational Package Editorials (Itineraries Waitlist)
+          ═══════════════════════════════════════ */}
+      <ItinerariesWaitlist data={syncedItinerariesData} />
+
+      {/* ═══════════════════════════════════════
+          04. Brand Manifesto / Intro (Our Mission)
           ═══════════════════════════════════════ */}
       <section id="mission" className="marketing-section-dark" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', borderTop: '1px solid var(--colors-hairline-soft)', padding: 0 }}>
 
@@ -181,121 +200,6 @@ export default async function Home() {
 
         </div>
       </section>
-
-      {/* ═══════════════════════════════════════
-          04. Inspirational Package Editorials (Trips)
-          ═══════════════════════════════════════ */}
-      {featuredItineraries && featuredItineraries.length > 0 && (
-        <section id="itineraries" className="marketing-section-dark" style={{ borderTop: '1px solid var(--colors-hairline-soft)' }}>
-          <div className="container">
-            <p className="typography-mono-eyebrow" style={{ marginBottom: '24px', color: 'var(--colors-brand)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
-              // INSPIRATIONAL BLUEPRINTS
-            </p>
-            <h2 className="typography-display-xl" style={{ marginBottom: '16px', color: '#fff' }}>
-              Multi-Day Journeys
-            </h2>
-            <p className="typography-subtitle" style={{ maxWidth: '600px', color: 'var(--colors-ash)', marginBottom: '48px' }}>
-              Expertly curated narratives combining private aviation, guides, and ultra-luxe lodges.
-            </p>
-
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 480px), 1fr))',
-                gap: 'var(--spacing-xl)',
-                marginBottom: 'var(--spacing-section)'
-              }}
-            >
-              {featuredItineraries.map((itinerary: any) => {
-                const imageUrl = itinerary.image
-                  ? urlFor(itinerary.image).url()
-                  : (itinerary.activities?.[0]?.image
-                    ? urlFor(itinerary.activities[0].image).url()
-                    : '');
-                return (
-                  <Link
-                    href={`/itinerary/${itinerary.slug?.current}`}
-                    key={itinerary._id}
-                    className="feature-card-dark"
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-between',
-                      padding: '0',
-                      overflow: 'hidden',
-                      transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease',
-                      backgroundColor: 'var(--colors-canvas-soft)',
-                      border: '1px solid var(--colors-hairline-soft)',
-                      borderRadius: 'var(--rounded-marketing)'
-                    }}
-                  >
-                    {/* Oversized Image Frame */}
-                    {imageUrl && (
-                      <div
-                        style={{
-                          width: '100%',
-                          height: '320px',
-                          backgroundImage: `url(${imageUrl})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                          borderBottom: '1px solid var(--colors-hairline-soft)'
-                        }}
-                      />
-                    )}
-
-                    {/* Content Block */}
-                    <div style={{ padding: 'var(--spacing-xl)' }}>
-                      <p
-                        className="typography-mono-eyebrow"
-                        style={{
-                          color: 'var(--colors-brand)',
-                          fontSize: '11px',
-                          letterSpacing: '1.2px',
-                          marginBottom: '12px',
-                          textTransform: 'uppercase'
-                        }}
-                      >
-                        {itinerary.eyebrow || 'MULTI-DAY EXPEDITION'}
-                      </p>
-                      <h3
-                        className="typography-heading-md"
-                        style={{
-                          marginBottom: '12px',
-                          fontWeight: 400,
-                          color: '#fff',
-                          fontSize: '26px',
-                          letterSpacing: '-0.5px'
-                        }}
-                      >
-                        {itinerary.title}
-                      </h3>
-                      <p
-                        className="typography-body-sm"
-                        style={{
-                          color: 'var(--colors-ash)',
-                          lineHeight: '1.6',
-                          marginBottom: '24px'
-                        }}
-                      >
-                        {itinerary.subtitle}
-                      </p>
-
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #333', paddingTop: '16px' }}>
-                        <span style={{ fontSize: '11px', fontFamily: 'var(--font-ibm-plex-mono), monospace', color: 'var(--colors-mute)' }}>
-                          COSTING: {itinerary.pricing?.priceString || 'Bespoke Package'}
-                        </span>
-                        <span style={{ color: 'var(--colors-brand)', fontSize: '13px', fontWeight: 500, fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>
-                          EXPLORE BLUEPRINT →
-                        </span>
-                      </div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      )}
     </main>
   );
 }

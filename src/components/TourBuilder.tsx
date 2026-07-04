@@ -107,12 +107,13 @@ export function TourBuilder({ products, viewAllCard, isScrollable = false }: { p
   return (
     <div style={{ marginTop: 'var(--spacing-xl)', position: 'relative' }}>
 
-      {/* Netflix-style scroll buttons */}
+      {/* Netflix-style scroll buttons (Desktop medium+ screens only) */}
       {isScrollable && (
         <>
           <button
             onClick={() => scrollContainer('left')}
-            style={{ position: 'absolute', left: '-32px', top: 0, bottom: 0, width: '160px', zIndex: 10, background: 'linear-gradient(to right, rgba(11,11,11,1) 0%, transparent 100%)', border: 'none', cursor: 'pointer', color: '#fff', fontSize: '24px', opacity: 0, transition: 'opacity 0.2s', display: canScrollLeft ? 'flex' : 'none', alignItems: 'center', justifyContent: 'flex-start', paddingLeft: '16px' }}
+            className={`tour-builder-scroll-arrow ${canScrollLeft ? 'show-arrow' : ''}`}
+            style={{ position: 'absolute', left: '-32px', top: 0, bottom: 0, width: '160px', zIndex: 10, background: 'linear-gradient(to right, rgba(11,11,11,1) 0%, transparent 100%)', border: 'none', cursor: 'pointer', color: '#fff', fontSize: '24px', opacity: 0, transition: 'opacity 0.2s', alignItems: 'center', justifyContent: 'flex-start', paddingLeft: '16px' }}
             onMouseEnter={(e) => { e.currentTarget.style.opacity = '1'; scrollContainer('left'); }}
             onMouseLeave={(e) => e.currentTarget.style.opacity = '0'}
           >
@@ -121,7 +122,8 @@ export function TourBuilder({ products, viewAllCard, isScrollable = false }: { p
 
           <button
             onClick={() => scrollContainer('right')}
-            style={{ position: 'absolute', right: '-32px', top: 0, bottom: 0, width: '160px', zIndex: 10, background: 'linear-gradient(to left, rgba(11,11,11,1) 0%, transparent 100%)', border: 'none', cursor: 'pointer', color: '#fff', fontSize: '24px', opacity: 0, transition: 'opacity 0.2s', display: canScrollRight ? 'flex' : 'none', alignItems: 'center', justifyContent: 'flex-end', paddingRight: '16px' }}
+            className={`tour-builder-scroll-arrow ${canScrollRight ? 'show-arrow' : ''}`}
+            style={{ position: 'absolute', right: '-32px', top: 0, bottom: 0, width: '160px', zIndex: 10, background: 'linear-gradient(to left, rgba(11,11,11,1) 0%, transparent 100%)', border: 'none', cursor: 'pointer', color: '#fff', fontSize: '24px', opacity: 0, transition: 'opacity 0.2s', alignItems: 'center', justifyContent: 'flex-end', paddingRight: '16px' }}
             onMouseEnter={(e) => { e.currentTarget.style.opacity = '1'; scrollContainer('right'); }}
             onMouseLeave={(e) => e.currentTarget.style.opacity = '0'}
           >
@@ -131,7 +133,7 @@ export function TourBuilder({ products, viewAllCard, isScrollable = false }: { p
       )}
 
       {/* ─── Horizontal Scrolling Flex Layout ─── */}
-      <div className={isScrollable ? "hide-scrollbar" : ""} ref={scrollRef} onScroll={checkScroll} style={isScrollable ? {
+      <div className={isScrollable ? "hide-scrollbar tour-builder-scroll-container" : ""} ref={scrollRef} onScroll={checkScroll} style={isScrollable ? {
         display: 'flex',
         flexWrap: 'nowrap',
         gap: 'var(--spacing-lg)',
@@ -151,11 +153,11 @@ export function TourBuilder({ products, viewAllCard, isScrollable = false }: { p
           return (
             <div
               key={act._id}
-              className="feature-card-dark"
+              className={`feature-card-dark ${isScrollable ? 'tour-builder-scroll-item' : ''}`}
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                flex: isScrollable ? '0 0 max(280px, calc((100vw - var(--layout-padding-left, 0px) - (4 * var(--spacing-lg))) / 4.5))' : 'unset',
+                flex: isScrollable ? '0 0 max(280px, calc((100% - var(--layout-padding-left, 0px) - (4 * var(--spacing-lg))) / 4.5))' : 'unset',
                 minHeight: '520px',
                 padding: '0',
                 overflow: 'hidden',
@@ -271,11 +273,11 @@ export function TourBuilder({ products, viewAllCard, isScrollable = false }: { p
         {/* View All Card */}
         {viewAllCard && (
           <div
-            className="feature-card-dark"
+            className={`feature-card-dark ${isScrollable ? 'tour-builder-scroll-item' : ''}`}
             style={{
               display: 'flex',
               flexDirection: 'column',
-              flex: '0 0 max(280px, calc((100vw - var(--layout-padding-left, 0px) - (4 * var(--spacing-lg))) / 4.5))',
+              flex: '0 0 max(280px, calc((100% - var(--layout-padding-left, 0px) - (4 * var(--spacing-lg))) / 4.5))',
               minHeight: '480px',
               padding: 0,
               overflow: 'hidden',

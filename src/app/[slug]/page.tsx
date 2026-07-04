@@ -7,6 +7,9 @@ import { Metadata } from 'next';
 import { PortableText } from '@portabletext/react';
 import { TourBuilder } from '@/components/TourBuilder';
 import { Button } from '@/components/Button';
+import { ItinerariesWaitlist } from '@/components/ItinerariesWaitlist';
+import { EmailInquiry } from '@/components/EmailInquiry';
+import { AccordionGallery } from '@/components/AccordionGallery';
 
 export const revalidate = 60;
 
@@ -69,7 +72,7 @@ const portableTextComponents = {
 
 export default async function GenericDynamicPage({ params }: PageProps) {
   const { slug } = await params;
-  
+
   // Protect system routes
   const systemRoutes = ['studio', 'api', 'legal', 'itinerary', 'packages'];
   if (systemRoutes.includes(slug)) {
@@ -84,31 +87,22 @@ export default async function GenericDynamicPage({ params }: PageProps) {
     `*[_type == "page" && slug.current == $slug][0] {
       title,
       body,
-      seoDescription
+      seoDescription,
+      image,
+      eyebrow,
+      subtitle,
+      ctaText,
+      _updatedAt
     }`,
     { slug }
   );
 
-  // 2. Fetch listings in case of itineraries/trips lists
-  let allItineraries = [];
+  // 2. Fetch listings/data based on slug
   let allProducts = [];
+  let mission = null;
+  let syncedItinerariesData = null;
 
-  if (slug === 'itineraries') {
-    allItineraries = await client.fetch(
-      `*[_type == "itinerary"] {
-        _id,
-        title,
-        slug,
-        eyebrow,
-        subtitle,
-        image,
-        pricing,
-        activities[]-> {
-          image
-        }
-      }`
-    );
-  } else if (slug === 'trips') {
+  if (slug === 'trips' || slug === 'adventures') {
     allProducts = await client.fetch(
       `*[_type == "activity"] {
         _id,
@@ -124,6 +118,28 @@ export default async function GenericDynamicPage({ params }: PageProps) {
         region
       }`
     );
+  } else if (slug === 'about-us') {
+    mission = await client.fetch(
+      `*[_type == "mission"][0] {
+        eyebrow,
+        heading,
+        bodyText,
+        imageGallery
+      }`
+    );
+  } else if (slug === 'itineraries') {
+    const landingSection = await client.fetch(`*[_type == "landing"][0].itinerariesSection { ..., "_updatedAt": ^._updatedAt }`);
+    const useLanding = !pageData?._updatedAt || (landingSection?._updatedAt && landingSection._updatedAt >= pageData._updatedAt);
+    const primaryItin = useLanding ? landingSection : pageData;
+    const secondaryItin = useLanding ? pageData : landingSection;
+
+    syncedItinerariesData = {
+      eyebrow: primaryItin?.eyebrow || secondaryItin?.eyebrow || '// EXPEDITION BLUEPRINTS',
+      title: primaryItin?.title || secondaryItin?.title || 'Multi-Day Sovereign Journeys',
+      subtitle: primaryItin?.subtitle || primaryItin?.seoDescription || secondaryItin?.subtitle || secondaryItin?.seoDescription || 'Expertly curated narratives combining private aviation, elite guides, and ultra-luxe lodges. We are currently hand-selecting our founding expedition routes for the upcoming season.',
+      ctaText: primaryItin?.ctaText || secondaryItin?.ctaText || 'Get Early Access →',
+      image: primaryItin?.image || secondaryItin?.image,
+    };
   }
 
   // Fallback title and descriptions if Sanity content doesn't exist
@@ -133,7 +149,7 @@ export default async function GenericDynamicPage({ params }: PageProps) {
   return (
     <main style={{ backgroundColor: '#0b0b0b', color: '#b9b9b9', minHeight: '100vh', paddingTop: '120px', paddingBottom: '96px' }}>
       <div className="container" style={{ maxWidth: '1200px' }}>
-        
+
         {/* Navigation Breadcrumb */}
         <div style={{ marginBottom: '40px' }}>
           <Link href="/" style={{
@@ -165,191 +181,64 @@ export default async function GenericDynamicPage({ params }: PageProps) {
           )}
         </div>
 
-        {/* Main Body (Portable Text or default fallback) */}
-        <div style={{ maxWidth: '800px', margin: '0 auto 64px auto' }}>
-          {body ? (
-            <PortableText value={body} components={portableTextComponents} />
-          ) : (
-            // Default structural placeholders if page body is not seeded
-            <div style={{ marginBottom: '40px' }}>
-              {slug === 'about-us' && (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-                  <p className="typography-body" style={{ lineHeight: '1.8' }}>
-                    Traverse South was founded in Queenstown with a singular vision: to remove the friction from luxury wilderness travel. We represent a collective of the South Island’s most elite guides, aviation specialists, and marine operators.
-                  </p>
-                  <p className="typography-body" style={{ lineHeight: '1.8' }}>
-                    Instead of standard schedules and tour packages, we compile custom, real-time logistics manifests that allow our guests to move seamlessly between alpine glacier fields and deep-fjord private charters.
-                  </p>
-                </div>
-              )}
-
-              {slug === 'stories' && (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-                  <p className="typography-body" style={{ lineHeight: '1.8' }}>
-                    Read logs, weather snapshots, and route annotations from our recent South Island expeditions.
-                  </p>
-                  <div style={{ padding: '32px', backgroundColor: 'var(--colors-canvas-soft)', borderRadius: '12px', border: '1px solid var(--colors-hairline-soft)' }}>
-                    <span style={{ color: 'var(--colors-brand)', fontFamily: 'var(--font-ibm-plex-mono), monospace', fontSize: '11px', display: 'block', marginBottom: '8px' }}>LOG #42 // FIORDLAND SOVEREIGN</span>
-                    <h3 style={{ color: '#fff', fontSize: '20px', marginBottom: '12px' }}>Deep Fjord Silence</h3>
-                    <p style={{ fontSize: '14px', lineHeight: '1.6' }}>
-                      Rotor insertion at Deep Cove. Landed directly on the heli-pad of the 24m Catamaran. Navigated to Hall Arm under absolute silence. Spotting dolphin pods and seal colonies. Private chef prepared local wild-caught blue cod and geothermal lobster.
+        {/* Main Body (Portable Text & Image if seeded and NOT replaced by custom layout) */}
+        {slug !== 'itineraries' && slug !== 'tailor-made' && slug !== 'group-business' && (
+          <div style={{ maxWidth: '800px', margin: '0 auto 64px auto' }}>
+            {pageData?.image && (
+              <div style={{ marginBottom: '48px', borderRadius: '16px', overflow: 'hidden', border: '1px solid var(--colors-hairline-soft)', boxShadow: '0 20px 40px rgba(0,0,0,0.5)' }}>
+                <img
+                  src={urlFor(pageData.image).width(1200).url()}
+                  alt={pageData.image.alt || pageData.title || 'Traverse South'}
+                  style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '550px', objectFit: 'cover' }}
+                />
+              </div>
+            )}
+            {body ? (
+              <PortableText value={body} components={portableTextComponents} />
+            ) : (
+              <div style={{ marginBottom: '40px' }}>
+                {slug === 'stories' && (
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+                    <p className="typography-body" style={{ lineHeight: '1.8' }}>
+                      Read logs, weather snapshots, and route annotations from our recent South Island expeditions.
                     </p>
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-
-        {/* Dynamic Lists & Forms based on Slugs */}
-
-        {/* ─── Itineraries Page List ─── */}
-        {slug === 'itineraries' && allItineraries.length > 0 && (
-          <div 
-            style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 480px), 1fr))', 
-              gap: 'var(--spacing-xl)',
-            }}
-          >
-            {allItineraries.map((itinerary: any) => {
-              const imageUrl = itinerary.image 
-                ? urlFor(itinerary.image).url() 
-                : (itinerary.activities?.[0]?.image 
-                    ? urlFor(itinerary.activities[0].image).url() 
-                    : '');
-              return (
-                <Link 
-                  href={`/itinerary/${itinerary.slug?.current}`}
-                  key={itinerary._id}
-                  className="feature-card-dark"
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    padding: '0',
-                    overflow: 'hidden',
-                    backgroundColor: 'var(--colors-canvas-soft)',
-                    border: '1px solid var(--colors-hairline-soft)',
-                    borderRadius: 'var(--rounded-marketing)'
-                  }}
-                >
-                  {imageUrl && (
-                    <div 
-                      style={{ 
-                        width: '100%', 
-                        height: '320px', 
-                        backgroundImage: `url(${imageUrl})`, 
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        borderBottom: '1px solid var(--colors-hairline-soft)'
-                      }}
-                    />
-                  )}
-                  <div style={{ padding: 'var(--spacing-xl)' }}>
-                    <p className="typography-mono-eyebrow" style={{ color: 'var(--colors-brand)', fontSize: '11px', letterSpacing: '1.2px', marginBottom: '12px', textTransform: 'uppercase' }}>
-                      {itinerary.eyebrow || 'MULTI-DAY EXPEDITION'}
-                    </p>
-                    <h3 className="typography-heading-md" style={{ marginBottom: '12px', fontWeight: 400, color: '#fff', fontSize: '26px', letterSpacing: '-0.5px' }}>
-                      {itinerary.title}
-                    </h3>
-                    <p className="typography-body-sm" style={{ color: 'var(--colors-ash)', lineHeight: '1.6', marginBottom: '24px' }}>
-                      {itinerary.subtitle}
-                    </p>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #333', paddingTop: '16px' }}>
-                      <span style={{ fontSize: '11px', fontFamily: 'var(--font-ibm-plex-mono), monospace', color: 'var(--colors-mute)' }}>
-                        COSTING: {itinerary.pricing?.priceString || 'Bespoke Package'}
-                      </span>
-                      <span style={{ color: 'var(--colors-brand)', fontSize: '13px', fontWeight: 500, fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>
-                        EXPLORE BLUEPRINT →
-                      </span>
+                    <div style={{ padding: '32px', backgroundColor: 'var(--colors-canvas-soft)', borderRadius: '12px', border: '1px solid var(--colors-hairline-soft)' }}>
+                      <span style={{ color: 'var(--colors-brand)', fontFamily: 'var(--font-ibm-plex-mono), monospace', fontSize: '11px', display: 'block', marginBottom: '8px' }}>LOG #42 // FIORDLAND SOVEREIGN</span>
+                      <h3 style={{ color: '#fff', fontSize: '20px', marginBottom: '12px' }}>Deep Fjord Silence</h3>
+                      <p style={{ fontSize: '14px', lineHeight: '1.6' }}>
+                        Rotor insertion at Deep Cove. Landed directly on the heli-pad of the 24m Catamaran. Navigated to Hall Arm under absolute silence. Spotting dolphin pods and seal colonies. Private chef prepared local wild-caught blue cod and geothermal lobster.
+                      </p>
                     </div>
                   </div>
-                </Link>
-              );
-            })}
+                )}
+              </div>
+            )}
           </div>
         )}
 
-        {/* ─── Trips / Activities Page List ─── */}
-        {slug === 'trips' && allProducts.length > 0 && (
+        {/* ─── Dynamic Specialized Page Content based on Slugs ─── */}
+
+        {/* 1. Adventures & Trips Page List */}
+        {(slug === 'trips' || slug === 'adventures') && allProducts.length > 0 && (
           <TourBuilder products={allProducts} />
         )}
 
-        {/* ─── Tailor Made Trips / Contact Form ─── */}
-        {slug === 'tailor-made' && (
-          <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-            <form 
-              style={{
-                backgroundColor: 'var(--colors-canvas-soft)',
-                border: '1px solid var(--colors-hairline-soft)',
-                padding: '40px',
-                borderRadius: '12px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '24px'
-              }}
-            >
-              <h2 className="typography-mono-caps" style={{ color: 'var(--colors-brand)', fontSize: '12px', letterSpacing: '1px', marginBottom: '8px' }}>
-                // INITIALIZE TRIP COMPILER
-              </h2>
-              
-              <div>
-                <label style={{ display: 'block', fontSize: '12px', color: 'var(--colors-mute)', marginBottom: '8px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>FULL NAME</label>
-                <input 
-                  type="text" 
-                  required 
-                  style={{ width: '100%', padding: '12px', backgroundColor: '#000', border: '1px solid var(--colors-hairline-soft)', color: '#fff', borderRadius: '4px', outline: 'none' }}
-                />
-              </div>
-
-              <div>
-                <label style={{ display: 'block', fontSize: '12px', color: 'var(--colors-mute)', marginBottom: '8px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>EMAIL ADDRESS</label>
-                <input 
-                  type="email" 
-                  required 
-                  style={{ width: '100%', padding: '12px', backgroundColor: '#000', border: '1px solid var(--colors-hairline-soft)', color: '#fff', borderRadius: '4px', outline: 'none' }}
-                />
-              </div>
-
-              <div>
-                <label style={{ display: 'block', fontSize: '12px', color: 'var(--colors-mute)', marginBottom: '8px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>TARGET EXPEDITION WINDOW</label>
-                <input 
-                  type="text" 
-                  placeholder="e.g. Feb 2027"
-                  style={{ width: '100%', padding: '12px', backgroundColor: '#000', border: '1px solid var(--colors-hairline-soft)', color: '#fff', borderRadius: '4px', outline: 'none' }}
-                />
-              </div>
-
-              <div>
-                <label style={{ display: 'block', fontSize: '12px', color: 'var(--colors-mute)', marginBottom: '8px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>ADVENTURE INTENSITY LEVEL</label>
-                <select 
-                  style={{ width: '100%', padding: '12px', backgroundColor: '#000', border: '1px solid var(--colors-hairline-soft)', color: '#fff', borderRadius: '4px', outline: 'none' }}
-                >
-                  <option value="1">Level 1 // Restorative Wilderness</option>
-                  <option value="2">Level 2 // Active Alpine</option>
-                  <option value="3">Level 3 // High Gravity Elite</option>
-                </select>
-              </div>
-
-              <div>
-                <label style={{ display: 'block', fontSize: '12px', color: 'var(--colors-mute)', marginBottom: '8px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>EXPEDITION DETAILS & PREFERENCES</label>
-                <textarea 
-                  rows={5}
-                  placeholder="Describe your desired route, heli preferences, or vessel requirements..."
-                  style={{ width: '100%', padding: '12px', backgroundColor: '#000', border: '1px solid var(--colors-hairline-soft)', color: '#fff', borderRadius: '4px', outline: 'none', fontFamily: 'inherit' }}
-                />
-              </div>
-
-              <div style={{ marginTop: '12px' }}>
-                <Button variant="brand" type="submit" style={{ width: '100%', height: '48px', fontWeight: 600 }}>
-                  Submit Manifest Inquiry →
-                </Button>
-              </div>
-            </form>
+        {/* 2. Itineraries Page (Waitlist) */}
+        {slug === 'itineraries' && (
+          <div style={{ margin: '0 -24px' }}>
+            <ItinerariesWaitlist data={syncedItinerariesData || pageData} />
           </div>
         )}
 
+        {/* 3. Tailor Made Trips */}
+        {slug === 'tailor-made' && (
+          <EmailInquiry variant="tailor-made" defaultSubject="Tailor-Made Trip Inquiry" />
+        )}
+
+        {/* 4. Group & Business Trips */}
+        {slug === 'group-business' && (
+          <EmailInquiry variant="group-business" defaultSubject="Group & Business Trip Inquiry" />
+        )}
       </div>
     </main>
   );

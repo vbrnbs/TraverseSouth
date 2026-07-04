@@ -94,6 +94,15 @@ All agents and developer workflows must operate on the Shared Context in the rep
     *   Acts as the ultimate safeguard ensuring clients are never left stranded without active human support.
 *   **Trigger**: `@ops`
 
+### 6. The CFO Agent
+*   **Mandate**: Financial architecture, margin structures, banking configurations, pricing strategy, GST compliance, and refund tracking.
+*   **Responsibilities**:
+    *   Maintains business registration (NZBN `9429053785237`), banking details (`04-2021-0417074-05`), and contact endpoints (`contact@traversesouth.co.nz`).
+    *   Monitors margin structures across single-day epics (`activity.ts`) and multi-day blueprints (`itinerary.ts`).
+    *   Enforces 7-year NZ Tax Administration Act compliance and oversees refund financial execution.
+*   **Trigger**: `@cfo`
+
+
 ---
 
 ## 🤝 Agent Cooperation Protocol
@@ -103,9 +112,10 @@ All agents and developer workflows must operate on the Shared Context in the rep
     *   **Strict State Sync (Mandatory)**: If `AGENTS.md` or any file within the `.context` directory is modified, the agent MUST explicitly ask the user for permission to update the `traverse_south_state.md` file on Google Drive. This ensures absolute alignment between local context and the remote SSOT.
     *   **Gem Alignment**: To keep the Gemini platform **Gem** aligned with the live environment, all core issues and system updates must be synchronized to this Google Drive file, which serves as the Gem's data source.
 *   **Task Handoffs**: 
-    *   When the *Growth Hacker* wants to test a new package bundle or experiment, it must hand off the logistical validation to the *Experience Architect* and frontend tests to the *Conversion Engineer*.
-    *   When the *Experience Architect* updates a price or module, it must hand off to the *Conversion Engineer* to update the frontend UI.
-    *   The *Project Manager* is the **gatekeeper** for all sprint work. When `@growth` proposes strategic priorities, the PM translates them into sprint tasks. When `@engineer` or `@architect` complete work, the PM updates task status and decides what's next.
+    *   When the *Growth Hacker* wants to test a new package bundle or experiment, it must hand off the logistical validation to the *Experience Architect*, financial margin modeling to the *CFO Agent*, and frontend tests to the *Conversion Engineer*.
+    *   When the *Experience Architect* updates a price or module, it must hand off to the *CFO Agent* to verify yield/margin and the *Conversion Engineer* to update the frontend UI.
+    *   When weather disruptions trigger a refund, the *Ops Agent* works with the *CFO Agent* to execute client refunds and reconcile operator account credits.
+    *   The *Project Manager* is the **gatekeeper** for all sprint work. When `@growth` or `@cfo` propose strategic/financial priorities, the PM translates them into sprint tasks. When `@engineer`, `@architect`, or `@cfo` complete work, the PM updates task status and decides what's next.
     *   When the founder starts working on non-sprint items, the PM intervenes via the Focus Lock Protocol and redirects to the highest-priority task.
 
 ---

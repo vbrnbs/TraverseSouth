@@ -92,8 +92,8 @@ export default async function RootLayout({
         <AnalyticsTracker />
         <Analytics />
 
-        {/* Global Navigation Header (hidden on /admin and /studio) */}
-        <PublicChrome>
+        {/* Global Navigation Header (hidden on /admin, visible on /studio) */}
+        <PublicChrome hideOnStudio={false}>
           <Header />
         </PublicChrome>
 
@@ -108,27 +108,23 @@ export default async function RootLayout({
           <div className="container">
             <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '48px', marginBottom: '64px' }}>
               <div>
-                <p className="typography-mono-caps" style={{ color: 'var(--colors-mute)', marginBottom: '16px', fontSize: '11px', letterSpacing: '1.5px' }}>EXPEDITIONS</p>
+                <p className="typography-mono-caps" style={{ color: 'var(--colors-mute)', marginBottom: '16px', fontSize: '11px', letterSpacing: '1.5px' }}>NAVIGATION</p>
                 <div className="footer-col-links" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                  <a href="/itinerary/fiordland" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Fiordland Sovereign</a>
-                  <a href="/itinerary/qt-mtcook" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Alpine Adrenaline</a>
-                  <a href="/itinerary/relax" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Active Restoration</a>
+                  <a href="/adventures" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Adventures</a>
+                  <a href="/itineraries" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Itineraries (Coming Soon)</a>
+                  <a href="/tailor-made" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Tailor-Made Trips</a>
+                  <a href="/group-business" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Group & Business Trips</a>
+                  <a href="/about-us" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>About Us</a>
                 </div>
               </div>
               
               <div>
                 <p className="typography-mono-caps" style={{ color: 'var(--colors-mute)', marginBottom: '16px', fontSize: '11px', letterSpacing: '1.5px' }}>CONNECT</p>
                 <div className="footer-col-links" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                  <a href="mailto:concierge@traversesouth.co.nz" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>concierge@traversesouth.co.nz</a>
-                  <div style={{ display: 'flex', gap: '16px', marginTop: '8px' }}>
-                    <a href="https://instagram.com/traversesouth" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{ color: 'var(--colors-ash)' }}>
+                  <a href="mailto:contact@traversesouth.co.nz" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>contact@traversesouth.co.nz</a>
+                  <div style={{ display: 'flex', gap: '16px', marginTop: '4px' }}>
+                    <a href="https://instagram.com/traversesouth" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>
                       Instagram
-                    </a>
-                    <a href="https://facebook.com/traversesouth" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style={{ color: 'var(--colors-ash)' }}>
-                      Facebook
-                    </a>
-                    <a href="https://x.com/traversesouth" target="_blank" rel="noopener noreferrer" aria-label="X" style={{ color: 'var(--colors-ash)' }}>
-                      X
                     </a>
                   </div>
                 </div>
@@ -138,43 +134,6 @@ export default async function RootLayout({
                 <p className="typography-mono-caps" style={{ color: 'var(--colors-mute)', marginBottom: '16px', fontSize: '11px', letterSpacing: '1.5px' }}>LEGAL</p>
                 <div className="footer-col-links" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   <a href="/legal" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Legal & Terms Portal</a>
-                </div>
-              </div>
-
-              {/* Minimalist Newsletter Capture */}
-              <div>
-                <p className="typography-mono-caps" style={{ color: 'var(--colors-mute)', marginBottom: '16px', fontSize: '11px', letterSpacing: '1.5px' }}>// COMMUNICATIONS</p>
-                <div style={{ maxWidth: '320px' }}>
-                  <form style={{ display: 'flex', borderBottom: '1px solid var(--colors-hairline-soft)', paddingBottom: '8px' }}>
-                    <input 
-                      type="email" 
-                      placeholder="Enter email manifest" 
-                      required
-                      style={{ 
-                        background: 'none', 
-                        border: 'none', 
-                        color: '#fff', 
-                        fontSize: '13px', 
-                        fontFamily: 'inherit',
-                        outline: 'none', 
-                        flex: 1 
-                      }} 
-                    />
-                    <button 
-                      type="submit" 
-                      style={{ 
-                        background: 'none', 
-                        border: 'none', 
-                        color: 'var(--colors-brand)', 
-                        cursor: 'pointer', 
-                        fontSize: '16px', 
-                        fontWeight: 'bold',
-                        padding: '0 4px'
-                      }}
-                    >
-                      →
-                    </button>
-                  </form>
                 </div>
               </div>
             </div>

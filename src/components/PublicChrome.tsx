@@ -2,15 +2,20 @@
 
 import { usePathname } from 'next/navigation';
 
-/**
- * Wraps children and only renders them when the route is NOT
- * under /admin or /studio. Used to hide the global Header and
- * Footer on internal dashboard / studio pages.
- */
-export function PublicChrome({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
-  const isInternal = pathname?.startsWith('/admin') || pathname?.startsWith('/studio');
+interface PublicChromeProps {
+  children: React.ReactNode;
+  hideOnStudio?: boolean;
+}
 
-  if (isInternal) return null;
+/**
+ * Wraps children and renders them based on route rules.
+ * Hides on /admin by default, and optionally on /studio.
+ */
+export function PublicChrome({ children, hideOnStudio = true }: PublicChromeProps) {
+  const pathname = usePathname();
+  
+  if (pathname?.startsWith('/admin')) return null;
+  if (hideOnStudio && pathname?.startsWith('/studio')) return null;
+
   return <>{children}</>;
 }
