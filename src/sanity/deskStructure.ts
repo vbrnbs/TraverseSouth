@@ -24,6 +24,9 @@ export const deskStructure: StructureResolver = (S) =>
         .title('Activities')
         .child(S.documentTypeList('activity').title('Activities')),
       S.listItem()
+        .title('Operators')
+        .child(S.documentTypeList('operator').title('Operators')),
+      S.listItem()
         .title('Itineraries')
         .child(S.documentTypeList('itinerary').title('Itineraries')),
     ]);

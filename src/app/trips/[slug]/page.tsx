@@ -47,11 +47,18 @@ const itineraryQuery = `*[_type == "itinerary" && slug.current == $slug][0] {
       minimumGroup,
       inclusions
     },
-    suppliers[] {
-      label,
-      name,
-      credential
-    }
+    "suppliers": select(
+      defined(operator) => [{
+        "label": "Vetted Operator",
+        "name": operator->companyName,
+        "credential": operator->primaryContact
+      }],
+      suppliers[] {
+        label,
+        name,
+        credential
+      }
+    )
   }
 }`;
 
@@ -71,11 +78,18 @@ const activityQuery = `*[_type == "activity" && slug.current == $slug][0] {
     minimumGroup,
     inclusions
   },
-  suppliers[] {
-    label,
-    name,
-    credential
-  }
+  "suppliers": select(
+    defined(operator) => [{
+      "label": "Vetted Operator",
+      "name": operator->companyName,
+      "credential": operator->primaryContact
+    }],
+    suppliers[] {
+      label,
+      name,
+      credential
+    }
+  )
 }`;
 
 interface ItineraryPageProps {
@@ -86,7 +100,7 @@ export async function generateMetadata({ params }: ItineraryPageProps): Promise<
   const { slug } = await params;
   const isDraft = (await draftMode()).isEnabled;
   const client = isDraft ? previewClient : sanityClient;
-  
+
   // Try itinerary first
   const itinerary = await client.fetch(itineraryQuery, { slug });
   if (itinerary) {
@@ -100,7 +114,7 @@ export async function generateMetadata({ params }: ItineraryPageProps): Promise<
   const activity = await client.fetch(activityQuery, { slug });
   if (activity) {
     return {
-      title: `${activity.title} Itinerary | Traverse South`,
+      title: `${activity.title} | Traverse South`,
       description: activity.subtitle || activity.description,
     };
   }
@@ -116,8 +130,8 @@ const portableTextComponents = {
       const slug = value?.slug;
       if (!slug) return <span>{children}</span>;
       return (
-        <Link 
-          href={`/itinerary/${slug}`}
+        <Link
+          href={`/trips/${slug}`}
           style={{
             color: 'var(--colors-brand)',
             fontWeight: 500,
@@ -133,9 +147,9 @@ const portableTextComponents = {
     },
     link: ({ children, value }: any) => {
       return (
-        <a 
-          href={value?.href} 
-          target="_blank" 
+        <a
+          href={value?.href}
+          target="_blank"
           rel="noopener noreferrer"
           style={{
             color: 'var(--colors-link-blue-soft)',
@@ -192,18 +206,18 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
   const title = itinerary ? itinerary.title : activity.title;
   const subtitle = itinerary ? itinerary.subtitle : (activity.subtitle || activity.description);
   const description = itinerary ? itinerary.description : activity.description;
-  
+
   // Resolve image URL
   let imageUrl = '';
   if (itinerary) {
-    imageUrl = itinerary.image 
-      ? urlFor(itinerary.image).url() 
-      : (itinerary.activities?.[0]?.image 
-          ? urlFor(itinerary.activities[0].image).url() 
-          : `/images/${itinerary.activities?.[0]?.slug?.current}.png`);
+    imageUrl = itinerary.image
+      ? urlFor(itinerary.image).url()
+      : (itinerary.activities?.[0]?.image
+        ? urlFor(itinerary.activities[0].image).url()
+        : `/images/${itinerary.activities?.[0]?.slug?.current}.png`);
   } else if (activity) {
-    imageUrl = activity.image 
-      ? urlFor(activity.image).url() 
+    imageUrl = activity.image
+      ? urlFor(activity.image).url()
       : `/images/${activity.slug?.current}.png`;
   }
 
@@ -214,9 +228,9 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
 
   const getLevelLabel = (level: number) => {
     switch (level) {
-      case 1: return 'LEVEL 1 // RESTORATIVE';
-      case 2: return 'LEVEL 2 // ACTIVE WILDERNESS';
-      case 3: return 'LEVEL 3 // HIGH GRAVITY';
+      case 1: return 'LEVEL 1 // MODERATE';
+      case 2: return 'LEVEL 2 // INTENSE';
+      case 3: return 'LEVEL 3 // EXTREME';
       default: return `LEVEL ${level}`;
     }
   };
@@ -225,22 +239,22 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
     switch (level) {
       case 1: return 'Basic';
       case 2: return 'Intermediate';
-      case 3: return 'Elite';
+      case 3: return 'Advanced';
       default: return 'Standard';
     }
   };
 
   const getPhysicalIntensity = (level: number) => {
     switch (level) {
-      case 1: return 'Restorative';
-      case 2: return 'Medium Intensity';
-      case 3: return 'High Intensity';
+      case 1: return 'Low';
+      case 2: return 'Medium';
+      case 3: return 'High';
       default: return 'Standard';
     }
   };
 
   // Pricing & Inclusions aggregation
-  const priceString = itinerary 
+  const priceString = itinerary
     ? (itinerary.pricing?.priceString || 'Bespoke Package Quote')
     : (activity.pricing?.priceString || 'Bespoke Quote');
 
@@ -250,12 +264,12 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
 
   const inclusions = itinerary
     ? (itinerary.pricing?.inclusions && itinerary.pricing.inclusions.length > 0
-        ? itinerary.pricing.inclusions
-        : (itinerary.activities || []).flatMap((a: any) => a.pricing?.inclusions || []))
+      ? itinerary.pricing.inclusions
+      : (itinerary.activities || []).flatMap((a: any) => a.pricing?.inclusions || []))
     : (activity.pricing?.inclusions || [
-        'Private transfers and safety crews',
-        'Bespoke guiding and premium gear'
-      ]);
+      'Private transfers and safety crews',
+      'Bespoke guiding and premium gear'
+    ]);
 
   // Aggregate verified operators list
   const uniqueSuppliers: any[] = [];
@@ -280,47 +294,47 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
   }
 
   // Construct fake activity for client booking modal
-  const bookingActivity = itinerary 
+  const bookingActivity = itinerary
     ? {
-        _id: itinerary._id,
-        title: itinerary.title,
-        slug: itinerary.slug,
-        eyebrow: itinerary.eyebrow,
-        subtitle: itinerary.subtitle,
-        description: typeof itinerary.description === 'string' 
-          ? itinerary.description 
-          : (itinerary.subtitle || ''),
-        adventureLevel: maxAdventureLevel,
-        ctaText: 'Request Itinerary Booking',
-        image: itinerary.image || itinerary.activities?.[0]?.image,
-        pricing: {
-          priceString: priceString,
-          minimumGroup: minimumGroup,
-          inclusions: inclusions
-        }
+      _id: itinerary._id,
+      title: itinerary.title,
+      slug: itinerary.slug,
+      eyebrow: itinerary.eyebrow,
+      subtitle: itinerary.subtitle,
+      description: typeof itinerary.description === 'string'
+        ? itinerary.description
+        : (itinerary.subtitle || ''),
+      adventureLevel: maxAdventureLevel,
+      ctaText: 'Request Itinerary Booking',
+      image: itinerary.image || itinerary.activities?.[0]?.image,
+      pricing: {
+        priceString: priceString,
+        minimumGroup: minimumGroup,
+        inclusions: inclusions
       }
+    }
     : {
-        _id: activity._id,
-        title: activity.title,
-        slug: activity.slug,
-        eyebrow: activity.eyebrow,
-        subtitle: activity.subtitle,
-        description: activity.description,
-        adventureLevel: activity.adventureLevel || 1,
-        ctaText: activity.ctaText || 'Book Private Experience',
-        image: activity.image,
-        pricing: {
-          priceString: priceString,
-          minimumGroup: minimumGroup,
-          inclusions: inclusions
-        }
-      };
+      _id: activity._id,
+      title: activity.title,
+      slug: activity.slug,
+      eyebrow: activity.eyebrow,
+      subtitle: activity.subtitle,
+      description: activity.description,
+      adventureLevel: activity.adventureLevel || 1,
+      ctaText: activity.ctaText || 'Book Private Experience',
+      image: activity.image,
+      pricing: {
+        priceString: priceString,
+        minimumGroup: minimumGroup,
+        inclusions: inclusions
+      }
+    };
 
   return (
     <main style={{ backgroundColor: '#0b0b0b', color: '#b9b9b9', minHeight: '100vh', paddingBottom: 'var(--spacing-section-lg)' }}>
       {/* Editorial Content Container */}
       <div className="container" style={{ maxWidth: '800px', paddingTop: '120px', paddingBottom: '40px' }}>
-        
+
         {/* Navigation Breadcrumb */}
         <div style={{ marginBottom: '40px' }}>
           <Link href="/#adventures" style={{
@@ -352,10 +366,10 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
 
         {/* Main Editorial Image */}
         {imageUrl && (
-          <div style={{ 
-            width: '100%', 
-            height: '450px', 
-            backgroundImage: `url(${imageUrl})`, 
+          <div style={{
+            width: '100%',
+            height: '450px',
+            backgroundImage: `url(${imageUrl})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             borderRadius: 'var(--rounded-marketing)',
@@ -365,13 +379,13 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
         )}
 
         {/* Stats Bar */}
-        <div 
-          style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', 
-            gap: '24px', 
-            padding: '24px 0', 
-            borderTop: '1px solid var(--colors-hairline-soft)', 
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+            gap: '24px',
+            padding: '24px 0',
+            borderTop: '1px solid var(--colors-hairline-soft)',
             borderBottom: '1px solid var(--colors-hairline-soft)',
             marginBottom: '56px'
           }}
@@ -384,7 +398,7 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
           <div>
             <span style={{ fontSize: '10px', color: 'var(--colors-mute)', display: 'block', textTransform: 'uppercase', marginBottom: '4px', fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>// DURATION</span>
             <span style={{ color: '#fff', fontSize: '18px', fontWeight: 500 }}>
-              {itinerary 
+              {itinerary
                 ? `${itinerary.activities?.length || 1} Days`
                 : '1 Day'}
             </span>
@@ -444,10 +458,10 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
                   </h3>
 
                   {actImageUrl && (
-                    <div style={{ 
-                      width: '100%', 
-                      height: '350px', 
-                      backgroundImage: `url(${actImageUrl})`, 
+                    <div style={{
+                      width: '100%',
+                      height: '350px',
+                      backgroundImage: `url(${actImageUrl})`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
                       borderRadius: 'var(--rounded-marketing)',
@@ -461,10 +475,10 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
 
                   {/* Operator info / logistics card */}
                   {act.suppliers?.[0] && (
-                    <div style={{ 
-                      backgroundColor: 'var(--colors-canvas-soft)', 
-                      padding: '20px', 
-                      borderRadius: 'var(--rounded-marketing)', 
+                    <div style={{
+                      backgroundColor: 'var(--colors-canvas-soft)',
+                      padding: '20px',
+                      borderRadius: 'var(--rounded-marketing)',
                       border: '1px solid var(--colors-hairline-soft)',
                       fontFamily: 'var(--font-ibm-plex-mono), monospace',
                       fontSize: '13px',
@@ -507,10 +521,10 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
               </h4>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '24px' }}>
                 {uniqueSuppliers.map((sup: any, idx: number) => (
-                  <div key={idx} style={{ 
-                    backgroundColor: 'var(--colors-canvas-soft)', 
-                    padding: '16px', 
-                    borderRadius: 'var(--rounded-marketing)', 
+                  <div key={idx} style={{
+                    backgroundColor: 'var(--colors-canvas-soft)',
+                    padding: '16px',
+                    borderRadius: 'var(--rounded-marketing)',
                     border: '1px solid var(--colors-hairline-soft)'
                   }}>
                     <span style={{ color: '#fff', display: 'block', fontWeight: 500, fontSize: '14px' }}>{sup.name}</span>
@@ -528,32 +542,13 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
             // SECURE EXPEDITION SLOT
           </p>
           <h3 className="typography-heading-md" style={{ color: '#fff', marginBottom: '16px', textAlign: 'center' }}>
-            Select Your Window & Connect Manifest
+            Select Your Dates
           </h3>
-          <p className="typography-body" style={{ color: 'var(--colors-ash)', maxWidth: '600px', textAlign: 'center', marginBottom: '32px', lineHeight: '1.6' }}>
+          {/* <p className="typography-body" style={{ color: 'var(--colors-ash)', maxWidth: '600px', textAlign: 'center', marginBottom: '32px', lineHeight: '1.6' }}>
             Selecting dates on these individual manifests locks in your slot directly with our certified local operators. All transfers, safety guides, and rotorcraft availability are reserved in real-time, removing the traditional delays of luxury travel booking.
-          </p>
-          
-          <div 
-            style={{ 
-              borderRadius: 'var(--rounded-marketing)', 
-              overflow: 'hidden', 
-              border: '1px solid var(--colors-hairline-soft)',
-              backgroundColor: '#000',
-              padding: '16px',
-              maxWidth: '560px',
-              width: '100%',
-              marginBottom: '40px'
-            }}
-          >
-            <img 
-              src="/images/booking_calendar.png" 
-              alt="Calendar Date Selection UI Mockup" 
-              style={{ width: '100%', height: 'auto', display: 'block' }}
-            />
-          </div>
+          </p> */}
 
-          {/* Dynamic Client Booking Trigger button */}
+          {/* Dynamic Client Booking Trigger button with interactive BookingCalendar widget */}
           <ItineraryBooking activity={bookingActivity} />
         </div>
 

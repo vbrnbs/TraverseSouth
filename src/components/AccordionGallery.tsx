@@ -1,7 +1,7 @@
 import React from 'react';
 import { urlFor } from '@/sanity/client';
 
-export function AccordionGallery({ images }: { images: any[] }) {
+export function AccordionGallery({ images }: { images?: any[] }) {
   const hasImages = images && images.length > 0;
   
   return (

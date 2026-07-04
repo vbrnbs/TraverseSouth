@@ -3,9 +3,10 @@ import { sanityClient, previewClient, urlFor } from '@/sanity/client';
 import { notFound } from 'next/navigation';
 import { draftMode } from 'next/headers';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Metadata } from 'next';
 import { PortableText } from '@portabletext/react';
-import { TourBuilder } from '@/components/TourBuilder';
+import { ActivityGrid } from '@/components/ActivityGrid';
 import { Button } from '@/components/Button';
 import { ItinerariesWaitlist } from '@/components/ItinerariesWaitlist';
 import { EmailInquiry } from '@/components/EmailInquiry';
@@ -115,7 +116,7 @@ export default async function GenericDynamicPage({ params }: PageProps) {
         ctaText,
         image,
         pricing,
-        region
+        "region": region->name
       }`
     );
   } else if (slug === 'about-us') {
@@ -186,10 +187,13 @@ export default async function GenericDynamicPage({ params }: PageProps) {
           <div style={{ maxWidth: '800px', margin: '0 auto 64px auto' }}>
             {pageData?.image && (
               <div style={{ marginBottom: '48px', borderRadius: '16px', overflow: 'hidden', border: '1px solid var(--colors-hairline-soft)', boxShadow: '0 20px 40px rgba(0,0,0,0.5)' }}>
-                <img
+                <Image
                   src={urlFor(pageData.image).width(1200).url()}
                   alt={pageData.image.alt || pageData.title || 'Traverse South'}
+                  width={1200}
+                  height={675}
                   style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '550px', objectFit: 'cover' }}
+                  sizes="(max-width: 800px) 100vw, 800px"
                 />
               </div>
             )}
@@ -220,7 +224,7 @@ export default async function GenericDynamicPage({ params }: PageProps) {
 
         {/* 1. Adventures & Trips Page List */}
         {(slug === 'trips' || slug === 'adventures') && allProducts.length > 0 && (
-          <TourBuilder products={allProducts} />
+          <ActivityGrid products={allProducts} />
         )}
 
         {/* 2. Itineraries Page (Waitlist) */}

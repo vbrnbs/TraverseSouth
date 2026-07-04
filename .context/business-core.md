@@ -35,6 +35,9 @@ How we solve what nobody else does:
 
 ## 5. Product Architecture & Technical Logic
 * **Zero-Friction Exploration (The Website as Journey)**: The site isn't a catalogue — it's an expedition in itself. Each activity page leads naturally into related destinations, operators, and itineraries. The client doesn't search and filter; they explore and discover. The content architecture does the guiding.
+* **Clear Distinction: Activity vs. Itinerary**:
+  * **Activity (`activity.ts`)**: One type of standalone experience that our customers can buy directly (a single-day epic event or individual adventure).
+  * **Itinerary (`itinerary.ts`)**: A curated set of activities which will (or might) include additional supporting services as well (such as private aviation, luxury lodging, and transfers) as a comprehensive multi-day journey.
 * **Single-Day Epics (`activity.ts`)**: A highly curated, filtered directory of the finest adventures available right now, providing a clear pathway to immediate conversion. This utilizes a **Tiered Personalisation** model (Gold/Silver/Bronze) that maps to different intensity and access levels, directly solving the "One-Size-Fits-All" pain point.
 * **Multi-Day Recommendations (`itinerary.ts`)**: Inspirational, expertly designed blueprints. The frontend acts as an intelligent predictive layer, suggesting the logical next step in their journey as they piece their expedition together, offering a true "Done-For-You" experience.
 
@@ -44,3 +47,6 @@ How we solve what nobody else does:
 * **New Zealand**: $46.6B NZD total tourism expenditure (YE March 2025), with government actively investing to grow international arrivals beyond 2019 levels.
 * **Our Niches**: Helicopter tourism, hard adventure, luxury wilderness, and expedition/impact tourism are among the fastest-growing and highest-margin segments in the industry.
 * **Revenue Model**: A curated, direct-to-consumer niche adventure OTA can realistically target $125K–$250K gross sales in Year 1, scaling to $1.8M–$2.7M by Year 3 with strong execution.
+
+## 7. Official Contact & Operational Endpoints
+* **Primary Main Contact Email**: `contact@traversesouth.co.nz` — This is the universal contact endpoint for client inquiries, tailor-made trip planning, group & business arrangements, operator partnerships, and CFO/support communications. All frontend components, email forms, legal docs, and system correspondence MUST use this exact address.

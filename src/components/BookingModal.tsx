@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { urlFor } from '@/sanity/client';
+import { BookingCalendar } from './BookingCalendar';
 
 interface ActivityProps {
   _id: string;
@@ -24,6 +25,10 @@ interface ActivityProps {
 interface BookingModalProps {
   activity: ActivityProps;
   onClose: () => void;
+  selectedDate?: Date;
+  onSelectDate?: (date: Date) => void;
+  selectedTime?: string;
+  onSelectTime?: (time: string) => void;
 }
 
 const REDIRECT_STEPS = [
@@ -34,7 +39,7 @@ const REDIRECT_STEPS = [
   'Connecting to secure billing node...'
 ];
 
-export function BookingModal({ activity, onClose }: BookingModalProps) {
+export function BookingModal({ activity, onClose, selectedDate, onSelectDate, selectedTime, onSelectTime }: BookingModalProps) {
   const [isRedirecting, setIsRedirecting] = useState(false);
   const [stepIndex, setStepIndex] = useState(0);
 
@@ -52,7 +57,9 @@ export function BookingModal({ activity, onClose }: BookingModalProps) {
     setIsRedirecting(true);
     setTimeout(() => {
       setIsRedirecting(false);
-      alert(`Booking initiated for: ${activity.title}. This represents a successful secure manifest handshake!`);
+      const dateStr = selectedDate ? selectedDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }) : 'Next Saturday';
+      const timeStr = selectedTime || '10:30 AM';
+      alert(`Booking initiated for: ${activity.title}\nSelected Date: ${dateStr}\nTime Slot: ${timeStr}\n\nThis represents a successful secure manifest handshake!`);
       onClose();
     }, 3800);
   };
@@ -130,26 +137,17 @@ export function BookingModal({ activity, onClose }: BookingModalProps) {
               {activity.subtitle || activity.description}
             </p>
 
-            {/* Calendar Mockup */}
+            {/* Calendar Widget */}
             <div style={{ marginBottom: '16px' }}>
               <p className="typography-mono-caps" style={{ color: 'var(--colors-mute)', marginBottom: '12px', fontSize: '11px' }}>
-                // SELECT EXPEDITION DATES (REZDY PLUG-IN)
+                // SELECT EXPEDITION DATES
               </p>
-              <div 
-                style={{ 
-                  borderRadius: 'var(--rounded-app-lg)', 
-                  overflow: 'hidden', 
-                  border: '1px solid var(--colors-hairline-soft)',
-                  backgroundColor: '#000',
-                  padding: '8px'
-                }}
-              >
-                <img 
-                  src="/images/booking_calendar.png" 
-                  alt="Calendar date picker selector widget" 
-                  style={{ width: '100%', height: 'auto', display: 'block' }}
-                />
-              </div>
+              <BookingCalendar 
+                selectedDate={selectedDate}
+                onSelectDate={onSelectDate}
+                selectedTime={selectedTime}
+                onSelectTime={onSelectTime}
+              />
             </div>
           </div>
 

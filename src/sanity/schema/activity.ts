@@ -25,6 +25,13 @@ export default defineType({
             name: 'eyebrow',
             title: 'Eyebrow Tag',
             type: 'string',
+            options: {
+                list: [
+                    { title: 'LEVEL 1 // MODERATE', value: 'LEVEL 1 // MODERATE' },
+                    { title: 'LEVEL 2 // INTENSE', value: 'LEVEL 2 // INTENSE' },
+                    { title: 'LEVEL 3 // EXTREME', value: 'LEVEL 3 // EXTREME' },
+                ],
+            },
         }),
         defineField({
             name: 'subtitle',
@@ -43,6 +50,11 @@ export default defineType({
             validation: (Rule) => Rule.required().min(1).max(3).integer(),
         }),
         defineField({
+            name: 'levelLabel',
+            title: 'Level Label (e.g. LEVEL 2 // ACTIVE WILDERNESS)',
+            type: 'string',
+        }),
+        defineField({
             name: 'category',
             title: 'Category',
             type: 'reference',
@@ -50,32 +62,13 @@ export default defineType({
         }),
         defineField({
             name: 'region',
-            title: 'Region',
-            type: 'string',
-            options: {
-                list: [
-                    { title: 'Otago', value: 'otago' },
-                    { title: 'Southland', value: 'southland' },
-                    { title: 'Canterbury', value: 'canterbury' },
-                    { title: 'West Coast', value: 'west-coast' },
-                    { title: 'Marlborough', value: 'marlborough' },
-                    { title: 'Tasman', value: 'tasman' },
-                ],
-            },
-        }),
-        defineField({
-            name: 'levelLabel',
-            title: 'Level Label (e.g. LEVEL 2 // ACTIVE WILDERNESS)',
-            type: 'string',
+            title: 'Destination',
+            type: 'reference',
+            to: [{ type: 'destination' }],
         }),
         defineField({
             name: 'ctaText',
             title: 'Primary CTA Text',
-            type: 'string',
-        }),
-        defineField({
-            name: 'secondaryCtaText',
-            title: 'Secondary CTA Text',
             type: 'string',
         }),
         defineField({
@@ -95,21 +88,12 @@ export default defineType({
             ]
         }),
         defineField({
-            name: 'suppliers',
-            title: 'Supplier Network',
-            type: 'array',
-            of: [
-                {
-                    type: 'object',
-                    name: 'supplierItem',
-                    title: 'Supplier',
-                    fields: [
-                        { name: 'label', title: 'Supplier Label', type: 'string' },
-                        { name: 'name', title: 'Supplier Name', type: 'string' },
-                        { name: 'credential', title: 'Supplier Credential', type: 'string' },
-                    ]
-                }
-            ]
-        })
+            name: 'operator',
+            title: 'Operator',
+            type: 'reference',
+            to: [{ type: 'operator' }],
+            description: 'Select the vetted local operator for this activity.',
+        }),
     ]
 })
+

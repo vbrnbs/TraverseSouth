@@ -2,7 +2,7 @@ import { defineType, defineField } from 'sanity'
 
 export default defineType({
     name: 'operator',
-    title: 'Local Operator',
+    title: 'Operator',
     type: 'document',
     fields: [
         defineField({
@@ -62,4 +62,18 @@ export default defineType({
             },
         }),
     ],
+    preview: {
+        select: {
+            title: 'companyName',
+            subtitle: 'primaryContact',
+            media: 'logo',
+        },
+        prepare({ title, subtitle, media }) {
+            return {
+                title: title || 'Unnamed Operator',
+                subtitle: subtitle ? `Contact: ${subtitle}` : 'Local Vetted Operator',
+                media,
+            };
+        },
+    },
 })

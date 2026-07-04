@@ -72,10 +72,9 @@ export const homepageQuery = `*[_type == "landing"][0]{
     adventureLevel,
     levelLabel,
     ctaText,
-    secondaryCtaText,
     image,
     pricing,
-    region
+    "region": region->name
   },
   itinerariesSection {
     eyebrow,

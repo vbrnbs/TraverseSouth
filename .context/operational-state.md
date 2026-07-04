@@ -26,6 +26,6 @@ This document tracks the immediate development goals, active sprint tasks, busin
 * **Entity Registration**: NZBN 9429053785237 [COMPLETED]
 * **Business Banking**: Main Domestic Operating Account `04-2021-0417074-05` [COMPLETED]
 * **Treasury & Accounts**: Wise multi-currency account (main balance) with dedicated Jars for Tax (15% GST/Income), Fixed Expenses (SaaS/Hosting), and Customer Revenue / Operator Vault. [COMPLETED]
-* **Primary Contact Email**: contact@traversesouth.co.nz [COMPLETED]
+* **Primary Contact Email**: `contact@traversesouth.co.nz` (Official main contact endpoint for all client inquiries, business arrangements, and correspondence) [COMPLETED]
 * **Legal Portal & T&Cs**: Fully drafted, compliant with NZ CGA 1993, FTA 1986, HSWA 2015, and Privacy Act 2020 [COMPLETED]
 * **Week 2 Focus (Low Energy)**: Founder sends 3 emails to operators, time-box social posts. Agent Delegation: Create and document internal processes and databases for zero-admin protocol.

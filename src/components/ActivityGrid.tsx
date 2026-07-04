@@ -1,31 +1,13 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
+import Link from 'next/link';
 import { Button } from '@/components/Button';
 import { urlFor } from '@/sanity/client';
 import { BookingModal } from './BookingModal';
+import { ActivityCard, ActivityProps } from './ActivityCard';
 
-interface ActivityProps {
-  _id: string;
-  title: string;
-  slug: { current: string };
-  eyebrow?: string;
-  subtitle?: string;
-  description?: string;
-  adventureLevel: number;
-  levelLabel?: string;
-  region?: string;
-  ctaText?: string;
-  secondaryCtaText?: string;
-  image?: any;
-  pricing?: {
-    priceString?: string;
-    minimumGroup?: string;
-    inclusions?: string[];
-  };
-}
-
-export function TourBuilder({ products, viewAllCard, isScrollable = false }: { products: ActivityProps[], viewAllCard?: any, isScrollable?: boolean }) {
+export function ActivityGrid({ products, viewAllCard, isScrollable = false }: { products: ActivityProps[], viewAllCard?: any, isScrollable?: boolean }) {
   const [selectedActivity, setSelectedActivity] = useState<ActivityProps | null>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -53,19 +35,6 @@ export function TourBuilder({ products, viewAllCard, isScrollable = false }: { p
     };
   }, [products, isScrollable]);
 
-  const getLevelLabel = (level: number) => {
-    switch (level) {
-      case 1:
-        return 'LEVEL 1 // RESTORATIVE';
-      case 2:
-        return 'LEVEL 2 // ACTIVE WILDERNESS';
-      case 3:
-        return 'LEVEL 3 // HIGH GRAVITY';
-      default:
-        return `LEVEL ${level}`;
-    }
-  };
-
   const scrollContainer = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
       if (animationFrameId.current) {
@@ -78,7 +47,7 @@ export function TourBuilder({ products, viewAllCard, isScrollable = false }: { p
 
       const startScroll = container.scrollLeft;
       const distance = targetScroll - startScroll;
-      const duration = 2000; // 1.2s for much slower and smoother scroll
+      const duration = 3000; // 1.2s for much slower and smoother scroll
       let startTime: number | null = null;
 
       const easeInOutCubic = (t: number) => {
@@ -147,128 +116,9 @@ export function TourBuilder({ products, viewAllCard, isScrollable = false }: { p
         width: '100%',
         paddingBottom: '24px'
       }}>
-        {filteredActivities.map((act) => {
-          const imageUrl = act.image ? urlFor(act.image).url() : `/images/${act.slug?.current}.png`;
-
-          return (
-            <div
-              key={act._id}
-              className={`feature-card-dark ${isScrollable ? 'tour-builder-scroll-item' : ''}`}
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                flex: isScrollable ? '0 0 max(280px, calc((100% - var(--layout-padding-left, 0px) - (4 * var(--spacing-lg))) / 4.5))' : 'unset',
-                minHeight: '520px',
-                padding: '0',
-                overflow: 'hidden',
-                transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease',
-                backgroundColor: 'var(--colors-canvas-soft)',
-                border: '1px solid var(--colors-hairline-soft)',
-                borderRadius: 'var(--rounded-marketing)'
-              }}
-            >
-              {/* Image Frame with LQIP */}
-              <div style={{
-                width: '100%',
-                height: '240px',
-                position: 'relative',
-                overflow: 'hidden',
-                backgroundColor: 'var(--colors-hairline-soft)',
-                borderBottom: '1px solid var(--colors-hairline-soft)'
-              }}>
-                {act.image && (
-                  <div style={{
-                    position: 'absolute',
-                    inset: 0,
-                    backgroundImage: `url(${urlFor(act.image).width(20).blur(50).url()})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    zIndex: 0,
-                  }} />
-                )}
-                <img
-                  src={imageUrl}
-                  alt={act.title || 'Adventure Image'}
-                  loading="lazy"
-                  className="card-image"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    position: 'relative',
-                    zIndex: 1
-                  }}
-                />
-              </div>
-
-              {/* Content Block */}
-              <div style={{ padding: 'var(--spacing-xl)', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                    <p
-                      className="typography-mono-eyebrow"
-                      style={{
-                        color: 'var(--colors-brand)',
-                        fontSize: '11px',
-                        letterSpacing: '1px',
-                        margin: 0
-                      }}
-                    >
-                      {act.levelLabel || getLevelLabel(act.adventureLevel)}
-                    </p>
-                    {act.region && (
-                      <span className="typography-mono-micro" style={{ color: 'var(--colors-mute)', textTransform: 'uppercase' }}>
-                        // {act.region}
-                      </span>
-                    )}
-                  </div>
-                  <h3
-                    className="typography-heading-sm"
-                    onClick={() => setSelectedActivity(act)}
-                    style={{
-                      marginBottom: '12px',
-                      fontWeight: 500,
-                      color: '#fff',
-                      fontSize: '22px',
-                      letterSpacing: '-0.4px',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    {act.title}
-                  </h3>
-                  <p
-                    className="typography-body-sm"
-                    style={{
-                      color: 'var(--colors-ash)',
-                      lineHeight: '1.6',
-                      marginBottom: '24px'
-                    }}
-                  >
-                    {act.subtitle}
-                  </p>
-                </div>
-
-                {/* Actions */}
-                <div style={{ display: 'flex', gap: '12px', marginTop: 'auto', paddingTop: '16px' }}>
-                  <Button
-                    variant="brand"
-                    style={{ flex: 1, height: '40px', padding: '0', fontSize: '13px' }}
-                    onClick={() => setSelectedActivity(act)}
-                  >
-                    {act.ctaText || 'Book Now'}
-                  </Button>
-                  <Button
-                    variant="secondary-dark"
-                    style={{ flex: 1, height: '40px', padding: '0', fontSize: '13px' }}
-                    href={`/itinerary/${act.slug?.current}`}
-                  >
-                    {act.secondaryCtaText || 'View Itinerary'}
-                  </Button>
-                </div>
-              </div>
-            </div>
-          );
-        })}
+        {filteredActivities.map((act) => (
+          <ActivityCard key={act._id} activity={act} isScrollable={isScrollable} />
+        ))}
 
         {/* View All Card */}
         {viewAllCard && (
