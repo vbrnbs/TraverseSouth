@@ -943,5 +943,86 @@
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
     "sessionToken": "ts-sess-w9aiotp9tvo-mr5ofy3x",
     "timestamp": "2026-07-04T06:18:19.661Z"
+  },
+  {
+    "pathname": "/studio/presentation///",
+    "referrer": "http://localhost:3000/studio/presentation/?preview=http%3A//localhost%3A3000/",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-w9aiotp9tvo-mr5ofy3x",
+    "timestamp": "2026-07-04T06:19:45.441Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-k11au49069-mr5mf5mw",
+    "timestamp": "2026-07-04T06:19:57.256Z"
+  },
+  {
+    "pathname": "/adventures",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "430x932",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "sessionToken": "ts-sess-k11au49069-mr5mf5mw",
+    "timestamp": "2026-07-04T06:24:48.226Z"
+  },
+  {
+    "pathname": "/itineraries",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "430x932",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "sessionToken": "ts-sess-k11au49069-mr5mf5mw",
+    "timestamp": "2026-07-04T06:25:16.289Z"
+  },
+  {
+    "pathname": "/adventures",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "430x932",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "sessionToken": "ts-sess-k11au49069-mr5mf5mw",
+    "timestamp": "2026-07-04T06:25:19.688Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "430x932",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "sessionToken": "ts-sess-k11au49069-mr5mf5mw",
+    "timestamp": "2026-07-04T06:25:27.124Z"
+  },
+  {
+    "pathname": "/studio/presentation/activity/1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "referrer": "http://localhost:3000/studio/presentation/?preview=http%3A//localhost%3A3000/",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-w9aiotp9tvo-mr5ofy3x",
+    "timestamp": "2026-07-04T06:26:34.391Z"
+  },
+  {
+    "pathname": "/studio/presentation/",
+    "referrer": "http://localhost:3000/studio/presentation/?preview=http%3A//localhost%3A3000/",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-w9aiotp9tvo-mr5ofy3x",
+    "timestamp": "2026-07-04T06:26:40.159Z"
+  },
+  {
+    "pathname": "/studio/presentation/activity/dd92a8cc-7209-48ee-a848-edb5ca27462f",
+    "referrer": "http://localhost:3000/studio/presentation/?preview=http%3A//localhost%3A3000/",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-w9aiotp9tvo-mr5ofy3x",
+    "timestamp": "2026-07-04T06:26:41.643Z"
   }
 ]

@@ -31,11 +31,23 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      setIsVisible(true);
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   return (
     <header
       className="site-header"
       style={{
-        transform: isVisible ? 'translateY(0)' : 'translateY(-100%)'
+        transform: (isVisible || isOpen) ? 'translateY(0)' : 'translateY(-100%)'
       }}
     >
       {/* Left logo (matches footer layout) */}
@@ -118,6 +130,49 @@ export function Header() {
             />
             {/* Mega Menu Panel */}
             <div className="header-mega-menu">
+              {/* Mobile Fullscreen Header Bar with Close Button */}
+              <div className="mobile-menu-topbar">
+                <Link
+                  href="/"
+                  onClick={() => setIsOpen(false)}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    textDecoration: 'none'
+                  }}
+                >
+                  <div className="brand-dot"></div>
+                  <span
+                    style={{
+                      fontWeight: 500,
+                      letterSpacing: '-0.32px',
+                      fontSize: '16px',
+                      color: '#fff'
+                    }}
+                  >
+                    Traverse South
+                  </span>
+                </Link>
+
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="typography-mono-caps"
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: '#fff',
+                    cursor: 'pointer',
+                    fontSize: '13px',
+                    letterSpacing: '1.5px',
+                    padding: '8px 0',
+                    fontWeight: 600
+                  }}
+                  aria-label="Close menu"
+                >
+                  CLOSE ✕
+                </button>
+              </div>
+
               <Link
                 href="/adventures"
                 onClick={() => setIsOpen(false)}
