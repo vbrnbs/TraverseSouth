@@ -230,6 +230,32 @@ button {
   margin-bottom: 40px;
 }
 
+.accordion-gallery.accordion-gallery-wide {
+  height: 520px;
+}
+
+/* Magazine Layout Grid for Mission Section */
+.mission-magazine-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  width: 100%;
+}
+
+.mission-magazine-grid .accordion-gallery {
+  margin-bottom: 0;
+  height: 100%;
+  min-height: 500px;
+}
+
+@media (min-width: 1024px) {
+  .mission-magazine-grid {
+    grid-template-columns: 1fr 1.25fr;
+    gap: 64px;
+    align-items: stretch;
+  }
+}
+
 .accordion-item {
   flex: 1;
   position: relative;
@@ -257,11 +283,16 @@ button {
 }
 
 @media (min-width: 769px) {
-  .accordion-item:hover {
+  .accordion-item:hover,
+  .accordion-item.is-active {
     flex: 3;
   }
-  .accordion-item:hover .accordion-overlay {
+  .accordion-item:hover .accordion-overlay,
+  .accordion-item.is-active .accordion-overlay {
     opacity: 1;
+  }
+  .accordion-number {
+    display: none;
   }
 }
 
@@ -277,7 +308,8 @@ button {
 }
 
 @media (min-width: 769px) {
-  .accordion-item:hover .accordion-text {
+  .accordion-item:hover .accordion-text,
+  .accordion-item.is-active .accordion-text {
     transform: translateY(0);
   }
 }
@@ -294,34 +326,63 @@ button {
 @media (max-width: 768px) {
   .accordion-gallery {
     flex-direction: row;
-    height: 480px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    gap: 16px;
-    padding-bottom: 8px; /* For scrollbar breathing room */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
-
-  .accordion-gallery::-webkit-scrollbar {
-    display: none;
+    height: 440px;
+    gap: 8px;
+    overflow: hidden;
+    margin-bottom: 32px;
   }
 
   .accordion-item {
-    flex: 0 0 85%; /* Take up 85% of screen width */
-    scroll-snap-align: center;
-    border-radius: 8px;
-    /* Force overlay to always show on mobile */
+    border-radius: 6px;
+    transition: flex 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
   }
-  
+
+  .accordion-item.is-active {
+    flex: 5.5;
+    filter: brightness(1);
+  }
+
+  .accordion-item.is-inactive {
+    flex: 1;
+    filter: brightness(0.6);
+  }
+
   .accordion-overlay {
     opacity: 1;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 100%);
+    padding: 16px 12px;
   }
-  
-  .accordion-text {
+
+  .accordion-item.is-inactive .accordion-overlay {
+    background: rgba(0,0,0,0.55);
+    padding: 16px 4px;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .accordion-item.is-active .accordion-number {
+    display: none;
+  }
+
+  .accordion-item.is-inactive .accordion-number {
+    display: block;
+    color: #fff;
+    font-family: var(--font-ibm-plex-mono), monospace;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .accordion-item.is-inactive .accordion-text {
+    display: none;
+  }
+
+  .accordion-item.is-active .accordion-text {
+    display: block;
     transform: translateY(0);
+    font-size: 13px;
+    white-space: normal;
+    line-height: 1.3;
   }
 }

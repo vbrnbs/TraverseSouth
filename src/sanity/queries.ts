@@ -23,7 +23,8 @@ export const homepageQuery = `*[_type == "landing"][0]{
     heading,
     bodyText,
     imageGallery,
-    badges
+    badges,
+    riskReversals
   },
   categories[]-> {
     eyebrow,

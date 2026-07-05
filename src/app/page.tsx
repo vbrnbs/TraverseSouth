@@ -67,7 +67,7 @@ export default async function Home() {
       <ItinerariesWaitlist data={syncedItinerariesData} />
 
       {/* 04. Brand Manifesto / Intro (Our Mission) */}
-      <MissionSection data={mission} />
+      <MissionSection data={mission} isWide={true} />
     </main>
   );
 }

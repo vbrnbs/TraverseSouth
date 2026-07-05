@@ -4,7 +4,6 @@ import React from 'react';
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import { AccordionGallery } from '@/components/AccordionGallery';
-import { urlFor } from '@/sanity/client';
 
 export interface MissionProps {
   eyebrow?: string;
@@ -12,9 +11,146 @@ export interface MissionProps {
   bodyText?: any;
   imageGallery?: any[];
   badges?: any[];
+  riskReversals?: string[];
 }
 
-export function MissionSection({ data }: { data?: MissionProps }) {
+export function MissionSection({
+  data,
+  isWide,
+  layout = isWide ? 'magazine' : 'default',
+}: {
+  data?: MissionProps;
+  isWide?: boolean;
+  layout?: 'default' | 'magazine';
+}) {
+  const riskBadges =
+    data?.riskReversals && data.riskReversals.length > 0
+      ? data.riskReversals
+      : [
+          'ZERO-ADMIN PROTOCOL',
+          'SURGICAL WILDERNESS ACCESS',
+          'VETTED OPERATOR GUARANTEE',
+        ];
+  if (layout === 'magazine') {
+    return (
+      <section
+        id="mission-editorial"
+        className="marketing-section-dark"
+        style={{
+          minHeight: '90vh',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          borderTop: '1px solid var(--colors-hairline-soft)',
+          padding: 'var(--spacing-section-lg) 0',
+        }}
+      >
+        <div
+          className="container"
+          style={{
+            maxWidth: '1440px',
+            width: '100%',
+            padding: '0 var(--spacing-xl)',
+            boxSizing: 'border-box',
+          }}
+        >
+          <div className="mission-magazine-grid">
+            {/* Left Editorial Text Column (Locked to top and bottom of image) */}
+            <div
+              style={{
+                textAlign: 'left',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                height: '100%',
+                boxSizing: 'border-box',
+              }}
+            >
+              <div>
+                <p
+                  className="typography-mono-eyebrow"
+                  style={{
+                    marginBottom: '16px',
+                    color: 'var(--colors-brand)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '1.5px',
+                    fontSize: '12px',
+                    lineHeight: '1',
+                  }}
+                >
+                  {data?.eyebrow || '// OPERATIONAL MANIFESTO'}
+                </p>
+
+                <h2
+                  className="typography-display-sm"
+                  style={{
+                    color: '#fff',
+                    fontSize: '42px',
+                    marginBottom: '20px',
+                    letterSpacing: '-1.5px',
+                    lineHeight: '1.12',
+                    whiteSpace: 'pre-line',
+                  }}
+                >
+                  {data?.heading || 'Surgical Wilderness Manifests.'}
+                </h2>
+
+                <div
+                  className="portable-text-content"
+                  style={{ color: 'var(--colors-ash)', lineHeight: '1.65', fontSize: '16px' }}
+                >
+                  {data?.bodyText ? (
+                    <PortableText value={data.bodyText} />
+                  ) : (
+                    <p style={{ margin: 0 }}>
+                      We do not believe in standard tourism; we believe in the surgical execution of untouched wilderness experiences. Traverse South decouples luxury travel from administrative delay.
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              {/* Editorial Hairline Divider & Monospaced Pillars (Locked to bottom of image) */}
+              <div
+                style={{
+                  borderTop: '1px solid var(--colors-hairline-soft)',
+                  paddingTop: '20px',
+                  marginTop: '24px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '10px',
+                }}
+              >
+                {riskBadges.map((badge: string, i: number) => (
+                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <div
+                      style={{
+                        width: '5px',
+                        height: '5px',
+                        borderRadius: '50%',
+                        backgroundColor: 'var(--colors-brand)',
+                      }}
+                    ></div>
+                    <span
+                      className="typography-mono-caps"
+                      style={{ color: '#fff', fontSize: '11px', letterSpacing: '1.5px', lineHeight: '1' }}
+                    >
+                      {String(i + 1).padStart(2, '0')} // {badge.toUpperCase()}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Column: Interactive Image Gallery */}
+            <div style={{ height: '100%', display: 'flex' }}>
+              <AccordionGallery images={data?.imageGallery || []} isWide={true} />
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section
       id="mission"
@@ -27,37 +163,6 @@ export function MissionSection({ data }: { data?: MissionProps }) {
         padding: 0,
       }}
     >
-      {/* Partner Logos Marquee (At the very top, full width) */}
-      {/* TEMPORARILY HIDDEN UNTIL OPERATOR LOGOS ARE ADDED
-      <div style={{ width: '100%', overflow: 'hidden', whiteSpace: 'nowrap', padding: '32px 0', borderBottom: '1px solid var(--colors-hairline-soft)', backgroundColor: 'rgba(0,0,0,0.2)' }}>
-        <div className="animate-marquee" style={{ display: 'flex', gap: '64px', alignItems: 'center' }}>
-          {data?.badges && data.badges.length > 0 ? (
-            [...data.badges, ...data.badges, ...data.badges, ...data.badges, ...data.badges, ...data.badges].map((badge: any, i: number) => (
-              <Image
-                key={i}
-                src={urlFor(badge).url()}
-                alt={badge.alt || "Operator Logo"}
-                width={120}
-                height={40}
-                className="marquee-logo"
-              />
-            ))
-          ) : (
-            [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3].map((num, i) => (
-              <Image
-                key={i}
-                src={`/images/badge${num}.png`}
-                alt="Operator Logo"
-                width={120}
-                height={40}
-                className="marquee-logo"
-              />
-            ))
-          )}
-        </div>
-      </div>
-      */}
-
       {/* Centered Content Below */}
       <div
         className="container"
@@ -68,8 +173,10 @@ export function MissionSection({ data }: { data?: MissionProps }) {
           justifyContent: 'center',
           alignItems: 'center',
           maxWidth: '1200px',
+          width: '100%',
           padding: 'var(--spacing-section-lg) var(--spacing-lg)',
           textAlign: 'center',
+          boxSizing: 'border-box',
         }}
       >
         <p
@@ -94,6 +201,7 @@ export function MissionSection({ data }: { data?: MissionProps }) {
             letterSpacing: '-1.5px',
             lineHeight: '1.2',
             maxWidth: '800px',
+            whiteSpace: 'pre-line',
           }}
         >
           {data?.heading || 'Surgical Wilderness Manifests.'}

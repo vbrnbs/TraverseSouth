@@ -26,8 +26,14 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.traversesouth.co.nz/'),
-  title: 'Traverse South | Private Heli-Ski, Mountaineering & Fiord Charters',
+  title: 'Traverse South Adventures',
   description: 'Travel tailored to the South Island. A zero-friction, modular luxury portal for premium high-gravity adventures.',
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
+  },
 };
 
 export default async function RootLayout({
@@ -104,49 +110,49 @@ export default async function RootLayout({
 
         {/* Global Footer (hidden on /admin and /studio) */}
         <PublicChrome>
-        <footer className="footer" style={{ borderTop: '1px solid var(--colors-hairline-soft)', backgroundColor: '#0b0b0b', padding: 'var(--spacing-section) 0' }}>
-          <div className="container">
-            <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '48px', marginBottom: '64px' }}>
-              <div>
-                <p className="typography-mono-caps" style={{ color: 'var(--colors-mute)', marginBottom: '16px', fontSize: '11px', letterSpacing: '1.5px' }}>NAVIGATION</p>
-                <div className="footer-col-links" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                  <a href="/adventures" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Adventures</a>
-                  <a href="/itineraries" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Itineraries (Coming Soon)</a>
-                  <a href="/tailor-made" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Tailor-Made Trips</a>
-                  <a href="/group-business" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Group & Business Trips</a>
-                  <a href="/about-us" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>About Us</a>
+          <footer className="footer" style={{ borderTop: '1px solid var(--colors-hairline-soft)', backgroundColor: '#0b0b0b', padding: 'var(--spacing-section) 0' }}>
+            <div className="container">
+              <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '48px', marginBottom: '64px' }}>
+                <div>
+                  <p className="typography-mono-caps" style={{ color: 'var(--colors-mute)', marginBottom: '16px', fontSize: '11px', letterSpacing: '1.5px' }}>NAVIGATION</p>
+                  <div className="footer-col-links" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                    <a href="/adventures" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Adventures</a>
+                    <a href="/itineraries" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Itineraries (Coming Soon)</a>
+                    <a href="/tailor-made" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Tailor-Made Trips</a>
+                    <a href="/group-business" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Group & Business Trips</a>
+                    <a href="/about-us" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>About Us</a>
+                  </div>
                 </div>
-              </div>
-              
-              <div>
-                <p className="typography-mono-caps" style={{ color: 'var(--colors-mute)', marginBottom: '16px', fontSize: '11px', letterSpacing: '1.5px' }}>CONNECT</p>
-                <div className="footer-col-links" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                  <a href="mailto:contact@traversesouth.co.nz" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>contact@traversesouth.co.nz</a>
-                  <div style={{ display: 'flex', gap: '16px', marginTop: '4px' }}>
-                    <a href="https://instagram.com/traversesouth" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>
-                      Instagram
-                    </a>
+
+                <div>
+                  <p className="typography-mono-caps" style={{ color: 'var(--colors-mute)', marginBottom: '16px', fontSize: '11px', letterSpacing: '1.5px' }}>CONNECT</p>
+                  <div className="footer-col-links" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                    <a href="mailto:contact@traversesouth.co.nz" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>contact@traversesouth.co.nz</a>
+                    <div style={{ display: 'flex', gap: '16px', marginTop: '4px' }}>
+                      <a href="https://instagram.com/traversesouth" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>
+                        Instagram
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <p className="typography-mono-caps" style={{ color: 'var(--colors-mute)', marginBottom: '16px', fontSize: '11px', letterSpacing: '1.5px' }}>LEGAL</p>
+                  <div className="footer-col-links" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                    <a href="/legal" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Legal & Terms Portal</a>
                   </div>
                 </div>
               </div>
 
-              <div>
-                <p className="typography-mono-caps" style={{ color: 'var(--colors-mute)', marginBottom: '16px', fontSize: '11px', letterSpacing: '1.5px' }}>LEGAL</p>
-                <div className="footer-col-links" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                  <a href="/legal" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Legal & Terms Portal</a>
+              <div className="footer-bottom" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--colors-hairline-soft)', paddingTop: '32px' }}>
+                <p className="typography-caption" style={{ color: 'var(--colors-mute)', margin: 0 }}>© 2026 Traverse South. All rights reserved.</p>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <div className="brand-dot"></div>
+                  <span style={{ fontWeight: 500, letterSpacing: '-0.32px', fontSize: '16px', color: '#fff' }}>Traverse South</span>
                 </div>
               </div>
             </div>
-
-            <div className="footer-bottom" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--colors-hairline-soft)', paddingTop: '32px' }}>
-              <p className="typography-caption" style={{ color: 'var(--colors-mute)', margin: 0 }}>© 2026 Traverse South. All rights reserved.</p>
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                <div className="brand-dot"></div>
-                <span style={{ fontWeight: 500, letterSpacing: '-0.32px', fontSize: '16px', color: '#fff' }}>Traverse South</span>
-              </div>
-            </div>
-          </div>
-        </footer>
+          </footer>
         </PublicChrome>
 
         {isDraft && (

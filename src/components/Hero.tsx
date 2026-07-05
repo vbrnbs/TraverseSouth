@@ -53,6 +53,7 @@ export function Hero({ data }: { data?: HeroProps }) {
             maxWidth: '1200px',
             marginBottom: '32px',
             color: 'var(--colors-on-primary)',
+            whiteSpace: 'pre-line',
           }}
         >
           {data?.headline || 'Epic NZ Adventures. Zero Admin.'}

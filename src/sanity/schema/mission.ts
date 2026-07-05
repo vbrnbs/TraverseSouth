@@ -15,8 +15,16 @@ export const mission = defineType({
     defineField({
       name: 'heading',
       title: 'Heading',
-      type: 'string',
+      type: 'text',
+      rows: 2,
       description: 'Main section heading.'
+    }),
+    defineField({
+      name: 'riskReversals',
+      title: 'Risk Reversals (Badges)',
+      type: 'array',
+      of: [{ type: 'string' }],
+      description: 'Short trust badges displayed below the divider (e.g., "Zero-Admin Weather Refunds").'
     }),
     defineField({
       name: 'imageGallery',
