@@ -6,6 +6,7 @@ import { Hero } from '@/components/Hero';
 import { AdventuresSection } from '@/components/AdventuresSection';
 import { ItinerariesWaitlist } from '@/components/ItinerariesWaitlist';
 import { MissionSection } from '@/components/MissionSection';
+import { LaunchPopup } from '@/components/LaunchPopup';
 import { draftMode } from 'next/headers';
 
 // Configure dynamic pages to always fetch fresh data from Sanity on every request
@@ -38,24 +39,23 @@ export default async function Home() {
     );
   }
 
-  const { hero, adventures, mission, featuredActivities, featuredItineraries, itinerariesSection, itinerariesPage } = data;
+  const { hero, adventures, mission, featuredActivities, featuredItineraries, itinerariesPage, popup } = data;
 
-  // Sync and merge itineraries data (latest updated document wins, falling back to the other)
-  const useLanding = !itinerariesPage?._updatedAt || (itinerariesSection?._updatedAt && itinerariesSection._updatedAt >= itinerariesPage._updatedAt);
-  const primaryItin = useLanding ? itinerariesSection : itinerariesPage;
-  const secondaryItin = useLanding ? itinerariesPage : itinerariesSection;
-
+  // Single Source of Truth: mirror content directly from the standalone Itineraries Page
   const syncedItinerariesData = {
-    eyebrow: primaryItin?.eyebrow || secondaryItin?.eyebrow || '// EXPEDITION BLUEPRINTS',
-    title: primaryItin?.title || secondaryItin?.title || 'Multi-Day Sovereign Journeys',
-    subtitle: primaryItin?.subtitle || primaryItin?.seoDescription || secondaryItin?.subtitle || secondaryItin?.seoDescription || 'Expertly curated narratives combining private aviation, elite guides, and ultra-luxe lodges. We are currently hand-selecting our founding expedition routes for the upcoming season.',
-    ctaText: primaryItin?.ctaText || secondaryItin?.ctaText || 'Get Early Access →',
-    image: primaryItin?.image || secondaryItin?.image,
+    eyebrow: itinerariesPage?.eyebrow || '// EXPEDITION BLUEPRINTS',
+    title: itinerariesPage?.title || 'Multi-Day Sovereign Journeys',
+    subtitle: itinerariesPage?.subtitle || itinerariesPage?.seoDescription || 'Expertly curated narratives combining private aviation, elite guides, and ultra-luxe lodges. We are currently hand-selecting our founding expedition routes for the upcoming season.',
+    ctaText: itinerariesPage?.ctaText || 'Get Early Access →',
+    image: itinerariesPage?.image,
   };
 
   return (
     <main>
       <ScrollObserver />
+
+      {/* 00. Launching Soon / Priority Boarding Pass Pop-up */}
+      <LaunchPopup data={popup} />
 
       {/* 01. Hero Section */}
       <Hero data={hero} />

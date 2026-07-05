@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Button } from './Button';
 import { urlFor } from '@/sanity/client';
 
@@ -46,22 +47,34 @@ export function ItinerariesWaitlist({ data }: ItinerariesWaitlistProps = {}) {
         overflow: 'hidden'
       }}
     >
-      {/* Background Image from Sanity */}
+      {/* Background Image from Sanity with Low-Res Blur Placeholder & Next.js Image */}
       {bgImage && (
-        <div 
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundImage: `url(${urlFor(bgImage).width(1920).url()})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            opacity: 0.5,
-            pointerEvents: 'none'
-          }}
-        />
+        <>
+          <div 
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundImage: `url(${urlFor(bgImage).width(20).blur(50).url()})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              filter: 'blur(20px)',
+              transform: 'scale(1.15)',
+              opacity: 0.5,
+              pointerEvents: 'none',
+              zIndex: 0
+            }}
+          />
+          <Image
+            src={urlFor(bgImage).width(1920).url()}
+            alt={data?.title || 'Atmospheric Background'}
+            fill
+            style={{ objectFit: 'cover', opacity: 0.5, pointerEvents: 'none', zIndex: 0 }}
+            sizes="100vw"
+          />
+        </>
       )}
 
       {/* Background glow effect */}

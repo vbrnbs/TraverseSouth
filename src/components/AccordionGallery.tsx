@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { urlFor } from '@/sanity/client';
 
 export function AccordionGallery({ images, isWide }: { images?: any[]; isWide?: boolean }) {
@@ -23,11 +24,32 @@ export function AccordionGallery({ images, isWide }: { images?: any[]; isWide?: 
           <div
             key={i}
             className={`accordion-item ${activeIndex === i ? 'is-active' : 'is-inactive'}`}
-            style={{ backgroundImage: `url(${urlFor(img).url()})` }}
+            style={{ position: 'relative', overflow: 'hidden' }}
             onClick={() => handleCardClick(i)}
             onMouseEnter={() => setActiveIndex(i)}
           >
-            <div className="accordion-overlay">
+            {/* Instant Low-Res Blur Placeholder */}
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                backgroundImage: `url(${urlFor(img).width(20).blur(50).url()})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                filter: 'blur(15px)',
+                transform: 'scale(1.15)',
+                zIndex: 0,
+              }}
+            />
+            {/* High-Resolution Optimized Image */}
+            <Image
+              src={urlFor(img).url()}
+              alt={img.alt || `Sector 0${i + 1}`}
+              fill
+              style={{ objectFit: 'cover', zIndex: 1 }}
+              sizes="(max-width: 768px) 85vw, 50vw"
+            />
+            <div className="accordion-overlay" style={{ zIndex: 2 }}>
               <span className="accordion-number">0{i + 1}</span>
               <span className="accordion-text">{img.alt || `Sector 0${i + 1}`}</span>
             </div>
@@ -41,11 +63,33 @@ export function AccordionGallery({ images, isWide }: { images?: any[]; isWide?: 
               <div 
                 key={i}
                 className={`accordion-item ${activeIndex === i ? 'is-active' : 'is-inactive'}`}
-                style={{ backgroundImage: `url(/images/${bg}.png)` }}
+                style={{ position: 'relative', overflow: 'hidden' }}
                 onClick={() => handleCardClick(i)}
                 onMouseEnter={() => setActiveIndex(i)}
               >
-                <div className="accordion-overlay">
+                {/* Instant Low-Res Blur Placeholder for fallback images */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    backgroundImage: `url(/images/${bg}.png)`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    filter: 'blur(20px)',
+                    transform: 'scale(1.15)',
+                    opacity: 0.6,
+                    zIndex: 0,
+                  }}
+                />
+                {/* High-Resolution Fallback Image */}
+                <Image
+                  src={`/images/${bg}.png`}
+                  alt={text}
+                  fill
+                  style={{ objectFit: 'cover', zIndex: 1 }}
+                  sizes="(max-width: 768px) 85vw, 50vw"
+                />
+                <div className="accordion-overlay" style={{ zIndex: 2 }}>
                   <span className="accordion-number">0{i + 1}</span>
                   <span className="accordion-text">{text}</span>
                 </div>

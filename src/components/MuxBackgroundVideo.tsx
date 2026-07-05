@@ -5,10 +5,16 @@ import MuxPlayer from '@mux/mux-player-react';
 
 interface MuxBackgroundVideoProps {
   playbackId?: string;
+  thumbTime?: number;
   fallbackUrl?: string;
 }
 
-export function MuxBackgroundVideo({ playbackId, fallbackUrl }: MuxBackgroundVideoProps) {
+export function MuxBackgroundVideo({ playbackId, thumbTime, fallbackUrl }: MuxBackgroundVideoProps) {
+  const posterTime = thumbTime !== undefined && thumbTime !== null ? thumbTime : 0;
+  const posterUrl = playbackId
+    ? `https://image.mux.com/${playbackId}/thumbnail.png?time=${posterTime}&width=1920&fit_mode=preserve`
+    : fallbackUrl;
+
   if (!playbackId) {
     if (fallbackUrl) {
       return (
@@ -34,6 +40,8 @@ export function MuxBackgroundVideo({ playbackId, fallbackUrl }: MuxBackgroundVid
       muted
       loop
       playsInline
+      thumbnailTime={posterTime}
+      poster={posterUrl}
       style={{
         width: '100%',
         height: '100%',

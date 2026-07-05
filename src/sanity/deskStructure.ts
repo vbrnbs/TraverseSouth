@@ -4,14 +4,31 @@ export const deskStructure: StructureResolver = (S) =>
   S.list()
     .title('Content')
     .items([
-      // Homepage section containing Landing page singleton and all Page documents in a single list
+      // Homepage section separating Landing Page singleton from Subpages
       S.listItem()
-        .title('Homepage')
+        .title('Homepage & Pages')
         .child(
-          S.documentList()
+          S.list()
             .title('Homepage & Pages')
-            .filter('_type == "landing" || _type == "page"')
-            .apiVersion('2026-02-01')
+            .items([
+              S.listItem()
+                .title('Landing Page (Main Homepage)')
+                .child(
+                  S.document()
+                    .schemaType('landing')
+                    .documentId('landing')
+                    .title('Landing Page Sections')
+                ),
+              S.divider(),
+              S.listItem()
+                .title('Subpages (/itineraries, /about, etc.)')
+                .child(
+                  S.documentList()
+                    .title('Subpages')
+                    .filter('_type == "page"')
+                    .apiVersion('2026-02-01')
+                ),
+            ])
         ),
       
       S.divider(),

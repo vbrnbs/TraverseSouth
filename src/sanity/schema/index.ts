@@ -8,6 +8,7 @@ import { mission } from './mission'
 import { hero } from './hero'
 import { footer } from './footer'
 import { page } from './page'
+import { popup } from './popup'
 
 export const schemaTypes = [
     destination,
@@ -20,4 +21,5 @@ export const schemaTypes = [
     hero,
     footer,
     page,
+    popup,
 ]

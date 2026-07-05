@@ -47,6 +47,34 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 const portableTextComponents = {
+  types: {
+    image: ({ value }: any) => {
+      if (!value?.asset?._ref) return null;
+      return (
+        <div style={{ position: 'relative', marginBottom: '32px', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--colors-hairline-soft)' }}>
+          {/* Instant Low-Res Blur Placeholder */}
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: `url(${urlFor(value).width(20).blur(50).url()})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            filter: 'blur(20px)',
+            transform: 'scale(1.15)',
+            zIndex: 0
+          }} />
+          <Image
+            src={urlFor(value).width(1000).url()}
+            alt={value.alt || 'Expedition image'}
+            width={1000}
+            height={600}
+            style={{ width: '100%', height: 'auto', display: 'block', position: 'relative', zIndex: 1 }}
+            sizes="(max-width: 800px) 100vw, 800px"
+          />
+        </div>
+      );
+    }
+  },
   block: {
     h1: ({ children }: any) => (
       <h1 className="typography-display-sm" style={{ color: '#fff', marginTop: '40px', marginBottom: '20px', letterSpacing: '-1px' }}>
@@ -129,17 +157,12 @@ export default async function GenericDynamicPage({ params }: PageProps) {
       }`
     );
   } else if (slug === 'itineraries') {
-    const landingSection = await client.fetch(`*[_type == "landing"][0].itinerariesSection { ..., "_updatedAt": ^._updatedAt }`);
-    const useLanding = !pageData?._updatedAt || (landingSection?._updatedAt && landingSection._updatedAt >= pageData._updatedAt);
-    const primaryItin = useLanding ? landingSection : pageData;
-    const secondaryItin = useLanding ? pageData : landingSection;
-
     syncedItinerariesData = {
-      eyebrow: primaryItin?.eyebrow || secondaryItin?.eyebrow || '// EXPEDITION BLUEPRINTS',
-      title: primaryItin?.title || secondaryItin?.title || 'Multi-Day Sovereign Journeys',
-      subtitle: primaryItin?.subtitle || primaryItin?.seoDescription || secondaryItin?.subtitle || secondaryItin?.seoDescription || 'Expertly curated narratives combining private aviation, elite guides, and ultra-luxe lodges. We are currently hand-selecting our founding expedition routes for the upcoming season.',
-      ctaText: primaryItin?.ctaText || secondaryItin?.ctaText || 'Get Early Access →',
-      image: primaryItin?.image || secondaryItin?.image,
+      eyebrow: pageData?.eyebrow || '// EXPEDITION BLUEPRINTS',
+      title: pageData?.title || 'Multi-Day Sovereign Journeys',
+      subtitle: pageData?.subtitle || pageData?.seoDescription || 'Expertly curated narratives combining private aviation, elite guides, and ultra-luxe lodges. We are currently hand-selecting our founding expedition routes for the upcoming season.',
+      ctaText: pageData?.ctaText || 'Get Early Access →',
+      image: pageData?.image,
     };
   }
 
@@ -186,13 +209,32 @@ export default async function GenericDynamicPage({ params }: PageProps) {
         {slug !== 'itineraries' && slug !== 'tailor-made' && slug !== 'group-business' && (
           <div style={{ maxWidth: '800px', margin: '0 auto 64px auto' }}>
             {pageData?.image && (
-              <div style={{ marginBottom: '48px', borderRadius: '16px', overflow: 'hidden', border: '1px solid var(--colors-hairline-soft)', boxShadow: '0 20px 40px rgba(0,0,0,0.5)' }}>
+              <div style={{
+                position: 'relative',
+                marginBottom: '48px',
+                borderRadius: '16px',
+                overflow: 'hidden',
+                border: '1px solid var(--colors-hairline-soft)',
+                boxShadow: '0 20px 40px rgba(0,0,0,0.5)',
+                width: '100%'
+              }}>
+                {/* Instant Low-Res Blur Placeholder */}
+                <div style={{
+                  position: 'absolute',
+                  inset: 0,
+                  backgroundImage: `url(${urlFor(pageData.image).width(20).blur(50).url()})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  filter: 'blur(20px)',
+                  transform: 'scale(1.15)',
+                  zIndex: 0
+                }} />
                 <Image
                   src={urlFor(pageData.image).width(1200).url()}
                   alt={pageData.image.alt || pageData.title || 'Traverse South'}
                   width={1200}
                   height={675}
-                  style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '550px', objectFit: 'cover' }}
+                  style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '550px', objectFit: 'cover', position: 'relative', zIndex: 1 }}
                   sizes="(max-width: 800px) 100vw, 800px"
                 />
               </div>

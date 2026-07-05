@@ -82,18 +82,21 @@ export function ActivityCard({
             borderBottom: '1px solid var(--colors-hairline-soft)',
           }}
         >
-          {activity.image && (
-            <div
-              style={{
-                position: 'absolute',
-                inset: 0,
-                backgroundImage: `url(${urlFor(activity.image).width(20).blur(50).url()})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                zIndex: 0,
-              }}
-            />
-          )}
+          {/* Instant Low-Res Blur Placeholder */}
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              backgroundImage: activity.image
+                ? `url(${urlFor(activity.image).width(20).blur(50).url()})`
+                : `url(${imageUrl})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              filter: 'blur(15px)',
+              transform: 'scale(1.15)',
+              zIndex: 0,
+            }}
+          />
           <Image
             fill
             src={imageUrl}

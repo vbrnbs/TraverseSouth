@@ -5,7 +5,8 @@ export const homepageQuery = `*[_type == "landing"][0]{
     subtitle,
     primaryCta,
     riskReversals,
-    "muxPlaybackId": muxVideo.asset->playbackId
+    "muxPlaybackId": muxVideo.asset->playbackId,
+    "muxThumbTime": muxVideo.asset->thumbTime
   },
   adventures {
     eyebrow,
@@ -77,14 +78,6 @@ export const homepageQuery = `*[_type == "landing"][0]{
     pricing,
     "region": region->name
   },
-  itinerariesSection {
-    eyebrow,
-    title,
-    subtitle,
-    ctaText,
-    image,
-    "_updatedAt": ^._updatedAt
-  },
   "itinerariesPage": *[_type == "page" && slug.current == "itineraries"][0] {
     eyebrow,
     title,
@@ -105,5 +98,16 @@ export const homepageQuery = `*[_type == "landing"][0]{
     activities[]-> {
       image
     }
+  },
+  popup {
+    enabled,
+    eyebrow,
+    heading,
+    description,
+    inputPlaceholder,
+    ctaText,
+    successMessage,
+    delaySeconds,
+    countdownDays
   }
 }`;

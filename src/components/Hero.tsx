@@ -6,6 +6,7 @@ import { MuxBackgroundVideo } from '@/components/MuxBackgroundVideo';
 
 export interface HeroProps {
   muxPlaybackId?: string;
+  muxThumbTime?: number;
   eyebrow?: string;
   headline?: string;
   subtitle?: string;
@@ -18,10 +19,10 @@ export function Hero({ data }: { data?: HeroProps }) {
     data?.riskReversals && data.riskReversals.length > 0
       ? data.riskReversals
       : [
-          "NZ's Best Operators Only",
-          '100% Kiwi Operated',
-          'Zero-Admin Weather Refunds',
-        ];
+        "NZ's Best Operators Only",
+        '100% Kiwi Operated',
+        'Zero-Admin Weather Refunds',
+      ];
 
   return (
     <section className="hero-section" id="hero">
@@ -31,7 +32,12 @@ export function Hero({ data }: { data?: HeroProps }) {
       <div className="hero-video-bg">
         <MuxBackgroundVideo
           playbackId={data?.muxPlaybackId}
-          fallbackUrl="https://assets.mixkit.co/videos/preview/mixkit-beautiful-aerial-view-of-snowy-mountains-42211-large.mp4"
+          thumbTime={data?.muxThumbTime}
+          fallbackUrl={
+            data?.muxPlaybackId
+              ? `https://image.mux.com/${data.muxPlaybackId}/thumbnail.png?time=${data?.muxThumbTime ?? 0}&width=1920&fit_mode=preserve`
+              : "https://assets.mixkit.co/videos/preview/mixkit-beautiful-aerial-view-of-snowy-mountains-42211-large.mp4"
+          }
         />
       </div>
 

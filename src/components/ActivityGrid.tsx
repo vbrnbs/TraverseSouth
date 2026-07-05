@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/Button';
 import { urlFor } from '@/sanity/client';
@@ -136,20 +137,30 @@ export function ActivityGrid({ products, viewAllCard, isScrollable = false }: { 
             }}
             onClick={() => window.location.href = '/trips'}
           >
-            {/* Background Image (Full Cover) */}
+            {/* Background Image with Low-Res Blur Placeholder & Next.js Image */}
             {viewAllCard.image && (
-              <div
-                className="card-image"
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  backgroundImage: `url(${urlFor(viewAllCard.image).url()})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  zIndex: 0,
-                  opacity: 0.4
-                }}
-              />
+              <>
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    backgroundImage: `url(${urlFor(viewAllCard.image).width(20).blur(50).url()})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    filter: 'blur(15px)',
+                    transform: 'scale(1.15)',
+                    zIndex: 0,
+                    opacity: 0.4
+                  }}
+                />
+                <Image
+                  src={urlFor(viewAllCard.image).url()}
+                  alt={viewAllCard.title || 'View All Expeditions'}
+                  fill
+                  style={{ objectFit: 'cover', zIndex: 0, opacity: 0.4 }}
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </>
             )}
 
             {/* Content overlay */}

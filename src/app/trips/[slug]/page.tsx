@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { sanityClient, previewClient, urlFor } from '@/sanity/client';
 import { notFound } from 'next/navigation';
 import { draftMode } from 'next/headers';
@@ -364,18 +365,37 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
           </p>
         </div>
 
-        {/* Main Editorial Image */}
+        {/* Main Editorial Image with Low-Res Blur Placeholder & Next.js Image */}
         {imageUrl && (
           <div style={{
             width: '100%',
             height: '450px',
-            backgroundImage: `url(${imageUrl})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            position: 'relative',
             borderRadius: 'var(--rounded-marketing)',
             border: '1px solid var(--colors-hairline-soft)',
-            marginBottom: '48px'
-          }} />
+            marginBottom: '48px',
+            overflow: 'hidden'
+          }}>
+            {/* Instant Low-Res Blur Placeholder */}
+            <div style={{
+              position: 'absolute',
+              inset: 0,
+              backgroundImage: `url(${imageUrl})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              filter: 'blur(20px)',
+              transform: 'scale(1.15)',
+              zIndex: 0
+            }} />
+            <Image
+              src={imageUrl}
+              alt={title || 'Expedition Image'}
+              fill
+              priority
+              style={{ objectFit: 'cover', zIndex: 1 }}
+              sizes="(max-width: 1200px) 100vw, 1200px"
+            />
+          </div>
         )}
 
         {/* Stats Bar */}
@@ -461,12 +481,30 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
                     <div style={{
                       width: '100%',
                       height: '350px',
-                      backgroundImage: `url(${actImageUrl})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
+                      position: 'relative',
                       borderRadius: 'var(--rounded-marketing)',
-                      border: '1px solid var(--colors-hairline-soft)'
-                    }} />
+                      border: '1px solid var(--colors-hairline-soft)',
+                      overflow: 'hidden'
+                    }}>
+                      {/* Instant Low-Res Blur Placeholder */}
+                      <div style={{
+                        position: 'absolute',
+                        inset: 0,
+                        backgroundImage: `url(${actImageUrl})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        filter: 'blur(15px)',
+                        transform: 'scale(1.15)',
+                        zIndex: 0
+                      }} />
+                      <Image
+                        src={actImageUrl}
+                        alt={act.title || `Phase ${idx + 1}`}
+                        fill
+                        style={{ objectFit: 'cover', zIndex: 1 }}
+                        sizes="(max-width: 1200px) 100vw, 800px"
+                      />
+                    </div>
                   )}
 
                   <p className="typography-body" style={{ color: 'var(--colors-ash)', lineHeight: '1.8', margin: 0 }}>

@@ -64,8 +64,6 @@ export function BookingModal({ activity, onClose, selectedDate, onSelectDate, se
     }, 3800);
   };
 
-  const imageUrl = activity.image ? urlFor(activity.image).url() : `/images/${activity.slug?.current}.png`;
-
   return (
     <>
       {/* Overlay Backdrop */}

@@ -9,6 +9,7 @@ import { VisualEditing } from 'next-sanity/visual-editing';
 import { Button } from '@/components/Button';
 import { Header } from '@/components/Header';
 import { PublicChrome } from '@/components/PublicChrome';
+import { StudioShortcut } from '@/components/StudioShortcut';
 
 
 const inter = Inter({
@@ -26,7 +27,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.traversesouth.co.nz/'),
-  title: 'Traverse South Adventures',
+  title: 'Traverse South Expeditions',
   description: 'Travel tailored to the South Island. A zero-friction, modular luxury portal for premium high-gravity adventures.',
   icons: {
     icon: [
@@ -98,10 +99,13 @@ export default async function RootLayout({
         <AnalyticsTracker />
         <Analytics />
 
-        {/* Global Navigation Header (hidden on /admin, visible on /studio) */}
-        <PublicChrome hideOnStudio={false}>
+        {/* Global Navigation Header (hidden on /admin and /studio) */}
+        <PublicChrome hideOnStudio={true}>
           <Header />
         </PublicChrome>
+
+        {/* Floating Studio Shortcut (only appears inside /studio) */}
+        <StudioShortcut />
 
         {/* Page Content */}
         <div style={{ flex: 1 }}>
