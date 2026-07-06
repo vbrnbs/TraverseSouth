@@ -69,6 +69,7 @@ export function PackageHero({
               color: 'var(--colors-ash)',
               fontSize: '18px',
               lineHeight: 1.6,
+              whiteSpace: 'pre-line',
             }}
           >
             {caption}

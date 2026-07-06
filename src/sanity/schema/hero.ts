@@ -7,7 +7,13 @@ export const hero = defineType({
   fields: [
     defineField({ name: 'eyebrow', title: 'Eyebrow', type: 'string' }),
     defineField({ name: 'headline', title: 'Headline', type: 'text', rows: 3 }),
-    defineField({ name: 'subtitle', title: 'Subtitle', type: 'text', rows: 3 }),
+    defineField({
+      name: 'subtitle',
+      title: 'Subtitle / Description Section',
+      type: 'text',
+      rows: 5,
+      description: 'The hero description. Hit Enter / Return to insert new lines or paragraphs.',
+    }),
     defineField({ name: 'primaryCta', title: 'Primary CTA Text', type: 'string' }),
     defineField({
       name: 'riskReversals',

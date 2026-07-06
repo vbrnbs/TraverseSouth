@@ -979,5 +979,59 @@
     "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
     "sessionToken": "ts-sess-dcioq7e65bv-mr8upuqk",
     "timestamp": "2026-07-06T08:57:14.489Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-00kner3udu4iu-mr8zhus0",
+    "timestamp": "2026-07-06T09:03:43.658Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "430x932",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "sessionToken": "ts-sess-dcioq7e65bv-mr8upuqk",
+    "timestamp": "2026-07-06T09:07:28.047Z"
+  },
+  {
+    "pathname": "/studio/structure/homepagePages",
+    "referrer": "http://localhost:3000/studio/structure/activities;8ae62648-3929-4863-944a-1837cfe69e25",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-8y3sbbzohve-mr8uq727",
+    "timestamp": "2026-07-06T09:07:32.857Z"
+  },
+  {
+    "pathname": "/studio/structure/homepagePages;landingPageMainHomepage",
+    "referrer": "http://localhost:3000/studio/structure/activities;8ae62648-3929-4863-944a-1837cfe69e25",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-8y3sbbzohve-mr8uq727",
+    "timestamp": "2026-07-06T09:07:33.823Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-00kner3udu4iu-mr8zhus0",
+    "timestamp": "2026-07-06T09:10:32.110Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-00kner3udu4iu-mr8zhus0",
+    "timestamp": "2026-07-06T09:12:37.971Z"
   }
 ]

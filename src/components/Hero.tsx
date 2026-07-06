@@ -71,6 +71,7 @@ export function Hero({ data }: { data?: HeroProps }) {
             color: 'var(--colors-ash)',
             marginBottom: '32px',
             lineHeight: '1.6',
+            whiteSpace: 'pre-line',
           }}
         >
           {data?.subtitle ||
