@@ -28,4 +28,11 @@ This document tracks the immediate development goals, active sprint tasks, busin
 * **Treasury & Accounts**: Wise multi-currency account (main balance) with dedicated Jars for Tax (15% GST/Income), Fixed Expenses (SaaS/Hosting), and Customer Revenue / Operator Vault. [COMPLETED]
 * **Primary Contact Email**: `contact@traversesouth.co.nz` (Official main contact endpoint for all client inquiries, business arrangements, and correspondence) [COMPLETED]
 * **Legal Portal & T&Cs**: Fully drafted, compliant with NZ CGA 1993, FTA 1986, HSWA 2015, and Privacy Act 2020 [COMPLETED]
-* **Week 2 Focus (Low Energy)**: Founder sends 3 emails to operators, time-box social posts. Agent Delegation: Create and document internal processes and databases for zero-admin protocol.
+* **Week 1 Foundation**: [COMPLETED] Company registration (NZBN), business bank account, T&Cs/Refund policy, About/Contact/Story/Footer pages, Waitlist popup, DNS routing, and initial Sanity schema/frontend cleanup.
+* **Week 2 Sprint Focus (Moderate Energy - Staggered Outreach)**: 
+  * 🥇 **Sales Wolf**: Contact Jeremy (Packraft Queenstown) regarding collab/pack-rafting & book meeting for next week [IN PROGRESS - Text sent].
+  * 🥇 **Sales Wolf**: Setup Rezdy account for live booking gateway.
+  * 🥈 **Launch Blocker**: Connect working sign-up form & notification buttons.
+  * 🥉 **Marketing**: Publish 2 x IG posts & finalize social media strategy.
+  * 🤖 **Agent Delegation**: AI agents review and document internal processes & databases for zero-admin protocol.
+* **Repeatable PM Methodology**: Established "The Halftime Review" 4-step interview exercise documented in `.agents/skills/pm/references/halftime-review-method.md`.
