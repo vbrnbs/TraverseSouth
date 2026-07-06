@@ -157,7 +157,10 @@ export function LaunchPopup({ data }: { data?: PopupData }) {
         @media (max-width: 820px) {
           .boarding-sleeve-wrapper {
             grid-template-columns: 1fr;
-            max-width: 480px;
+            max-width: 440px;
+            margin: auto;
+            max-height: calc(100dvh - 32px);
+            overflow-y: auto;
           }
           .sleeve-notch-top, .sleeve-notch-bottom, .sleeve-barcode {
             display: none !important;
@@ -181,7 +184,8 @@ export function LaunchPopup({ data }: { data?: PopupData }) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '20px',
+          padding: '16px',
+          overflowY: 'auto',
           animation: 'popupBackdropFade 0.35s ease-out forwards',
         }}
         onClick={handleClose}

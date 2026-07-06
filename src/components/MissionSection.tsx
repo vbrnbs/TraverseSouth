@@ -212,22 +212,13 @@ export function MissionSection({
 
         {/* Body Text */}
         <div style={{ width: '100%', maxWidth: '800px', margin: '0 auto' }}>
-          {data?.bodyText ? (
+          {data?.bodyText && (
             <div
               className="portable-text-content"
               style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '18px' }}
             >
               <PortableText value={data.bodyText} />
             </div>
-          ) : (
-            <p
-              className="typography-subtitle"
-              style={{ color: 'var(--colors-ash)', lineHeight: '1.7', fontSize: '18px' }}
-            >
-              We do not believe in standard tourism; we believe in the surgical execution of
-              untouched wilderness experiences. Traverse South decouples luxury travel from
-              administrative delay.
-            </p>
           )}
         </div>
       </div>

@@ -39,6 +39,7 @@ const itineraryQuery = `*[_type == "itinerary" && slug.current == $slug][0] {
     slug,
     eyebrow,
     subtitle,
+    duration,
     description,
     adventureLevel,
     ctaText,
@@ -70,6 +71,7 @@ const activityQuery = `*[_type == "activity" && slug.current == $slug][0] {
   slug,
   eyebrow,
   subtitle,
+  duration,
   description,
   adventureLevel,
   ctaText,
@@ -268,8 +270,8 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
       ? itinerary.pricing.inclusions
       : (itinerary.activities || []).flatMap((a: any) => a.pricing?.inclusions || []))
     : (activity.pricing?.inclusions || [
-      'Private transfers and safety crews',
-      'Bespoke guiding and premium gear'
+      'Transfers and safety crews',
+      'Guiding and premium gear'
     ]);
 
   // Aggregate verified operators list
@@ -302,11 +304,12 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
       slug: itinerary.slug,
       eyebrow: itinerary.eyebrow,
       subtitle: itinerary.subtitle,
+      duration: `${itinerary.activities?.length || 1} Days`,
       description: typeof itinerary.description === 'string'
         ? itinerary.description
         : (itinerary.subtitle || ''),
       adventureLevel: maxAdventureLevel,
-      ctaText: 'Request Itinerary Booking',
+      ctaText: 'Book Now',
       image: itinerary.image || itinerary.activities?.[0]?.image,
       pricing: {
         priceString: priceString,
@@ -320,9 +323,10 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
       slug: activity.slug,
       eyebrow: activity.eyebrow,
       subtitle: activity.subtitle,
+      duration: activity.duration || '1 Day',
       description: activity.description,
       adventureLevel: activity.adventureLevel || 1,
-      ctaText: activity.ctaText || 'Book Private Experience',
+      ctaText: activity.ctaText || 'Book Now',
       image: activity.image,
       pricing: {
         priceString: priceString,
@@ -338,7 +342,7 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
 
         {/* Navigation Breadcrumb */}
         <div style={{ marginBottom: '40px' }}>
-          <Link href="/#adventures" style={{
+          <Link href="/" style={{
             fontFamily: 'var(--font-ibm-plex-mono), monospace',
             fontSize: '12px',
             color: 'var(--colors-brand)',
@@ -420,7 +424,7 @@ export default async function ItineraryPage({ params }: ItineraryPageProps) {
             <span style={{ color: '#fff', fontSize: '18px', fontWeight: 500 }}>
               {itinerary
                 ? `${itinerary.activities?.length || 1} Days`
-                : '1 Day'}
+                : (activity?.duration || '1 Day')}
             </span>
             <span style={{ fontSize: '12px', color: 'var(--colors-mute)', display: 'block', marginTop: '2px' }}>Custom modules available</span>
           </div>

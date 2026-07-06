@@ -139,6 +139,7 @@ export default async function GenericDynamicPage({ params }: PageProps) {
         slug,
         eyebrow,
         subtitle,
+        duration,
         description,
         adventureLevel,
         ctaText,

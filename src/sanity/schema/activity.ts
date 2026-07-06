@@ -39,6 +39,11 @@ export default defineType({
             type: 'string',
         }),
         defineField({
+            name: 'duration',
+            title: 'Duration (e.g. 1 Day, Half Day, 4 Hours)',
+            type: 'string',
+        }),
+        defineField({
             name: 'description',
             title: 'Detailed Description',
             type: 'text',

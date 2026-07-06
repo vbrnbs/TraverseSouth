@@ -70,6 +70,7 @@ export const homepageQuery = `*[_type == "landing"][0]{
     slug,
     eyebrow,
     subtitle,
+    duration,
     description,
     adventureLevel,
     levelLabel,
