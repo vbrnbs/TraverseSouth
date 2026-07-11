@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/Button';
 import { urlFor } from '@/sanity/client';
+import { formatActivityPrice } from './ActivityCardSmall';
 
 export interface ActivityProps {
   _id: string;
@@ -12,6 +13,7 @@ export interface ActivityProps {
   slug: { current: string };
   eyebrow?: string;
   subtitle?: string;
+  duration?: string;
   description?: string;
   adventureLevel: number;
   levelLabel?: string;
@@ -178,15 +180,48 @@ export function ActivityCard({
           </p>
         </div>
 
-        {/* Actions */}
-        <div style={{ display: 'flex', gap: '12px', marginTop: 'auto', paddingTop: '16px' }}>
-          <Button
-            variant="brand"
-            style={{ flex: 1, height: '40px', padding: '0', fontSize: '13px' }}
-            href={`/trips/${activity.slug?.current}`}
+        {/* Price & Duration based on ActivityCardSmall + Actions */}
+        <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div
+            style={{
+              paddingTop: '16px',
+              borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
           >
-            View Trip
-          </Button>
+            <span
+              style={{
+                fontSize: '11px',
+                color: 'var(--colors-mute, #797979)',
+                fontFamily: 'var(--font-ibm-plex-mono), monospace',
+                letterSpacing: '0.5px',
+              }}
+            >
+              {activity.duration || 'SINGLE DAY'}
+            </span>
+            <span
+              style={{
+                fontSize: '13px',
+                color: 'var(--colors-brand, #f36458)',
+                fontFamily: 'var(--font-ibm-plex-mono), monospace',
+                fontWeight: 600,
+              }}
+            >
+              {formatActivityPrice(activity.pricing?.priceString)}
+            </span>
+          </div>
+
+          <div style={{ display: 'flex', gap: '12px' }}>
+            <Button
+              variant="brand"
+              style={{ flex: 1, height: '40px', padding: '0', fontSize: '13px' }}
+              href={`/trips/${activity.slug?.current}`}
+            >
+              View Trip
+            </Button>
+          </div>
         </div>
       </div>
     </div>

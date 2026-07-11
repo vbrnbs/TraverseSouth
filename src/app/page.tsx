@@ -54,8 +54,8 @@ export default async function Home() {
     <main>
       <ScrollObserver />
 
-      {/* 00. Launching Soon / Priority Boarding Pass Pop-up */}
-      <LaunchPopup data={popup} />
+      {/* 00. Launching Soon / Priority Boarding Pass Pop-up (Hidden) */}
+      {/* <LaunchPopup data={popup} /> */}
 
       {/* 01. Hero Section */}
       <Hero data={hero} />

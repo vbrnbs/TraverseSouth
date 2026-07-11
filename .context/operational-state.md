@@ -29,10 +29,12 @@ This document tracks the immediate development goals, active sprint tasks, busin
 * **Primary Contact Email**: `contact@traversesouth.co.nz` (Official main contact endpoint for all client inquiries, business arrangements, and correspondence) [COMPLETED]
 * **Legal Portal & T&Cs**: Fully drafted, compliant with NZ CGA 1993, FTA 1986, HSWA 2015, and Privacy Act 2020 [COMPLETED]
 * **Week 1 Foundation**: [COMPLETED] Company registration (NZBN), business bank account, T&Cs/Refund policy, About/Contact/Story/Footer pages, Waitlist popup, DNS routing, and initial Sanity schema/frontend cleanup.
-* **Week 2 Sprint Focus (Moderate Energy - Staggered Outreach)**: 
+* **Week 2 Sprint Focus (Moderate Energy - Staggered Outreach & B2B Concept)**: 
   * 🥇 **Sales Wolf**: Contact Jeremy / Huw (Packrafting) regarding collab & pack-rafting [IN PROGRESS - Huw replied with massive buy-in ("our humans"), confirmed 15-20% commission on day trips, and runs on **Rezdy**. Expectation set: we will reach back out once our Rezdy account is live].
   * 🥇 **Sales Wolf**: Setup Rezdy account for live booking gateway [NEXT STEP: Once active, immediately connect to Huw via Rezdy Agent Marketplace share and send follow-up message].
+  * 🥇 **Sales Wolf (B2B Expansion)**: Draft corporate outreach email templates and compile targeted list of 15 VC/PE firms & high-growth startup contacts. [NEW]
   * 🥈 **Launch Blocker**: Connect working sign-up form & notification buttons.
+  * 🥈 **B2B Strategy**: Create a static high-fidelity `/corporate` landing section/route explaining Bronze/Silver/Gold offsite packages. [NEW]
   * 🥉 **Marketing**: Publish 2 x IG posts & finalize social media strategy.
   * 🤖 **Agent Delegation**: AI agents review and document internal processes & databases for zero-admin protocol.
 * **Repeatable PM Methodology**: Established "The Halftime Review" 4-step interview exercise documented in `.agents/skills/pm/references/halftime-review-method.md`.

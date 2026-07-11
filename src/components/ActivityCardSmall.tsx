@@ -3,6 +3,28 @@
 import React from 'react';
 import Link from 'next/link';
 
+export function formatActivityPrice(priceString?: string): string {
+  if (!priceString) return 'BESPOKE QUOTE';
+  const lower = priceString.toLowerCase();
+  if (lower.includes('bespoke') || lower.includes('request')) {
+    return priceString;
+  }
+
+  let clean = priceString
+    .replace(/^from\s+/i, '')
+    .replace(/\s*NZD.*$/i, '')
+    .replace(/\s*(per|\/).*$/i, '')
+    .trim();
+
+  if (!clean) return priceString;
+
+  if (!clean.startsWith('$')) {
+    clean = `$${clean}`;
+  }
+
+  return `From ${clean} NZD`;
+}
+
 export interface ActivityCardSmallProps {
   title: string;
   slug: string;
@@ -164,7 +186,7 @@ export function ActivityCardSmall({
               fontWeight: 600,
             }}
           >
-            {priceString || 'BESPOKE QUOTE'}
+            {formatActivityPrice(priceString)}
           </span>
         </div>
       </div>
