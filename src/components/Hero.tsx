@@ -118,7 +118,7 @@ export function Hero({ data }: { data?: HeroProps }) {
         </div>
 
         <div style={{ display: 'flex', gap: '16px', marginBottom: '24px' }}>
-          <Button variant="brand" href="#adventures">
+          <Button variant="brand" href="/trips">
             {data?.primaryCta || 'Explore Blueprints'}
           </Button>
         </div>

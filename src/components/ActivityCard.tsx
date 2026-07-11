@@ -36,17 +36,14 @@ export function ActivityCard({
     ? urlFor(activity.image).url()
     : `/images/${activity.slug?.current}.png`;
 
-  const getLevelLabel = (level: number) => {
-    switch (level) {
-      case 1:
-        return 'LEVEL 1 // MODERATE';
-      case 2:
-        return 'LEVEL 2 // INTENSE';
-      case 3:
-        return 'LEVEL 3 // EXTREME';
-      default:
-        return `LEVEL ${level}`;
-    }
+  const getLevelLabel = (level: any) => {
+    const map: Record<string, string> = {
+      '1': 'BEGINNER',
+      '2': 'INTERMEDIATE',
+      '3': 'ADVANCED',
+      '4': 'EXTREME',
+    };
+    return map[String(level)] || String(level || 'BEGINNER');
   };
 
   return (

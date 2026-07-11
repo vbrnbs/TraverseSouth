@@ -10,7 +10,10 @@ import { ActivityGrid } from '@/components/ActivityGrid';
 import { Button } from '@/components/Button';
 import { ItinerariesWaitlist } from '@/components/ItinerariesWaitlist';
 import { EmailInquiry } from '@/components/EmailInquiry';
+import { portableTextComponents } from '@/components/PortableTextComponents';
 import { AccordionGallery } from '@/components/AccordionGallery';
+import { ReturnToMainLink } from '@/components/ReturnToMainLink';
+import { genericPageQuery, allActivitiesQuery } from '@/sanity/queries';
 
 export const revalidate = 60;
 
@@ -46,59 +49,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-const portableTextComponents = {
-  types: {
-    image: ({ value }: any) => {
-      if (!value?.asset?._ref) return null;
-      return (
-        <div style={{ position: 'relative', marginBottom: '32px', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--colors-hairline-soft)' }}>
-          {/* Instant Low-Res Blur Placeholder */}
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundImage: `url(${urlFor(value).width(20).blur(50).url()})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            filter: 'blur(20px)',
-            transform: 'scale(1.15)',
-            zIndex: 0
-          }} />
-          <Image
-            src={urlFor(value).width(1000).url()}
-            alt={value.alt || 'Expedition image'}
-            width={1000}
-            height={600}
-            style={{ width: '100%', height: 'auto', display: 'block', position: 'relative', zIndex: 1 }}
-            sizes="(max-width: 800px) 100vw, 800px"
-          />
-        </div>
-      );
-    }
-  },
-  block: {
-    h1: ({ children }: any) => (
-      <h1 className="typography-display-sm" style={{ color: '#fff', marginTop: '40px', marginBottom: '20px', letterSpacing: '-1px' }}>
-        {children}
-      </h1>
-    ),
-    h2: ({ children }: any) => (
-      <h2 className="typography-heading-md" style={{ color: '#fff', marginTop: '36px', marginBottom: '16px', letterSpacing: '-0.5px' }}>
-        {children}
-      </h2>
-    ),
-    h3: ({ children }: any) => (
-      <h3 className="typography-heading-sm" style={{ color: '#fff', marginTop: '28px', marginBottom: '12px' }}>
-        {children}
-      </h3>
-    ),
-    normal: ({ children }: any) => (
-      <p className="typography-body" style={{ color: 'var(--colors-ash)', lineHeight: '1.8', marginBottom: '24px', fontSize: '16px' }}>
-        {children}
-      </p>
-    )
-  }
-};
-
 export default async function GenericDynamicPage({ params }: PageProps) {
   const { slug } = await params;
 
@@ -112,19 +62,7 @@ export default async function GenericDynamicPage({ params }: PageProps) {
   const client = isDraft ? previewClient : sanityClient;
 
   // 1. Fetch page data from Sanity
-  const pageData = await client.fetch(
-    `*[_type == "page" && slug.current == $slug][0] {
-      title,
-      body,
-      seoDescription,
-      image,
-      eyebrow,
-      subtitle,
-      ctaText,
-      _updatedAt
-    }`,
-    { slug }
-  );
+  const pageData = await client.fetch(genericPageQuery, { slug });
 
   // 2. Fetch listings/data based on slug
   let allProducts = [];
@@ -132,22 +70,7 @@ export default async function GenericDynamicPage({ params }: PageProps) {
   let syncedItinerariesData = null;
 
   if (slug === 'trips' || slug === 'adventures') {
-    allProducts = await client.fetch(
-      `*[_type == "activity"] {
-        _id,
-        title,
-        slug,
-        eyebrow,
-        subtitle,
-        duration,
-        description,
-        adventureLevel,
-        ctaText,
-        image,
-        pricing,
-        "region": region->name
-      }`
-    );
+    allProducts = await client.fetch(allActivitiesQuery);
   } else if (slug === 'about-us') {
     mission = await client.fetch(
       `*[_type == "mission"][0] {
@@ -176,20 +99,7 @@ export default async function GenericDynamicPage({ params }: PageProps) {
       <div className="container" style={{ maxWidth: '1200px' }}>
 
         {/* Navigation Breadcrumb */}
-        <div style={{ marginBottom: '40px' }}>
-          <Link href="/" style={{
-            fontFamily: 'var(--font-ibm-plex-mono), monospace',
-            fontSize: '12px',
-            color: 'var(--colors-brand)',
-            textTransform: 'uppercase',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            letterSpacing: '1px'
-          }}>
-            ← Return to home
-          </Link>
-        </div>
+        <ReturnToMainLink />
 
         {/* Header Block */}
         <div style={{ borderBottom: '1px solid var(--colors-hairline-soft)', paddingBottom: '32px', marginBottom: '56px' }}>

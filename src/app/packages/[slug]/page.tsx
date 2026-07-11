@@ -8,6 +8,7 @@ import { PackageTimeline } from '@/components/PackageTimeline';
 import { PackageSuppliers } from '@/components/PackageSuppliers';
 import { getShopifyProductByHandle } from '@/shopify/client';
 import { draftMode } from 'next/headers';
+import { packageDetailQuery } from '@/sanity/queries';
 
 // Configure dynamic pages to prerender at build time, but allow dynamic cache revalidation
 export const revalidate = 60;
@@ -25,33 +26,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
   let contentData: any = null;
   try {
     contentData = await client.fetch(
-      `*[_type in ["category", "product"] && (_id == $slug || _id == "category-" + $slug || slug.current == $slug)][0] {
-        _type,
-        eyebrow,
-        title,
-        description,
-        ctaText,
-        imageCaption,
-        image,
-        modules,
-        subtitle,
-        days[] {
-          dayNumber,
-          title,
-          description,
-          logistics
-        },
-        suppliers[] {
-          label,
-          name,
-          credential
-        },
-        pricing {
-          priceString,
-          minimumGroup,
-          inclusions
-        }
-      }`,
+      packageDetailQuery,
       { slug },
       { cache: isDraft ? 'no-store' : 'force-cache' }
     );
@@ -74,7 +49,9 @@ export default async function PackageDetailPage({ params }: PageProps) {
   const displayDays = contentData?.days || detail?.days || [];
   const displaySuppliers = contentData?.suppliers || detail?.suppliers || [];
   const displayMinGroup = contentData?.pricing?.minimumGroup || detail?.pricing?.minimumGroup;
-  const displayInclusions = contentData?.pricing?.inclusions || detail?.pricing?.inclusions || [];
+  const displayInclusions = (contentData?.adventureHighlights && contentData.adventureHighlights.length > 0)
+    ? contentData.adventureHighlights
+    : (contentData?.pricing?.inclusions || detail?.pricing?.inclusions || []);
   const displayCtaText = contentData?.ctaText || detail?.ctaText || 'Book Now';
 
   // 3. Fetch live details from Shopify with silent credentials/offline fallbacks

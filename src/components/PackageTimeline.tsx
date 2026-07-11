@@ -1,6 +1,9 @@
 'use client';
 
 import React from 'react';
+import { PortableText } from '@portabletext/react';
+import { urlFor } from '@/sanity/client';
+import { portableTextComponents } from '@/components/PortableTextComponents';
 
 export interface DayItem {
   dayNumber: string | number;
@@ -10,7 +13,7 @@ export interface DayItem {
 }
 
 export interface PackageTimelineProps {
-  overview?: string;
+  overview?: any;
   days?: DayItem[];
 }
 
@@ -25,17 +28,30 @@ export function PackageTimeline({ overview, days = [] }: PackageTimelineProps) {
           >
             // EXPEDITION CHARTER OVERVIEW
           </p>
-          <p
-            style={{
-              fontSize: '20px',
-              lineHeight: 1.7,
-              color: 'var(--colors-ash)',
-              marginBottom: 'var(--spacing-xxl)',
-              letterSpacing: '-0.2px',
-            }}
-          >
-            {overview}
-          </p>
+          {Array.isArray(overview) ? (
+            <div
+              style={{
+                fontSize: '18px',
+                lineHeight: 1.7,
+                color: 'var(--colors-ash)',
+                marginBottom: 'var(--spacing-xxl)',
+              }}
+            >
+              <PortableText value={overview} components={portableTextComponents} />
+            </div>
+          ) : (
+            <p
+              style={{
+                fontSize: '20px',
+                lineHeight: 1.7,
+                color: 'var(--colors-ash)',
+                marginBottom: 'var(--spacing-xxl)',
+                letterSpacing: '-0.2px',
+              }}
+            >
+              {overview}
+            </p>
+          )}
         </>
       )}
 

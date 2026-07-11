@@ -30,8 +30,8 @@ This document tracks the immediate development goals, active sprint tasks, busin
 * **Legal Portal & T&Cs**: Fully drafted, compliant with NZ CGA 1993, FTA 1986, HSWA 2015, and Privacy Act 2020 [COMPLETED]
 * **Week 1 Foundation**: [COMPLETED] Company registration (NZBN), business bank account, T&Cs/Refund policy, About/Contact/Story/Footer pages, Waitlist popup, DNS routing, and initial Sanity schema/frontend cleanup.
 * **Week 2 Sprint Focus (Moderate Energy - Staggered Outreach)**: 
-  * 🥇 **Sales Wolf**: Contact Jeremy (Packraft Queenstown) regarding collab/pack-rafting & book meeting for next week [IN PROGRESS - Text sent].
-  * 🥇 **Sales Wolf**: Setup Rezdy account for live booking gateway.
+  * 🥇 **Sales Wolf**: Contact Jeremy / Huw (Packrafting) regarding collab & pack-rafting [IN PROGRESS - Huw replied with massive buy-in ("our humans"), confirmed 15-20% commission on day trips, and runs on **Rezdy**. Expectation set: we will reach back out once our Rezdy account is live].
+  * 🥇 **Sales Wolf**: Setup Rezdy account for live booking gateway [NEXT STEP: Once active, immediately connect to Huw via Rezdy Agent Marketplace share and send follow-up message].
   * 🥈 **Launch Blocker**: Connect working sign-up form & notification buttons.
   * 🥉 **Marketing**: Publish 2 x IG posts & finalize social media strategy.
   * 🤖 **Agent Delegation**: AI agents review and document internal processes & databases for zero-admin protocol.

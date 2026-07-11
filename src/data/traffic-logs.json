@@ -1033,5 +1033,2084 @@
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
     "sessionToken": "ts-sess-00kner3udu4iu-mr8zhus0",
     "timestamp": "2026-07-06T09:12:37.971Z"
+  },
+  {
+    "pathname": "/studio/structure",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x911",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-dgcfl31bh9p-mrefszua",
+    "timestamp": "2026-07-10T04:30:16.856Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/studio/structure",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-3qmg0e95tjd-mreftejk",
+    "timestamp": "2026-07-10T04:30:25.871Z"
+  },
+  {
+    "pathname": "/studio/structure/operators",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-dgcfl31bh9p-mrefszua",
+    "timestamp": "2026-07-10T04:30:31.605Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Ctemplate%3Doperator",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-dgcfl31bh9p-mrefszua",
+    "timestamp": "2026-07-10T04:30:38.230Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T04:53:50.881Z"
+  },
+  {
+    "pathname": "/studio",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:00:21.511Z"
+  },
+  {
+    "pathname": "/studio/structure",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:00:24.336Z"
+  },
+  {
+    "pathname": "/studio/structure/operators",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:00:32.194Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:02:08.515Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dgallery%255B_key%253D%253D%252266bc7a566f29%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:13:23.953Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:13:50.063Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dgallery%255B_key%253D%253D%25228cfcd4dbe9c4%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:13:51.336Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:13:59.884Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dgallery%255B_key%253D%253D%25224d30448e7301%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:14:01.256Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:14:15.010Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dgallery%255B_key%253D%253D%2522f64859539950%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:14:16.504Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:14:25.940Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dgallery%255B_key%253D%253D%25227fbc30bbf6c7%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:16:05.332Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:16:12.790Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dgallery%255B_key%253D%253D%2522a63a26d82bd9%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:16:14.200Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:16:15.791Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1920x945",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:16:20.840Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dgallery%255B_key%253D%253D%2522244082981f6d%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:16:55.385Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:17:11.995Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dgallery%255B_key%253D%253D%25225592cf261b3e%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:17:21.861Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:17:40.867Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dgallery%255B_key%253D%253D%2522ce69e63dc660%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:17:42.598Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:18:01.123Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dgallery%255B_key%253D%253D%2522a71c93d1d3be%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:18:12.316Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:18:29.926Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:21:10.457Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dactivities%255B_key%253D%253D%25229980a91fbdbd%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:22:11.084Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dcontent%255B_key%253D%253D%2522fb0878662821%2522%255D.markDefs%255B_key%253D%253D%25224dacb077b257%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:28:57.563Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dcontent",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:29:05.512Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dcontent%255B_key%253D%253D%2522982df1d1d301%2522%255D.markDefs%255B_key%253D%253D%252297626b3c4a9c%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:30:22.147Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dcontent",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:30:29.596Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dcontent%255B_key%253D%253D%25221b6172c86a8b%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:30:56.490Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:31:40.392Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dcontent%255B_key%253D%253D%25221b6172c86a8b%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:31:53.838Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:31:59.172Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dcontent%255B_key%253D%253D%25221b6172c86a8b%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:32:21.794Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:32:25.133Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dcontent%255B_key%253D%253D%25221b6172c86a8b%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:32:31.249Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:32:39.891Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Ddestinations%255B_key%253D%253D%252221edf9122b78%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:35:08.077Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Ddestinations%255B_key%253D%253D%25229ced14f3e01c%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:35:14.718Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Ddestinations%255B_key%253D%253D%2522a7200d706873%2522%255D",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:35:20.665Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Ddestinations%255B_key%253D%253D%2522a7200d706873%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Ddestinations%255B_key%253D%253D%2522a7200d706873%2522%255D",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:37:26.653Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Ddestinations%255B_key%253D%253D%2522a7200d706873%2522%255D",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T05:38:15.817Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T05:38:24.791Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dcontent%255B_key%253D%253D%25223d628a91ee3e%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Ddestinations%255B_key%253D%253D%2522a7200d706873%2522%255D",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:43:35.061Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Ddestinations%255B_key%253D%253D%2522a7200d706873%2522%255D",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:43:48.412Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T05:44:08.163Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "430x932",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T05:44:23.722Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:44:44.492Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:45:09.747Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab%2Cpath%3Dcontent%255B_key%253D%253D%25221b6172c86a8b%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:45:38.627Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:45:44.391Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T05:46:23.823Z"
+  },
+  {
+    "pathname": "/trips/queenstown-packrafting",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T05:46:48.890Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T05:46:51.710Z"
+  },
+  {
+    "pathname": "/trips/queenstown-packrafting",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T05:46:53.932Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;1b600d8c-9c9f-4ed5-9818-6ce7ccb3f95f",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:47:10.286Z"
+  },
+  {
+    "pathname": "/studio/structure/operators",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:58:23.332Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T05:58:25.768Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T05:58:37.474Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T05:58:41.917Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T05:59:59.091Z"
+  },
+  {
+    "pathname": "/studio/structure/activities",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:00:45.057Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:00:53.935Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T06:09:29.643Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-10T06:10:05.228Z"
+  },
+  {
+    "pathname": "/packages/fiordland",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-10T06:10:11.882Z"
+  },
+  {
+    "pathname": "/packages/fiordland/simulation",
+    "referrer": "http://localhost:3000/packages/fiordland",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-10T06:10:53.766Z"
+  },
+  {
+    "pathname": "/packages/fiordland",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-10T06:10:57.808Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1536x756",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T06:12:28.395Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T06:12:40.124Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e%2Cpath%3Ddescription%255B_key%253D%253D%2522f1eb0e58ea40%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:13:34.920Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:13:47.793Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e%2Cpath%3Ddescription%255B_key%253D%253D%25220db32772e967%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:14:24.665Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:14:51.908Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e%2Cpath%3Ddescription%255B_key%253D%253D%25220db32772e967%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:15:27.618Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:15:33.556Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e%2Cpath%3Ddescription%255B_key%253D%253D%252264812432bdca%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:15:58.477Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:17:07.874Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e%2Cpath%3Ddescription%255B_key%253D%253D%252217a43f9a61f1%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:17:41.959Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:18:08.620Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e%2Cpath%3Ddescription%255B_key%253D%253D%2522cd652a24fae5%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:18:30.050Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:18:37.325Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e%2Cpath%3Ddescription%255B_key%253D%253D%2522f1eb0e58ea40%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:20:56.352Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:21:04.986Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e%2Cpath%3Ddescription%255B_key%253D%253D%2522f1eb0e58ea40%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:21:09.805Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:21:12.329Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e%2Cpath%3Ddescription%255B_key%253D%253D%252264812432bdca%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:21:21.631Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:21:24.636Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e%2Cpath%3Ddescription%255B_key%253D%253D%25220db32772e967%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:21:27.639Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:21:30.008Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e%2Cpath%3Ddescription%255B_key%253D%253D%252217a43f9a61f1%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:21:33.557Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:21:36.034Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:22:14.912Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T06:22:38.402Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T06:23:46.361Z"
+  },
+  {
+    "pathname": "/studio/structure/homepagePages",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:24:54.586Z"
+  },
+  {
+    "pathname": "/studio/structure/homepagePages",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:25:45.961Z"
+  },
+  {
+    "pathname": "/studio/structure/activities",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:52:26.415Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T06:52:39.059Z"
+  },
+  {
+    "pathname": "/studio/structure/homepagePages",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:56:36.327Z"
+  },
+  {
+    "pathname": "/studio/structure/homepagePages;landingPageMainHomepage",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T06:56:37.944Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T07:03:08.229Z"
+  },
+  {
+    "pathname": "/studio/structure/activities",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T07:03:18.739Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf%2Ctemplate%3Dactivity",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1048",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T07:03:45.302Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf%2Ctemplate%3Dactivity%2Cpath%3Ddescription%255B_key%253D%253D%2522214e1de0bba3%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1048",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T07:16:08.460Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf%2Ctemplate%3Dactivity",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1048",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T07:16:38.549Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf%2Ctemplate%3Dactivity%2Cpath%3Ddescription%255B_key%253D%253D%25229373b1bbab57%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1048",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T07:17:09.829Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf%2Ctemplate%3Dactivity",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1048",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T07:17:31.065Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf%2Ctemplate%3Dactivity%2Cpath%3Ddescription%255B_key%253D%253D%252265b42f8ddb28%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1048",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T07:18:19.791Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf%2Ctemplate%3Dactivity",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1048",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T07:18:34.593Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf%2Ctemplate%3Dactivity%2Cpath%3Ddescription%255B_key%253D%253D%25228f157e8caf7c%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1048",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T07:18:45.108Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf%2Ctemplate%3Dactivity",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1048",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T07:19:02.935Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf%2Ctemplate%3Dactivity%2Cpath%3Ddescription%255B_key%253D%253D%2522c836cd942592%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1048",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T07:19:15.148Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf%2Ctemplate%3Dactivity",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1048",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T07:19:36.058Z"
+  },
+  {
+    "pathname": "/trips/monument-packrafting-adventure",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1064x1048",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T07:22:09.487Z"
+  },
+  {
+    "pathname": "/trips/monument-packrafting-adventure",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1064x1048",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T07:24:50.631Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;35980336-93ac-4447-8365-d9fe33682621%2Ctemplate%3Dactivity",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1025",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T07:46:38.563Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1025",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T07:46:42.676Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;7a44cca8-1ae4-46af-8a45-01813ff6f98d%2Ctemplate%3Dactivity",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1025",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T07:59:09.861Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;7a44cca8-1ae4-46af-8a45-01813ff6f98d%2Ctemplate%3Dactivity;83ea1282-68e3-4447-8c6c-09eeddb5c0cd%2Ctype%3Dcategory%2CparentRefPath%3Dcategory",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1025",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T08:00:57.957Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;7a44cca8-1ae4-46af-8a45-01813ff6f98d%2Ctemplate%3Dactivity%2Cpath%3DrelatedActivities%255B_key%253D%253D%252285d6abd68372%2522%255D;83ea1282-68e3-4447-8c6c-09eeddb5c0cd%2Ctype%3Dcategory%2CparentRefPath%3Dcategory",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1025",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T08:02:31.497Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;7a44cca8-1ae4-46af-8a45-01813ff6f98d%2Ctemplate%3Dactivity%2Cpath%3DrelatedActivities%255B_key%253D%253D%2522945bf456194a%2522%255D;83ea1282-68e3-4447-8c6c-09eeddb5c0cd%2Ctype%3Dcategory%2CparentRefPath%3Dcategory",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1025",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T08:02:39.986Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;7a44cca8-1ae4-46af-8a45-01813ff6f98d%2Ctemplate%3Dactivity%2Cpath%3Ddescription%255B_key%253D%253D%25226daa29f64b58%2522%255D;83ea1282-68e3-4447-8c6c-09eeddb5c0cd%2Ctype%3Dcategory%2CparentRefPath%3Dcategory",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1025",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T08:03:11.748Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;7a44cca8-1ae4-46af-8a45-01813ff6f98d%2Ctemplate%3Dactivity;83ea1282-68e3-4447-8c6c-09eeddb5c0cd%2Ctype%3Dcategory%2CparentRefPath%3Dcategory",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1025",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T08:03:41.221Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;7a44cca8-1ae4-46af-8a45-01813ff6f98d%2Ctemplate%3Dactivity%2Cpath%3Ddescription%255B_key%253D%253D%2522b19ad6a32486%2522%255D;83ea1282-68e3-4447-8c6c-09eeddb5c0cd%2Ctype%3Dcategory%2CparentRefPath%3Dcategory",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1025",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T08:03:48.128Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;7a44cca8-1ae4-46af-8a45-01813ff6f98d%2Ctemplate%3Dactivity;83ea1282-68e3-4447-8c6c-09eeddb5c0cd%2Ctype%3Dcategory%2CparentRefPath%3Dcategory",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1025",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T08:04:03.387Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;7a44cca8-1ae4-46af-8a45-01813ff6f98d%2Ctemplate%3Dactivity%2Cpath%3Ddescription%255B_key%253D%253D%25228be6bc6a0a37%2522%255D;83ea1282-68e3-4447-8c6c-09eeddb5c0cd%2Ctype%3Dcategory%2CparentRefPath%3Dcategory",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1025",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T08:04:07.456Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;7a44cca8-1ae4-46af-8a45-01813ff6f98d%2Ctemplate%3Dactivity;83ea1282-68e3-4447-8c6c-09eeddb5c0cd%2Ctype%3Dcategory%2CparentRefPath%3Dcategory",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "1064x1025",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T08:04:55.786Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "1057x1041",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T08:14:26.496Z"
+  },
+  {
+    "pathname": "/trips",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T08:14:39.033Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T08:15:06.949Z"
+  },
+  {
+    "pathname": "/trips",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T08:15:40.104Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T08:15:53.964Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-10T08:18:27.518Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-10T08:18:34.720Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e%2Cpath%3DrelatedActivities%255B_key%253D%253D%25225c7ebd30d23e%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T08:18:48.398Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e%2Cpath%3DrelatedActivities%255B_key%253D%253D%2522ed46a9599b91%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/homepagePages",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T08:18:57.214Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-10T08:19:24.927Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e%2Cpath%3DrelatedActivities%255B_key%253D%253D%2522ed46a9599b91%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e%2Cpath%3DrelatedActivities%255B_key%253D%253D%2522ed46a9599b91%2522%255D",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-10T08:23:21.635Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-10T08:25:06.436Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-10T08:25:11.049Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-10T08:25:32.098Z"
+  },
+  {
+    "pathname": "/trips",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-10T08:25:41.078Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-10T08:25:43.166Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-10T08:25:49.752Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-10T08:25:51.682Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-10T08:26:31.508Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T08:26:42.180Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-10T08:26:47.261Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e%2Cpath%3DrelatedActivities%255B_key%253D%253D%2522ed46a9599b91%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e%2Cpath%3DrelatedActivities%255B_key%253D%253D%2522ed46a9599b91%2522%255D",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-11T00:09:31.612Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-11T00:15:47.307Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:18:21.218Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:18:27.417Z"
+  },
+  {
+    "pathname": "/studio/structure/operators",
+    "referrer": "http://localhost:3000/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e%2Cpath%3DrelatedActivities%255B_key%253D%253D%2522ed46a9599b91%2522%255D",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-11T00:18:51.589Z"
+  },
+  {
+    "pathname": "/studio/structure/operators",
+    "referrer": "http://localhost:3000/studio/structure/operators",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-11T00:19:10.856Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "http://localhost:3000/operator/packrafting-queenstown",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:19:11.285Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-11T00:19:11.357Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "http://localhost:3000/studio/structure/operators",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-11T00:19:19.711Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-11T00:19:48.697Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "http://localhost:3000/operator/packrafting-queenstown",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:19:48.880Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-11T00:19:48.996Z"
+  },
+  {
+    "pathname": "/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-11T00:20:23.652Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "http://localhost:3000/operator/packrafting-queenstown",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:20:23.673Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-11T00:20:23.820Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/operator/packrafting-queenstown",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:24:40.819Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:24:52.046Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:24:54.959Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:25:01.020Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:25:31.776Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:26:41.016Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:26:46.876Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "http://localhost:3000/trips/packrafting-in-the-rees-valley",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T00:27:08.289Z"
+  },
+  {
+    "pathname": "/studio/structure/activities",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-11T00:34:09.537Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "referrer": "http://localhost:3000/studio/structure/operators;c80caad5-e532-4e64-ae51-55015c04bbab",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-11T00:34:20.205Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "referrer": "http://localhost:3000/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-11T00:34:56.450Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "http://localhost:3000/trips/packrafting-in-the-rees-valley",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:35:40.356Z"
+  },
+  {
+    "pathname": "/tailor-made",
+    "referrer": "http://localhost:3000/trips/packrafting-in-the-rees-valley",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:37:59.836Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/trips/packrafting-in-the-rees-valley",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:38:07.840Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "http://localhost:3000/trips/packrafting-in-the-rees-valley",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:38:21.600Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "http://localhost:3000/trips/packrafting-in-the-rees-valley",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T00:38:51.484Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "http://localhost:3000/trips/packrafting-in-the-rees-valley",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T00:40:17.796Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "http://localhost:3000/trips/packrafting-in-the-rees-valley",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T00:43:31.632Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "http://localhost:3000/trips/packrafting-in-the-rees-valley",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T00:43:35.982Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/trips/packrafting-in-the-rees-valley",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:45:11.384Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "http://localhost:3000/trips/packrafting-in-the-rees-valley",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:45:40.462Z"
+  },
+  {
+    "pathname": "/trips/packrafting-monument-adventure",
+    "referrer": "http://localhost:3000/trips/packrafting-in-the-rees-valley",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:45:59.412Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "http://localhost:3000/trips/packrafting-in-the-rees-valley",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:46:30.799Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/trips/packrafting-in-the-rees-valley",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T00:46:36.689Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/trips/packrafting-in-the-rees-valley",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T00:52:11.548Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "http://localhost:3000/trips/packrafting-in-the-rees-valley",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T00:52:16.076Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/trips/packrafting-in-the-rees-valley",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T00:52:45.328Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T00:52:51.702Z"
+  },
+  {
+    "pathname": "/trips/packrafting-overnighter",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T00:52:55.698Z"
+  },
+  {
+    "pathname": "/trips/packrafting-monument-adventure",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T00:53:00.349Z"
+  },
+  {
+    "pathname": "/packages/fiordland",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-11T00:53:23.514Z"
+  },
+  {
+    "pathname": "/trips/packrafting-monument-adventure",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T00:59:43.248Z"
+  },
+  {
+    "pathname": "/trips/packrafting-monument-adventure",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T00:59:51.525Z"
+  },
+  {
+    "pathname": "/operator/packrafting-queenstown",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T01:00:09.308Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T01:00:11.926Z"
+  },
+  {
+    "pathname": "/trips/packrafting-monument-adventure",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T01:04:02.118Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf",
+    "referrer": "http://localhost:3000/studio/structure/activities;1d1dd70b-f408-4faf-84a7-88f86ca1c93e",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-11T01:04:53.550Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf",
+    "referrer": "http://localhost:3000/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-11T01:05:09.955Z"
+  },
+  {
+    "pathname": "/trips/packrafting-monument-adventure",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T01:05:57.626Z"
+  },
+  {
+    "pathname": "/trips/packrafting-monument-adventure",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T01:08:20.422Z"
+  },
+  {
+    "pathname": "/trips/packrafting-monument-adventure",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T01:08:36.971Z"
+  },
+  {
+    "pathname": "/trips/packrafting-monument-adventure",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T01:08:57.448Z"
+  },
+  {
+    "pathname": "/trips/packrafting-monument-adventure",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T01:20:07.912Z"
+  },
+  {
+    "pathname": "/trips/packrafting-monument-adventure",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T01:35:42.607Z"
+  },
+  {
+    "pathname": "/trips/packrafting-monument-adventure",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T01:43:00.883Z"
+  },
+  {
+    "pathname": "/trips/packrafting-monument-adventure",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T01:48:57.241Z"
+  },
+  {
+    "pathname": "/trips/packrafting-monument-adventure",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T01:49:34.184Z"
+  },
+  {
+    "pathname": "/trips/packrafting-monument-adventure",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T01:49:41.236Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-bs1nesmivf-mrfmkdng",
+    "timestamp": "2026-07-11T01:52:29.407Z"
+  },
+  {
+    "pathname": "/packages/fiordland/simulation",
+    "referrer": "http://localhost:3000/packages/fiordland",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-11T01:52:37.671Z"
+  },
+  {
+    "pathname": "/packages/fiordland",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-11T01:52:44.820Z"
+  },
+  {
+    "pathname": "/trips/packrafting-in-the-rees-valley",
+    "referrer": "http://localhost:3000/trips/packrafting-in-the-rees-valley",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T01:53:02.829Z"
+  },
+  {
+    "pathname": "/trips/packrafting-monument-adventure",
+    "referrer": "http://localhost:3000/trips/packrafting-in-the-rees-valley",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T01:53:11.348Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf",
+    "referrer": "http://localhost:3000/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-11T01:54:39.356Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf%2Cpath%3DrelatedActivities%255B_key%253D%253D%252252d1e7b85a15%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-11T01:56:29.794Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf%2Cpath%3DrelatedActivities%255B_key%253D%253D%2522a138c4967d92%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-11T01:56:42.110Z"
+  },
+  {
+    "pathname": "/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf%2Cpath%3DrelatedActivities%255B_key%253D%253D%2522a138c4967d92%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/activities;bc18255d-ae74-477c-b6ba-8ea27d8031bf%2Cpath%3DrelatedActivities%255B_key%253D%253D%2522a138c4967d92%2522%255D",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-scjpousa17o-mregnilm",
+    "timestamp": "2026-07-11T01:59:31.171Z"
+  },
+  {
+    "pathname": "/trips/packrafting-monument-adventure",
+    "referrer": "http://localhost:3000/trips/packrafting-in-the-rees-valley",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-jnswa6xsth-mrejdk8a",
+    "timestamp": "2026-07-11T02:00:29.543Z"
+  },
+  {
+    "pathname": "/packages/fiordland/simulation",
+    "referrer": "http://localhost:3000/packages/fiordland",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-11T02:04:58.429Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/packages/fiordland",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-kjt3oif9pk-mrei8myj",
+    "timestamp": "2026-07-11T02:05:24.372Z"
   }
 ]

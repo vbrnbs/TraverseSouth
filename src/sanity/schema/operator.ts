@@ -47,6 +47,159 @@ export default defineType({
             validation: (Rule) => Rule.email(),
         }),
         defineField({
+            name: 'website',
+            title: 'Website',
+            type: 'url',
+            description: 'Official website URL for the operator.',
+            validation: (Rule) => Rule.uri({ scheme: ['http', 'https'] }),
+        }),
+        defineField({
+            name: 'content',
+            title: 'Operator Details & Content',
+            type: 'array',
+            description: 'Portable Text field supporting text, links, images, iframes, and activity references.',
+            of: [
+                {
+                    type: 'block',
+                    marks: {
+                        annotations: [
+                            {
+                                name: 'link',
+                                type: 'object',
+                                title: 'Link',
+                                fields: [
+                                    {
+                                        name: 'href',
+                                        type: 'url',
+                                        title: 'URL',
+                                    },
+                                    {
+                                        name: 'blank',
+                                        type: 'boolean',
+                                        title: 'Open in new tab',
+                                        initialValue: true,
+                                    },
+                                ],
+                            },
+                            {
+                                name: 'internalActivityLink',
+                                type: 'object',
+                                title: 'Link to Activity',
+                                fields: [
+                                    {
+                                        name: 'reference',
+                                        type: 'reference',
+                                        title: 'Activity',
+                                        to: [{ type: 'activity' }],
+                                    },
+                                ],
+                            },
+                            {
+                                name: 'internalDestinationLink',
+                                type: 'object',
+                                title: 'Link to Destination',
+                                fields: [
+                                    {
+                                        name: 'reference',
+                                        type: 'reference',
+                                        title: 'Destination',
+                                        to: [{ type: 'destination' }],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                },
+                {
+                    type: 'image',
+                    options: { hotspot: true },
+                    fields: [
+                        {
+                            name: 'alt',
+                            type: 'string',
+                            title: 'Alternative Text',
+                        },
+                        {
+                            name: 'caption',
+                            type: 'string',
+                            title: 'Caption',
+                        },
+                    ],
+                },
+                {
+                    type: 'object',
+                    name: 'iframe',
+                    title: 'Iframe Embed',
+                    fields: [
+                        {
+                            name: 'url',
+                            type: 'url',
+                            title: 'Iframe URL',
+                            validation: (Rule) => Rule.required(),
+                        },
+                        {
+                            name: 'height',
+                            type: 'number',
+                            title: 'Height (px)',
+                            initialValue: 450,
+                        },
+                        {
+                            name: 'title',
+                            type: 'string',
+                            title: 'Title / Description',
+                        },
+                    ],
+                },
+                {
+                    type: 'reference',
+                    name: 'activityEmbed',
+                    title: 'Embedded Activity Card',
+                    to: [{ type: 'activity' }],
+                },
+                {
+                    type: 'reference',
+                    name: 'destinationEmbed',
+                    title: 'Embedded Destination Card',
+                    to: [{ type: 'destination' }],
+                },
+            ],
+        }),
+        defineField({
+            name: 'activities',
+            title: 'Operated Activities',
+            type: 'array',
+            description: 'List of activities offered or operated by this operator.',
+            of: [
+                {
+                    type: 'reference',
+                    to: [{ type: 'activity' }],
+                },
+            ],
+        }),
+        defineField({
+            name: 'destinations',
+            title: 'Operating Destinations',
+            type: 'array',
+            description: 'List of destinations covered by this operator.',
+            of: [
+                {
+                    type: 'reference',
+                    to: [{ type: 'destination' }],
+                },
+            ],
+        }),
+        defineField({
+            name: 'cancellationPolicy',
+            title: 'Cancellation Policy',
+            type: 'array',
+            description: 'Cancellation terms, weather disruption protocol, and refund policies for this operator.',
+            of: [
+                {
+                    type: 'block',
+                },
+            ],
+        }),
+        defineField({
             name: 'gallery',
             title: 'Image Gallery',
             type: 'array',

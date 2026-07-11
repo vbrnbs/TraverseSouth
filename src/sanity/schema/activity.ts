@@ -21,18 +21,7 @@ export default defineType({
             },
             validation: (Rule) => Rule.required(),
         }),
-        defineField({
-            name: 'eyebrow',
-            title: 'Eyebrow Tag',
-            type: 'string',
-            options: {
-                list: [
-                    { title: 'LEVEL 1 // MODERATE', value: 'LEVEL 1 // MODERATE' },
-                    { title: 'LEVEL 2 // INTENSE', value: 'LEVEL 2 // INTENSE' },
-                    { title: 'LEVEL 3 // EXTREME', value: 'LEVEL 3 // EXTREME' },
-                ],
-            },
-        }),
+
         defineField({
             name: 'subtitle',
             title: 'Subtitle / Tagline',
@@ -46,19 +35,138 @@ export default defineType({
         defineField({
             name: 'description',
             title: 'Detailed Description',
-            type: 'text',
+            type: 'array',
+            description: 'Portable Text field supporting text, links, images, iframes, activity references, and destination references.',
+            of: [
+                {
+                    type: 'block',
+                    marks: {
+                        annotations: [
+                            {
+                                name: 'link',
+                                type: 'object',
+                                title: 'Link',
+                                fields: [
+                                    {
+                                        name: 'href',
+                                        type: 'url',
+                                        title: 'URL',
+                                    },
+                                    {
+                                        name: 'blank',
+                                        type: 'boolean',
+                                        title: 'Open in new tab',
+                                        initialValue: true,
+                                    },
+                                ],
+                            },
+                            {
+                                name: 'internalActivityLink',
+                                type: 'object',
+                                title: 'Link to Activity',
+                                fields: [
+                                    {
+                                        name: 'reference',
+                                        type: 'reference',
+                                        title: 'Activity',
+                                        to: [{ type: 'activity' }],
+                                    },
+                                ],
+                            },
+                            {
+                                name: 'internalDestinationLink',
+                                type: 'object',
+                                title: 'Link to Destination',
+                                fields: [
+                                    {
+                                        name: 'reference',
+                                        type: 'reference',
+                                        title: 'Destination',
+                                        to: [{ type: 'destination' }],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                },
+                {
+                    type: 'image',
+                    options: { hotspot: true },
+                    fields: [
+                        {
+                            name: 'alt',
+                            type: 'string',
+                            title: 'Alternative Text',
+                        },
+                        {
+                            name: 'caption',
+                            type: 'string',
+                            title: 'Caption',
+                        },
+                    ],
+                },
+                {
+                    type: 'object',
+                    name: 'iframe',
+                    title: 'Iframe Embed',
+                    fields: [
+                        {
+                            name: 'url',
+                            type: 'url',
+                            title: 'Iframe URL',
+                            validation: (Rule) => Rule.required(),
+                        },
+                        {
+                            name: 'height',
+                            type: 'number',
+                            title: 'Height (px)',
+                            initialValue: 450,
+                        },
+                        {
+                            name: 'title',
+                            type: 'string',
+                            title: 'Title / Description',
+                        },
+                    ],
+                },
+                {
+                    type: 'reference',
+                    name: 'activityEmbed',
+                    title: 'Embedded Activity Card',
+                    to: [{ type: 'activity' }],
+                },
+                {
+                    type: 'reference',
+                    name: 'destinationEmbed',
+                    title: 'Embedded Destination Card',
+                    to: [{ type: 'destination' }],
+                },
+            ],
         }),
         defineField({
             name: 'adventureLevel',
-            title: 'Adventure Level (1-3)',
-            type: 'number',
-            validation: (Rule) => Rule.required().min(1).max(3).integer(),
+            title: 'Adventure Level',
+            type: 'string',
+            options: {
+                list: [
+                    { title: 'BEGINNER', value: 'BEGINNER' },
+                    { title: 'INTERMEDIATE', value: 'INTERMEDIATE' },
+                    { title: 'ADVANCED', value: 'ADVANCED' },
+                    { title: 'EXTREME', value: 'EXTREME' },
+                ],
+                layout: 'dropdown',
+            },
+            initialValue: 'BEGINNER',
+            validation: (Rule) => Rule.required(),
         }),
         defineField({
-            name: 'levelLabel',
-            title: 'Level Label (e.g. LEVEL 2 // ACTIVE WILDERNESS)',
-            type: 'string',
+            name: 'adventureHighlights',
+            title: 'Adventure Highlights',
+            type: 'array',
+            description: 'Key bullet points / highlights for this activity.',
+            of: [{ type: 'string' }],
         }),
+
         defineField({
             name: 'category',
             title: 'Category',
@@ -71,11 +179,7 @@ export default defineType({
             type: 'reference',
             to: [{ type: 'destination' }],
         }),
-        defineField({
-            name: 'ctaText',
-            title: 'Primary CTA Text',
-            type: 'string',
-        }),
+
         defineField({
             name: 'image',
             title: 'Primary Image',
@@ -98,6 +202,13 @@ export default defineType({
             type: 'reference',
             to: [{ type: 'operator' }],
             description: 'Select the vetted local operator for this activity.',
+        }),
+        defineField({
+            name: 'relatedActivities',
+            title: 'Related Activities',
+            type: 'array',
+            description: 'References to other related activities.',
+            of: [{ type: 'reference', to: [{ type: 'activity' }] }],
         }),
     ]
 })
