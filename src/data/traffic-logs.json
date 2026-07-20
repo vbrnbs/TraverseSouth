@@ -430,5 +430,320 @@
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
     "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
     "timestamp": "2026-07-20T04:27:12.918Z"
+  },
+  {
+    "pathname": "/studio/structure",
+    "referrer": "http://localhost:3000/studio/presentation/corporatePage/corporatePage/packagesSection.packagesList[_key==%22JSY8uv0eoGs4XIGdqypTDq%22].headerImage.hotspot?preview=http%3A//localhost%3A3000/corporate&path=",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
+    "timestamp": "2026-07-20T04:40:31.840Z"
+  },
+  {
+    "pathname": "/studio/structure/homepagePages",
+    "referrer": "http://localhost:3000/studio/presentation/corporatePage/corporatePage/packagesSection.packagesList[_key==%22JSY8uv0eoGs4XIGdqypTDq%22].headerImage.hotspot?preview=http%3A//localhost%3A3000/corporate&path=",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
+    "timestamp": "2026-07-20T04:40:34.567Z"
+  },
+  {
+    "pathname": "/studio/structure/homepagePages;subpagesItinerariesAboutEtc",
+    "referrer": "http://localhost:3000/studio/presentation/corporatePage/corporatePage/packagesSection.packagesList[_key==%22JSY8uv0eoGs4XIGdqypTDq%22].headerImage.hotspot?preview=http%3A//localhost%3A3000/corporate&path=",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
+    "timestamp": "2026-07-20T04:40:44.970Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/corporate",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-8qbysm4qsu3-mrspaigg",
+    "timestamp": "2026-07-20T04:41:16.551Z"
+  },
+  {
+    "pathname": "/corporate",
+    "referrer": "http://localhost:3000/corporate",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-8qbysm4qsu3-mrspaigg",
+    "timestamp": "2026-07-20T04:41:47.198Z"
+  },
+  {
+    "pathname": "/studio/structure/homepagePages;corporateWorkshopsPageCorporate",
+    "referrer": "http://localhost:3000/studio/presentation/corporatePage/corporatePage/packagesSection.packagesList[_key==%22JSY8uv0eoGs4XIGdqypTDq%22].headerImage.hotspot?preview=http%3A//localhost%3A3000/corporate&path=",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
+    "timestamp": "2026-07-20T04:42:11.060Z"
+  },
+  {
+    "pathname": "/studio/structure/homepagePages;subpagesItinerariesAboutEtc",
+    "referrer": "http://localhost:3000/studio/presentation/corporatePage/corporatePage/packagesSection.packagesList[_key==%22JSY8uv0eoGs4XIGdqypTDq%22].headerImage.hotspot?preview=http%3A//localhost%3A3000/corporate&path=",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
+    "timestamp": "2026-07-20T04:42:29.670Z"
+  },
+  {
+    "pathname": "/studio/structure/homepagePages;corporateWorkshopsPageCorporate",
+    "referrer": "http://localhost:3000/studio/presentation/corporatePage/corporatePage/packagesSection.packagesList[_key==%22JSY8uv0eoGs4XIGdqypTDq%22].headerImage.hotspot?preview=http%3A//localhost%3A3000/corporate&path=",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
+    "timestamp": "2026-07-20T04:42:37.778Z"
+  },
+  {
+    "pathname": "/studio/structure/homepagePages;subpagesItinerariesAboutCorporateEtc",
+    "referrer": "http://localhost:3000/studio/presentation/corporatePage/corporatePage/packagesSection.packagesList[_key==%22JSY8uv0eoGs4XIGdqypTDq%22].headerImage.hotspot?preview=http%3A//localhost%3A3000/corporate&path=",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
+    "timestamp": "2026-07-20T04:44:10.794Z"
+  },
+  {
+    "pathname": "/studio/structure/homepagePages;subpagesItinerariesAboutCorporateEtc;corporateWorkshopsPageCorporate",
+    "referrer": "http://localhost:3000/studio/presentation/corporatePage/corporatePage/packagesSection.packagesList[_key==%22JSY8uv0eoGs4XIGdqypTDq%22].headerImage.hotspot?preview=http%3A//localhost%3A3000/corporate&path=",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
+    "timestamp": "2026-07-20T04:44:12.487Z"
+  },
+  {
+    "pathname": "/studio/structure/homepagePages;subpagesItinerariesAboutCorporateEtc;generalPagesItinerariesAboutLegalEtc",
+    "referrer": "http://localhost:3000/studio/presentation/corporatePage/corporatePage/packagesSection.packagesList[_key==%22JSY8uv0eoGs4XIGdqypTDq%22].headerImage.hotspot?preview=http%3A//localhost%3A3000/corporate&path=",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
+    "timestamp": "2026-07-20T04:44:13.261Z"
+  },
+  {
+    "pathname": "/studio/structure/homepagePages;subpagesItinerariesAboutCorporateEtc;corporateWorkshopsPageCorporate",
+    "referrer": "http://localhost:3000/studio/presentation/corporatePage/corporatePage/packagesSection.packagesList[_key==%22JSY8uv0eoGs4XIGdqypTDq%22].headerImage.hotspot?preview=http%3A//localhost%3A3000/corporate&path=",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
+    "timestamp": "2026-07-20T04:44:15.077Z"
+  },
+  {
+    "pathname": "/studio/structure/homepagePages;subpagesItinerariesAboutCorporateEtc;generalPagesItinerariesAboutLegalEtc",
+    "referrer": "http://localhost:3000/studio/presentation/corporatePage/corporatePage/packagesSection.packagesList[_key==%22JSY8uv0eoGs4XIGdqypTDq%22].headerImage.hotspot?preview=http%3A//localhost%3A3000/corporate&path=",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
+    "timestamp": "2026-07-20T04:44:16.049Z"
+  },
+  {
+    "pathname": "/studio/structure/subpagesItinerariesAboutCorporateEtc",
+    "referrer": "http://localhost:3000/studio/presentation/corporatePage/corporatePage/packagesSection.packagesList[_key==%22JSY8uv0eoGs4XIGdqypTDq%22].headerImage.hotspot?preview=http%3A//localhost%3A3000/corporate&path=",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
+    "timestamp": "2026-07-20T04:47:33.505Z"
+  },
+  {
+    "pathname": "/studio/structure/landingPageMainHomepage",
+    "referrer": "http://localhost:3000/studio/presentation/corporatePage/corporatePage/packagesSection.packagesList[_key==%22JSY8uv0eoGs4XIGdqypTDq%22].headerImage.hotspot?preview=http%3A//localhost%3A3000/corporate&path=",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
+    "timestamp": "2026-07-20T04:47:34.521Z"
+  },
+  {
+    "pathname": "/studio/structure/subpagesItinerariesAboutCorporateEtc",
+    "referrer": "http://localhost:3000/studio/presentation/corporatePage/corporatePage/packagesSection.packagesList[_key==%22JSY8uv0eoGs4XIGdqypTDq%22].headerImage.hotspot?preview=http%3A//localhost%3A3000/corporate&path=",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
+    "timestamp": "2026-07-20T04:47:36.456Z"
+  },
+  {
+    "pathname": "/studio/structure/subpagesItinerariesAboutCorporateEtc;corporateWorkshopsPageCorporate",
+    "referrer": "http://localhost:3000/studio/presentation/corporatePage/corporatePage/packagesSection.packagesList[_key==%22JSY8uv0eoGs4XIGdqypTDq%22].headerImage.hotspot?preview=http%3A//localhost%3A3000/corporate&path=",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
+    "timestamp": "2026-07-20T04:47:48.001Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/corporate",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-8qbysm4qsu3-mrspaigg",
+    "timestamp": "2026-07-20T04:48:02.513Z"
+  },
+  {
+    "pathname": "/studio/structure/subpagesItinerariesAboutCorporateEtc;corporateWorkshopsPageCorporate",
+    "referrer": "http://localhost:3000/studio/structure/subpagesItinerariesAboutCorporateEtc;corporateWorkshopsPageCorporate",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
+    "timestamp": "2026-07-20T04:48:51.784Z"
+  },
+  {
+    "pathname": "/corporate",
+    "referrer": "http://localhost:3000/corporate",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-8qbysm4qsu3-mrspaigg",
+    "timestamp": "2026-07-20T04:51:06.962Z"
+  },
+  {
+    "pathname": "/corporate",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-8qbysm4qsu3-mrspaigg",
+    "timestamp": "2026-07-20T04:51:33.849Z"
+  },
+  {
+    "pathname": "/studio/structure/subpagesItinerariesAboutCorporateEtc;corporateWorkshopsPageCorporate%2Cpath%3DpackagesSection.packagesList%255B_key%253D%253D%2522JSY8uv0eoGs4XIGdqypT9S%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/subpagesItinerariesAboutCorporateEtc;corporateWorkshopsPageCorporate",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
+    "timestamp": "2026-07-20T04:51:47.644Z"
+  },
+  {
+    "pathname": "/studio/structure/subpagesItinerariesAboutCorporateEtc;corporateWorkshopsPageCorporate",
+    "referrer": "http://localhost:3000/studio/structure/subpagesItinerariesAboutCorporateEtc;corporateWorkshopsPageCorporate",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
+    "timestamp": "2026-07-20T04:52:00.672Z"
+  },
+  {
+    "pathname": "/studio/structure/subpagesItinerariesAboutCorporateEtc;corporateWorkshopsPageCorporate%2Cpath%3DpackagesSection.packagesList%255B_key%253D%253D%2522JSY8uv0eoGs4XIGdqypT9S%2522%255D",
+    "referrer": "http://localhost:3000/studio/structure/subpagesItinerariesAboutCorporateEtc;corporateWorkshopsPageCorporate",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
+    "timestamp": "2026-07-20T04:52:09.553Z"
+  },
+  {
+    "pathname": "/corporate",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-15ujzgheh9a-mrsr0v5o",
+    "timestamp": "2026-07-20T04:52:56.412Z"
+  },
+  {
+    "pathname": "/studio/structure/subpagesItinerariesAboutCorporateEtc;corporateWorkshopsPageCorporate",
+    "referrer": "http://localhost:3000/studio/structure/subpagesItinerariesAboutCorporateEtc;corporateWorkshopsPageCorporate",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-l0chkil9nla-mrsjujd6",
+    "timestamp": "2026-07-20T04:53:11.010Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-8qbysm4qsu3-mrspaigg",
+    "timestamp": "2026-07-20T04:55:03.840Z"
+  },
+  {
+    "pathname": "/corporate",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-8qbysm4qsu3-mrspaigg",
+    "timestamp": "2026-07-20T04:55:53.907Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-8qbysm4qsu3-mrspaigg",
+    "timestamp": "2026-07-20T04:58:02.957Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-8qbysm4qsu3-mrspaigg",
+    "timestamp": "2026-07-20T04:58:11.326Z"
+  },
+  {
+    "pathname": "/corporate",
+    "referrer": "http://localhost:3000/?package=Core%20Executive%20Offsite%20Package",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-8qbysm4qsu3-mrspaigg",
+    "timestamp": "2026-07-20T04:58:24.248Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "Direct",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-15ujzgheh9a-mrsr0v5o",
+    "timestamp": "2026-07-20T05:00:14.430Z"
+  },
+  {
+    "pathname": "/corporate",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-15ujzgheh9a-mrsr0v5o",
+    "timestamp": "2026-07-20T05:00:19.660Z"
+  },
+  {
+    "pathname": "/",
+    "referrer": "http://localhost:3000/?package=Core%20Executive%20Offsite%20Package",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-8qbysm4qsu3-mrspaigg",
+    "timestamp": "2026-07-20T05:03:27.474Z"
+  },
+  {
+    "pathname": "/corporate",
+    "referrer": "http://localhost:3000/",
+    "language": "en-AU",
+    "screenSize": "2133x1050",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36",
+    "sessionToken": "ts-sess-8qbysm4qsu3-mrspaigg",
+    "timestamp": "2026-07-20T05:03:31.627Z"
   }
 ]
