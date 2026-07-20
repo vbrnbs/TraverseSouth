@@ -215,9 +215,9 @@ export function Header() {
                 className="mega-menu-item"
               >
                 <div className="mega-menu-title-row">
-                  <span className="mega-menu-title">Group & Business Trips</span>
+                  <span className="mega-menu-title">Corporate Workshops & Group Trips</span>
                 </div>
-                <p className="mega-menu-subtitle">Private coaches, facilitators & corporate retreats</p>
+                <p className="mega-menu-subtitle">Private coaches, team building & corporate retreats</p>
               </Link>
 
               <div className="mega-menu-divider" />

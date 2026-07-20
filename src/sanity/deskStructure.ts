@@ -4,27 +4,28 @@ export const deskStructure: StructureResolver = (S) =>
   S.list()
     .title('Content')
     .items([
-      // Homepage section separating Landing Page singleton from Subpages
+      // Landing Page singleton
       S.listItem()
-        .title('Homepage & Pages')
+        .title('Landing Page (Main Homepage)')
+        .child(
+          S.document()
+            .schemaType('landing')
+            .documentId('landing')
+            .title('Landing Page Sections')
+        ),
+      
+      // Subpages menu containing both general pages and Corporate Page
+      S.listItem()
+        .title('Subpages (/itineraries, /about, /corporate, etc.)')
         .child(
           S.list()
-            .title('Homepage & Pages')
+            .title('Subpages')
             .items([
               S.listItem()
-                .title('Landing Page (Main Homepage)')
-                .child(
-                  S.document()
-                    .schemaType('landing')
-                    .documentId('landing')
-                    .title('Landing Page Sections')
-                ),
-              S.divider(),
-              S.listItem()
-                .title('Subpages (/itineraries, /about, etc.)')
+                .title('General Pages (/itineraries, /about, /legal, etc.)')
                 .child(
                   S.documentList()
-                    .title('Subpages')
+                    .title('General Pages')
                     .filter('_type == "page"')
                     .apiVersion('2026-02-01')
                 ),
