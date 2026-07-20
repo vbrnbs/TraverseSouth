@@ -1,11 +1,12 @@
 import React from 'react';
 import { sanityClient, previewClient } from '@/sanity/client';
-import { homepageQuery } from '@/sanity/queries';
+import { homepageQuery, corporatePageQuery } from '@/sanity/queries';
 import { ScrollObserver } from '@/components/ScrollObserver';
 import { Hero } from '@/components/Hero';
 import { AdventuresSection } from '@/components/AdventuresSection';
 import { ItinerariesWaitlist } from '@/components/ItinerariesWaitlist';
 import { MissionSection } from '@/components/MissionSection';
+import { CorporatePackages } from '@/components/CorporatePackages';
 import { LaunchPopup } from '@/components/LaunchPopup';
 import { draftMode } from 'next/headers';
 
@@ -19,13 +20,19 @@ export const revalidate = 0;
 
 export default async function Home() {
   let data: any = null;
+  let corporateData: any = null;
   const isDraft = (await draftMode()).isEnabled;
   const client = isDraft ? previewClient : sanityClient;
 
   try {
-    data = await client.fetch(homepageQuery, {}, { next: { revalidate: 0 } });
+    const [homepageRes, corporateRes] = await Promise.all([
+      client.fetch(homepageQuery, {}, { next: { revalidate: 0 } }),
+      client.fetch(corporatePageQuery, {}, { next: { revalidate: 0 } }),
+    ]);
+    data = homepageRes;
+    corporateData = corporateRes;
   } catch (error) {
-    console.error('Error fetching homepage data from Sanity:', error);
+    console.error('Error fetching homepage or corporate data from Sanity:', error);
   }
 
   if (!data) {
@@ -68,6 +75,9 @@ export default async function Home() {
 
       {/* 04. Brand Manifesto / Intro (Our Mission) */}
       <MissionSection data={mission} isWide={true} />
+
+      {/* 05. Turnkey Corporate Logistical Packages (Right at the end) */}
+      <CorporatePackages data={corporateData?.packagesSection} />
     </main>
   );
 }
