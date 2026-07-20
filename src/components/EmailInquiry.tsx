@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { Button } from './Button';
 
 interface EmailInquiryProps {
@@ -10,17 +11,22 @@ interface EmailInquiryProps {
 }
 
 export function PackageSelectButton({ packageName, label, className, style }: { packageName: string; label: string; className?: string; style?: React.CSSProperties }) {
+  const pathname = usePathname();
+  const isCorporatePage = pathname === '/corporate';
+
   return (
     <a
-      href={`?package=${encodeURIComponent(packageName)}#manifest`}
+      href={isCorporatePage ? `?package=${encodeURIComponent(packageName)}#manifest` : '/corporate'}
       onClick={(e) => {
-        e.preventDefault();
-        window.dispatchEvent(new CustomEvent('selectPackage', { detail: packageName }));
-        const manifestEl = document.getElementById('manifest');
-        if (manifestEl) {
-          manifestEl.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          window.location.hash = 'manifest';
+        if (isCorporatePage) {
+          e.preventDefault();
+          window.dispatchEvent(new CustomEvent('selectPackage', { detail: packageName }));
+          const manifestEl = document.getElementById('manifest');
+          if (manifestEl) {
+            manifestEl.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            window.location.hash = 'manifest';
+          }
         }
       }}
       className={className}
