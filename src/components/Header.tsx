@@ -210,7 +210,7 @@ export function Header() {
               </Link>
 
               <Link
-                href="/group-business"
+                href="/corporate"
                 onClick={() => setIsOpen(false)}
                 className="mega-menu-item"
               >

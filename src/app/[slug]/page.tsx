@@ -1,6 +1,6 @@
 import React from 'react';
 import { sanityClient, previewClient, urlFor } from '@/sanity/client';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { draftMode } from 'next/headers';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -52,8 +52,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function GenericDynamicPage({ params }: PageProps) {
   const { slug } = await params;
 
+  // Redirect legacy or seed route to /corporate
+  if (slug === 'group-business') {
+    redirect('/corporate');
+  }
+
   // Protect system routes
-  const systemRoutes = ['studio', 'api', 'legal', 'itinerary', 'packages'];
+  const systemRoutes = ['studio', 'api', 'legal', 'itinerary', 'packages', 'corporate'];
   if (systemRoutes.includes(slug)) {
     notFound();
   }

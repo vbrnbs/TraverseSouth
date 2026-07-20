@@ -9,6 +9,7 @@ import { hero } from './hero'
 import { footer } from './footer'
 import { page } from './page'
 import { popup } from './popup'
+import { corporatePage } from './corporatePage'
 
 export const schemaTypes = [
     destination,
@@ -22,4 +23,5 @@ export const schemaTypes = [
     footer,
     page,
     popup,
+    corporatePage,
 ]

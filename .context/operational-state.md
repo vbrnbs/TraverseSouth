@@ -28,13 +28,16 @@ This document tracks the immediate development goals, active sprint tasks, busin
 * **Treasury & Accounts**: Wise multi-currency account (main balance) with dedicated Jars for Tax (15% GST/Income), Fixed Expenses (SaaS/Hosting), and Customer Revenue / Operator Vault. [COMPLETED]
 * **Primary Contact Email**: `contact@traversesouth.co.nz` (Official main contact endpoint for all client inquiries, business arrangements, and correspondence) [COMPLETED]
 * **Legal Portal & T&Cs**: Fully drafted, compliant with NZ CGA 1993, FTA 1986, HSWA 2015, and Privacy Act 2020 [COMPLETED]
-* **Week 1 Foundation**: [COMPLETED] Company registration (NZBN), business bank account, T&Cs/Refund policy, About/Contact/Story/Footer pages, Waitlist popup, DNS routing, and initial Sanity schema/frontend cleanup.
-* **Week 2 Sprint Focus (Moderate Energy - Staggered Outreach & B2B Concept)**: 
-  * 🥇 **Sales Wolf**: Contact Jeremy / Huw (Packrafting) regarding collab & pack-rafting [IN PROGRESS - Huw replied with massive buy-in ("our humans"), confirmed 15-20% commission on day trips, and runs on **Rezdy**. Expectation set: we will reach back out once our Rezdy account is live].
-  * 🥇 **Sales Wolf**: Setup Rezdy account for live booking gateway [NEXT STEP: Once active, immediately connect to Huw via Rezdy Agent Marketplace share and send follow-up message].
-  * 🥇 **Sales Wolf (B2B Expansion)**: Draft corporate outreach email templates and compile targeted list of 15 VC/PE firms & high-growth startup contacts. [NEW]
-  * 🥈 **Launch Blocker**: Connect working sign-up form & notification buttons.
-  * 🥈 **B2B Strategy**: Create a static high-fidelity `/corporate` landing section/route explaining Bronze/Silver/Gold offsite packages. [NEW]
-  * 🥉 **Marketing**: Publish 2 x IG posts & finalize social media strategy.
-  * 🤖 **Agent Delegation**: AI agents review and document internal processes & databases for zero-admin protocol.
+* **Sprint 1 (COMPLETED)**: Company registration (NZBN), business bank account, T&Cs/Refund policy, About/Contact/Story/Footer pages, Waitlist popup, DNS routing, Sanity schema/frontend cleanup, secured first operator (Packrafting Queenstown) with finalized operator & activity schemas, synchronized landing card prices and duration, and finalized B2B corporate offsite concept.
+* **Sprint 2 Focus (July 13 – July 27)**:
+  * **Week 1 (Low Energy Focus)**:
+    *   🥇 **Rezdy Account Resolution**: Fix the registration block and activate account.
+    *   🥇 **Operator Sync**: Coordinate Rezdy marketplace codes and rates with Huw / Jeremy.
+    *   🥇 **Sales Email Template**: Write B2B outreach sales emails for VC/PE/CPO targeting.
+    *   🥉 **Social Media Kickoff**: Plan 2 x Instagram updates and finalize handle branding.
+  * **Week 2 (Normal Energy Focus)**:
+    *   🥇 **Booking Gateway & Checkout Setup**: Connect Rezdy Agent Marketplace and hook up cards to live checkouts.
+    *   🥇 **Waitlist & Forms Database Setup**: Wire sign-up forms to active database/email pipeline.
+    *   🥈 **B2B Landing Route**: Setup static `/corporate` route explaining offsite packages.
+    *   🥉 **SEO Audits & Optimization**: Validate canonical tags and metadata.
 * **Repeatable PM Methodology**: Established "The Halftime Review" 4-step interview exercise documented in `.agents/skills/pm/references/halftime-review-method.md`.

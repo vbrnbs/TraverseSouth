@@ -334,3 +334,91 @@ export const packageDetailQuery = `*[_type in ["activity", "category", "product"
   }
 }`;
 
+export const corporatePageQuery = `*[_type == "corporatePage" || _id == "corporatePage"][0] {
+  hero {
+    eyebrow,
+    heading,
+    subtitle,
+    ctaButton {
+      label,
+      href
+    },
+    backgroundImage
+  },
+  workshopsSection {
+    eyebrow,
+    heading,
+    description,
+    cards[] {
+      eyebrow,
+      title,
+      description,
+      tags
+    }
+  },
+  infrastructureSection {
+    leftColumn {
+      eyebrow,
+      heading,
+      description,
+      bulletPoints[] {
+        title,
+        text
+      },
+      image,
+      imageCaption
+    },
+    rightColumn {
+      eyebrow,
+      heading,
+      description,
+      bulletPoints[] {
+        title,
+        text
+      },
+      image,
+      imageCaption
+    }
+  },
+  advantageSection {
+    sectionTitle,
+    columns[] {
+      title,
+      description,
+      backgroundImage
+    }
+  },
+  packagesSection {
+    eyebrow,
+    heading,
+    description,
+    packagesList[] {
+      tierEyebrow,
+      title,
+      description,
+      isFeaturedDarkTheme,
+      packageId,
+      buttonLabel,
+      headerImage,
+      inclusions
+    }
+  },
+  inquirySection {
+    leftEditorial {
+      eyebrow,
+      heading,
+      description,
+      commitmentsBox {
+        eyebrow,
+        items
+      }
+    },
+    formConfig {
+      formEyebrow,
+      formSubtitle,
+      defaultSubject,
+      responseGuaranteeText
+    }
+  }
+}`;
+

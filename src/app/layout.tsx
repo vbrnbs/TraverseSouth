@@ -123,7 +123,7 @@ export default async function RootLayout({
                     <a href="/adventures" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Adventures</a>
                     <a href="/itineraries" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Itineraries (Coming Soon)</a>
                     <a href="/tailor-made" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Tailor-Made Trips</a>
-                    <a href="/group-business" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Group & Business Trips</a>
+                    <a href="/corporate" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>Group & Business Trips</a>
                     <a href="/about-us" className="typography-caption" style={{ color: 'var(--colors-ash)', textDecoration: 'none' }}>About Us</a>
                   </div>
                 </div>

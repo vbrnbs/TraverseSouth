@@ -1,22 +1,77 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 
 interface EmailInquiryProps {
   variant?: 'tailor-made' | 'group-business';
   defaultSubject?: string;
+  defaultPackage?: string;
 }
 
-export function EmailInquiry({ variant = 'tailor-made', defaultSubject = 'Expedition Inquiry' }: EmailInquiryProps) {
+export function PackageSelectButton({ packageName, label, className, style }: { packageName: string; label: string; className?: string; style?: React.CSSProperties }) {
+  return (
+    <a
+      href={`?package=${encodeURIComponent(packageName)}#manifest`}
+      onClick={(e) => {
+        e.preventDefault();
+        window.dispatchEvent(new CustomEvent('selectPackage', { detail: packageName }));
+        const manifestEl = document.getElementById('manifest');
+        if (manifestEl) {
+          manifestEl.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.location.hash = 'manifest';
+        }
+      }}
+      className={className}
+      style={style}
+    >
+      {label}
+    </a>
+  );
+}
+
+export function EmailInquiry({ variant = 'tailor-made', defaultSubject = 'Expedition Inquiry', defaultPackage = '' }: EmailInquiryProps) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [targetWindow, setTargetWindow] = useState('');
   const [intensity, setIntensity] = useState('2');
   const [groupSize, setGroupSize] = useState('');
   const [needsFacilitator, setNeedsFacilitator] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState(defaultPackage);
   const [notes, setNotes] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    const checkUrl = () => {
+      if (typeof window !== 'undefined') {
+        const params = new URLSearchParams(window.location.search);
+        let pkg = params.get('package');
+        if (!pkg && window.location.hash.includes('package=')) {
+          const match = window.location.hash.match(/package=([^&]+)/);
+          if (match) pkg = decodeURIComponent(match[1].replace(/\+/g, ' '));
+        }
+        if (pkg) {
+          if (pkg.toLowerCase().includes('base')) setSelectedPackage('Base Adventure Package');
+          else if (pkg.toLowerCase().includes('core')) setSelectedPackage('Core Executive Offsite Package');
+          else if (pkg.toLowerCase().includes('sovereign')) setSelectedPackage('Sovereign Expedition Package');
+          else setSelectedPackage(pkg);
+        }
+      }
+    };
+    checkUrl();
+
+    const handleCustomSelect = (e: any) => {
+      if (e.detail) setSelectedPackage(e.detail);
+    };
+
+    window.addEventListener('selectPackage', handleCustomSelect);
+    window.addEventListener('hashchange', checkUrl);
+    return () => {
+      window.removeEventListener('selectPackage', handleCustomSelect);
+      window.removeEventListener('hashchange', checkUrl);
+    };
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,7 +79,7 @@ export function EmailInquiry({ variant = 'tailor-made', defaultSubject = 'Expedi
   };
 
   const mailtoUrl = `mailto:contact@traversesouth.co.nz?subject=${encodeURIComponent(defaultSubject)}&body=${encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\nTarget Window: ${targetWindow}\n${variant === 'group-business' ? `Group Size: ${groupSize}\nNeeds Workshop Facilitator: ${needsFacilitator ? 'Yes' : 'No'}\n` : `Intensity Level: Level ${intensity}\n`}\nNotes/Requirements:\n${notes}`
+    `Name: ${name}\nEmail: ${email}\nSelected Package: ${selectedPackage || 'None specified'}\nTarget Window: ${targetWindow}\n${variant === 'group-business' ? `Group Size: ${groupSize}\nNeeds Workshop Facilitator: ${needsFacilitator ? 'Yes' : 'No'}\n` : `Intensity Level: Level ${intensity}\n`}\nNotes/Requirements:\n${notes}`
   )}`;
 
   if (isSubmitted) {
@@ -37,6 +92,11 @@ export function EmailInquiry({ variant = 'tailor-made', defaultSubject = 'Expedi
           borderRadius: 'var(--rounded-marketing)',
           maxWidth: '640px',
           margin: '0 auto',
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
           textAlign: 'center',
           animation: 'fadeIn 0.3s ease-out forwards'
         }}
@@ -63,7 +123,7 @@ export function EmailInquiry({ variant = 'tailor-made', defaultSubject = 'Expedi
   }
 
   return (
-    <div style={{ maxWidth: '640px', margin: '0 auto' }}>
+    <div style={{ maxWidth: '640px', margin: '0 auto', width: '100%', height: '100%' }}>
       <form
         onSubmit={handleSubmit}
         style={{
@@ -74,7 +134,9 @@ export function EmailInquiry({ variant = 'tailor-made', defaultSubject = 'Expedi
           display: 'flex',
           flexDirection: 'column',
           gap: '24px',
-          boxShadow: '0 8px 32px rgba(0,0,0,0.4)'
+          boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+          height: '100%',
+          justifyContent: 'space-between'
         }}
       >
         <div>
@@ -108,6 +170,20 @@ export function EmailInquiry({ variant = 'tailor-made', defaultSubject = 'Expedi
             // placeholder="e.g. alistair@sterling.com"
             style={{ width: '100%', padding: '14px', backgroundColor: '#000', border: '1px solid var(--colors-hairline-soft)', color: '#fff', borderRadius: '6px', outline: 'none', fontSize: '15px' }}
           />
+        </div>
+
+        <div>
+          <label style={{ display: 'block', fontSize: '11px', color: 'var(--colors-mute)', marginBottom: '8px', fontFamily: 'var(--font-ibm-plex-mono), monospace', textTransform: 'uppercase' }}>SELECTED PACKAGE</label>
+          <select
+            value={selectedPackage}
+            onChange={(e) => setSelectedPackage(e.target.value)}
+            style={{ width: '100%', padding: '14px', backgroundColor: '#000', border: '1px solid var(--colors-hairline-soft)', color: '#fff', borderRadius: '6px', outline: 'none', fontSize: '15px', height: '50px' }}
+          >
+            <option value="">-- Select a Package (Optional) --</option>
+            <option value="Base Adventure Package">Base Adventure Package</option>
+            <option value="Core Executive Offsite Package">Core Executive Offsite Package</option>
+            <option value="Sovereign Expedition Package">Sovereign Expedition Package</option>
+          </select>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
@@ -194,15 +270,6 @@ export function EmailInquiry({ variant = 'tailor-made', defaultSubject = 'Expedi
           >
             Submit Manifest Inquiry →
           </button>
-        </div>
-
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', borderTop: '1px solid #222', paddingTop: '20px', textAlign: 'center' }}>
-          <p style={{ color: 'var(--colors-brand)', fontSize: '12px', fontWeight: 600, margin: 0, fontFamily: 'var(--font-ibm-plex-mono), monospace' }}>
-            ✓ We respond within 4 hours during NZ business hours.
-          </p>
-          <p style={{ color: 'var(--colors-mute)', fontSize: '12px', margin: 0 }}>
-            Prefer your own email client? <a href={mailtoUrl} style={{ color: '#fff', textDecoration: 'underline' }}>Click here to send via contact@traversesouth.co.nz</a>
-          </p>
         </div>
       </form>
     </div>

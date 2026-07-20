@@ -28,6 +28,14 @@ export const deskStructure: StructureResolver = (S) =>
                     .filter('_type == "page"')
                     .apiVersion('2026-02-01')
                 ),
+              S.listItem()
+                .title('Corporate Workshops Page (/corporate)')
+                .child(
+                  S.document()
+                    .schemaType('corporatePage')
+                    .documentId('corporatePage')
+                    .title('Corporate Workshops & Team Buildings')
+                ),
             ])
         ),
       
